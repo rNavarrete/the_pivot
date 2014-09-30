@@ -1,3 +1,11 @@
+<header>
+  <p class="flash"><%= flash.notice %></p>
+<% if session[:user_id] %>
+<div class="button">
+  <%= link_to "Logout", logout_path, method: :delete %>
+</div>
+<% else %>
+<div class="login_form">
 <%= form_tag login_path do %>
   <%= label_tag :email_address %>
   <%= text_field_tag :email_address %>
@@ -7,3 +15,6 @@
   <br>
   <%= submit_tag value="Log In" %>
 <% end %>
+</div>
+<% end %>
+</header>
