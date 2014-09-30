@@ -1,12 +1,13 @@
 source 'https://rubygems.org'
 
 group :test, :development do
-  gem "minitest"
   gem "rspec-rails"
+  gem 'cancancan', '~> 1.9'
 end
 
 group :test do
   gem "capybara"
+  gem 'launchy'
 end
 
 
@@ -33,10 +34,12 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-gem 'spring',        group: :development
+group :development do
+gem 'spring'
+gem 'bcrypt', '~> 3.1.7'
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+
+end
 
 # Use unicorn as the app server
 # gem 'unicorn'

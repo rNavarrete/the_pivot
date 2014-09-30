@@ -1,12 +1,7 @@
 Rails.application.routes.draw do
-
   resources :items
 
   resources :categories
-
-  namespace :admin do
-    resources :items, :categories
-  end
 
   resources :users
 
