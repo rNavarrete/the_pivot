@@ -1,5 +1,5 @@
 <header>
-  <p class="flash"><%= flash.notice %></p>
+  <p class="flash"><%= flash[:errors] %></p>
 <% if session[:user_id] %>
 <div class="button">
   <p>Logged in as <%= current_user.email_address %></p>
