@@ -10,12 +10,12 @@ class Admin::ItemsController < ApplicationController
   def destroy
     @item = Item.find(params[:id])
     @item.destroy
-    redirect_to admin_items_path
+    redirect_to admin_items_path, notice: 'Category Successfully Deleted!'
   end
 
   def create
     @item = Item.create(item_params)
-    redirect_to admin_items_path
+    redirect_to admin_items_path, notice: 'Category Successfully Created!'
   end
 
   def edit
@@ -25,7 +25,7 @@ class Admin::ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     @item.update_attributes(item_params)
-    redirect_to admin_items_path
+    redirect_to admin_items_path, notice: 'Category Successfully Updated!'
   end
 
   def new

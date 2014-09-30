@@ -6,13 +6,13 @@ class Admin::CategoriesController < ApplicationController
   def destroy
     @category = Category.find(params[:id])
     @category.destroy
-    redirect_to admin_categories_path
+    redirect_to admin_categories_path, notice: 'Category Successfully Deleted!'
   end
 
   def update
     @category = Category.find(params[:id])
     @category.update_attributes(category_params)
-    redirect_to admin_categories_path
+    redirect_to admin_categories_path, notice: 'Category Successfully Updated!'
   end
 
   def edit
@@ -24,8 +24,11 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def create
-    @category = Category.create(category_params)
-    redirect_to admin_categories_path
+    if @category = Category.create(category_params)
+    redirect_to admin_categories_path, notice: 'Category Successfully Created!'
+    else
+      render "new"
+    end
   end
 
   def new

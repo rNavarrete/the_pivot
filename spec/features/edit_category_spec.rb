@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Item, type: :feature do
-  it 'can create a category from the admin face' do
+  it 'can edit a category from the admin face' do
     visit admin_categories_path
-    click_link 'Create'
+    click_link 'Desserts'
 
     expect(current_path).to eq(new_admin_category_path)
 
