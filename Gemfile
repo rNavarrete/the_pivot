@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 group :test, :development do
   gem "rspec-rails"
+  gem 'cancancan', '~> 1.9'
 end
 
 group :test do
@@ -36,6 +37,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 group :development do
 gem 'spring'
 gem 'bcrypt', '~> 3.1.7'
+
 
 end
 
