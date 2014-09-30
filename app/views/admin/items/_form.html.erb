@@ -1,0 +1,13 @@
+<%= form_for [:admin, @item] do |form| %>
+  <p><%= form.label :name %>:
+  <%= form.text_field :name %></p>
+  <p><%= form.label :description %>:
+  <%= form.text_area :description %></p>
+  <p><%= form.label :price %>:
+  <%= form.text_area :price %></p>
+  <p><%= form.label :category_name %>:
+  <%= form.text_area :category %></p>
+
+  <%= form.submit 'Save' %>
+<%= link_to "Cancel", admin_items_path %>
+<% end %>
