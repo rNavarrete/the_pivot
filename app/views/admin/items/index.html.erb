@@ -1,9 +1,8 @@
-<h1>Food Items</h1>
-<%= flash[:notice] %>
-
-<% @items.each do |item| %>
+<h1> Edit Items </h1>
+<h2> Please Choose A Category </h2>
+<% @categories.each do |c| %>
   <p>
-    <h3><%= link_to item.name, edit_admin_item_path(item) %></h3>
+  <h3><%= link_to c.name, admin_category_path(c) %></h3>
   </p>
 
 <% end %>

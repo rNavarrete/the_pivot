@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Item, type: :feature do
-  it 'can create a category from the admin face' do
+  skip it 'can create a category from the admin face' do
     visit admin_categories_path
     click_link 'Create'
 
