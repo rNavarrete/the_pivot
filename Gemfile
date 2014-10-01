@@ -8,6 +8,7 @@ end
 group :test do
   gem "capybara"
   gem 'launchy'
+  gem 'database_cleaner'
 end
 
 gem 'bootstrap-sass', '~> 3.2.0'
