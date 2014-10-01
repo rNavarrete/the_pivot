@@ -4,6 +4,29 @@ require 'spec_helper'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 
+module MyHelpers
+  def user_with(overrides = {})
+    attributes = {
+      full_name: "John",
+      email_address: 'admin@example.com',
+      password: '1234',
+      password_confirmation: "1234",
+      role: 'admin'
+    }.merge(overrides)
+    User.new(attributes)
+  end
+
+  def login_as(user)
+    # allow_any_instance_of(ApplicationController)
+    #   .to receive(:current_user).and_return(user)
+    visit items_path
+    expect(page).to_not have_link('Admin Dashboard')
+    page.fill_in('Email address', with: user.email_address)
+    page.fill_in('Password', with: '1234')
+    page.click_button('Log In')
+  end
+end
+
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -25,9 +48,11 @@ require 'rspec/rails'
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.maintain_test_schema!
 
-RSpec.configure do |config|
 
-    config.before(:suite) do
+RSpec.configure do |config|
+  config.include(MyHelpers)
+
+   config.before(:suite) do
      DatabaseCleaner.clean_with(:truncation)
    end
 

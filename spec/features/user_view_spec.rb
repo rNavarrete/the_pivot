@@ -6,20 +6,20 @@ require 'capybara/rspec'
 describe 'the user view', type: :feature do
 
   describe 'authentication', type: :feature do
-    User.create(full_name: "John", email_address: 'John@example.com', password: '1234', password_confirmation: "1234")
-
     it 'can login' do
-
-      visit items_path
-      page.fill_in('Email address', with: 'John@example.com')
-      page.fill_in('Password', with: '1234')
-      page.click_button('Log In')
+    user = user_with({email_address: 'John@example.com'})
+    user.save
+    login_as(user)
+    visit '/'
+      expect(page).to have_css('.button')
       expect(page).to have_link('Logout')
     end
 
     it 'can log out' do
+      user = user_with({email_address: 'John2@example.com'})
+      user.save
       visit items_path
-      page.fill_in('Email address', with: 'John@example.com')
+      page.fill_in('Email address', with: 'John2@example.com')
       page.fill_in('Password', with: '1234')
       page.click_button('Log In')
       page.click_link('Logout')
@@ -36,7 +36,6 @@ describe 'the user view', type: :feature do
       page.fill_in('Password confirmation', with: '1234')
       page.fill_in('Full name', with: 'Joe User')
       page.click_button('Create User')
-      expect(page).to have_content('Please Sign In To Your New Account')
       page.fill_in('Email address', with: 'John2@example.com')
       page.fill_in('Password', with: '1234')
       page.click_button('Log In')
