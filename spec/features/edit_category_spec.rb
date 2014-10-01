@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Item, type: :feature do
-  xit 'can edit a category from the admin face' do
+  it 'can edit a category from the admin face' do
     visit admin_categories_path
     click_link 'Desserts'
 
