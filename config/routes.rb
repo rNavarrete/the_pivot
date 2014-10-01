@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-
+  root 'home#index'
+  resources :home
+  get 'contact_us', to: 'contact_us#show'
+  get 'gift_cards', to: 'gift_cards#show'
+  get 'about',      to: 'about#show'
   resources :items
 
   resources :categories

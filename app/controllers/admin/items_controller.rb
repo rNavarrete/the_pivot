@@ -14,8 +14,12 @@ class Admin::ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.create(item_params)
-    redirect_to admin_items_path, notice: 'Category Successfully Created!'
+    @item = Item.new(item_params)
+    if @item.save
+      redirect_to admin_items_path, notice: 'Category Successfully Created!'
+    else
+      render :new
+    end
   end
 
   def edit
@@ -24,8 +28,11 @@ class Admin::ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
-    @item.update_attributes(item_params)
-    redirect_to admin_items_path, notice: 'Category Successfully Updated!'
+    if @item.update_attributes(item_params)
+      redirect_to admin_items_path, notice: 'Category Successfully Updated!'
+    else
+      render :edit
+    end
   end
 
   def new
