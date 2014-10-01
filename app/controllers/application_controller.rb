@@ -9,5 +9,9 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def authorize?
+    redirect_to '/' unless current_user == !nil && current_user.role == 'admin'
+  end
+
   helper_method :current_user
 end
