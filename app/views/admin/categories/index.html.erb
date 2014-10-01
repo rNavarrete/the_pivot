@@ -2,7 +2,7 @@
 <%= flash[:notice] %>
 
 <% @categories.each do |c| %>
-  <p>
+  <p id='listings'>
   <h3><%= link_to c.name, edit_admin_category_path(c) %></h3>
   </p>
 

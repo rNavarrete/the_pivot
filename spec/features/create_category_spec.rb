@@ -10,6 +10,6 @@ RSpec.describe Item, type: :feature do
     fill_in 'Name', with: 'Desserts'
     click_button 'Save'
     expect(current_path).to eq(admin_categories_path)
-    expect(page).to have_text('Category Successfully Created!')
+    expect(page).to have_css('#listings')
   end
 end
