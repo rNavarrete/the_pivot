@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 group :test, :development do
   gem "rspec-rails"
   gem 'cancancan', '~> 1.9'
+  gem 'pry'
 end
 
 group :test do
@@ -10,7 +11,7 @@ group :test do
   gem 'launchy'
 end
 
-
+gem 'pry'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
 # Use postgresql as the database for Active Record
