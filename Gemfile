@@ -3,7 +3,6 @@ source 'https://rubygems.org'
 group :test, :development do
   gem "rspec-rails"
   gem 'cancancan', '~> 1.9'
-  gem 'pry'
 end
 
 group :test do
