@@ -6,7 +6,14 @@ Rails.application.routes.draw do
   get 'about',      to: 'about#show'
   resources :items
 
+	resources :order_items
+
+	resources :orders
+
   resources :categories
+
+  get 'cart',       to: 'carts#show',       as: 'cart'
+  get 'add_item',   to: 'carts#add_item',   as: 'add_item'
 
   namespace :admin do
     resources :items, :categories

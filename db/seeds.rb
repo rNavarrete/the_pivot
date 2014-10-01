@@ -20,6 +20,6 @@ soups.items=Item.create([
 
 main_courses = Category.create(name: 'Main Course')
 main_courses.items=Item.create([
-  {name: 'jack rabbit steak', description: 'Chips and cheese yum yum yum yum yum yum', price: 5.00},
-  {name: 'dandilion salad', description: 'Chips and cheese yum yum yum yum yum yum', price: 5.00},
+  {name: 'jack rabbit steak', description: 'Chips and cheese, yummy, yummy, yummy, yummy, yummy,', price: 5.00},
+  {name: 'dandilion salad', description: 'Chips and cheese , yummy, yummy, yummy, yummy, yummy,', price: 5.00},
 ])
