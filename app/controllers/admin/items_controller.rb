@@ -1,3 +1,4 @@
+
 class Admin::ItemsController < ApplicationController
   def index
     @items = Item.all
@@ -27,7 +28,7 @@ class Admin::ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     @item.update_attributes(item_params)
-    @item.categories = Category.where(item_params[:categories_ids])
+    @item.categories = Category.where(id: params[:item][:category_ids])
     redirect_to admin_items_path, notice: 'Item Successfully Updated!'
   end
 
@@ -37,6 +38,6 @@ class Admin::ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :description, :price, :image, :categories_ids)
+    params.require(:item).permit(:name, :description, :price, :image, :category_ids)
   end
 end
