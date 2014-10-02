@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   get 'cart',       to: 'carts#show',       as: 'cart'
   get 'add_item',   to: 'carts#add_item',   as: 'add_item'
+  get 'remove_item',to: 'carts#remove_item',as: 'remove_item'
 
   namespace :admin do
     resources :items, :categories

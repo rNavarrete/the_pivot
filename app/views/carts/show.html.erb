@@ -1,6 +1,9 @@
 <h1>Cart</h1>
 
-<% @cart.each_pair do |id, quantity| %>
+<% @cart.items.each_pair do |id, quantity| %>
+<li id=<%= "item-#{id}"%>>
   <%= Item.find(id).name %>
   <%= quantity %>
+  <%= link_to "Remove", remove_item_path(item_id: id) %>
+</li>
 <% end %>
