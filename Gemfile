@@ -3,7 +3,6 @@ source 'https://rubygems.org'
 group :test, :development do
   gem "rspec-rails"
   gem 'cancancan', '~> 1.9'
-  gem 'pry'
 end
 
 group :test do
@@ -16,7 +15,7 @@ group :development do
   gem 'spring'
 end
 
-gem 'cancancan', '~> 1.9'
+
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 gem 'sass-rails', '~> 4.0.3'
