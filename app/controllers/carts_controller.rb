@@ -13,6 +13,11 @@ class CartsController < ApplicationController
     redirect_to cart_path
   end
 
+  def update_quantity
+    cart.update_quantity(params[:item_id], params[:quantity])
+    redirect_to cart_path
+  end
+
   private
 
   def cart
