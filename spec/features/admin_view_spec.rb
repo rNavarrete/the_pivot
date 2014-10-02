@@ -149,7 +149,6 @@ describe 'the admin view', type: :feature do
     login_as user
 
     visit admin_dashboard_path
-
     expect(page).to have_css('#dashboard')
 
     click_link('Create a new food Category')
