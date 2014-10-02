@@ -4,7 +4,6 @@ require 'capybara/rspec'
 
 feature 'remove from cart' do
   scenario 'UAU user removes item from cart' do
-    pending
     # Set up a cart with two items in it
     appetizers = Category.create(name: 'Appetizers')
     salad = appetizers.items.create(name: 'dandelion salad', description: 'yummyyummyyummyyummyyummyyummyyummy', price: 5.00)
@@ -12,11 +11,13 @@ feature 'remove from cart' do
     nachos = soups.items.create(name: 'Nachos Chips', description: 'yummyyummyyummyyummyyummyyummyyummy', price: 5.00)
 
     visit '/categories'
-    within("#{salad.id}") do
+    within("#item-#{salad.id}") do #=> "#category-1"
       click_on('Add to cart')
     end
 
-    within("#{nachos.id}") do
+    visit '/categories'
+
+    within("#item-#{nachos.id}") do
       click_on('Add to cart')
     end
 
@@ -27,7 +28,7 @@ feature 'remove from cart' do
     expect(page).to have_content('Nachos Chips')
 
     # Remove one item
-    within("#{nachos.id}") do
+    within("#item-#{nachos.id}") do
       click_on('Remove')
     end
     # Test that item is no longer present

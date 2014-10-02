@@ -7,6 +7,10 @@ class Cart
     cart[item_id] = 1
   end
 
+  def remove_item(item_id)
+    cart.delete(item_id)
+  end
+
   def items
     cart
   end

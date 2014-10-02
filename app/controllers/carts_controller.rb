@@ -8,6 +8,11 @@ class CartsController < ApplicationController
     redirect_to cart_path
   end
 
+  def remove_item
+    cart.remove_item(item_id)
+    redirect_to cart_path
+  end
+
   private
 
   def cart

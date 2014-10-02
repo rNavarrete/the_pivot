@@ -6,10 +6,12 @@
   </p>
   <ul>
     <% c.items.each do |item| %>
-  <li><%= item.name %>
+  <li id=<%= "item-#{item.id}" %>><%= item.name %>
       <%= item.description %>
       <%= number_to_currency(item.price) %>
-			<%= link_to "Add to cart", add_item_path(item_id: item.id) %></li>
+			<%= link_to "Add to cart",
+          add_item_path(item_id: item.id) %>
+  </li>
     <% end %>
   </ul>
 <% end %>
