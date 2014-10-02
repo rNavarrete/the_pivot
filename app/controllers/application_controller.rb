@@ -9,8 +9,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def authorize?
-    redirect_to '/' unless current_user == !nil && current_user.role == 'admin'
+  def authorize
+    if current_user == nil
+      redirect_to '/'
+    elsif current_user.role != 'admin'
+      redirect_to '/'
+    end
   end
 
   helper_method :current_user
