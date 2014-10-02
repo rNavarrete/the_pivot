@@ -1,6 +1,6 @@
 <h1>Cart</h1>
 
-<% @cart.each_pair do |id, quantity| %>
+<% @cart.items.each_pair do |id, quantity| %>
   <%= Item.find(id).name %>
   <%= quantity %>
 <% end %>
