@@ -1,7 +1,9 @@
+
 class Admin::ItemsController < ApplicationController
   before_action :authorize
   def index
     @items = Item.all
+    @categories = Category.all
   end
 
   def show
@@ -11,29 +13,24 @@ class Admin::ItemsController < ApplicationController
   def destroy
     @item = Item.find(params[:id])
     @item.destroy
-    redirect_to admin_items_path, notice: 'Category Successfully Deleted!'
+    redirect_to admin_items_path, notice: 'Item Successfully Deleted!'
   end
 
   def create
-    @item = Item.new(item_params)
-    if @item.save
-      redirect_to admin_items_path, notice: 'Category Successfully Created!'
-    else
-      render :new
-    end
+    @item = Item.create(item_params)
+    redirect_to admin_items_path, notice: 'Item Successfully Created!'
   end
 
   def edit
     @item = Item.find(params[:id])
+    @categories = Category.all
   end
 
   def update
     @item = Item.find(params[:id])
-    if @item.update_attributes(item_params)
-      redirect_to admin_items_path, notice: 'Category Successfully Updated!'
-    else
-      render :edit
-    end
+    @item.update_attributes(item_params)
+    @item.categories = Category.where(id: params[:item][:category_ids])
+    redirect_to admin_items_path, notice: 'Item Successfully Updated!'
   end
 
   def new
@@ -42,6 +39,6 @@ class Admin::ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :description, :price)
+    params.require(:item).permit(:name, :description, :price, :image, :category_ids)
   end
 end

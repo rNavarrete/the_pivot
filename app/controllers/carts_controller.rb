@@ -1,17 +1,30 @@
 class CartsController < ApplicationController
   def show
-    @cart = session[:cart]
+    @cart = cart
   end
 
   def add_item
-    item_id = params[:item_id]
-    cart[item_id] = 1
+    cart.add_item(item_id)
+    redirect_to cart_path
+  end
+
+  def remove_item
+    cart.remove_item(item_id)
+    redirect_to cart_path
+  end
+
+  def update_quantity
+    cart.update_quantity(params[:item_id], params[:quantity])
     redirect_to cart_path
   end
 
   private
 
   def cart
-    session[:cart] ||= {}
+    @cart ||= Cart.new(session)
+  end
+
+  def item_id
+    params[:item_id]
   end
 end

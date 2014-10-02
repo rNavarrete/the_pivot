@@ -9,14 +9,6 @@ feature 'add to cart' do
 		visit '/categories'
 		expect(page).to have_link('Add to cart')
 		click_on('Add to cart')
-		# expect(current_path).to eq(cart_path)
 		expect(page).to have_content('dandelion salad')
-
-		# TODO:
-		# add to cart
-		# view cart
-		# sees item in cart
 	end
-
-	scenario ''
 end

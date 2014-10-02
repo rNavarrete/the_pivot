@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 group :test, :development do
   gem "rspec-rails"
   gem 'cancancan', '~> 1.9'
+  gem 'pry'
 end
 
 group :test do
@@ -15,10 +16,12 @@ group :development do
   gem 'spring'
 end
 
+gem 'cancancan', '~> 1.9'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 gem 'sass-rails', '~> 4.0.3'
 gem 'pry'
+gem "paperclip", "~> 4.2"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
 gem 'pg'
