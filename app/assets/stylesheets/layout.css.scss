@@ -1,14 +1,14 @@
-#header {
-  background-color: #66A266;
-  text-align: center;
+
+#mainContent{
+  color: white;
+  text-align: left;
+  width: 800px;
+  margin: auto;
+  font-family: sans-serif;
+
   h1 {
-    font-size: 40px;
-    color: darken(#66A266, 30%);
-    font-family: sans-serif;
-    text-shadow:
-      2px 2px 2px white;
+    text-align: center;
+    font-size: 45px;
   }
-  h3 {
-    font-style: italic;
-  }
+
 }

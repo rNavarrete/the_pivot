@@ -6,16 +6,18 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
-  <body>
-
+    <body>
   <!-- <%= render "partials/header" %> -->
-  <%= render "layouts/header" %>
-  <!-- <div id="header">
-    <h1>MountainTop Cafe'</h1>
-    <h3>(This ain't yo mama's cookin')</h3>
-  </div> -->
-  <%= yield %>
+      <%= render "layouts/header" %>
+      <section id="mainContent">
+        <!-- <div id="header">
+          <h1>MountainTop Cafe'</h1>
+          <h3>(This ain't yo mama's cookin')</h3>
+        </div> -->
+        <%= yield %>
+      </section>
 
-  </body>
+
+    </body>
   <footer> <%= link_to 'Admin Dashboard', admin_dashboard_path if can? :create, User %> </footer>
 </html>
