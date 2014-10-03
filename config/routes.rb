@@ -25,7 +25,6 @@ Rails.application.routes.draw do
   post   'login',  to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
 
-
   root 'home#index'
   resources :home
   get 'contact_us', to: 'contact_us#show'
