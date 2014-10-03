@@ -6,12 +6,17 @@
     <%= quantity %>
 
     <!-- How to use form_for() with a cart? -->
-    <form action='/update_quantity' method='POST'>
+    <%= form_tag update_quantity_path, :method => :put do  %>
+      <%= hidden_field_tag "item_id", id %>
+      <%= number_field_tag "quantity", quantity, :min => 1, :max => 100 %>
+      <%= submit_tag "update" %>
+    <% end %>
+    <!-- <form action='/update_quantity' method='POST'>
       <input type='number' min='1' max='100' name = 'quantity'/>
       <input type='hidden' name='item_id' value='<%=id%>'/>
       <%= hidden_field_tag "authenticity_token", form_authenticity_token %>
       <input type='submit' value='Update Quantity'/>
-    </form>
+    </form> -->
     <%= link_to "Remove", remove_item_path(item_id: id) %>
   </li>
 <% end %>
