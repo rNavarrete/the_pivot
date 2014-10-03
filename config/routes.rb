@@ -26,7 +26,9 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
 
   root 'home#index'
+
   resources :home
+  
   get 'contact_us', to: 'contact_us#show'
   get 'gift_cards', to: 'gift_cards#show'
   get 'about',      to: 'about#show'
