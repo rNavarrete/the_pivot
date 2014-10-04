@@ -17,8 +17,7 @@ describe 'the user view', type: :feature do
       page.click_button('Log In')
       page.find("#cart_btn").click
       expect(page).to have_content('dandelion salad')
-      save_and_open_page
-      page.click_button('check out')
+      page.find("#ckout_btn").click
       click_button('Pay When I Pick Up')
       expect(page).to have_css('#confirmation_message')
       click_button('continue shopping')

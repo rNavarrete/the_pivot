@@ -1,0 +1,52 @@
+<h1> checkout </h1>
+<% @order.order_items do |order_item| %>
+    <%= order_item.name %>
+    <%= order_item.quantity %>
+    <%= order_item.price %>
+    <%= order_item.total %>
+    <% end %>
+
+<p> @order.subtotal</p>
+<p> @order.taxes</p>
+<p> @order.total</p>
+
+
+<h2> How Will You Pay?</h2>
+<br/>
+
+<%= form_tag '/checkout', method: :get do %>
+<%= button_tag(:class => "btn btn-default btn-sm", :id => "ckout_btn") do %>
+   on pick up <span class="glyphicon glyphicon-usd" ></span>
+<% end %>
+<% end %>
+<br/>
+<p> or </p>
+<br/>
+<h1>With Credit Card</h1>
+<%= form_tag login_path do %>
+  <%= label_tag :email_address %>
+  <%= text_field_tag :email_address %>
+  <br>
+  <%= label_tag :password %>
+  <%= password_field_tag :password%>
+  <br>
+  <%= submit_tag value="Log In" %>
+<% end %>
+<br>
+<%= form_tag '/checkout', method: :get do %>
+<%= button_tag(:class => "btn btn-default btn-sm", :id => "ckout_btn") do %>
+   edit cart <span class="glyphicon glyphicon-usd" ></span>
+<% end %>
+<% end %>
+<br>
+<%= form_tag '/checkout', method: :get do %>
+<%= button_tag(:class => "btn btn-default btn-sm", :id => "ckout_btn") do %>
+   continue shopping <span class="glyphicon glyphicon-usd" ></span>
+<% end %>
+<% end %>
+<br>
+<%= form_tag '/checkout', method: :get do %>
+<%= button_tag(:class => "btn btn-default btn-sm", :id => "ckout_btn") do %>
+   continue shopping <span class="glyphicon glyphicon-usd" ></span>
+<% end %>
+<% end %>
