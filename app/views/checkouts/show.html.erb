@@ -1,0 +1,8 @@
+<h1> Checkout </h1>
+<%= @order.id %>
+<% @order.order_items.each do |order_item| %>
+<p> <%= order_item.item.name %>
+  <%= order_item.quantity %>
+  <%= order_item.item.price %>
+</p>
+<% end %>

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   resources :categories
 
-  get 'checkout',         to: 'checkout#show'       
+  get 'checkout',         to: 'checkouts#show'       
 
   get 'cart',             to: 'carts#show',           as: 'cart'
   get 'add_item',         to: 'carts#add_item',       as: 'add_item'
