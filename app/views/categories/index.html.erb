@@ -9,7 +9,7 @@
     <li><%= item.name %>
         <%= item.description %>
         <%= number_to_currency(item.price) %>
-  			<%= link_to "Add to cart", add_item_path(item_id: item.id) %></li>
+  			<%= link_to "Add to cart", add_item_path(item_id: item.id.to_i) %></li>
       <% end %>
     </ul>
   <% end %>
