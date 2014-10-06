@@ -20,3 +20,9 @@
     <%= link_to "Remove", remove_item_path(item_id: id) %>
   </li>
 <% end %>
+
+<%= form_tag '/checkout', method: :get do %>
+<%= button_tag(:class => "btn btn-default btn-sm", :id => "ckout_btn") do %>
+   check out <span class="glyphicon glyphicon-usd" ></span>
+<% end %>
+<% end %>

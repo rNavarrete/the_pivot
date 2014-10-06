@@ -5,7 +5,7 @@ class CartsController < ApplicationController
 
   def add_item
     cart.add_item(item_id)
-    redirect_to cart_path
+    redirect_to categories_path
   end
 
   def remove_item

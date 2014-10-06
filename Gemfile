@@ -1,3 +1,4 @@
+
 source 'https://rubygems.org'
 
 group :test, :development do
@@ -13,7 +14,6 @@ end
 group :development do
   gem 'spring'
 end
-
 
 gem 'cancancan', '~> 1.9'
 gem 'bootstrap-sass', '~> 3.2.0'

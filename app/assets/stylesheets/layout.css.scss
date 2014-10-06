@@ -1,3 +1,12 @@
+body {
+  background-image: url("mountain.jpg");
+  background-size: 1440px 800px;
+  display: compact;
+}
+
+#font {
+  color: white;
+}
 
 #mainContent{
   color: white;
@@ -21,4 +30,14 @@ img {
   #cart_image {
     right: right;
   }
+
+.checkout_table{
+
+  display: inline;
+}
+
+#checkout_table tr td{
+  border: 5px solid black;
+  width: 60%;
+
 }

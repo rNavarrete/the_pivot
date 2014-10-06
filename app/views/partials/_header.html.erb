@@ -1,19 +1,25 @@
 
-  <p class="flash"><%= flash[:errors] %></p>
+<p class="flash"><%= flash[:errors] %></p>
 <% if session[:user_id] %>
 <div class="button">
-  <p>Logged in as <%= current_user.email_address %></p>
-  <%= link_to "Logout", logout_path, method: :delete %>
+<p>Logged in as <%= current_user.email_address %></p>
+<%= link_to "Logout", logout_path, method: :delete %>
 </div>
 <% else %>
 <div class="login_form">
 <%= form_tag login_path do %>
-  <%= label_tag :email_address %>
-  <%= text_field_tag :email_address %>
-  <%= label_tag :password %>
-  <%= password_field_tag :password%>
-  <%= submit_tag value="Log In" %>
+<%= label_tag :email_address %>
+<%= text_field_tag :email_address %>
+<%= label_tag :password %>
+<%= password_field_tag :password%>
+<%= submit_tag value="Log In" %>
 <% end %>
-  <p class="link"><%= link_to "Create_Account", new_user_path %></p>
+<p class="link"><%= link_to "Create_Account", new_user_path %></p>
 </div>
+<% end %>
+
+<%= form_tag '/cart', method: :get do %>
+<%= button_tag(:class => "btn btn-default btn-sm", :id => "cart_btn") do %>
+   cart <span class="glyphicon glyphicon-shopping-cart" c></span>
+<% end %>
 <% end %>

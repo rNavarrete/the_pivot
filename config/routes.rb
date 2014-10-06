@@ -8,6 +8,9 @@ Rails.application.routes.draw do
 
   resources :categories
 
+  get 'checkout',         to: 'checkouts#show'
+  get 'complete_order',   to: 'checkouts#complete_order'
+
   get 'cart',             to: 'carts#show',           as: 'cart'
   get 'add_item',         to: 'carts#add_item',       as: 'add_item'
   get 'remove_item',      to: 'carts#remove_item',    as: 'remove_item'
@@ -26,10 +29,14 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
 
   root 'home#index'
+
   resources :home
+
+  get 'verification', to: 'verifications#show'
+
   get 'contact_us', to: 'contact_us#show'
   get 'gift_cards', to: 'gift_cards#show'
   get 'about',      to: 'about#show'
-  get '/:slug', to: 'pages#show'
+  # get '/:slug', to: 'pages#show'
 
 end
