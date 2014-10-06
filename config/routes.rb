@@ -38,6 +38,6 @@ Rails.application.routes.draw do
   get 'gift_cards', to: 'gift_cards#show'
   get 'about',      to: 'about#show'
   # get '/:slug', to: 'pages#show'
-  match '/contact_us',     to: 'contact_us#new',             via: 'get'
+    match '/contact_us',     to: 'contact_us#new',             via: 'get'
   resources "contact_us", only: [:new, :create]
 end
