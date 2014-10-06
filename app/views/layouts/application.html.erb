@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>DinnerDash</title>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-    <%= csrf_meta_tags %>
-  </head>
+<head>
+  <title>DinnerDash</title>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
     <body>
       <div id="background">
         <%= image_tag('mountain.jpg', :class => 'stretch') %>
 
       </div>
       <%= render "layouts/header" %>
-      <section id="mainContent">
 
+      <div id="mainContent">
+        
         <%= yield %>
-      </section>
+      </div>
 </body>
 <footer> <%= link_to 'Admin Dashboard', admin_dashboard_path if can? :create, User %> </footer>
 
