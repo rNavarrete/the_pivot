@@ -6,6 +6,7 @@ describe 'the user view', type: :feature do
 
   describe 'cart interaction', type: :feature do
     it 'completes an order' do
+      Order.create(status: "ordered")
       appetizers = Category.create(name: 'Appetizers')
       appetizers.items.create(name: 'dandelion salad', description: 'yummyyummyyummyyummyyummyyummyyummy', price: 5.00)
       visit '/categories'
@@ -18,7 +19,8 @@ describe 'the user view', type: :feature do
       page.find("#cart_btn").click
       expect(page).to have_content('dandelion salad')
       page.find("#ckout_btn").click
-      click_button('Pay When I Pick Up')
+      save_and_open_page
+      page.find("#pickup_btn").click
       expect(page).to have_css('#confirmation_message')
       click_button('continue shopping')
       click_button('Cart')
