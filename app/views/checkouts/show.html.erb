@@ -9,7 +9,7 @@
       <th>Total  </th>
     </tr>
   </div>
-    <% session[:cart].each do |item_id, quantity| %>
+    <% session[:cart_items].each do |item_id, quantity| %>
     <tr>
     <td> <%= Item.find(item_id).name %>  </td>
     <td> <%= quantity %> </td>

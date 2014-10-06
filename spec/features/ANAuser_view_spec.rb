@@ -6,7 +6,7 @@ describe 'the user view', type: :feature do
 
   describe 'cart interaction', type: :feature do
     it 'completes an order' do
-      Order.create(status: "ordered")
+      # Order.create(status: "ordered")
       appetizers = Category.create(name: 'Appetizers')
       appetizers.items.create(id: 1, name: 'dandelion salad', description: 'yummyyummyyummyyummyyummyyummyyummy', price: 5.00, status: "active")
       appetizers.save
