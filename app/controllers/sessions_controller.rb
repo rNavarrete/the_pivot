@@ -20,6 +20,6 @@ class SessionsController < ApplicationController
 
   def destroy
     session.clear
-    redirect_to(:back)
+    redirect_to items_path
   end
 end

@@ -21,4 +21,8 @@
   </li>
 <% end %>
 
-<%= button_to "Proceed to checkout", orders_path, :method => :post %>
+<%= form_tag '/checkout', method: :get do %>
+  <%= button_tag(:class => "btn btn-default btn-sm", :id => "ckout_btn") do %>
+     check out <span class="glyphicon glyphicon-usd" ></span>
+  <% end %>
+<% end %>
