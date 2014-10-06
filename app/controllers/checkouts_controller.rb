@@ -12,7 +12,7 @@ class CheckoutsController < ApplicationController
       @order = Order.create(user_id: session[:user_id], status: "ordered")
       @order.order_items = session[:cart].map { |item_id, quantity| OrderItem.new(item_id: item_id, quantity: quantity, order_id: @order)}
     session[:cart] = {}
-    redirect_to categories_path
+    redirect_to verification_path
   end
 
 

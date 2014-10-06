@@ -19,14 +19,11 @@ describe 'the user view', type: :feature do
       page.find("#cart_btn").click
       expect(page).to have_content('dandelion salad')
       page.find("#ckout_btn").click
-      save_and_open_page
       page.find("#pickup_btn").click
       expect(page).to have_css('#confirmation_message')
-      click_button('continue shopping')
-      click_button('Cart')
+      page.find("#continue_shopping").click
+      page.find("#cart_btn").click
       expect(page).to_not have_content('dandelion salad')
-      click_button('My Orders')
-      expect(page).to have_css('.order_id')
     end
   end
 end
