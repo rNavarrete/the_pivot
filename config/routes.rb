@@ -8,7 +8,8 @@ Rails.application.routes.draw do
 
   resources :categories
 
-  get 'checkout',         to: 'checkouts#show'       
+  get 'checkout',         to: 'checkouts#show'
+  get 'complete_order',   to: 'checkouts#complete_order'
 
   get 'cart',             to: 'carts#show',           as: 'cart'
   get 'add_item',         to: 'carts#add_item',       as: 'add_item'
@@ -30,6 +31,8 @@ Rails.application.routes.draw do
   root 'home#index'
 
   resources :home
+
+  get 'verification', to: 'verifications#show'
 
   get 'contact_us', to: 'contact_us#show'
   get 'gift_cards', to: 'gift_cards#show'
