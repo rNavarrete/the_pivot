@@ -14,10 +14,9 @@
       <%= render "layouts/header" %>
 
       <div id="mainContent">
-        
+
         <%= yield %>
       </div>
 </body>
-<footer> <%= link_to 'Admin Dashboard', admin_dashboard_path if can? :create, User %> </footer>
-
+<footer> </footer>
 </html>

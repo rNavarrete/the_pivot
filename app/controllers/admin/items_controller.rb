@@ -30,7 +30,7 @@ class Admin::ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @item.update_attributes(item_params)
     @item.categories = Category.where(id: params[:item][:category_ids])
-    redirect_to admin_items_path, notice: 'Item Successfully Updated!'
+    redirect_to admin_categories_path, notice: 'Item Successfully Updated!'
   end
 
   def new
