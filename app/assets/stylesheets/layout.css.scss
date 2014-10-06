@@ -24,3 +24,14 @@ body {
     color: #000000;
   }
 }
+
+.checkout_table{
+
+  display: inline;
+}
+
+#checkout_table tr td{
+  border: 5px solid black;
+  width: 60%;
+
+}

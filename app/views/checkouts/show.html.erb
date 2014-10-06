@@ -1,8 +1,44 @@
 <h1> Checkout </h1>
-<%= @order.id %>
-<% @order.order_items.each do |order_item| %>
-<p> <%= order_item.item.name %>
-  <%= order_item.quantity %>
-  <%= order_item.item.price %>
-</p>
-<% end %>
+<div class = "checkout_table">
+<table id = "checkout_table">
+  <div>
+    <tr>
+      <th>Item Name</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Total  </th>
+    </tr>
+  </div>
+  <% @order.order_items.each do |order_item| %>
+    <tr>
+      <td>  <%= order_item.item.name %> </td>
+      <td>  <%= order_item.quantity %> </td>
+      <td>  <%= order_item.item.price %> </td>
+      <td>  <%= order_item.line_total %> </td>
+    </tr>
+  <% end %>
+  <tr>
+    <td>  Subtotal </td>
+    <td>  </td>
+    <td>  </td>
+    <td> <%= @order.subtotal %> </td>
+  </tr>
+  <tr>
+    <td>  Tax </td>
+    <td>  </td>
+    <td>  </td>
+    <td> <%= @order.tax %> </td>
+  </tr>
+  <tr>
+    <td>  Total </td>
+    <td>  </td>
+    <td>  </td>
+    <td> <%= @order.total %> </td>
+  </tr>
+</table>
+</div>
+
+<div class = "checkout_table" >
+  
+
+</div>
