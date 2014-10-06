@@ -9,31 +9,33 @@
       <th>Total  </th>
     </tr>
   </div>
-  <% @order.order_items.each do |order_item| %>
+    <% session[:cart].each do |item_id, quantity| %>
     <tr>
-      <td>  <%= order_item.item.name %> </td>
-      <td>  <%= order_item.quantity %> </td>
-      <td>  <%= order_item.item.price %> </td>
-      <td>  <%= order_item.line_total %> </td>
+    <td> <%= Item.find(item_id).name %>  </td>
+    <td> <%= quantity %> </td>
+    <td> <%= Item.find(item_id).price %> </td>
+    <td> <%= Item.find(item_id).price * quantity.to_i %> </td>
     </tr>
   <% end %>
   <tr>
     <td>  Subtotal </td>
     <td>  </td>
     <td>  </td>
-    <td> <%= @order.subtotal %> </td>
+    <td> <%= @subtotal %> </td>
   </tr>
+
   <tr>
     <td>  Tax </td>
     <td>  </td>
     <td>  </td>
-    <td> <%= @order.tax %> </td>
+    <td> <%= @tax %> </td>
   </tr>
+
   <tr>
     <td>  Total </td>
     <td>  </td>
     <td>  </td>
-    <td> <%= @order.total %> </td>
+    <td> <%= @total %> </td>
   </tr>
 </table>
 </div>

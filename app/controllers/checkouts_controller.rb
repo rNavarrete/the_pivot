@@ -2,22 +2,18 @@ class CheckoutsController < ApplicationController
   layout "special_layout"
 
   def show
-    if Order.last.status == nil
-      @order = Order.last
-      @order.order_items = session[:cart].map { |item_id, quantity| OrderItem.new(item_id: item_id, quantity: quantity, order_id: @order)}
-    else
-      @order = Order.create(user_id: session[:user_id])
-      @order.order_items = session[:cart].map { |item_id, quantity| OrderItem.new(item_id: item_id, quantity: quantity, order_id: @order)}
-    end
+    @subtotal = Checkout.subtotal(session)
+    @tax = Checkout.tax(session)
+    @total = Checkout.total(session)
+
   end
 
   def complete_order
-    if Order.last.status == nil
-      @order = Order.last
-      @order.status = "ordered"
-      @order.save
-    end
+      @order = Order.create(user_id: session[:user_id], status: "ordered")
+      @order.order_items = session[:cart].map { |item_id, quantity| OrderItem.new(item_id: item_id, quantity: quantity, order_id: @order)}
     session[:cart] = {}
     redirect_to categories_path
   end
+
+
 end
