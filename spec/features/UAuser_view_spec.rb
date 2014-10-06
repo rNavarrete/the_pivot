@@ -38,7 +38,7 @@ describe 'the user view', type: :feature do
       page.click_button('Create User')
 
       # expect(page).to have_content('Please Sign In To Your New Account')
-      modify_items_from_dash
+      # modify_items_from_dash
       page.fill_in('Email address', with: 'John2@example.com')
       page.fill_in('Password', with: '1234')
       page.click_button('Log In')
@@ -56,6 +56,40 @@ describe 'the user view', type: :feature do
       expect(page).to have_content('dandelion salad')
     end
 
+    context 'given a logged in user' do
+      before do
+        User.create(email_address: 'John2@example.com', password: '1234', full_name: 'Silly Goose')
+        visit root_path
+        page.fill_in('Email address', with: 'John2@example.com')
+        page.fill_in('Password', with: '1234')
+        click_on('Log In')
+      end
+
+      it 'can proceed to checkout' do
+        appetizers = Category.create(name: 'Appetizers')
+        appetizers.items.create(name: 'dandelion salad', description: 'yummyyummyyummyyummyyummyyummyyummy', price: 5.00, status: 'active')
+        visit '/categories'
+        expect(page).to have_link('Add to cart')
+        click_on('Add to cart')
+        click_on('Proceed to checkout')
+        expect(current_path).to eq(orders_path)
+        expect(page).to have_content('order')
+      end
+    end
+
+    context 'given a user who is not logged in' do
+
+      it 'can proceed to checkout' do
+        appetizers = Category.create(name: 'Appetizers')
+        appetizers.items.create(name: 'dandelion salad', description: 'yummyyummyyummyyummyyummyyummyyummy', price: 5.00, status: 'active')
+        visit '/categories'
+        expect(page).to have_link('Add to cart')
+        click_on('Add to cart')
+        click_on('Proceed to checkout')
+        binding.pry
+        expect(current_path).to eq(root_path)
+      end
+    end
 
     it 'removes item from cart' do
     # Set up a cart with two items in it

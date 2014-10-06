@@ -20,3 +20,5 @@
     <%= link_to "Remove", remove_item_path(item_id: id) %>
   </li>
 <% end %>
+
+<%= button_to "Proceed to checkout", orders_path, :method => :post %>
