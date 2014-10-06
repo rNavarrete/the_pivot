@@ -6,20 +6,20 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-appetizers = Category.create(name: 'Appetizers')
+appetizers = Category.create(name: 'Appalachian Appetizers')
 appetizers.items=Item.create([
-  {name: 'Nachos', description: 'Chips and cheese yum yum yum yum yum yum', price: 5.00},
-  {name: 'flaming cactus', description: 'Chips and cheese yum yum yum yum yum yum', price: 5.00}
+  {name: 'Rocky Mountain Oysters', description: 'Traditional bull balls served thinly sliced, deep fried and with a side of cocktail sauce.', price: 5.00, status: 'active'},
+  {name: 'Flaming Cactus and Chips', description: 'Cactus from southern mexico mixed into our delicious cheese and served to your table on fire!', price: 5.00, status: 'active'}
 ])
 
-soups = Category.create(name: 'Soups')
+soups = Category.create(name: 'Rocky Mountain Soups')
 soups.items=Item.create([
-  {name: 'broccoli cheese soup', description: '2 types of cheese yum yum yum yum yum yum', price: 5.00},
-  {name: 'chili', description: 'with a deer we scraped off the bumper', price: 5.00},
+  {name: 'Kilimanjaro Kale and Potato Soup', description: 'Fresh kale, a perfect blend of seasonings and potatoes from the mountainous region of Idaho', price: 5.00, status: 'active'},
+  {name: 'Chili', description: 'This hearty dish is loaded with 4 types of beans and buffalo burger.', price: 5.00, status: 'active'},
 ])
 
-main_courses = Category.create(name: 'Main Course')
+main_courses = Category.create(name: 'Mantiquierain Main Course', description: 'Served with a side salad')
 main_courses.items=Item.create([
-  {name: 'jack rabbit steak', description: 'Chips and cheese, yummy, yummy, yummy, yummy, yummy,', price: 5.00},
-  {name: 'dandilion salad', description: 'Chips and cheese , yummy, yummy, yummy, yummy, yummy,', price: 5.00},
+  {name: 'Ribeye Steak', description: 'Only the best beef is never frozen and marinated in our world famous marinade. Served with Mashed Potatoes.', price: 5.00, status: 'active'},
+  {name: 'The Mount McKinley Salad', description: 'People have traversed high ranges to get a taste of our Mckinley salad. This dish is sure to bring you back again.', price: 5.00, status: 'active'},
 ])
