@@ -1,3 +1,5 @@
+
+
 body {
   background-image: url("mountain.jpg");
   background-size: 1440px 800px;
@@ -7,13 +9,22 @@ body {
 #font {
   color: white;
 }
+#main-background{
+width: 800px;
+margin: auto;
+height: 60em;
+border-radius: 25px;
+  background:#7f7f7f;
+  background:rgba(0,0,0,0.5);
+
 
 #mainContent{
   color: white;
   text-align: left;
-  width: 800px;
-  margin: auto;
+  width: 600px;
   font-family: sans-serif;
+  margin: auto;
+  padding-top: 30px;
 
   h1 {
     text-align: center;
@@ -23,8 +34,14 @@ body {
     background: #d1d1d1;
     color: #000000;
   }
-}
 
+  img {
+    margin-left: 20px;
+    margin-top: 20px;
+    border-radius: 25px;
+  }
+}
+}
 img {
 
   #cart_image {
