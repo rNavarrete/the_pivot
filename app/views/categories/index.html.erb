@@ -23,3 +23,22 @@
     </div>
   <% end %>
 </div>
+<% @category.each do |c| %>
+<h2> <%= c.name %> </h2>
+<div class="row">
+ <% c.items.each do |item| %>
+
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img data-src="holder.js/300x300" alt="...">
+      <div class="caption">
+        <p> <%= item.name %> </p>
+        <p>...</p>
+        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+      </div>
+    </div>
+
+  </div>
+<% end %>
+</div>
+<% end %>
