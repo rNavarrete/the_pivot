@@ -20,7 +20,12 @@
 
 <%= form_tag '/cart', method: :get do %>
 <%= button_tag(:class => "btn btn-default btn-sm", :id => "cart_btn") do %>
-   cart <span class="glyphicon glyphicon-shopping-cart" c></span>
+   cart <span class="glyphicon glyphicon-shopping-cart" ></span>
 <% end %>
+  <% if session[:cart_items] %>
+    <%= session[:cart_items].values.reduce(:+) %> items
+    <% else  %>
+    <%= "0" %>
+  <% end %>
 <% end %>
 <p><%= link_to 'Admin Dashboard', admin_dashboard_path if can? :create, User %> </p>
