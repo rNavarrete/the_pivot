@@ -24,8 +24,8 @@ class CheckoutsController < ApplicationController
 
   def authorize
     unless !!current_user
-      flash[:error] = "You must be logged in to access this section"
-      redirect_to root_path
+      # flash[:error] = "You must be logged in to access this section"
+      redirect_to new_user_path
     end
   end
 
