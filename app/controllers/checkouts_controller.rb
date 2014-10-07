@@ -1,5 +1,4 @@
 class CheckoutsController < ApplicationController
-  layout "special_layout"
 
   def show
     @subtotal = Checkout.subtotal(session)

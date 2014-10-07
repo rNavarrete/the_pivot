@@ -11,31 +11,31 @@
   </div>
     <% session[:cart_items].each do |item_id, quantity| %>
     <tr>
-    <td> <%= Item.find(item_id).name %>  </td>
+    <td> <%=  Item.find(item_id).name %>  </td>
     <td> <%= quantity %> </td>
-    <td> <%= Item.find(item_id).price %> </td>
-    <td> <%= Item.find(item_id).price * quantity.to_i %> </td>
+    <td> <%= number_to_currency(Item.find(item_id).price, precision: 2) %> </td> 
+    <td> <%= number_to_currency(Item.find(item_id).price * quantity.to_i) %> </td>
     </tr>
   <% end %>
   <tr>
     <td>  Subtotal </td>
     <td>  </td>
     <td>  </td>
-    <td> <%= @subtotal %> </td>
+    <td> <%= number_to_currency(@subtotal) %> </td>
   </tr>
 
   <tr>
     <td>  Tax </td>
     <td>  </td>
     <td>  </td>
-    <td> <%= @tax %> </td>
+    <td> <%= number_to_currency(@tax) %> </td>
   </tr>
 
   <tr>
     <td>  Total </td>
     <td>  </td>
     <td>  </td>
-    <td> <%= @total %> </td>
+    <td> <%= number_to_currency(@total) %> </td>
   </tr>
 </table>
 </div>
