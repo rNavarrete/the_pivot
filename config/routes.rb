@@ -18,8 +18,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :items, :categories
-
-    get 'dashboard', to: 'dashboard#show'
+    get 'dashboard',        to: 'dashboard#show'
   end
 
   resources :users
