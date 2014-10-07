@@ -1,16 +1,32 @@
+
 <h1>Categories</h1>
-<div>
+<div class='container'>
   <% @category.each do |c| %>
     <p>
     <h3><%= c.name %></h3>
     </p>
-    <ul>
-      <% c.items.active.each do |item| %>
-    <li><%= item.name %>
-        <%= item.description %>
-        <%= number_to_currency(item.price) %>
-  			<%= link_to "Add to cart", add_item_path(item_id: item.id) %></li>
+    <div class="row">
+      <% c.items.active.each_with_index do |item, index| %>
+
+        <% if index > 2 && index % 3 == 0 %>
+          <!-- Close the current row and start a new one. -->
+          </div><div class="row">
+        <% end %>
+
+        <div class='col-md-4'>
+          <% index %>
+          <%= item.name %> -
+          <%= item.description %>
+          <%= number_to_currency(item.price) %>
+    			<%= link_to "Add to cart", add_item_path(item_id: item.id) %>
+        </div>
+
       <% end %>
-    </ul>
+    </div>
   <% end %>
 </div>
+
+
+
+
+<
