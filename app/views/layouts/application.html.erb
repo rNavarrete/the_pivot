@@ -11,7 +11,7 @@
       <div class='img-responsive'><%= image_tag('mountain.jpg', :class => 'stretch') %></div>
     </div>
 
-    <%= render "layouts/header" %>
+    <%= render "partials/header" %>
 
     <div id="mainContent">
       <%= flash.alert %>
@@ -19,6 +19,5 @@
     </div>
   </body>
   <footer>
-    <%= link_to 'Admin Dashboard', admin_dashboard_path if can? :create, User %>
   </footer>
 </html>
