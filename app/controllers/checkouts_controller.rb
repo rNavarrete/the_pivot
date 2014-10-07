@@ -9,10 +9,14 @@ class CheckoutsController < ApplicationController
   end
 
   def complete_order
+    if session[:cart_items].count == 0
+      redirect_to verification_path
+    else
       @order = Order.create(user_id: session[:user_id], status: "ordered")
       @order.order_items = session[:cart_items].map { |item_id, quantity| OrderItem.new(item_id: item_id, quantity: quantity, order_id: @order)}
-    session[:cart_items] = {}
-    redirect_to verification_path
+      session[:cart_items] = {}
+      redirect_to verification_path
+    end
   end
 
 
