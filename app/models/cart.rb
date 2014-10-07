@@ -15,6 +15,14 @@ class Cart
     items[item_id] = quantity
   end
 
+  def item(item_id)
+    Item.find(item_id)
+  end
+
+  def line_item_price(item_id, quantity)
+    item(item_id).price * quantity.to_i
+  end
+
   def items
     @session[:cart_items] ||= {}
   end
