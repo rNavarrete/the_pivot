@@ -5,10 +5,11 @@ require 'capybara/rspec'
 describe 'the user view', type: :feature do
 
   describe 'cart interaction', type: :feature do
+
     it 'completes an order' do
-      Order.create(status: "ordered")
       appetizers = Category.create(name: 'Appetizers')
-      appetizers.items.create(name: 'dandelion salad', description: 'yummyyummyyummyyummyyummyyummyyummy', price: 5.00)
+      appetizers.items.create(id: 1, name: 'dandelion salad', description: 'yummyyummyyummyyummyyummyyummyyummy', price: 5.00, status: "active")
+      appetizers.save
       visit '/categories'
       click_on('Add to cart')
       user = user_with({email_address: 'John@example.com'})
@@ -24,6 +25,21 @@ describe 'the user view', type: :feature do
       page.find("#continue_shopping").click
       page.find("#cart_btn").click
       expect(page).to_not have_content('dandelion salad')
+      order = Order.last
+      expect(order.order_items.count).to eq(1)
+      expect(order.order_items.last.id).to eq(1)
+      expect(order.user_id).to eq(user.id)
     end
+
+    it 'sees an item counter next to cart' do
+      appetizers = Category.create(name: 'Appetizers')
+      appetizers.items.create(id: 1, name: 'dandelion salad', description: 'yummyyummyyummyyummyyummyyummyyummy', price: 5.00, status: "active")
+      appetizers.save
+      visit '/categories'
+      2.times {click_on('Add to cart')}
+      expect(page).to have_content('2')
+    end
+
   end
+
 end

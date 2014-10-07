@@ -1,11 +1,17 @@
-<h1>Categories</h1>
+<h1>Edit Categories and Items</h1>
 <%= flash[:notice] %>
 
 <% @categories.each do |c| %>
   <p id='listings'>
   <h3><%= link_to c.name, edit_admin_category_path(c) %></h3>
+    <ul>
+      <% c.items.active.each do |item| %>
+    <li><%= item.name %>
+        <%= item.description %>
+        <%= number_to_currency(item.price) %>
+        <%= link_to "Edit", edit_admin_item_path(item.id) %></li>
+      <% end %>
+    </ul>
   </p>
 
 <% end %>
-
-<%= link_to "Create", new_admin_category_path %>

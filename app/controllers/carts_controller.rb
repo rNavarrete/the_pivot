@@ -4,12 +4,13 @@ class CartsController < ApplicationController
   end
 
   def add_item
-    cart.add_item(item_id)
+    cart.add_item(params[:item_id])
+    # cart.add_item(item_id)
     redirect_to categories_path
   end
 
   def remove_item
-    cart.remove_item(item_id)
+    cart.remove_item(params[:item_id])
     redirect_to cart_path
   end
 
@@ -22,9 +23,5 @@ class CartsController < ApplicationController
 
   def cart
     @cart ||= Cart.new(session)
-  end
-
-  def item_id
-    params[:item_id]
   end
 end
