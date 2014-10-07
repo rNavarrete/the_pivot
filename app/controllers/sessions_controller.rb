@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       redirect_path = session[:return_to] || :back
       redirect_to(redirect_path)
     else
-      flash[:errors] = "invalid login"
+      flash[:error] = "invalid login"
       redirect_path = session[:return_to] || :back
       redirect_to(redirect_path)
     end
