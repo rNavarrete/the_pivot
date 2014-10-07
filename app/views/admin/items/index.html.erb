@@ -1,10 +1,9 @@
-<h1> Edit Items </h1>
-<h2> Please Choose A Category </h2>
-<% @categories.each do |c| %>
-  <p>
-  <h3><%= link_to c.name, admin_category_path(c) %></h3>
-  </p>
-
-<% end %>
+<h1> Choose an item or click create </h1>
+<%= flash[:notice] %>
 
 <%= link_to "Create", new_admin_item_path %>
+<% @items.each do |item| %>
+  <p>
+  <h3><%= link_to item.name, edit_admin_item_path(item) %></h3>
+  </p>
+<% end %>

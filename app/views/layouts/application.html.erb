@@ -6,7 +6,8 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
-  <body>
+  <body data-no-turbolink='true'>
+
     <div id="background">
       <div class='img-responsive'><%= image_tag('mountain.jpg', :class => 'stretch') %></div>
     </div>

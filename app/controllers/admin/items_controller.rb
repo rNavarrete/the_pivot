@@ -18,7 +18,11 @@ class Admin::ItemsController < ApplicationController
 
   def create
     @item = Item.create(item_params)
-    redirect_to admin_items_path, notice: 'Item Successfully Created!'
+    if @item.valid?
+      redirect_to admin_items_path, notice: 'Item Successfully Created!'
+    else
+      render :new
+    end
   end
 
   def edit
@@ -28,9 +32,12 @@ class Admin::ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
-    @item.update_attributes(item_params)
-    @item.categories = Category.where(id: params[:item][:category_ids])
-    redirect_to admin_categories_path, notice: 'Item Successfully Updated!'
+    if @item.update(item_params)
+      @item.categories = Category.where(id: params[:item][:category_ids])
+      redirect_to admin_items_path, notice: 'Item Successfully Updated!'
+    else
+      render :edit
+    end
   end
 
   def new

@@ -1,0 +1,12 @@
+
+<ul>
+  <li>Purchases Name:  <%= @order.user.full_name %></li>
+  <li>Purchases Email:        <%= @order.user.email_address %></li>
+  <li>Order status: <%= @order.status %></li>
+  <% @order.order_items.each do |order_item| %>
+  <li>Items Ordered:<%= order_item.item.name %>
+      <%= number_to_currency(order_item.item.price) %></li>
+    <li>Quantity: <%= order_item.quantity %></li>
+  <% end %>
+  <li>Total Order Price: <%= number_to_currency(@order.total) %></li>
+</ul>

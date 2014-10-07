@@ -12,11 +12,12 @@ class Admin::CategoriesController < ApplicationController
 
   def update
     @category = Category.find(params[:id])
-    if @category.update_attributes(category_params)
+    if @category.update(category_params)
       redirect_to admin_categories_path, notice: 'Category Successfully Updated!'
     else
       render :edit
     end
+
   end
 
   def edit
@@ -28,8 +29,9 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def create
-    if @category = Category.create(category_params)
-    redirect_to admin_categories_path, notice: 'Category Successfully Created!'
+    @category = Category.create(category_params)
+    if @category.valid?
+      redirect_to admin_categories_path, notice: 'Category Successfully Created!'
     else
       render :new
     end

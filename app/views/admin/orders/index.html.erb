@@ -1,0 +1,6 @@
+<p>
+  Order For:
+<% @orders.each do |order| %>
+  <%=link_to order.user.full_name, admin_order_path(order.id) %>
+  <% end %>
+</p>
