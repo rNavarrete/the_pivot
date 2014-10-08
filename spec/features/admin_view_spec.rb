@@ -104,51 +104,27 @@ describe 'the admin view', type: :feature do
       visit admin_categories_path
       click_link 'Create New Category'
 
-      #  expect(current_path).to eq(new_admin_category_path)
-      #  page.find('#form_button').click
-      #  expect(page).to have_text('Oops!')
-
-      fill_in('category_name', with: 'Desserts')
-      binding.pry
+      fill_in('Name', with: 'Desserts')
       click_link_or_button 'Save'
       expect(current_path).to eq(admin_categories_path)
       expect(page).to have_text('Category Successfully Created!')
     end
 
     it 'can edit a category from the admin face' do
+       user = user_with({})
+       user.save
+       login_as(user)
+       create_category({})
        visit admin_categories_path
        click_link 'Desserts'
-
-       expect(current_path).to eq(new_admin_category_path)
+       expect(current_path).to eq("/admin/categories/4/edit")
 
        fill_in 'Name', with: 'Desserts'
        click_button 'Save'
        expect(current_path).to eq(admin_categories_path)
-       expect(page).to have_text('Category Successfully Created!')
+       expect(page).to have_text('Category Successfully Updated!')
      end
-
-    it 'can create and edit a category from the admin face' do
-      user = user_with({})
-      user.save
-      login_as user
-
-      visit admin_dashboard_path
-      expect(page).to have_css('#dashboard')
-
-      click_link('Create a new food Category')
-      expect(page).to have_content('Create Category')
-      fill_in 'Name', with: 'Desserts'
-      click_button 'Save'
-
-      expect(page).to have_css('#listings')
-      click_link('Desserts')
-
-      fill_in 'Name', with: 'Burrito'
-      click_button 'Save'
-      expect(current_path).to eq(admin_categories_path)
-      expect(page).to have_css('#listings')
-    end
-
+     
     it 'can create a category from the admin face' do
       user = user_with({})
       user.save

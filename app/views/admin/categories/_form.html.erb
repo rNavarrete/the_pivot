@@ -1,12 +1,13 @@
 <div id="form">
-<%= form_for [:admin, @category] do |form| %>
-  <%= render "layouts/errors", object: @category%>
-  <p><%= form.label :name %>:
-  <%= form.text_field :name %></p>
-  <p><%= form.label :description %>:
-  <%= form.text_area :description %></p>
-
+  <%= form_for [:admin, @category] do |form| %>
+    <%= render "layouts/errors", object: @category%>
+    <div id="name">
+      <p><%= form.label :name %>:
+      <%= form.text_field :name %></p>
+      <p><%= form.label :description %>:
+      <%= form.text_area :description %></p>
+    </div>
+    <%= form.submit 'Save' %>
+  <% end %>
 </div>
-  <%= form.submit 'Save' %>
-<% end %>
 <%= link_to "Cancel", admin_categories_path %>
