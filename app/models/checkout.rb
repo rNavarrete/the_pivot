@@ -1,9 +1,9 @@
 class Checkout < ActiveRecord::Base
 
   def self.subtotal(session)
-    prices = session[:cart_items].map do
-      |item_id, quantity| Item.find(item_id).price * quantity.to_i
-      end
+    prices = session[:cart_items].map do |item_id, quantity|
+      Item.find(item_id).price * quantity.to_i
+    end
     prices.reduce(:+)
   end
 

@@ -17,5 +17,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  # use this method, not the ivar, b/c this sets the ivar
+  #
+  def cart
+    @cart ||= Cart.new(session)
+  end
+
   helper_method :current_user
+  helper_method :cart
 end
