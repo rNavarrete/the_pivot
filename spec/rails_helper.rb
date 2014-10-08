@@ -17,13 +17,21 @@ module MyHelpers
   end
 
   def login_as(user)
-    # allow_any_instance_of(ApplicationController)
-    #   .to receive(:current_user).and_return(user)
     visit items_path
     expect(page).to_not have_link('Admin Dashboard')
     page.fill_in('Email address', with: user.email_address)
     page.fill_in('Password', with: '1234')
     page.click_button('Log In')
+  end
+
+  def create_item(overrides = {})
+    attributes = {
+      name: "Mountain Mud Pie",
+      description: "yummy, yummy, yummy, yummy, yummy",
+      price: 3.50,
+      status: 'active'
+    }.merge(overrides)
+    Item.create(attributes)
   end
 end
 

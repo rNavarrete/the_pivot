@@ -18,77 +18,64 @@ describe 'the admin view', type: :feature do
     end
 
     it 'can modify item name =' do
-      category_1 = Category.create(name: "Desserts")
-      category_2 = Category.create(name: "Entres")
-      Item.create(name: "Mountain Mud Pie", description: "yummy, yummy, yummy, yummy, yummy", price: 3.50, categories: [category_1])
-      visit items_path
-      page.fill_in('Email address', with: 'admin@example.com')
-      page.fill_in('Password', with: '1234')
-      page.click_button('Log In')
+      # item = Item.create(name: "Mountain Mud Pie", description: "yummy, yummy, yummy, yummy, yummy", price: 3.50, status: 'active')
+      create_item({})
+      visit '/'
+      user = user_with({})
+      user.save
+      login_as(user)
       click_link 'Admin Dashboard'
-      click_link 'Dishes'
-      click_link 'Desserts'
+      click_link 'Manage Food Items'
       click_link 'Mountain Mud Pie'
       page.fill_in('Name', with: 'Valley Mud Pie')
       click_button 'Save'
-      click_link 'Desserts'
       expect(page).to have_content('Valley Mud Pie')
     end
 
     it 'can modify item description =' do
-      category_1 = Category.create(name: "Desserts")
-      category_2 = Category.create(name: "Entres")
-      Item.create(name: "Mountain Mud Pie", description: "yummy, yummy, yummy, yummy, yummy", price: 3.50, categories: [category_1])
+      create_item({})
       visit items_path
-      page.fill_in('Email address', with: 'admin@example.com')
-      page.fill_in('Password', with: '1234')
-      page.click_button('Log In')
+      user = user_with({})
+      user.save
+      login_as(user)
       click_link 'Admin Dashboard'
-      click_link 'Dishes'
-      click_link 'Desserts'
+      click_link 'Manage Food Items'
       click_link 'Mountain Mud Pie'
       page.fill_in('Description', with: 'Muddy, muddy, Muddy, muddy, Muddy, muddy,Muddy, muddy,')
       click_button 'Save'
-      click_link 'Desserts'
       click_link 'Mountain Mud Pie'
       expect(page).to have_content('Muddy, muddy, Muddy, muddy, Muddy, muddy,Muddy, muddy,')
     end
 
     it 'can modify item price =' do
-      category_1 = Category.create(name: "Desserts")
-      category_2 = Category.create(name: "Entres")
-      Item.create(name: "Mountain Mud Pie", description: "yummy, yummy, yummy, yummy, yummy", price: 3.50, categories: [category_1])
+      create_item({})
       visit items_path
-      page.fill_in('Email address', with: 'admin@example.com')
-      page.fill_in('Password', with: '1234')
-      page.click_button('Log In')
+      user = user_with({})
+      user.save
+      login_as(user)
       click_link 'Admin Dashboard'
-      click_link 'Dishes'
-      click_link 'Desserts'
+      click_link 'Manage Food Items'
       click_link 'Mountain Mud Pie'
       page.fill_in('Price', with: 5.50)
       click_button 'Save'
-      click_link 'Desserts'
       click_link 'Mountain Mud Pie'
       expect(page).to have_content(5.50)
     end
 
     it 'can_change_item_category' do
-      category_1 = Category.create(name: "Desserts")
-      category_2 = Category.create(name: "Entres")
-      Item.create(name: "Mountain Mud Pie", description: "yummy, yummy, yummy, yummy, yummy", price: 3.50, categories: [category_1])
+      create_item({})
       visit items_path
-      page.fill_in('Email address', with: 'admin@example.com')
-      page.fill_in('Password', with: '1234')
-      page.click_button('Log In')
+      user = user_with({})
+      user.save
+      login_as(user)
       click_link 'Admin Dashboard'
-      click_link 'Dishes'
-      click_link 'Dessert'
+      click_link 'Manage Food Items'
       click_link 'Mountain Mud Pie'
       check('Entres')
       click_button 'Save'
-      click_link 'Entres'
-      expect(page).to have_content('Mountain Mud Pie')
+      click_link 'Mountain Mud Pie'
+      
+      expect(box).to be_checked
     end
 
     it 'can delete a category when logged in as an admin' do
