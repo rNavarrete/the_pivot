@@ -20,6 +20,7 @@ class ApplicationController < ActionController::Base
   # use this method, not the ivar, b/c this sets the ivar
   #
   def cart
+    # binding.pry
     @cart ||= Cart.new(session)
   end
 

@@ -14,7 +14,7 @@ class CartsController < ApplicationController
   end
 
   def update_quantity
-    cart.update_quantity(params[:item_id], params[:quantity])
+    cart.update_quantity(params[:item_id], params[:quantity].to_i)
     redirect_to cart_path
   end
 end
