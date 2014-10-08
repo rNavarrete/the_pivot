@@ -63,50 +63,56 @@ describe 'the admin view', type: :feature do
     end
 
     it 'can_change_item_category' do
+      create_category({})
       create_item({})
       visit items_path
       user = user_with({})
       user.save
       login_as(user)
+
       click_link 'Admin Dashboard'
       click_link 'Manage Food Items'
       click_link 'Mountain Mud Pie'
-      check('Entres')
+      check('Desserts')
       click_button 'Save'
       click_link 'Mountain Mud Pie'
-      
+      check 'Desserts'
+      box = find('#item_category_ids_1')
       expect(box).to be_checked
     end
 
     it 'can delete a category when logged in as an admin' do
+      create_category({})
+      create_item({})
       user = user_with({})
       user.save
       login_as(user)
+
       visit items_path
       click_link 'Admin Dashboard'
-      expect(page).to have_css('#dashboard')
 
-      click_link('Create a new food Category')
-      expect(page).to have_content('Create Category')
-      fill_in 'Name', with: 'Desserts'
-      click_button 'Save'
-
-      expect(page).to have_css('#listings')
+      click_link('Manage Food Categories')
       click_link('Desserts')
       click_link('Delete this category')
       expect(page).to_not have_text('Desserts')
     end
 
     it 'can create a category from the admin face' do
-       visit admin_categories_path
-       click_link 'Create'
+      user = user_with({})
+      user.save
+      login_as(user)
+      visit admin_categories_path
+      click_link 'Create New Category'
 
-       expect(current_path).to eq(new_admin_category_path)
+      #  expect(current_path).to eq(new_admin_category_path)
+      #  page.find('#form_button').click
+      #  expect(page).to have_text('Oops!')
 
-       fill_in 'Name', with: 'Desserts'
-       click_button 'Save'
-       expect(current_path).to eq(admin_categories_path)
-       expect(page).to have_text('Category Successfully Created!')
+      fill_in('category_name', with: 'Desserts')
+      binding.pry
+      click_link_or_button 'Save'
+      expect(current_path).to eq(admin_categories_path)
+      expect(page).to have_text('Category Successfully Created!')
     end
 
     it 'can edit a category from the admin face' do

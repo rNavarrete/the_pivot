@@ -33,6 +33,13 @@ module MyHelpers
     }.merge(overrides)
     Item.create(attributes)
   end
+
+  def create_category(overrides = {})
+    attributes = {
+      name: "Desserts"
+    }.merge(overrides)
+    Category.create(attributes)
+  end
 end
 
 # Add additional requires below this line. Rails is not loaded until this point!
