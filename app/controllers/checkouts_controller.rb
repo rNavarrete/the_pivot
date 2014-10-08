@@ -1,10 +1,13 @@
 class CheckoutsController < ApplicationController
 
   def show
-    @subtotal = Checkout.subtotal(session)
-    @tax = Checkout.tax(session)
-    @total = Checkout.total(session)
-
+    if session[:cart_items] == {}
+      redirect_to cart_path, notice: 'Please add items to your cart before checking out. Thank you!'
+    else
+      @subtotal = Checkout.subtotal(session)
+      @tax = Checkout.tax(session)
+      @total = Checkout.total(session)
+    end
   end
 
   def complete_order
