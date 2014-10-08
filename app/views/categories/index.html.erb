@@ -4,7 +4,8 @@
  <% c.items.each do |item| %>
   <div class="col-sm-4 col-md-3">
     <div class="thumbnail">
-      <img src="http://whatscookingamerica.net/History/RockyMtnOysters4.jpg" alt="Mountain View" style="width:auto;height:45%">
+      <%= item.image %>
+      <!-- <img src="http://whatscookingamerica.net/History/RockyMtnOysters4.jpg" alt="Mountain View" style="width:auto;height:45%"> -->
       <div class="caption">
         <h4> <%= item.name %> </h4>
         <p class="item_description"> <%= item.description %> </p>
