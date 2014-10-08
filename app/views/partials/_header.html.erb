@@ -48,8 +48,10 @@
          <% end %>
            <% if session[:cart_items] %>
              <%= session[:cart_items].values.reduce(:+) %> items
-           <% else  %>
-             <%= "0" %>
+
+             <% else  %>
+             <%= "0 items" %>
+
            <% end %>
          <% end %>
          <p><%= link_to 'Admin Dashboard', admin_dashboard_path if can? :create, User %> </p>
