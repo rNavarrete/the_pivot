@@ -1,11 +1,11 @@
 <h1>Cart</h1>
 <%= flash[:notice] %>
 
-<% @cart.items.each_pair do |id, quantity| %>
+<% cart.items.each_pair do |id, quantity| %>
   <li id=<%= "item-#{id}"%>>
-    <%= @cart.item(id).name %>
+    <%= cart.item(id).name %>
     <%= quantity %>
-    <%= @cart.item(id).price%>
+    <%= cart.item(id).price%>
 
     <%= form_tag update_quantity_path, :method => :put do  %>
       <%= hidden_field_tag "item_id", id %>

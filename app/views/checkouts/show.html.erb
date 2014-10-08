@@ -9,14 +9,14 @@
       <th>Total  </th>
     </tr>
   </div>
-    <% @cart.items.each do |item_id, quantity| %>
+    <% cart.items.each do |item_id, quantity| %>
     <tr>
-      <td> <%= @cart.item(item_id).name %>  </td>
+      <td> <%= cart.item(item_id).name %>  </td>
       <td> <%= quantity %> </td>
-      <td> <%= number_to_currency(@cart.item(item_id).price, precision: 2) %> </td>
-      <td> <%= number_to_currency(@cart.line_item_price(item_id, quantity) %> </td>
+      <td> <%= number_to_currency(cart.item(item_id).price, precision: 2) %> </td>
+      <td> <%= number_to_currency(cart.line_item_price(item_id, quantity)) %> </td>
     </tr>
-  <% end %>
+    <% end %>
   <tr>
     <td>  Subtotal </td>
     <td>  </td>

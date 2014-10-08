@@ -1,25 +1,24 @@
-
-<h1>Categories</h1>
-<div class='container'>
-  <% @category.each do |c| %>
-    <p>
-    <h3><%= c.name %></h3>
-    </p>
-    <div class="row">
-      <% c.items.active.each_with_index do |item, index| %>
-
-        <% if index > 2 && index % 3 == 0 %>
-          </div><div class="row">
+<% @category.each do |c| %>
+<h2> <%= c.name %> </h2>
+<div class="row">
+ <% c.items.each do |item| %>
+  <div class="col-sm-4 col-md-3">
+    <div class="thumbnail">
+      <img src="http://whatscookingamerica.net/History/RockyMtnOysters4.jpg" alt="Mountain View" style="width:auto;height:45%">
+      <div class="caption">
+        <h4> <%= item.name %> </h4>
+        <p class="item_description"> <%= item.description %> </p>
+      </div>
+      <div class="button">
+        <%= form_tag '/add_item', method: :get do %>
+          <%= hidden_field_tag :item_id, item.id  %>
+          <%= button_tag(:class => "btn btn-default btn-sm") do %>
+             add to cart <span class="glyphicon glyphicon-shopping-cart" ></span>
+          <% end %>
         <% end %>
-
-        <div class='col-md-4'>
-          <% index %>
-          <%= item.name %> -
-          <%= item.description %>
-          <%= number_to_currency(item.price) %>
-    			<%= link_to "Add to cart", add_item_path(item_id: item.id) %>
-        </div>
-      <% end %>
+      </div>
     </div>
-  <% end %>
+  </div>
+<% end %>
 </div>
+<% end %>
