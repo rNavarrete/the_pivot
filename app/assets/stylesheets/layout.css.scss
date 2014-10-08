@@ -82,7 +82,7 @@ body {
 }
 
 .thumbnail{
-  height: 300px;
+  height: 360px;
   width: 100%;
 img {
   margin-left: 20px;
@@ -97,18 +97,20 @@ img {
 }
 
 .caption {
-  height: 3em;
+  min-height: 150px;
   overflow: none;
+  // border: 5px solid black;
 }
 
 .item_description {
   height: 4.0em;
   overflow: none;
+  // border: 5px solid black;
 }
 
 .button {
-  margin-top: 75px;
-  border:
+
+  // border: 5px solid black;
 
 }
 

@@ -10,13 +10,13 @@
         <p class="item_description"> <%= item.description %> </p>
       </div>
       <div class="button">
-      <%= form_tag '/add_item', method: :get do %>
-      <%= hidden_field_tag :item_id, item.id  %>
-      <%= button_tag(:class => "btn btn-default btn-sm") do %>
-         add to cart <span class="glyphicon glyphicon-shopping-cart" ></span>
-      <% end %>
-      <% end %>
-    </div>
+        <%= form_tag '/add_item', method: :get do %>
+          <%= hidden_field_tag :item_id, item.id  %>
+          <%= button_tag(:class => "btn btn-default btn-sm") do %>
+             add to cart <span class="glyphicon glyphicon-shopping-cart" ></span>
+          <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 <% end %>
