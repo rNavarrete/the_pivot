@@ -11,14 +11,15 @@
       <div class='img-responsive'><%= image_tag('mountain.jpg', :class => 'stretch') %></div>
     </div>
 
+    <div id="main-header">
     <%= render "partials/header" %>
+    </div>
 
     <div id="main-background">
-    <div id="mainContent">
-      <%= flash.alert %>
-      <%= yield %>
+      <div id="mainContent">
+        <%= yield %>
+      </div>
     </div>
-  </div>
   </body>
   <footer>
   </footer>

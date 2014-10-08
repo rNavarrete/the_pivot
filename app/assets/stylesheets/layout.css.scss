@@ -24,7 +24,7 @@ border-radius: 25px;
   width: 600px;
   font-family: sans-serif;
   margin: auto;
-  padding-top: 30px;
+  padding-top: 200px;
 
   h1 {
     text-align: center;
@@ -82,5 +82,33 @@ body {
 }
 
 .thumbnail{
-  height: 200px;
+  height: 300px;
+  width: 300px;
+  margin: 10px;
+  padding: 10px;
+
+
+}
+
+#menuContent {
+  padding-top: 150px;
+  width: 90%;
+  margin: auto;
+
+  h2 {
+    color: white;
+  }
+
+  .btn {
+    float: right;
+    margin-right: 32%;
+    margin-top: -58px;
+  }
+}
+
+
+#main-header {
+  position: fixed;
+  width: 100%;
+  z-index: 2;
 }
