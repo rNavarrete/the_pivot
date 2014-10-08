@@ -2,21 +2,22 @@
 <h2> <%= c.name %> </h2>
 <div class="row">
  <% c.items.each do |item| %>
-  <div class="col-sm-6 col-md-4">
+  <div class="col-sm-4 col-md-3">
     <div class="thumbnail">
-      <img src="http://whatscookingamerica.net/History/RockyMtnOysters4.jpg" alt="Mountain View" style="width:80%;height:50%">
+      <img src="http://whatscookingamerica.net/History/RockyMtnOysters4.jpg" alt="Mountain View" style="width:auto;height:45%">
       <div class="caption">
         <h4> <%= item.name %> </h4>
-        <p> <%= item.description %> </p>
+        <p class="item_description"> <%= item.description %> </p>
       </div>
-
+      <%= form_tag '/add_item', method: :get do %>
+      <%= hidden_field_tag :item_id, item.id  %>
+      <%= button_tag(:class => "btn btn-default btn-sm") do %>
+         add to cart <span class="glyphicon glyphicon-shopping-cart" ></span>
+      <% end %>
+      <% end %>
     </div>
 
-  <%= form_tag '/add_item', method: :get do %>
-  <%= button_tag(:class => "btn btn-default btn-sm") do %>
-     add to cart <span class="glyphicon glyphicon-shopping-cart" ></span>
-  <% end %>
-  <% end %>
+
 
   </div>
 <% end %>
