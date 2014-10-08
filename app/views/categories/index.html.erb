@@ -9,6 +9,7 @@
         <h4> <%= item.name %> </h4>
         <p class="item_description"> <%= item.description %> </p>
       </div>
+      <div class="button">
       <%= form_tag '/add_item', method: :get do %>
       <%= hidden_field_tag :item_id, item.id  %>
       <%= button_tag(:class => "btn btn-default btn-sm") do %>
@@ -16,9 +17,7 @@
       <% end %>
       <% end %>
     </div>
-
-
-
+    </div>
   </div>
 <% end %>
 </div>

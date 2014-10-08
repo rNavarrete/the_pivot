@@ -91,6 +91,27 @@ img {
   margin-bottom: -2px;
 }
 
+.btn {
+  color: white;
+  background-color: green;
+}
+
+.caption {
+  height: 3em;
+  overflow: none;
+}
+
+.item_description {
+  height: 4.0em;
+  overflow: none;
+}
+
+.button {
+  margin-top: 75px;
+  border:
+
+}
+
 }
 
 #menuContent {
@@ -108,8 +129,4 @@ img {
   position: fixed;
   width: 100%;
   z-index: 2;
-}
-.item_description {
-  height: 4.0em;
-  overflow: none;
 }
