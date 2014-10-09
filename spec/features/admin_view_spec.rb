@@ -76,8 +76,8 @@ describe 'the admin view', type: :feature do
       check('Desserts')
       click_button 'Save'
       click_link 'Mountain Mud Pie'
-      check 'Desserts'
-      box = find('#item_category_ids_5')
+      box = find('#item_category_ids_8')
+
       expect(box).to be_checked
     end
 
@@ -117,7 +117,7 @@ describe 'the admin view', type: :feature do
        create_category({})
        visit admin_categories_path
        click_link 'Desserts'
-       expect(current_path).to eq("/admin/categories/8/edit")
+       expect(current_path).to eq("/admin/categories/11/edit")
 
        fill_in 'Name', with: 'Desserts'
        click_button 'Save'
