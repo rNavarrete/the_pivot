@@ -88,7 +88,6 @@ describe 'the user view', type: :feature do
         click_on('cart')
         expect(page).to have_content('1')
         fill_in('quantity', :with => '5')
-        save_and_open_page
         click_on('update')
         expect(page).to have_content('5')
         expect(page).to_not have_content('1')
