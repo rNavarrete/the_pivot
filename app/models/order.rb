@@ -8,11 +8,6 @@ class Order < ActiveRecord::Base
   scope :canceled,  -> { where(status: 'canceled') }
   scope :ordered,   -> { where(status: 'ordered')}
 
-
-  # def self.paid
-  #   where(status: "paid")
-  # end
-
   def subtotal
     line_totals = order_items.map {|order_item| order_item.line_total}
     line_totals.reduce(:+)

@@ -35,10 +35,10 @@ feature "Managing Orders" do
       visit admin_orders_path
 
       within('#orders') do
-        expect(page).to have_content paid.id
-        expect(page).to have_content cancelled.id
-        expect(page).to have_content completed.id
-        expect(page).to have_content ordered.id
+        expect(page).to have_content paid.status
+        expect(page).to have_content cancelled.status
+        expect(page).to have_content completed.status
+        expect(page).to have_content ordered.status
       end
     end
 
@@ -49,14 +49,14 @@ feature "Managing Orders" do
       ordered   = Order.create(status: "ordered", user_id: user.id)
 
       visit admin_orders_path
-
+      # save_and_open_page
       click_link "Paid (1)"
 
       within('#orders') do
-        expect(page).to     have_content paid.id
-        expect(page).not_to have_content cancelled.id
-        expect(page).not_to have_content completed.id
-        expect(page).not_to have_content ordered.id
+        expect(page).to     have_content paid.status
+        expect(page).not_to have_content cancelled.status
+        expect(page).not_to have_content completed.status
+        expect(page).not_to have_content ordered.status
       end
     end
 
@@ -124,6 +124,13 @@ feature "Managing Orders" do
       click_link('View All Orders')
       expect(page).to have_text "John"
       expect(page).to have_text "Jane"
+    end
+
+    scenario "can change status of order from ordered to canceled" do
+      order = Order.create(status: 'ordered', user_id: user.id)
+      visit admin_orders_path
+      click_button 'Cancel'
+      expect(page).to have_text 'Canceled (1)'
     end
   end
 end
