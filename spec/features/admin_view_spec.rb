@@ -77,7 +77,7 @@ describe 'the admin view', type: :feature do
       click_button 'Save'
       click_link 'Mountain Mud Pie'
       check 'Desserts'
-      box = find('#item_category_ids_1')
+      box = find('#item_category_ids_5')
       expect(box).to be_checked
     end
 
@@ -117,14 +117,14 @@ describe 'the admin view', type: :feature do
        create_category({})
        visit admin_categories_path
        click_link 'Desserts'
-       expect(current_path).to eq("/admin/categories/4/edit")
+       expect(current_path).to eq("/admin/categories/8/edit")
 
        fill_in 'Name', with: 'Desserts'
        click_button 'Save'
        expect(current_path).to eq(admin_categories_path)
        expect(page).to have_text('Category Successfully Updated!')
      end
-     
+
     it 'can create a category from the admin face' do
       user = user_with({})
       user.save
@@ -145,22 +145,19 @@ describe 'the admin view', type: :feature do
       user = user_with({})
       user.save
       login_as(user)
+      create_category({})
 
       visit items_path
       click_link 'Admin Dashboard'
       expect(page).to have_css('#dashboard')
 
-      category_1 = Category.create(name: "Desserts")
-      category_2 = Category.create(name: "Entres")
-
-      click_link('Create a new Dish')
+      click_link('Manage Food Items')
+      click_link('Create')
       fill_in 'Name', with: "Hamburger"
       fill_in 'Description', with: 'Yum Yum Yum Yum Yum Yum Yum Yum Yum'
       fill_in 'Price', with: '6.5'
-      check('Entres')
+      check('Desserts')
       click_button 'Save'
-      click_link 'Entres'
-      save_and_open_page
       expect(page).to have_content('Hamburger')
 
       click_link('Hamburger')

@@ -11,14 +11,16 @@ describe 'the user view', type: :feature do
       appetizers.items.create(id: 1, name: 'dandelion salad', description: 'yummyyummyyummyyummyyummyyummyyummy', price: 5.00, status: "active")
       appetizers.save
       visit '/categories'
-      click_on('Add to cart')
+      click_on('cart')
       user = user_with({email_address: 'John@example.com'})
       user.save
-      page.fill_in('Email address', with: user.email_address)
+      page.fill_in('Email address', with: 'John@example.com')
       page.fill_in('Password', with: '1234')
       page.click_button('Log In')
-      page.find("#cart_btn").click
+      page.find("#continue_shopping_btn").click
       expect(page).to have_content('dandelion salad')
+      page.find('#cart_button').click
+      click_on('cart')
       page.find("#ckout_btn").click
       page.find("#pickup_btn").click
       expect(page).to have_css('#confirmation_message')
@@ -36,7 +38,8 @@ describe 'the user view', type: :feature do
       appetizers.items.create(id: 1, name: 'dandelion salad', description: 'yummyyummyyummyyummyyummyyummyyummy', price: 5.00, status: "active")
       appetizers.save
       visit '/categories'
-      2.times {click_on('Add to cart')}
+      page.find('#cart_button').click
+      page.find('#cart_button').click
       expect(page).to have_content('2')
     end
 
@@ -46,7 +49,7 @@ describe 'the user view', type: :feature do
       appetizers.save
       expect(Order.all.count).to eq(0)
       visit '/categories'
-      click_on('Add to cart')
+      page.find('#cart_button').click
       user = user_with({email_address: 'John@example.com'})
       user.save
       page.fill_in('Email address', with: user.email_address)
@@ -54,6 +57,7 @@ describe 'the user view', type: :feature do
       page.click_button('Log In')
       page.find("#cart_btn").click
       page.find("#ckout_btn").click
+      
       page.find("#pickup_btn").click
       visit verification_path
       page.find("#pickup_btn").click

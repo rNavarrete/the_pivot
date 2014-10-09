@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Item, :type => :model do
   it 'can create an item' do
-    item = Item.new(name: 'possum pie', description: "delicious pie made of the possum that tried to eat out of our garbage last week", price: 5)
+    item = create_item({})
     expect(item.valid?).to eq(true)
   end
 
