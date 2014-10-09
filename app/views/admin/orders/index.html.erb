@@ -1,10 +1,17 @@
 
 <div id="sidebar">
-  <%= link_to "Paid (#{ @orders.paid.count })",
+  <%= link_to "Paid (#{ @all.paid.count })",
                admin_orders_path(status: "paid") %>
 
- <%= link_to "Completed (#{ @orders.completed.count })",
+ <%= link_to "Completed (#{ @all.completed.count })",
               admin_orders_path(status: "completed") %>
+
+ <%= link_to "Canceled (#{ @all.canceled.count })",
+              admin_orders_path(status: "canceled") %>
+
+ <%= link_to "Ordered (#{ @all.ordered.count })",
+              admin_orders_path(status: "ordered") %>
+
 </div>
 
 <div id="orders">
@@ -16,3 +23,5 @@
     <% end %>
   </p>
 </div>
+
+<%= link_to 'View All Orders', admin_orders_path %>

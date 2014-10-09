@@ -5,6 +5,8 @@ class Order < ActiveRecord::Base
 
   scope :paid,      -> { where(status: "paid") }
   scope :completed, -> { where(status: "completed") }
+  scope :canceled,  -> { where(status: 'canceled') }
+  scope :ordered,   -> { where(status: 'ordered')}
 
 
   # def self.paid
