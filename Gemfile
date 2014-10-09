@@ -13,8 +13,10 @@ end
 
 group :development do
   gem 'spring'
+  gem "spring-commands-rspec"
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'guard-rspec', require: false
 end
 
 gem 'cancancan', '~> 1.9'

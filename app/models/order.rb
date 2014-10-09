@@ -3,6 +3,14 @@ class Order < ActiveRecord::Base
   has_many :items, through: :order_items
   belongs_to :user
 
+  scope :paid,      -> { where(status: "paid") }
+  scope :completed, -> { where(status: "completed") }
+
+
+  # def self.paid
+  #   where(status: "paid")
+  # end
+
   def subtotal
     line_totals = order_items.map {|order_item| order_item.line_total}
     line_totals.reduce(:+)

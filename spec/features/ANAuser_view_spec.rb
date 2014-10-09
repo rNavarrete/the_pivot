@@ -57,7 +57,7 @@ describe 'the user view', type: :feature do
       page.click_button('Log In')
       page.find("#cart_btn").click
       page.find("#ckout_btn").click
-      
+
       page.find("#pickup_btn").click
       visit verification_path
       page.find("#pickup_btn").click
