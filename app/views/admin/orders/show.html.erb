@@ -8,5 +8,6 @@
       <%= number_to_currency(order_item.item.price) %></li>
     <li>Quantity: <%= order_item.quantity %></li>
   <% end %>
+  <li>Subtotal: <%= number_to_currency(@order.subtotal) %></li>
   <li>Total Order Price: <%= number_to_currency(@order.total) %></li>
 </ul>
