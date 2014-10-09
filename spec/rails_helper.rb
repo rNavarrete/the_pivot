@@ -3,6 +3,7 @@ ENV["RAILS_ENV"] ||= 'test'
 require 'spec_helper'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
+require 'database_cleaner'
 
 module MyHelpers
   def user_with(overrides = {})
@@ -17,7 +18,7 @@ module MyHelpers
   end
 
   def login_as(user)
-    visit items_path
+    visit "/"
     expect(page).to_not have_link('Admin Dashboard')
     page.fill_in('Email address', with: user.email_address)
     page.fill_in('Password', with: '1234')
@@ -40,6 +41,18 @@ module MyHelpers
     }.merge(overrides)
     Category.create(attributes)
   end
+
+  def create_item_associated_with_a_category
+    appetizer = Category.create(name: 'Appetizers')
+    attributes = {
+      name: 'dandelion salad',
+      description: 'yummyyummyyummyyummyyummyyummyyummy',
+      price: 5.00,
+      status: 'active',
+      category_ids: [appetizer.id]}
+    item = Item.create(attributes)
+  end
+
 end
 
 # Add additional requires below this line. Rails is not loaded until this point!
