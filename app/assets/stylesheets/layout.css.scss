@@ -4,6 +4,10 @@ body {
   background-image: url("mountain.jpg");
   background-size: 1440px 800px;
   display: compact;
+
+  h1 {
+    color: white;
+  }
 }
 
 #font {
@@ -48,15 +52,14 @@ img {
     right: right;
   }
 
-.checkout_table{
-
-  display: inline;
 }
-
-#checkout_table tr td{
+#checkout_table2 {
   border: 5px solid black;
-  width: 60%;
-}
+  width: 90%;
+  color: white;
+  tr td {
+    border: 5px solid black;
+  }
 }
 
 body {
@@ -173,4 +176,8 @@ body {
   width: 15%;
   margin: auto;
   border: 1px solid black;
+}
+
+#checkout_page {
+  color: white;
 }
