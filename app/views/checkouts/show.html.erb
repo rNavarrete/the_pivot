@@ -1,14 +1,15 @@
+<div id="checkout_page"
 <h1> Checkout </h1>
-<div class = "checkout_table">
-<table id = "checkout_table">
-  <div>
+
+<table id="checkout_table2">
+
     <tr>
       <th>Item Name</th>
       <th>Quantity</th>
       <th>Price</th>
       <th>Total  </th>
     </tr>
-  </div>
+
     <% cart.items.each do |item_id, quantity| %>
     <tr>
       <td> <%= cart.item(item_id).name %>  </td>
@@ -38,22 +39,25 @@
     <td> <%= number_to_currency(@total) %> </td>
   </tr>
 </table>
-</div>
 
-<div class ="checkout_table" >
   <h2> How Will You Pay?</h2>
 <br/>
 
 <%= form_tag '/complete_order', method: :get do %>
 <%= button_tag(:class => "btn btn-default btn-sm", :id => "pickup_btn") do %>
-   on pick up <span class="glyphicon glyphicon-user" ></span>
+   When I pick up <span class="glyphicon glyphicon-user" ></span>
 <% end %>
 <% end %>
 <br/>
-<p> or </p>
+<h3> or </h3>
+<%= form_tag '/complete_order', method: :get do %>
+<%= button_tag(:class => "btn btn-default btn-sm", :id => "delivery_btn") do %>
+  When you Deliver  <span class="glyphicon glyphicon-user" ></span>
+   <% end %>
+   <% end %>
 <br/>
-<h3>With Credit Card</h3>
-
-
+<h3> or </h3>
+<br/>
+<h3>With Credit Card Now</h3>
 
 </div>

@@ -5,12 +5,11 @@ require 'capybara/rspec'
 describe 'the user view', type: :feature do
 
   describe 'cart interaction', type: :feature do
-
-    it 'completes an order' do
-      appetizers = Category.create(name: 'Appetizers')
-      appetizers.items.create(id: 1, name: 'dandelion salad', description: 'yummyyummyyummyyummyyummyyummyyummy', price: 5.00, status: "active")
-      appetizers.save
+    before do
+      create_item_associated_with_a_category
       visit '/categories'
+    end
+    it 'completes an order' do
       click_on('cart')
       user = user_with({email_address: 'John@example.com'})
       user.save
@@ -34,21 +33,21 @@ describe 'the user view', type: :feature do
     end
 
     it 'sees an item counter next to cart' do
-      appetizers = Category.create(name: 'Appetizers')
-      appetizers.items.create(id: 1, name: 'dandelion salad', description: 'yummyyummyyummyyummyyummyyummyyummy', price: 5.00, status: "active")
-      appetizers.save
-      visit '/categories'
+      # appetizers = Category.create(name: 'Appetizers')
+      # appetizers.items.create(id: 1, name: 'dandelion salad', description: 'yummyyummyyummyyummyyummyyummyyummy', price: 5.00, status: "active")
+      # appetizers.save
+      # visit '/categories'
       page.find('#cart_button').click
       page.find('#cart_button').click
       expect(page).to have_content('2')
     end
 
     it 'does not create a duplicate order if user clicks back button after order confirmation' do
-      appetizers = Category.create(name: 'Appetizers')
-      appetizers.items.create(id: 1, name: 'dandelion salad', description: 'yummyyummyyummyyummyyummyyummyyummy', price: 5.00, status: "active")
-      appetizers.save
+      # appetizers = Category.create(name: 'Appetizers')
+      # appetizers.items.create(id: 1, name: 'dandelion salad', description: 'yummyyummyyummyyummyyummyyummyyummy', price: 5.00, status: "active")
+      # appetizers.save
+      # visit '/categories'
       expect(Order.all.count).to eq(0)
-      visit '/categories'
       page.find('#cart_button').click
       user = user_with({email_address: 'John@example.com'})
       user.save
@@ -63,5 +62,9 @@ describe 'the user view', type: :feature do
       page.find("#pickup_btn").click
       expect(Order.all.count).to eq(1)
     end
+
+    # it 'is prompted for an address when designating pick up order'
+
+    
   end
 end

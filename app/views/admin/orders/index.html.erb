@@ -1,18 +1,34 @@
-
+<%= flash[:notice] %>
 <div id="sidebar">
-  <%= link_to "Paid (#{ @orders.paid.count })",
+  <%= link_to "Paid (#{ @all.paid.count })",
                admin_orders_path(status: "paid") %>
 
- <%= link_to "Completed (#{ @orders.completed.count })",
+ <%= link_to "Completed (#{ @all.completed.count })",
               admin_orders_path(status: "completed") %>
+
+ <%= link_to "Canceled (#{ @all.canceled.count })",
+              admin_orders_path(status: "canceled") %>
+
+ <%= link_to "Ordered (#{ @all.ordered.count })",
+              admin_orders_path(status: "ordered") %>
+
 </div>
 
 <div id="orders">
   <p>
-    Order For:
+    Order For:<br>
     <% @orders.each do |order| %>
-      <%= link_to "#{ order.id } - #{ order.user.full_name }",
+      <%= link_to "#{ order.user.full_name } - #{ order.status }, ",
                   admin_order_path(order.id) %>
+        <%  if order.status == 'ordered' %>
+          <%= button_to "Cancel", admin_order_path(order, order: { status: 'canceled' }), method: :patch %>
+          <%= button_to "Mark As Paid", admin_order_path(order, order: { status: 'paid' }), method: :patch %>
+        <%  elsif order.status == 'paid' %>
+          <%= button_to "Cancel", admin_order_path(order, order: { status: 'canceled' }), method: :patch %>
+          <%= button_to "Mark As Completed", admin_order_path(order, order: { status: 'completed' }), method: :patch %>
+        <% end %><br>
     <% end %>
   </p>
 </div>
+
+<%= link_to 'View All Orders', admin_orders_path %>
