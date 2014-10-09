@@ -1,5 +1,5 @@
-class Admin::DashboardController < ApplicationController
-  before_action :authorize 
+class Admin::DashboardController < Admin::BaseController
+  before_action :authorize
   def show
   end
 end

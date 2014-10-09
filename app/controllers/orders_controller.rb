@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user
+  before_action :set_order, only: [:show]
 
   def create
     #if user's first order
@@ -27,7 +28,7 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @order = Order.find(params[:id])
+    # @order = Order.find(params[:id])
   end
 
   private
@@ -37,6 +38,15 @@ class OrdersController < ApplicationController
       flash[:notice] = 'Please log in or create account to complete order'
       session[:return_to] = cart_path
       redirect_to root_path
+    end
+  end
+
+  def set_order
+    # DEFINITELY NEEDS REFACTORING
+    if current_user.orders.collect { |order| order.id }.include?(params[:id])
+      @order = current_user.orders.find(params[:id])
+    else
+      redirect_to :root
     end
   end
 end
