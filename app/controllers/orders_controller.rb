@@ -43,7 +43,7 @@ class OrdersController < ApplicationController
 
   def set_order
     # DEFINITELY NEEDS REFACTORING
-    if current_user.orders.collect { |order| order.id }.include?(params[:id])
+    if current_user.orders.collect { |order| order.id }.include?(params[:id].to_i)
       @order = current_user.orders.find(params[:id])
     else
       redirect_to :root
