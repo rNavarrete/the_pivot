@@ -1,0 +1,18 @@
+
+<div id="sidebar">
+  <%= link_to "Paid (#{ @orders.paid.count })",
+               admin_orders_path(status: "paid") %>
+
+ <%= link_to "Completed (#{ @orders.completed.count })",
+              orders_path(status: "completed") %>
+</div>
+
+<div id="orders">
+  <p>
+    Order For:
+    <% @orders.each do |order| %>
+      <%= link_to "#{ order.id } - #{ order.user.full_name }",
+                  order_path(order.id) %>
+    <% end %>
+  </p>
+</div>

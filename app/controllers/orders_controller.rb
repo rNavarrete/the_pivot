@@ -14,6 +14,18 @@ class OrdersController < ApplicationController
     redirect_to order_path(order)
   end
 
+  def index
+    status = params[:status]
+
+    if status == "paid"
+      @orders = Order.paid
+    elsif status == 'completed'
+      @orders = Order.completed
+    else
+      @orders = Order.all
+    end
+  end
+
   def show
     @order = Order.find(params[:id])
   end
