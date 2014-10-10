@@ -22,9 +22,9 @@
   </tr>
   <% @orders.each do |order| %>
   <tr>
-    <td class="tg-031e"><%= order.id %></td>
-    <td class="tg-031e"><%= order.user.created_at %></td>
-    <td class="tg-031e"><%= order.status %></td>"
-  <% end %>
+      <td class="tg-031e" class="order_id"><%= link_to order.id, order %></td>
+      <td class="tg-031e"><%= order.user.created_at %></td>
+      <td class="tg-031e"><%= order.status %></td>
+    <% end %>
   </tr>
 </table>

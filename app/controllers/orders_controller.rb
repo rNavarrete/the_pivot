@@ -3,28 +3,24 @@ class OrdersController < ApplicationController
   before_action :set_order, only: [:show]
 
   def create
-    #if user's first order
-    #if user has orders, but last one is closed
-    #if user has orders, but last one is open
     order = current_user.orders.last
     if order.nil? || !order.open?
       order = current_user.orders.create
     end
-    # binding.pry
     order.build_order(session[:cart_items])
     redirect_to order_path(order)
   end
 
   def index
-    status = params[:status]
+    # status = params[:status]
 
-    if status == "paid"
-      @orders = Order.paid
-    elsif status == 'completed'
-      @orders = Order.completed
-    else
-      @orders = Order.all
-    end
+    # if status == "paid"
+    #   @orders = Order.paid
+    # elsif status == 'completed'
+    #   @orders = Order.completed
+    # else
+      @orders = current_user.orders
+    # end
   end
 
   def show

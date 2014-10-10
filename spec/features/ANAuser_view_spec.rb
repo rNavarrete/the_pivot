@@ -65,6 +65,21 @@ describe 'the user view', type: :feature do
 
     # it 'is prompted for an address when designating pick up order'
 
-    
+
+  end
+
+  describe 'user order', type: :feature do
+    before do
+      user = create(user_with)
+      create_order_with_order_item(user)
+      login_as(user)
+      visit '/orders'
+    end
+    it 'shows order' do
+      order = Order.last
+      # binding.pry
+      page.click_on '1'
+      expect(current_path).to eq(order_path(order))
+    end
   end
 end

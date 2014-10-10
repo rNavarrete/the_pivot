@@ -17,6 +17,11 @@ module MyHelpers
     User.new(attributes)
   end
 
+  def create(user)
+    user.save
+    user
+  end
+
   def login_as(user)
     visit "/"
     page.fill_in('Email address', with: user.email_address)
@@ -50,6 +55,12 @@ module MyHelpers
       status: 'active',
       category_ids: [appetizer.id]}
     item = Item.create(attributes)
+  end
+
+  def create_order_with_order_item(user)
+    create_item_associated_with_a_category
+    order = Order.create(user_id: user.id)
+    order.order_items.create(item_id: Item.last.id, quantity: 3)
   end
 
 end
