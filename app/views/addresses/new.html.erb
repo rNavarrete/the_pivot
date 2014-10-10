@@ -18,7 +18,15 @@
     <%= f.label :zip %><br>
     <%= f.text_field :zip %>
   </div>
+</br>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+</br>
+<div class="button">
+  <%= form_tag addresses_path, method: :get do %>
+    <%= button_tag(:class => "btn btn-default btn-sm", :id => "cart_button") do %>
+       choose an existing address <span class="glyphicon glyphicon-list-alt" ></span>
+    <% end %>
+  <% end %>
