@@ -1,13 +1,34 @@
-
+<%= flash[:notice] %>
 <ul>
-  <li>Purchases Name:  <%= @order.user.full_name %></li>
-  <li>Purchases Email:        <%= @order.user.email_address %></li>
+  <li>Purchasers Name:  <%= @order.user.full_name %></li>
+  <li>Purchasers Email:        <%= @order.user.email_address %></li>
   <li>Order status: <%= @order.status %></li>
   <% @order.order_items.each do |order_item| %>
-  <li>Items Ordered:<%= order_item.item.name %>
-      <%= number_to_currency(order_item.item.price) %></li>
+  <li>Items Ordered: <%= order_item.item.name %>
+      <%= number_to_currency(order_item.item.price) %>
+
+      <% if @order.status == 'ordered' || @order.status == 'paid' %>
+        <%= button_to 'Delete', admin_order_item_path(order_item.id), :method => :delete %>
+        <%= form_tag admin_order_item_path(order_item.id), :method => :put do  %>
+        <%= hidden_field_tag "order_item[item_id]", order_item.id %>
+        <%= number_field_tag "order_item[quantity]", order_item.quantity, :min => 1, :max => 100 %>
+        <%= submit_tag "update" %></li>
+        <% end %>
+      <% end %>
     <li>Quantity: <%= order_item.quantity %></li>
+
+
   <% end %>
   <li>Subtotal: <%= number_to_currency(@order.subtotal) %></li>
   <li>Total Order Price: <%= number_to_currency(@order.total) %></li>
+  <li>Ordered At: <%= @order.created_at.strftime("%d %b. %Y")%>, <%= @order.created_at.strftime("%l:%M %p") %></li>
+  <li>Roughly Ordered At: <%= time_ago_in_words(@order.created_at) %> ago.</li>
 </ul>
+
+<%  if @order.status == 'ordered' %>
+  <%= button_to "Cancel", admin_order_path(@order, order: { status: 'canceled' }), method: :patch %>
+  <%= button_to "Mark As Paid", admin_order_path(@order, order: { status: 'paid' }), method: :patch %>
+<%  elsif @order.status == 'paid' %>
+  <%= button_to "Cancel", admin_order_path(@order, order: { status: 'canceled' }), method: :patch %>
+  <%= button_to "Mark As Completed", admin_order_path(@order, order: { status: 'completed' }), method: :patch %>
+<% end %><br>

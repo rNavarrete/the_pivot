@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   resources :categories
 
+
   get 'checkout',         to: 'checkouts#show'
   get 'complete_order',   to: 'checkouts#complete_order'
 
@@ -17,7 +18,7 @@ Rails.application.routes.draw do
   put 'update_quantity',  to: 'carts#update_quantity',as: 'update_quantity'
 
   namespace :admin do
-    resources :items, :categories, :orders
+    resources :items, :categories, :orders, :order_items
     get 'dashboard',        to: 'dashboard#show'
   end
 
