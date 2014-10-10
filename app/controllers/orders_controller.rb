@@ -9,7 +9,6 @@ class OrdersController < ApplicationController
     # if order.nil? || !order.open?
     #   order = current_user.orders.create
     # end
-    # # binding.pry
     # order.build_order(session[:cart_items])
     # redirect_to order_path(order)
 
@@ -18,6 +17,9 @@ class OrdersController < ApplicationController
     else
       @order = Order.create(user_id: session[:user_id], status: "ordered")
       @order.order_items = session[:cart_items].map { |item_id, quantity| OrderItem.new(item_id: item_id, quantity: quantity, order_id: @order)}
+      # address = Address.where(id: params[:address])
+      @order.address_id = params[:address]
+      @order.save
       session[:cart_items] = {}
       redirect_to verification_path
     end
@@ -50,7 +52,7 @@ class OrdersController < ApplicationController
     unless current_user
       flash[:notice] = 'Please log in or create account to complete order'
       session[:return_to] = cart_path
-      redirect_to root_path
+      redirect_to new_user_path
     end
   end
 end

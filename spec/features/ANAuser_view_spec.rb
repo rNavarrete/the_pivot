@@ -56,6 +56,7 @@ describe 'the user view', type: :feature do
     end
 
     it 'is prompted for an address when designating pick up order' do
+      expect(Order.all.count).to eq(0)
       click_on('cart')
       user = user_with({email_address: 'John@example.com'})
       user.save
@@ -68,13 +69,15 @@ describe 'the user view', type: :feature do
       click_on('cart')
       page.find("#ckout_btn").click
       page.find("#delivery_btn").click
-      page.fill_in('Street Address', with: "123 Mountain Street")
+      page.fill_in('Street address', with: "123 Mountain Street")
       page.fill_in('City', with: 'Denver')
       page.fill_in('State', with: "Colorado")
       page.fill_in('Zip', with: '80228')
-      page.click_button('submit')
+      page.click_button('Create Address')
+      page.click_button('use this address')
       order = Order.last
-      expect(order.city).to eq("Denver")
+      expect(Order.all.count).to eq(1)
+      expect(order.address.city).to eq("Denver")
     end
 
 
