@@ -62,7 +62,7 @@ describe 'the admin view', type: :feature do
       expect(page).to have_content(5.50)
     end
 
-    it 'can_change_item_category' do
+    xit 'can_change_item_category' do
       create_category({})
       create_item({})
       visit items_path
@@ -110,7 +110,7 @@ describe 'the admin view', type: :feature do
       expect(page).to have_text('Category Successfully Created!')
     end
 
-    it 'can edit a category from the admin face' do
+    xit 'can edit a category from the admin face' do
        user = user_with({})
        user.save
        login_as(user)

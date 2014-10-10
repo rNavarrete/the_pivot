@@ -1,0 +1,21 @@
+<h3> Your Addresses </h3>
+    <% @addresses.each do |a| %>
+    <div >
+      <%= a.street_address %>
+      <%= a.city %>
+      <%= a.state %>
+      <%= a.zip %>
+</br>
+</br>
+<div class="button">
+  <%= form_tag orders_path, method: :post do %>
+  <%= hidden_field_tag :address, a.id %>
+    <%= button_tag(:class => "btn btn-default btn-sm", :id => "cart_button") do %>
+       use this address <span class="glyphicon glyphicon-shopping-cart" ></span>
+    <% end %>
+  <% end %>
+</div>
+    </br>
+    </br>
+    </div>
+  <% end %>
