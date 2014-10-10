@@ -11,8 +11,8 @@ class UsersController < ApplicationController
 	def create
 		@user = User.new(user_params)
 		if @user.save
-			redirect_path = session[:return_to] || items_path
-			redirect_to redirect_path, notice: "Please Sign In To Your New Account"
+			redirect_path = session[:return_to] || '/'
+			redirect_to redirect_path, notice: "You Have Successfully Created A New Account!"
 		else
 			render :new
 		end
