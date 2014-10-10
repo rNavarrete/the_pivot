@@ -50,7 +50,7 @@
 <% end %>
 <br/>
 <h3> or </h3>
-<%= form_tag '/complete_order', method: :get do %>
+<%= form_tag new_address_path, method: :get do %>
 <%= button_tag(:class => "btn btn-default btn-sm", :id => "delivery_btn") do %>
   When you Deliver  <span class="glyphicon glyphicon-user" ></span>
    <% end %>

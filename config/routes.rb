@@ -8,6 +8,9 @@ Rails.application.routes.draw do
 
   resources :categories
 
+  resources :addresses
+
+  get 'complete_delivery_order', to: 'orders#create'
   get 'checkout',         to: 'checkouts#show'
   get 'complete_order',   to: 'checkouts#complete_order'
 

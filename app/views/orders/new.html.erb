@@ -1,0 +1,10 @@
+<h3> Please enter an address for delivery </h3>
+
+<%= form_for [@order] do |form| %>
+  <div id="order_form">
+    <p><%= form.label :id%>:
+    <%= form.text_field :id %></p>
+  </div>
+  <%= form.submit 'Save' %>
+<% end %>
+</div>
