@@ -33,20 +33,12 @@ describe 'the user view', type: :feature do
     end
 
     it 'sees an item counter next to cart' do
-      # appetizers = Category.create(name: 'Appetizers')
-      # appetizers.items.create(id: 1, name: 'dandelion salad', description: 'yummyyummyyummyyummyyummyyummyyummy', price: 5.00, status: "active")
-      # appetizers.save
-      # visit '/categories'
       page.find('#cart_button').click
       page.find('#cart_button').click
       expect(page).to have_content('2')
     end
 
     it 'does not create a duplicate order if user clicks back button after order confirmation' do
-      # appetizers = Category.create(name: 'Appetizers')
-      # appetizers.items.create(id: 1, name: 'dandelion salad', description: 'yummyyummyyummyyummyyummyyummyyummy', price: 5.00, status: "active")
-      # appetizers.save
-      # visit '/categories'
       expect(Order.all.count).to eq(0)
       page.find('#cart_button').click
       user = user_with({email_address: 'John@example.com'})
@@ -63,7 +55,30 @@ describe 'the user view', type: :feature do
       expect(Order.all.count).to eq(1)
     end
 
-    # it 'is prompted for an address when designating pick up order'
+    it 'is prompted for an address when designating pick up order' do
+      expect(Order.all.count).to eq(0)
+      click_on('cart')
+      user = user_with({email_address: 'John@example.com'})
+      user.save
+      page.fill_in('Email address', with: 'John@example.com')
+      page.fill_in('Password', with: '1234')
+      page.click_button('Log In')
+      page.find("#continue_shopping_btn").click
+      expect(page).to have_content('dandelion salad')
+      page.find('#cart_button').click
+      click_on('cart')
+      page.find("#ckout_btn").click
+      page.find("#delivery_btn").click
+      page.fill_in('Street address', with: "123 Mountain Street")
+      page.fill_in('City', with: 'Denver')
+      page.fill_in('State', with: "Colorado")
+      page.fill_in('Zip', with: '80228')
+      page.click_button('Create Address')
+      page.click_button('use this address')
+      order = Order.last
+      expect(Order.all.count).to eq(1)
+      expect(order.address.city).to eq("Denver")
+    end
 
 
   end
@@ -75,11 +90,14 @@ describe 'the user view', type: :feature do
       login_as(user)
       visit '/orders'
     end
-    it 'shows order' do
+    xit 'shows order' do
       order = Order.last
-      # binding.pry
+      save_and_open_page
+
       page.click_on '1'
+
       expect(current_path).to eq(order_path(order))
     end
+
   end
 end

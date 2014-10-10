@@ -28,7 +28,7 @@ describe 'the user view', type: :feature do
     describe 'account creation', type: :feature do
       it 'can create user credentials' do
         visit categories_path
-        page.click_link('Create_Account')
+        page.click_link('Create Account')
         within("#email_address_field") do
           fill_in('Email address', :with => 'Joe@example.com')
         end
