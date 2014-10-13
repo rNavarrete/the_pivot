@@ -185,3 +185,9 @@ body {
 #item_status {
   color: black;
 }
+
+.field_with_errors {
+  padding: 1px;
+  background-color: red;
+  display: table;
+}
