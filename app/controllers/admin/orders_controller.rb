@@ -3,15 +3,8 @@ class Admin::OrdersController < Admin::BaseController
 
   def index
     status = params[:status]
-
-    if status == "paid"
-      @orders = Order.paid
-    elsif status == 'completed'
-      @orders = Order.completed
-    elsif status == 'canceled'
-      @orders = Order.canceled
-    elsif status == 'ordered'
-      @orders = Order.ordered
+    if Order.valid_statuses.include?(status)
+      @orders = Order.where(status: status)
     else
       @orders = Order.all
     end

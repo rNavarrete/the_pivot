@@ -3,21 +3,13 @@ class OrdersController < ApplicationController
   before_action :set_order, only: [:show]
 
   def create
-# <<<<<<< HEAD
-#     order = current_user.orders.last
-#     if order.nil? || !order.open?
-#       order = current_user.orders.create
-#     end
-#     order.build_order(session[:cart_items])
-#     redirect_to order_path(order)
-#   end
-
-    if session[:cart_items].count == 0
+    if session[:cart_items].empty?
       redirect_to verification_path
     else
       @order = Order.create(user_id: session[:user_id], status: "ordered")
-      @order.order_items = session[:cart_items].map { |item_id, quantity| OrderItem.new(item_id: item_id, quantity: quantity, order_id: @order)}
-      # address = Address.where(id: params[:address])
+      session[:cart_items].map do |item_id, quantity|
+        @order.order_items.new(item_id: item_id, quantity: quantity)
+      end
       @order.address_id = params[:address]
       @order.save
       session[:cart_items] = {}
@@ -26,14 +18,10 @@ class OrdersController < ApplicationController
   end
 
   def index
-      @orders = current_user.orders
+    @orders = current_user.orders
   end
 
-
-
-
   def new
-
     @addresses = Address.where(user_id: session[:id])
     if cart.empty?
       redirect_to cart_path, notice: 'Please add items to your cart before checking out. Thank you!'
