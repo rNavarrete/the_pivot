@@ -62,7 +62,7 @@ describe 'the admin view', type: :feature do
       expect(page).to have_content(5.50)
     end
 
-    xit 'can_change_item_category' do
+    it 'can_change_item_category' do
       create_category({})
       create_item({})
       visit items_path
@@ -76,9 +76,8 @@ describe 'the admin view', type: :feature do
       check('Desserts')
       click_button 'Save'
       click_link 'Mountain Mud Pie'
-      box = find('#item_category_ids_8')
-
-      expect(box).to be_checked
+      item = Item.find_by(name: 'Mountain Mud Pie')
+      expect(item.categories.first.name).to eq('Desserts')
     end
 
     it 'can delete a category when logged in as an admin' do
@@ -110,16 +109,15 @@ describe 'the admin view', type: :feature do
       expect(page).to have_text('Category Successfully Created!')
     end
 
-    xit 'can edit a category from the admin face' do
+    it 'can edit a category from the admin face' do
        user = user_with({})
        user.save
        login_as(user)
        create_category({})
        visit admin_categories_path
        click_link 'Desserts'
-       expect(current_path).to eq("/admin/categories/11/edit")
 
-       fill_in 'Name', with: 'Desserts'
+       fill_in 'Name', with: 'Desserts!'
        click_button 'Save'
        expect(current_path).to eq(admin_categories_path)
        expect(page).to have_text('Category Successfully Updated!')
@@ -166,3 +164,4 @@ describe 'the admin view', type: :feature do
     end
   end
 end
+#
