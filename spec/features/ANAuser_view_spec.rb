@@ -107,6 +107,27 @@ describe 'the user view', type: :feature do
       expect(page).to have_css("#errors")
       expect(page).to_not have_content("80228")
     end
+
+    it 'can delete an address' do
+      user = user_with({email_address: 'John@example.com'})
+      user.save
+      page.fill_in('Email address', with: user.email_address)
+      page.fill_in('Password', with: '1234')
+      page.click_button('Log In')
+      page.find('#cart_button').click
+      page.find("#cart_btn").click
+      page.find("#ckout_btn").click
+      page.find("#delivery_btn").click
+      page.fill_in('Street address', with: "123 Mountain Street")
+      page.fill_in('City', with: 'Denver')
+      page.fill_in('State', with: "Colorado")
+      page.fill_in('Zip', with: '80228')
+      page.click_button('Create Address')
+      expect(page).to have_content("123 Mountain Street")
+      page.click_button('Delete Address')
+      expect(page).to_not have_content("123 Mountain Street")
+
+    end
   end
 
   describe 'user order', type: :feature do

@@ -7,21 +7,30 @@
       <%= a.city %>
       <%= a.state %>
       <%= a.zip %>
-</br>
-</br>
-<div class="button">
-  <%= form_tag orders_path, method: :post do %>
-  <%= hidden_field_tag :address, a.id %>
-    <%= button_tag(:class => "btn btn-default btn-sm", :id => "cart_button") do %>
-       use this address <span class="glyphicon glyphicon-shopping-cart" ></span>
-    <% end %>
-  <% end %>
-</div>
+      </br>
+      </br>
+      <div class="button">
+        <%= form_tag orders_path, method: :post do %>
+        <%= hidden_field_tag :address, a.id %>
+          <%= button_tag(:class => "btn btn-default btn-sm", :id => "cart_button") do %>
+             use this address <span class="glyphicon glyphicon-shopping-cart" ></span>
+          <% end %>
+        <% end %>
+
+        <%= form_tag address_path(a), method: :delete do %>
+        <%= hidden_field_tag :address, a.id %>
+          <%= button_tag(:class => "btn btn-default btn-sm", :id => "cart_button") do %>
+             Delete Address <span class="glyphicon glyphicon-shopping-cart" ></span>
+          <% end %>
+        <% end %>
+      </div>
     </br>
     </br>
     </div>
-  <% end %>
+    <% end %>
+
 <h3> Or </h3>
+
 <%= form_tag new_address_path, method: :get do %>
   <%= button_tag(:class => "btn btn-default btn-sm", :id => "cart_button") do %>
      Enter a New Address <span class="glyphicon glyphicon-shopping-cart" ></span>

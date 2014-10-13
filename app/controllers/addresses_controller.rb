@@ -17,7 +17,7 @@ class AddressesController < ApplicationController
     redirect_to addresses_path
     else
     render :new
-    end 
+    end
 
 
       # redirect_to complete_delivery_order_path
@@ -32,6 +32,12 @@ class AddressesController < ApplicationController
       #   session[:cart_items] = {}
       #   redirect_to verification_path
       # end
+  end
+
+  def destroy
+    address = Address.find(params[:id])
+    address.destroy
+    redirect_to addresses_path
   end
 
   private
