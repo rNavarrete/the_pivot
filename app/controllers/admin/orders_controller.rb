@@ -1,6 +1,4 @@
 class Admin::OrdersController < Admin::BaseController
-  before_action :authorize
-
   def index
     status = params[:status]
     if Order.valid_statuses.include?(status)
@@ -10,7 +8,6 @@ class Admin::OrdersController < Admin::BaseController
     end
     @all = Order.all
   end
-
 
   def show
     @order = Order.find(params[:id])
