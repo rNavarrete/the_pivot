@@ -26,4 +26,5 @@ class Order < ActiveRecord::Base
   def total
     subtotal + tax
   end
+
 end
