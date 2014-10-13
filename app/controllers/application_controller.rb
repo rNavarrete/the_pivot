@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
+#delete in another commit
   def authorize
     if current_user == nil
       redirect_to '/'
@@ -18,9 +19,7 @@ class ApplicationController < ActionController::Base
   end
 
   # use this method, not the ivar, b/c this sets the ivar
-  #
   def cart
-    # binding.pry
     @cart ||= Cart.new(session)
   end
 
