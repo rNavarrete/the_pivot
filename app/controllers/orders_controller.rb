@@ -33,6 +33,8 @@ class OrdersController < ApplicationController
 
 
   def new
+
+    @addresses = Address.where(user_id: session[:id])
     if cart.empty?
       redirect_to cart_path, notice: 'Please add items to your cart before checking out. Thank you!'
     else
