@@ -2,6 +2,7 @@ class AddressesController < ApplicationController
 
 
   def index
+    @address = Address.new
     @addresses = Address.where(user_id: session[:id])
   end
 
@@ -10,8 +11,15 @@ class AddressesController < ApplicationController
   end
 
   def create
-    @address = Address.new(address_params, user_id: session[:id])
+    @address = Address.new(address_params)
+    @address.user_id = session[:id]
     if @address.save
+    redirect_to addresses_path
+    else
+    render :new
+    end 
+
+
       # redirect_to complete_delivery_order_path
       # redirect_to controller: 'orders', action: 'create', address: @address
       # redirect_to new_order_path params: {address: @address}
@@ -24,10 +32,6 @@ class AddressesController < ApplicationController
       #   session[:cart_items] = {}
       #   redirect_to verification_path
       # end
-      redirect_to addresses_path
-    else
-      render :new
-    end
   end
 
   private

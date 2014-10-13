@@ -1,4 +1,6 @@
-<h3> Your Addresses </h3>
+<h1> Where would you like your food delivered? </h1>
+
+  <h3> Please Choose an Address </h3>
     <% @addresses.each do |a| %>
     <div >
       <%= a.street_address %>
@@ -19,3 +21,9 @@
     </br>
     </div>
   <% end %>
+<h3> Or </h3>
+<%= form_tag new_address_path, method: :get do %>
+  <%= button_tag(:class => "btn btn-default btn-sm", :id => "cart_button") do %>
+     Enter a New Address <span class="glyphicon glyphicon-shopping-cart" ></span>
+  <% end %>
+<% end %>

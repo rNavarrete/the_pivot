@@ -50,11 +50,19 @@
 <% end %>
 <br/>
 <h3> or </h3>
-<%= form_tag new_address_path, method: :get do %>
-<%= button_tag(:class => "btn btn-default btn-sm", :id => "delivery_btn") do %>
-  Delivery  <span class="glyphicon glyphicon-user" ></span>
-   <% end %>
-   <% end %>
+  <% if @addresses.any? %>
+    <%= form_tag addresses_path, method: :get do %>
+    <%= button_tag(:class => "btn btn-default btn-sm", :id => "delivery_btn") do %>
+      Delivery  <span class="glyphicon glyphicon-user" ></span>
+       <% end %>
+       <% end %>
+  <% else %>
+    <%= form_tag new_address_path, method: :get do %>
+    <%= button_tag(:class => "btn btn-default btn-sm", :id => "delivery_btn") do %>
+      Delivery  <span class="glyphicon glyphicon-user" ></span>
+       <% end %>
+       <% end %>
+  <% end %>
 
 
 </div>
