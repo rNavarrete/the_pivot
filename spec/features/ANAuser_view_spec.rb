@@ -90,11 +90,13 @@ describe 'the user view', type: :feature do
       login_as(user)
       visit '/orders'
     end
-    xit 'shows order' do
+    it 'shows order' do
       order = Order.last
-      save_and_open_page
-
-      page.click_on '1'
+        # save_and_open_page
+      within '.orders_smorders' do
+        first(:link).click
+        # page.click_on '1'
+      end
 
       expect(current_path).to eq(order_path(order))
     end
