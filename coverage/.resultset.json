@@ -123,6 +123,37 @@
         null,
         null
       ],
+      "/Users/aaronwortham/Documents/Turing/dinner-dash/app/models/order.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        18,
+        18,
+        18,
+        18,
+        null,
+        1,
+        17,
+        null,
+        null,
+        1,
+        8,
+        4,
+        null,
+        null,
+        1,
+        2,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null
+      ],
       "/Users/aaronwortham/Documents/Turing/dinner-dash/app/models/user.rb": [
         1,
         1,
@@ -373,36 +404,6 @@
         1,
         6,
         null,
-        null,
-        null
-      ],
-      "/Users/aaronwortham/Documents/Turing/dinner-dash/app/models/order.rb": [
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        18,
-        18,
-        18,
-        18,
-        null,
-        1,
-        17,
-        null,
-        null,
-        1,
-        8,
-        4,
-        null,
-        null,
-        1,
-        2,
-        null,
-        null,
-        1,
-        1,
         null,
         null
       ],
@@ -661,6 +662,6 @@
         null
       ]
     },
-    "timestamp": 1413223363
+    "timestamp": 1413225449
   }
 }
