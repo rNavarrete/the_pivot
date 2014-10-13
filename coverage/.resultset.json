@@ -1,14 +1,14 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/glenegbert/Dropbox/ruby_projects/dinner-dash/config/environment.rb": [
+      "/Users/kavita/Dropbox/turing/projects/dinner-dash/config/environment.rb": [
         null,
         1,
         null,
         null,
         1
       ],
-      "/Users/glenegbert/Dropbox/ruby_projects/dinner-dash/config/application.rb": [
+      "/Users/kavita/Dropbox/turing/projects/dinner-dash/config/application.rb": [
         1,
         null,
         null,
@@ -40,13 +40,13 @@
         null,
         null
       ],
-      "/Users/glenegbert/Dropbox/ruby_projects/dinner-dash/config/boot.rb": [
+      "/Users/kavita/Dropbox/turing/projects/dinner-dash/config/boot.rb": [
         null,
         1,
         null,
         1
       ],
-      "/Users/glenegbert/Dropbox/ruby_projects/dinner-dash/config/environments/test.rb": [
+      "/Users/kavita/Dropbox/turing/projects/dinner-dash/config/environments/test.rb": [
         1,
         null,
         null,
@@ -87,7 +87,7 @@
         null,
         null
       ],
-      "/Users/glenegbert/Dropbox/ruby_projects/dinner-dash/config/initializers/assets.rb": [
+      "/Users/kavita/Dropbox/turing/projects/dinner-dash/config/initializers/assets.rb": [
         null,
         null,
         null,
@@ -97,7 +97,7 @@
         null,
         null
       ],
-      "/Users/glenegbert/Dropbox/ruby_projects/dinner-dash/config/initializers/backtrace_silencers.rb": [
+      "/Users/kavita/Dropbox/turing/projects/dinner-dash/config/initializers/backtrace_silencers.rb": [
         null,
         null,
         null,
@@ -106,18 +106,18 @@
         null,
         null
       ],
-      "/Users/glenegbert/Dropbox/ruby_projects/dinner-dash/config/initializers/cookies_serializer.rb": [
+      "/Users/kavita/Dropbox/turing/projects/dinner-dash/config/initializers/cookies_serializer.rb": [
         null,
         null,
         1
       ],
-      "/Users/glenegbert/Dropbox/ruby_projects/dinner-dash/config/initializers/filter_parameter_logging.rb": [
+      "/Users/kavita/Dropbox/turing/projects/dinner-dash/config/initializers/filter_parameter_logging.rb": [
         null,
         null,
         null,
         1
       ],
-      "/Users/glenegbert/Dropbox/ruby_projects/dinner-dash/config/initializers/inflections.rb": [
+      "/Users/kavita/Dropbox/turing/projects/dinner-dash/config/initializers/inflections.rb": [
         null,
         null,
         null,
@@ -135,18 +135,18 @@
         null,
         null
       ],
-      "/Users/glenegbert/Dropbox/ruby_projects/dinner-dash/config/initializers/mime_types.rb": [
+      "/Users/kavita/Dropbox/turing/projects/dinner-dash/config/initializers/mime_types.rb": [
         null,
         null,
         null,
         null
       ],
-      "/Users/glenegbert/Dropbox/ruby_projects/dinner-dash/config/initializers/session_store.rb": [
+      "/Users/kavita/Dropbox/turing/projects/dinner-dash/config/initializers/session_store.rb": [
         null,
         null,
         1
       ],
-      "/Users/glenegbert/Dropbox/ruby_projects/dinner-dash/config/initializers/simple_form.rb": [
+      "/Users/kavita/Dropbox/turing/projects/dinner-dash/config/initializers/simple_form.rb": [
         null,
         1,
         null,
@@ -293,7 +293,7 @@
         null,
         null
       ],
-      "/Users/glenegbert/Dropbox/ruby_projects/dinner-dash/config/initializers/wrap_parameters.rb": [
+      "/Users/kavita/Dropbox/turing/projects/dinner-dash/config/initializers/wrap_parameters.rb": [
         null,
         null,
         null,
@@ -309,7 +309,7 @@
         null,
         null
       ],
-      "/Users/glenegbert/Dropbox/ruby_projects/dinner-dash/config/routes.rb": [
+      "/Users/kavita/Dropbox/turing/projects/dinner-dash/config/routes.rb": [
         1,
         null,
         1,
@@ -354,59 +354,59 @@
         1,
         null
       ],
-      "/Users/glenegbert/Dropbox/ruby_projects/dinner-dash/app/helpers/about_helper.rb": [
+      "/Users/kavita/Dropbox/turing/projects/dinner-dash/app/helpers/about_helper.rb": [
         1,
         null
       ],
-      "/Users/glenegbert/Dropbox/ruby_projects/dinner-dash/app/helpers/admin/dashboard_helper.rb": [
+      "/Users/kavita/Dropbox/turing/projects/dinner-dash/app/helpers/admin/dashboard_helper.rb": [
         1,
         null
       ],
-      "/Users/glenegbert/Dropbox/ruby_projects/dinner-dash/app/helpers/admin/order_items_helper.rb": [
+      "/Users/kavita/Dropbox/turing/projects/dinner-dash/app/helpers/admin/order_items_helper.rb": [
         1,
         null
       ],
-      "/Users/glenegbert/Dropbox/ruby_projects/dinner-dash/app/helpers/admin/orders_helper.rb": [
+      "/Users/kavita/Dropbox/turing/projects/dinner-dash/app/helpers/admin/orders_helper.rb": [
         1,
         null
       ],
-      "/Users/glenegbert/Dropbox/ruby_projects/dinner-dash/app/helpers/application_helper.rb": [
+      "/Users/kavita/Dropbox/turing/projects/dinner-dash/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/Users/glenegbert/Dropbox/ruby_projects/dinner-dash/app/helpers/carts_helper.rb": [
+      "/Users/kavita/Dropbox/turing/projects/dinner-dash/app/helpers/carts_helper.rb": [
         1,
         null
       ],
-      "/Users/glenegbert/Dropbox/ruby_projects/dinner-dash/app/helpers/categories_helper.rb": [
+      "/Users/kavita/Dropbox/turing/projects/dinner-dash/app/helpers/categories_helper.rb": [
         1,
         null
       ],
-      "/Users/glenegbert/Dropbox/ruby_projects/dinner-dash/app/helpers/contact_us_helper.rb": [
+      "/Users/kavita/Dropbox/turing/projects/dinner-dash/app/helpers/contact_us_helper.rb": [
         1,
         null
       ],
-      "/Users/glenegbert/Dropbox/ruby_projects/dinner-dash/app/helpers/gift_cards_helper.rb": [
+      "/Users/kavita/Dropbox/turing/projects/dinner-dash/app/helpers/gift_cards_helper.rb": [
         1,
         null
       ],
-      "/Users/glenegbert/Dropbox/ruby_projects/dinner-dash/app/helpers/home_helper.rb": [
+      "/Users/kavita/Dropbox/turing/projects/dinner-dash/app/helpers/home_helper.rb": [
         1,
         null
       ],
-      "/Users/glenegbert/Dropbox/ruby_projects/dinner-dash/app/helpers/items_helper.rb": [
+      "/Users/kavita/Dropbox/turing/projects/dinner-dash/app/helpers/items_helper.rb": [
         1,
         null
       ],
-      "/Users/glenegbert/Dropbox/ruby_projects/dinner-dash/app/helpers/orders_helper.rb": [
+      "/Users/kavita/Dropbox/turing/projects/dinner-dash/app/helpers/orders_helper.rb": [
         1,
         null
       ],
-      "/Users/glenegbert/Dropbox/ruby_projects/dinner-dash/app/helpers/sessions_helper.rb": [
+      "/Users/kavita/Dropbox/turing/projects/dinner-dash/app/helpers/sessions_helper.rb": [
         1,
         null
       ],
-      "/Users/glenegbert/Dropbox/ruby_projects/dinner-dash/app/controllers/admin/order_items_controller.rb": [
+      "/Users/kavita/Dropbox/turing/projects/dinner-dash/app/controllers/admin/order_items_controller.rb": [
         1,
         1,
         0,
@@ -426,7 +426,7 @@
         null,
         null
       ],
-      "/Users/glenegbert/Dropbox/ruby_projects/dinner-dash/app/controllers/application_controller.rb": [
+      "/Users/kavita/Dropbox/turing/projects/dinner-dash/app/controllers/application_controller.rb": [
         1,
         null,
         null,
@@ -457,7 +457,7 @@
         1,
         null
       ],
-      "/Users/glenegbert/Dropbox/ruby_projects/dinner-dash/app/models/address.rb": [
+      "/Users/kavita/Dropbox/turing/projects/dinner-dash/app/models/address.rb": [
         1,
         1,
         1,
@@ -470,7 +470,7 @@
         null,
         null
       ],
-      "/Users/glenegbert/Dropbox/ruby_projects/dinner-dash/app/models/category.rb": [
+      "/Users/kavita/Dropbox/turing/projects/dinner-dash/app/models/category.rb": [
         1,
         1,
         1,
@@ -479,7 +479,7 @@
         121,
         null
       ],
-      "/Users/glenegbert/Dropbox/ruby_projects/dinner-dash/app/models/item.rb": [
+      "/Users/kavita/Dropbox/turing/projects/dinner-dash/app/models/item.rb": [
         1,
         null,
         1,
@@ -505,7 +505,7 @@
         null,
         null
       ],
-      "/Users/glenegbert/Dropbox/ruby_projects/dinner-dash/app/models/user.rb": [
+      "/Users/kavita/Dropbox/turing/projects/dinner-dash/app/models/user.rb": [
         1,
         1,
         1,
@@ -528,13 +528,13 @@
         null,
         null
       ],
-      "/Users/glenegbert/Dropbox/ruby_projects/dinner-dash/app/models/category_item.rb": [
+      "/Users/kavita/Dropbox/turing/projects/dinner-dash/app/models/category_item.rb": [
         1,
         1,
         1,
         null
       ],
-      "/Users/glenegbert/Dropbox/ruby_projects/dinner-dash/app/controllers/categories_controller.rb": [
+      "/Users/kavita/Dropbox/turing/projects/dinner-dash/app/controllers/categories_controller.rb": [
         1,
         1,
         1,
@@ -542,7 +542,7 @@
         null,
         null
       ],
-      "/Users/glenegbert/Dropbox/ruby_projects/dinner-dash/app/models/ability.rb": [
+      "/Users/kavita/Dropbox/turing/projects/dinner-dash/app/models/ability.rb": [
         1,
         1,
         null,
@@ -576,7 +576,7 @@
         null,
         null
       ],
-      "/Users/glenegbert/Dropbox/ruby_projects/dinner-dash/app/controllers/carts_controller.rb": [
+      "/Users/kavita/Dropbox/turing/projects/dinner-dash/app/controllers/carts_controller.rb": [
         1,
         1,
         null,
@@ -598,7 +598,7 @@
         null,
         null
       ],
-      "/Users/glenegbert/Dropbox/ruby_projects/dinner-dash/app/models/cart.rb": [
+      "/Users/kavita/Dropbox/turing/projects/dinner-dash/app/models/cart.rb": [
         1,
         1,
         38,
@@ -633,7 +633,7 @@
         null,
         null
       ],
-      "/Users/glenegbert/Dropbox/ruby_projects/dinner-dash/app/controllers/sessions_controller.rb": [
+      "/Users/kavita/Dropbox/turing/projects/dinner-dash/app/controllers/sessions_controller.rb": [
         1,
         null,
         1,
@@ -660,7 +660,7 @@
         null,
         null
       ],
-      "/Users/glenegbert/Dropbox/ruby_projects/dinner-dash/app/controllers/orders_controller.rb": [
+      "/Users/kavita/Dropbox/turing/projects/dinner-dash/app/controllers/orders_controller.rb": [
         1,
         1,
         1,
@@ -737,7 +737,7 @@
         null,
         null
       ],
-      "/Users/glenegbert/Dropbox/ruby_projects/dinner-dash/app/models/checkout.rb": [
+      "/Users/kavita/Dropbox/turing/projects/dinner-dash/app/models/checkout.rb": [
         1,
         null,
         1,
@@ -757,7 +757,7 @@
         null,
         null
       ],
-      "/Users/glenegbert/Dropbox/ruby_projects/dinner-dash/app/models/order.rb": [
+      "/Users/kavita/Dropbox/turing/projects/dinner-dash/app/models/order.rb": [
         1,
         1,
         1,
@@ -784,7 +784,7 @@
         null,
         null
       ],
-      "/Users/glenegbert/Dropbox/ruby_projects/dinner-dash/app/models/order_item.rb": [
+      "/Users/kavita/Dropbox/turing/projects/dinner-dash/app/models/order_item.rb": [
         1,
         1,
         1,
@@ -799,13 +799,13 @@
         null,
         null
       ],
-      "/Users/glenegbert/Dropbox/ruby_projects/dinner-dash/app/controllers/verifications_controller.rb": [
+      "/Users/kavita/Dropbox/turing/projects/dinner-dash/app/controllers/verifications_controller.rb": [
         1,
         1,
         null,
         null
       ],
-      "/Users/glenegbert/Dropbox/ruby_projects/dinner-dash/app/controllers/addresses_controller.rb": [
+      "/Users/kavita/Dropbox/turing/projects/dinner-dash/app/controllers/addresses_controller.rb": [
         1,
         null,
         null,
@@ -845,36 +845,25 @@
         1,
         1,
         1,
-<<<<<<< HEAD
-        null,
-        null
-      ],
-      "/Users/glenegbert/Dropbox/ruby_projects/dinner-dash/app/controllers/home_controller.rb": [
-=======
->>>>>>> addresses_finishing_touches
         1,
+        null,
+        null,
         1,
         1,
         3,
         null,
-<<<<<<< HEAD
-        null,
-        1,
-        null,
-=======
         null
       ],
-      "/Users/glenegbert/Dropbox/ruby_projects/dinner-dash/app/controllers/home_controller.rb": [
+      "/Users/kavita/Dropbox/turing/projects/dinner-dash/app/controllers/home_controller.rb": [
         1,
         1,
         null,
         null,
         1,
         null,
->>>>>>> addresses_finishing_touches
         null
       ],
-      "/Users/glenegbert/Dropbox/ruby_projects/dinner-dash/app/controllers/users_controller.rb": [
+      "/Users/kavita/Dropbox/turing/projects/dinner-dash/app/controllers/users_controller.rb": [
         1,
         null,
         1,
@@ -906,7 +895,7 @@
         null,
         null
       ],
-      "/Users/glenegbert/Dropbox/ruby_projects/dinner-dash/app/controllers/admin/orders_controller.rb": [
+      "/Users/kavita/Dropbox/turing/projects/dinner-dash/app/controllers/admin/orders_controller.rb": [
         1,
         1,
         null,
@@ -944,7 +933,7 @@
         null,
         null
       ],
-      "/Users/glenegbert/Dropbox/ruby_projects/dinner-dash/app/controllers/admin/base_controller.rb": [
+      "/Users/kavita/Dropbox/turing/projects/dinner-dash/app/controllers/admin/base_controller.rb": [
         1,
         1,
         null,
@@ -956,7 +945,7 @@
         null,
         null
       ],
-      "/Users/glenegbert/Dropbox/ruby_projects/dinner-dash/app/controllers/items_controller.rb": [
+      "/Users/kavita/Dropbox/turing/projects/dinner-dash/app/controllers/items_controller.rb": [
         1,
         null,
         1,
@@ -964,14 +953,14 @@
         null,
         null
       ],
-      "/Users/glenegbert/Dropbox/ruby_projects/dinner-dash/app/controllers/admin/dashboard_controller.rb": [
+      "/Users/kavita/Dropbox/turing/projects/dinner-dash/app/controllers/admin/dashboard_controller.rb": [
         1,
         1,
         1,
         null,
         null
       ],
-      "/Users/glenegbert/Dropbox/ruby_projects/dinner-dash/app/controllers/admin/items_controller.rb": [
+      "/Users/kavita/Dropbox/turing/projects/dinner-dash/app/controllers/admin/items_controller.rb": [
         null,
         1,
         1,
@@ -1024,7 +1013,7 @@
         null,
         null
       ],
-      "/Users/glenegbert/Dropbox/ruby_projects/dinner-dash/app/controllers/admin/categories_controller.rb": [
+      "/Users/kavita/Dropbox/turing/projects/dinner-dash/app/controllers/admin/categories_controller.rb": [
         1,
         null,
         1,
@@ -1075,10 +1064,6 @@
         null
       ]
     },
-<<<<<<< HEAD
-    "timestamp": 1413207387
-=======
-    "timestamp": 1413207184
->>>>>>> addresses_finishing_touches
+    "timestamp": 1413211005
   }
 }
