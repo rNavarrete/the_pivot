@@ -28,7 +28,7 @@ feature "Managing Orders" do
 
     scenario "viewing orders" do
       paid      = Order.create(status: "paid", user_id: user.id)
-      cancelled = Order.create(status: "cancelled", user_id: user.id)
+      canceled = Order.create(status: "canceled", user_id: user.id)
       completed = Order.create(status: "completed", user_id: user.id)
       ordered   = Order.create(status: "ordered", user_id: user.id)
 
@@ -36,7 +36,7 @@ feature "Managing Orders" do
 
       within('#orders') do
         expect(page).to have_content paid.status
-        expect(page).to have_content cancelled.status
+        expect(page).to have_content canceled.status
         expect(page).to have_content completed.status
         expect(page).to have_content ordered.status
       end
@@ -44,17 +44,16 @@ feature "Managing Orders" do
 
     scenario "viewing paid orders" do
       paid      = Order.create(status: "paid", user_id: user.id)
-      cancelled = Order.create(status: "cancelled", user_id: user.id)
+      canceled  = Order.create(status: "canceled", user_id: user.id)
       completed = Order.create(status: "completed", user_id: user.id)
       ordered   = Order.create(status: "ordered", user_id: user.id)
 
       visit admin_orders_path
-      # save_and_open_page
       click_link "Paid (1)"
 
       within('#orders') do
         expect(page).to     have_content paid.status
-        expect(page).not_to have_content cancelled.status
+        expect(page).not_to have_content canceled.status
         expect(page).not_to have_content completed.status
         expect(page).not_to have_content ordered.status
       end

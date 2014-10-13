@@ -59,7 +59,7 @@ module MyHelpers
 
   def create_order_with_order_item(user)
     create_item_associated_with_a_category
-    order = Order.create(user_id: user.id)
+    order = Order.create(user_id: user.id, status: "paid")
     order.order_items.create(item_id: Item.last.id, quantity: 3)
   end
 
