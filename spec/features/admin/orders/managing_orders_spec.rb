@@ -44,7 +44,7 @@ feature "Managing Orders" do
 
     scenario "viewing paid orders" do
       paid      = Order.create(status: "paid", user_id: user.id)
-      canceled = Order.create(status: "canceled", user_id: user.id)
+      canceled  = Order.create(status: "canceled", user_id: user.id)
       completed = Order.create(status: "completed", user_id: user.id)
       ordered   = Order.create(status: "ordered", user_id: user.id)
 
