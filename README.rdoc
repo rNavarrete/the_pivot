@@ -1,6 +1,8 @@
 {<img alt='Stories in Ready' src='https://badge.waffle.io/glenegbert/dinner-dash.png?label=ready&title=Ready' />}[https://waffle.io/glenegbert/dinner-dash]
 == README
 
+Here is a link to the actual site on Heroku: http://mountain-top-cafe.herokuapp.com/
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
