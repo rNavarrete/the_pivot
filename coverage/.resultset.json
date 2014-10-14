@@ -521,6 +521,21 @@
         2,
         null,
         null,
+        1,
+        24,
+        24,
+        null,
+        24,
+        null,
+        null,
+        1,
+        12,
+        null,
+        null,
+        1,
+        6,
+        null,
+        null,
         null
       ],
       "/Users/glenegbert/Dropbox/ruby_projects/dinner-dash/app/models/user.rb": [
@@ -748,26 +763,6 @@
         1,
         null,
         0,
-        null,
-        null,
-        null
-      ],
-      "/Users/glenegbert/Dropbox/ruby_projects/dinner-dash/app/models/checkout.rb": [
-        1,
-        null,
-        1,
-        24,
-        24,
-        null,
-        24,
-        null,
-        null,
-        1,
-        12,
-        null,
-        null,
-        1,
-        6,
         null,
         null,
         null
@@ -1018,6 +1013,6 @@
         null
       ]
     },
-    "timestamp": 1413298641
+    "timestamp": 1413307322
   }
 }
