@@ -27,13 +27,12 @@ class OrdersController < ApplicationController
       redirect_to cart_path, notice: 'Please add items to your cart before checking out. Thank you!'
     else
       @subtotal = Order.subtotal(session)
-      @tax = Order.tax(session)
-      @total = Order.total(session)
+      @tax      = Order.tax(session)
+      @total    = Order.total(session)
     end
   end
 
   def show
-    # @order = Order.find(params[:id])
   end
 
   def update
@@ -43,7 +42,6 @@ class OrdersController < ApplicationController
   end
 
   private
-
   def authenticate_user
     unless current_user
       flash[:notice] = 'Please log in or create account to complete order'
@@ -53,7 +51,6 @@ class OrdersController < ApplicationController
   end
 
   def set_order
-    # DEFINITELY NEEDS REFACTORING
     if current_user.orders.collect { |order| order.id }.include?(params[:id].to_i)
       @order = current_user.orders.find(params[:id])
     else

@@ -4,13 +4,13 @@ class Admin::CategoriesController < Admin::BaseController
   end
 
   def destroy
-    @category = Category.find(params[:id])
+    @category = find_category(:id)
     @category.destroy
     redirect_to admin_categories_path, notice: 'Category Successfully Deleted!'
   end
 
   def update
-    @category = Category.find(params[:id])
+    @category = find_category(:id)
     if @category.update(category_params)
       redirect_to admin_categories_path, notice: 'Category Successfully Updated!'
     else
@@ -20,11 +20,11 @@ class Admin::CategoriesController < Admin::BaseController
   end
 
   def edit
-    @category = Category.find(params[:id])
+    @category = find_category(:id)
   end
 
   def show
-    @category = Category.find(params[:id])
+    @category = find_category(:id)
   end
 
   def create
@@ -43,5 +43,9 @@ class Admin::CategoriesController < Admin::BaseController
   private
   def category_params
     params.require(:category).permit(:name, :description)
+  end
+
+  def find_category(category_id)
+    Category.find(params[:id])
   end
 end

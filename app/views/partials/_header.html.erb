@@ -1,6 +1,7 @@
 <nav class="navbar navbar-default" role="navigation">
  <div class="container-fluid">
    <div class='flashes'><%= flash[:notice] %></div>
+   <div class='flashes'><%= flash[:error] %></div>
 
    <div class="navbar-header">
      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -33,7 +34,7 @@
          <div class="login_form">
          <%= form_tag login_path do %>
          <%= label_tag :email_address %>
-         <%= text_field_tag :email_address %>
+         <%= text_field_tag :email_address %> <br>
          <%= label_tag :password %>
          <%= password_field_tag :password%>
          <%= submit_tag value="Log In" %>

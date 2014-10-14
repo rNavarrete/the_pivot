@@ -8,11 +8,9 @@ class ContactUsController < ApplicationController
     @contact = ContactUs.new(contact_us_params)
     @contact.request = request
     if @contact.deliver
-      flash.now[:notice] = 'Thank you for your message. We will contact you soon!'
-      redirect_to root_path
+      redirect_to root_path, :notice = 'Thank you for your message. We will contact you soon!'
     else
-      flash.now[:error] = 'Cannot send message.'
-      render :new
+      render :new, :error = 'Cannot send message.'
     end
   end
 
