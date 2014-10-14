@@ -106,14 +106,10 @@ describe 'the user view', type: :feature do
     end
     it 'shows order' do
       order = Order.last
-        # save_and_open_page
       within '.orders_smorders' do
         first(:link).click
-        # page.click_on '1'
       end
-
       expect(current_path).to eq(order_path(order))
     end
-
   end
 end
