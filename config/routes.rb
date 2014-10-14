@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   resources :addresses
 
+  get 'code', to: 'welcome#code'
+
   get 'complete_delivery_order', to: 'orders#create'
   get 'checkout',         to: 'checkouts#show'
   get 'complete_order',   to: 'checkouts#complete_order'
@@ -34,10 +36,10 @@ Rails.application.routes.draw do
 
   get 'verification', to: 'verifications#show'
 
-  
+
   get 'gift_cards', to: 'gift_cards#show'
   get 'about',      to: 'about#show'
-  # get '/:slug', to: 'pages#show'
+  get '/:slug', to: 'categories#index'
     match '/contact_us',     to: 'contact_us#new',             via: 'get'
   resources "contact_us", only: [:new, :create]
 end
