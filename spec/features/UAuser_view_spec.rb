@@ -62,13 +62,13 @@ describe 'the user view', type: :feature do
 
 
       it 'can not proceed to checkout' do
-          create_item_associated_with_a_category
-          visit '/categories'
-          page.find('#cart_button').click
-          click_on('cart')
-          click_on('check out')
-          expect(current_path).to eq(new_user_path)
-        end
+        create_item_associated_with_a_category
+        visit '/categories'
+        page.find('#cart_button').click
+        click_on('cart')
+        click_on('check out')
+        expect(current_path).to eq(new_user_path)
+      end
 
       it 'removes item from cart' do
         create_item_associated_with_a_category

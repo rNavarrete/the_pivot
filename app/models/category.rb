@@ -3,5 +3,5 @@ class Category < ActiveRecord::Base
   has_many :items, through: :category_items
   validates :name, presence: :true
 
-  default_scope { order('name ASC')}
+  default_scope { order('position ASC')}
 end

@@ -1,8 +1,8 @@
-appetizers   = Category.create(name: 'Appalachian Appetizers')
-soups        = Category.create(name: 'Rocky Mountain Soups')
-main_courses = Category.create(name: 'Mantiquierain Main Course', description: 'Served with a side salad')
-gluten_free  = Category.create(name: 'Gluten Free')
-desserts     = Category.create(name: 'Desserts')
+appetizers   = Category.create(name: 'Appalachian Appetizers', position: 1)
+soups        = Category.create(name: 'Rocky Mountain Soups', position: 2)
+main_courses = Category.create(name: 'Mantiquierain Main Course', description: 'Served with a side salad', position: 3)
+gluten_free  = Category.create(name: 'Gluten Free', position: 4)
+desserts     = Category.create(name: 'Desserts', position: 5)
 
 item =Item.create([
   {name: 'Rocky Mountain Oysters',   description: 'Traditional bull balls served thinly sliced, deep fried and with a side of cocktail sauce.', price: 6.50, status: 'active', category_ids: [1], image_file_name: "RockyMtnOysters4.jpg"},
