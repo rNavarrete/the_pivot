@@ -24,7 +24,7 @@ RSpec.describe User, :type => :model do
     expect(user).to_not be_valid
   end
 
-  it 'it is invalide without a unique email' do
+  it 'it is invalid without a unique email' do
     2.times do
     User.create(email_address: "Joe@test.com", full_name: "Joe Test", password: '1234', password_confirmation: "1234")
     result = User.where(email_address: "Joe@test.com")
