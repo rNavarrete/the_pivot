@@ -14,10 +14,7 @@ describe 'the user view', type: :feature do
       visit '/categories'
     end
 
-    it 'completes an order' do
-      click_on('cart')
-      page.find("#continue_shopping_btn").click
-      expect(page).to have_content('dandelion salad')
+    it 'completes an order for pickup' do
       page.find('#cart_button').click
       click_on('cart')
       page.find("#ckout_btn").click
@@ -33,8 +30,9 @@ describe 'the user view', type: :feature do
     end
 
     it 'sees an item counter next to cart' do
-      page.find('#cart_button').click
-      page.find('#cart_button').click
+      2.times do
+        page.find('#cart_button').click
+      end
       expect(page).to have_content('2')
     end
 
@@ -48,10 +46,6 @@ describe 'the user view', type: :feature do
     end
 
     it 'is prompted for an address when designating pick up order' do
-      expect(Order.all.count).to eq(0)
-      click_on('cart')
-      page.find("#continue_shopping_btn").click
-      expect(page).to have_content('dandelion salad')
       page.find('#cart_button').click
       click_on('cart')
       page.find("#ckout_btn").click
@@ -63,7 +57,6 @@ describe 'the user view', type: :feature do
       page.click_button('Create Address')
       page.click_button('use this address')
       order = Order.last
-      expect(Order.all.count).to eq(1)
       expect(order.address.city).to eq("Denver")
     end
 
@@ -113,14 +106,10 @@ describe 'the user view', type: :feature do
     end
     it 'shows order' do
       order = Order.last
-        # save_and_open_page
       within '.orders_smorders' do
         first(:link).click
-        # page.click_on '1'
       end
-
       expect(current_path).to eq(order_path(order))
     end
-
   end
 end
