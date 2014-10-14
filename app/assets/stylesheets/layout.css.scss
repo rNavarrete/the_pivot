@@ -1,4 +1,12 @@
-
+.flashes {
+  color: blue;
+  border-radius: 4px;
+  padding: 10px;
+  margin: 0;
+  text-align: center;
+  text-transform: uppercase;
+  box-shadow: #ffc 0 0 4px;
+}
 
 body {
   background-image: url("mountain.jpg");
@@ -138,6 +146,7 @@ body {
   position: fixed;
   width: 100%;
   z-index: 2;
+
 }
 
 .contact-us-form {
