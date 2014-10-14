@@ -26,9 +26,15 @@ RSpec.describe Address, :type => :model do
       address = Address.new(street_address: "6708 Bitterroot Dr", city: 'Colorado springs', state: 'CO', zip: 80526)
       expect(address).to be_valid
     end
+
     it 'will accept letters in state' do
       address = Address.new(street_address: "6708 Bitterroot Dr", city: 'Colorado springs', state: 'CO', zip: 80526)
       expect(address).to be_valid
+    end
+
+    it 'will not accept more than two letters for the state field' do
+      address = Address.new(street_address: "6708 Bitterroot Dr", city: 'Colorado springs', state: 'Colorado', zip: 80526)
+      expect(address).to_not be_valid
     end
   end
 
