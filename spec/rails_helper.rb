@@ -63,6 +63,14 @@ module MyHelpers
     order.order_items.create(item_id: Item.last.id, quantity: 3)
   end
 
+  def create_order(overrides = {})
+    attributes = {
+      user_id: 1,
+      status: 'paid'
+    }.merge(overrides)
+    Order.create(attributes)
+  end
+
 end
 
 # Add additional requires below this line. Rails is not loaded until this point!

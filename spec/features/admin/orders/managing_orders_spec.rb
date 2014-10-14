@@ -3,8 +3,8 @@ require 'capybara/rails'
 require 'capybara/rspec'
 
 feature "Managing Orders" do
-  context "as an anonymous user" do
-    scenario "trying to access the orders page" do
+  describe "as an anonymous user" do
+    it "trying to access the orders page" do
       visit admin_orders_path
       expect(page.current_path).to eq(root_path)
     end
@@ -21,16 +21,16 @@ feature "Managing Orders" do
       login_as(user)
     end
 
-    scenario "trying to access the orders page" do
+    it "trying to access the orders page" do
       visit admin_orders_path
       expect(page.current_path).to eq(admin_orders_path)
     end
 
-    scenario "viewing orders" do
-      paid      = Order.create(status: "paid", user_id: user.id)
-      canceled = Order.create(status: "canceled", user_id: user.id)
-      completed = Order.create(status: "completed", user_id: user.id)
-      ordered   = Order.create(status: "ordered", user_id: user.id)
+    it "viewing orders" do
+      paid      = create_order(user_id: user.id)
+      canceled = create_order(status: "canceled", user_id: user.id)
+      completed = create_order(status: "completed", user_id: user.id)
+      ordered   = create_order(status: "ordered", user_id: user.id)
 
       visit admin_orders_path
 
@@ -42,11 +42,11 @@ feature "Managing Orders" do
       end
     end
 
-    scenario "viewing paid orders" do
-      paid      = Order.create(status: "paid", user_id: user.id)
-      canceled  = Order.create(status: "canceled", user_id: user.id)
-      completed = Order.create(status: "completed", user_id: user.id)
-      ordered   = Order.create(status: "ordered", user_id: user.id)
+    it "viewing paid orders" do
+      paid      = create_order(user_id: user.id)
+      canceled  = create_order(status: "canceled", user_id: user.id)
+      completed = create_order(status: "completed", user_id: user.id)
+      ordered   = create_order(status: "ordered", user_id: user.id)
 
       visit admin_orders_path
       click_link "Paid (1)"
@@ -59,57 +59,57 @@ feature "Managing Orders" do
       end
     end
 
-    scenario "viewing the paid filter with a paid order" do
-      Order.create(status: 'paid', user_id: user.id)
+    it "viewing the paid filter with a paid order" do
+      create_order(user_id: user.id)
       visit admin_orders_path
       expect(page).to have_link "Paid (1)"
     end
 
-    scenario "viewing the paid filter without a paid order" do
+    it "viewing the paid filter without a paid order" do
       visit admin_orders_path
       expect(page).to have_link "Paid (0)"
     end
 
-    scenario "viewing the completed filter with a completed order" do
-      Order.create(status: 'completed', user_id: user.id)
+    it "viewing the completed filter with a completed order" do
+      create_order(status: 'completed', user_id: user.id)
       visit admin_orders_path
       expect(page).to have_link "Completed (1)"
     end
 
-    scenario "viewing the completed filter with a completed order" do
+    it "viewing the completed filter with a completed order" do
       visit admin_orders_path
       expect(page).to have_link "Completed (0)"
     end
 
-    scenario "viewing the canceled filter with a canceled order" do
-      Order.create(status: 'canceled', user_id: user.id)
+    it "viewing the canceled filter with a canceled order" do
+      create_order(status: 'canceled', user_id: user.id)
       visit admin_orders_path
       expect(page).to have_link "Canceled (1)"
     end
 
-    scenario "viewing the canceled filter with a canceled order" do
+    it "viewing the canceled filter with a canceled order" do
       visit admin_orders_path
       expect(page).to have_link "Canceled (0)"
     end
 
-    scenario "viewing the ordered filter with a ordered order" do
-      Order.create(status: 'ordered', user_id: user.id)
+    it "viewing the ordered filter with a ordered order" do
+      create_order(status: 'ordered', user_id: user.id)
       visit admin_orders_path
       expect(page).to have_link "Ordered (1)"
     end
 
-    scenario "viewing the ordered filter with a ordered order" do
+    it "viewing the ordered filter with a ordered order" do
       visit admin_orders_path
       expect(page).to have_link "Ordered (0)"
     end
 
-    scenario "clicking all will allow you to view page with all orders again" do
-      Order.create(status: 'ordered', user_id: user.id)
-      Order.create(status: 'ordered', user_id: user.id)
+    it "clicking all will allow you to view page with all orders again" do
+      create_order(status: 'ordered', user_id: user.id)
+      create_order(status: 'ordered', user_id: user.id)
       user2 = User.create(full_name: 'Jane', email_address: 'jane@example.com', password: '1234', password_confirmation: '1234', role: 'admin')
 
-      Order.create(status: 'canceled', user_id: user2.id)
-      Order.create(status: 'paid',     user_id: user2.id)
+      create_order(status: 'canceled', user_id: user2.id)
+      create_order(user_id: user2.id)
       visit admin_orders_path
 
       expect(page).to have_link "Ordered (2)"
@@ -125,8 +125,8 @@ feature "Managing Orders" do
       expect(page).to have_text "Jane"
     end
 
-    scenario "can change status of order from ordered to canceled" do
-      order = Order.create(status: 'ordered', user_id: user.id)
+    it "can change status of order from ordered to canceled" do
+      order = create_order(status: 'ordered', user_id: user.id)
       visit admin_orders_path
       click_button 'Cancel'
       expect(page).to have_text 'Canceled (1)'

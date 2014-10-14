@@ -122,22 +122,6 @@ describe 'the admin view', type: :feature do
        expect(page).to have_text('Category Successfully Updated!')
      end
 
-    it 'can create a category from the admin face' do
-      user = user_with({})
-      user.save
-      login_as(user)
-
-      visit admin_categories_path
-      click_link 'Create'
-
-      expect(current_path).to eq(new_admin_category_path)
-
-      fill_in 'Name', with: 'Desserts'
-      click_button 'Save'
-      expect(current_path).to eq(admin_categories_path)
-      expect(page).to have_css('#listings')
-    end
-
     it 'can create/delete an item when logged in as an admin' do
       user = user_with({})
       user.save
