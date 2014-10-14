@@ -14,19 +14,7 @@ describe 'the user view', type: :feature do
       visit '/categories'
     end
 
-<<<<<<< HEAD
     it 'completes an order for pickup' do
-      user = user_with({email_address: 'John@example.com'})
-      user.save
-      page.fill_in('Email address', with: 'John@example.com')
-      page.fill_in('Password', with: '1234')
-      page.click_button('Log In')
-=======
-    it 'completes an order' do
-      click_on('cart')
-      page.find("#continue_shopping_btn").click
-      expect(page).to have_content('dandelion salad')
->>>>>>> c3a5b4bca81f9613fef3d59554965231145d99c2
       page.find('#cart_button').click
       click_on('cart')
       page.find("#ckout_btn").click
@@ -58,18 +46,6 @@ describe 'the user view', type: :feature do
     end
 
     it 'is prompted for an address when designating pick up order' do
-<<<<<<< HEAD
-      user = user_with({email_address: 'John@example.com'})
-      user.save
-      page.fill_in('Email address', with: 'John@example.com')
-      page.fill_in('Password', with: '1234')
-      page.click_button('Log In')
-=======
-      expect(Order.all.count).to eq(0)
-      click_on('cart')
-      page.find("#continue_shopping_btn").click
->>>>>>> c3a5b4bca81f9613fef3d59554965231145d99c2
-      expect(page).to have_content('dandelion salad')
       page.find('#cart_button').click
       click_on('cart')
       page.find("#ckout_btn").click
