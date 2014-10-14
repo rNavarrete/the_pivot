@@ -18,7 +18,6 @@ describe 'the admin view', type: :feature do
     end
 
     it 'can modify item name =' do
-      # item = Item.create(name: "Mountain Mud Pie", description: "yummy, yummy, yummy, yummy, yummy", price: 3.50, status: 'active')
       create_item({})
       visit '/'
       user = user_with({})

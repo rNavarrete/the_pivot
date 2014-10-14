@@ -6,16 +6,27 @@ describe 'the user view', type: :feature do
 
   describe 'cart interaction', type: :feature do
     before do
+      @user = user_with({email_address: 'John@example.com', role: 'user'})
+      @user.save
+      login_as(@user)
+
       create_item_associated_with_a_category
       visit '/categories'
     end
 
+<<<<<<< HEAD
     it 'completes an order for pickup' do
       user = user_with({email_address: 'John@example.com'})
       user.save
       page.fill_in('Email address', with: 'John@example.com')
       page.fill_in('Password', with: '1234')
       page.click_button('Log In')
+=======
+    it 'completes an order' do
+      click_on('cart')
+      page.find("#continue_shopping_btn").click
+      expect(page).to have_content('dandelion salad')
+>>>>>>> c3a5b4bca81f9613fef3d59554965231145d99c2
       page.find('#cart_button').click
       click_on('cart')
       page.find("#ckout_btn").click
@@ -27,7 +38,7 @@ describe 'the user view', type: :feature do
       order = Order.last
       expect(order.order_items.count).to eq(1)
       expect(order.order_items.last.id).to eq(1)
-      expect(order.user_id).to eq(user.id)
+      expect(order.user_id).to eq(@user.id)
     end
 
     it 'sees an item counter next to cart' do
@@ -40,11 +51,6 @@ describe 'the user view', type: :feature do
     it 'does not create a duplicate order if user clicks back button after order confirmation' do
       expect(Order.all.count).to eq(0)
       page.find('#cart_button').click
-      user = user_with({email_address: 'John@example.com'})
-      user.save
-      page.fill_in('Email address', with: user.email_address)
-      page.fill_in('Password', with: '1234')
-      page.click_button('Log In')
       page.find("#cart_btn").click
       page.find("#ckout_btn").click
       page.find("#pickup_btn").click
@@ -52,11 +58,17 @@ describe 'the user view', type: :feature do
     end
 
     it 'is prompted for an address when designating pick up order' do
+<<<<<<< HEAD
       user = user_with({email_address: 'John@example.com'})
       user.save
       page.fill_in('Email address', with: 'John@example.com')
       page.fill_in('Password', with: '1234')
       page.click_button('Log In')
+=======
+      expect(Order.all.count).to eq(0)
+      click_on('cart')
+      page.find("#continue_shopping_btn").click
+>>>>>>> c3a5b4bca81f9613fef3d59554965231145d99c2
       expect(page).to have_content('dandelion salad')
       page.find('#cart_button').click
       click_on('cart')
@@ -64,7 +76,7 @@ describe 'the user view', type: :feature do
       page.find("#delivery_btn").click
       page.fill_in('Street address', with: "123 Mountain Street")
       page.fill_in('City', with: 'Denver')
-      page.fill_in('State', with: "Colorado")
+      page.fill_in('State', with: "CO")
       page.fill_in('Zip', with: '80228')
       page.click_button('Create Address')
       page.click_button('use this address')
@@ -73,11 +85,6 @@ describe 'the user view', type: :feature do
     end
 
     it 'has an option to review placed orders after placing an order' do
-      user = user_with({email_address: 'John@example.com'})
-      user.save
-      page.fill_in('Email address', with: user.email_address)
-      page.fill_in('Password', with: '1234')
-      page.click_button('Log In')
       page.find('#cart_button').click
       page.find("#cart_btn").click
       page.find("#ckout_btn").click
@@ -87,11 +94,6 @@ describe 'the user view', type: :feature do
     end
 
     it 'cannot proceed with any blank address field' do
-      user = user_with({email_address: 'John@example.com'})
-      user.save
-      page.fill_in('Email address', with: user.email_address)
-      page.fill_in('Password', with: '1234')
-      page.click_button('Log In')
       page.find('#cart_button').click
       page.find("#cart_btn").click
       page.find("#ckout_btn").click
@@ -103,18 +105,13 @@ describe 'the user view', type: :feature do
     end
 
     it 'can delete an address' do
-      user = user_with({email_address: 'John@example.com'})
-      user.save
-      page.fill_in('Email address', with: user.email_address)
-      page.fill_in('Password', with: '1234')
-      page.click_button('Log In')
       page.find('#cart_button').click
       page.find("#cart_btn").click
       page.find("#ckout_btn").click
       page.find("#delivery_btn").click
       page.fill_in('Street address', with: "123 Mountain Street")
       page.fill_in('City', with: 'Denver')
-      page.fill_in('State', with: "Colorado")
+      page.fill_in('State', with: "CO")
       page.fill_in('Zip', with: '80228')
       page.click_button('Create Address')
       expect(page).to have_content("123 Mountain Street")

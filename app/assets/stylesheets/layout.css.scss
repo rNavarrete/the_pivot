@@ -1,4 +1,12 @@
-
+.flashes {
+  color: blue;
+  border-radius: 4px;
+  padding: 10px;
+  margin: 0;
+  text-align: center;
+  text-transform: uppercase;
+  box-shadow: #ffc 0 0 4px;
+}
 
 body {
   background-image: url("mountain.jpg");
@@ -16,7 +24,7 @@ body {
 #main-background{
 width: 800px;
 margin: auto;
-height: 60em;
+padding-bottom: 20px;
 border-radius: 25px;
   background:#7f7f7f;
   background:rgba(0,0,0,0.5);
@@ -138,6 +146,7 @@ body {
   position: fixed;
   width: 100%;
   z-index: 2;
+
 }
 
 .contact-us-form {
@@ -184,4 +193,10 @@ body {
 
 #item_status {
   color: black;
+}
+
+.field_with_errors {
+  padding: 1px;
+  background-color: red;
+  display: table;
 }
