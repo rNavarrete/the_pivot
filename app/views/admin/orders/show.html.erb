@@ -4,7 +4,7 @@
   <li>Purchasers Email:        <%= @order.user.email_address %></li>
   <li>Order status: <%= @order.status %></li>
   <% @order.order_items.each do |order_item| %>
-  <li>Items Ordered: <%= order_item.item.name %>
+  <li>Items Ordered: <%= link_to order_item.item.name, item_path(order_item.item.id) %>
       <%= number_to_currency(order_item.item.price) %>
 
       <% if @order.status == 'ordered' || @order.status == 'paid' %>
