@@ -1,38 +1,45 @@
 <%= form_for [:admin, @item] do |form| %>
 <%= render "layouts/errors" , object: @item%>
+
   <p>
-    <%= form.label :name %>:
+    <div class='labels'><%= form.label :name %>:</div>
     <%= form.text_field :name %>
   </p>
   <p>
-    <%= form.label :description %>:
+    <div class='labels'><%= form.label :description %>:</div>
     <%= form.text_area :description %>
   </p>
   <p>
-    <%= form.label :status %>:
+    <div class='labels'><%= form.label :status %>:</div>
     <%= form.select :status, options_for_select([ 'Active', 'Retired'], 'True') %>
   </p>
   <p>
-    <%= form.label :price %>:
+    <div class='labels'><%= form.label :price %>:</div>
     <%= form.text_area :price %>
   </p>
 
-  <h2> Edit Categories </h3>
-
-  <p> Current Categories:</p>
-
-  <ul id='collection' >
-    <%= form.collection_check_boxes :category_ids, Category.all, :id, :name %>
-  </ul>
+  <h2> Edit Item-Categories </h3>
 
   <p>
     <%= form.label :image %>:
     <%= form.file_field :image %>
   </p>
 
+  <p> Current Categories:</p>
+
+  <ul id='collection' >
+    <%= form.collection_check_boxes :category_ids, Category.all, :id, :name %>
+  </ul>
   <p id="form_button">
     <%= form.submit 'Save' %>
   </p>
 
-  <%= link_to "Cancel", admin_items_path %>
+  <div class='btn-toolbar' role='toolbar'>
+    <div class='btn-group'>
+      <%= button_to "Delete this item", admin_item_path(@item), method: :delete, data: { confirm: 'Are you sure you wish to delete?' } %>
+    </div>
+    <div class='btn-group'>
+      <%= button_to "Cancel", admin_items_path, method: 'get' %>
+    </div>
+  </div>
 <% end %>
