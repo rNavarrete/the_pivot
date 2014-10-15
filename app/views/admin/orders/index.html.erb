@@ -5,7 +5,7 @@
 
 
 
-  <tr>
+  <tr id='orders'>
     <td>
       <%= link_to "Paid (#{ @all.paid.count })",
                    admin_orders_path(status: "paid") %></td>
@@ -38,7 +38,7 @@
 
 
     <% @orders.each do |order| %>
-  <tr>
+  <tr id='shown-orders'>
       <td><%= link_to "#{ order.user.full_name }",
                   admin_order_path(order.id) %></td>
       <td><%= link_to "#{ order.status }",
