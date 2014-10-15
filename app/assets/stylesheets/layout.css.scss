@@ -178,13 +178,14 @@ body {
 .caption {
  min-height: 150px;
  overflow: none;
+ max-height: 155px;
  // border: 5px solid black;
 }
 
 .item_description {
- height: 4.0em;
+ // height: 4.0em;
  overflow: none;
- min-height: 55px;
+ max-height: 69px;
  }
 
 }
