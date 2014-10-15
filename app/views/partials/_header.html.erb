@@ -2,6 +2,7 @@
 <div class="container-fluid">
   <div class='flashes'><%= flash[:notice] %></div>
   <div class='flashes'><%= flash[:error] %></div>
+  <div class='flashes'><%= flash[:errors] %></div>
 
   <div class="navbar-header">
     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -24,7 +25,6 @@
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
 
-        <p class="flash"><%= flash[:errors] %></p>
         <% if session[:user_id] %>
         <div class="button">
         <p>Logged in as <%= current_user.email_address %></p>
