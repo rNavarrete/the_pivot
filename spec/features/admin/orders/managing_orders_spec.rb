@@ -35,10 +35,10 @@ feature "Managing Orders" do
       visit admin_orders_path
 
       within('#orders') do
-        expect(page).to have_content paid.status
-        expect(page).to have_content canceled.status
-        expect(page).to have_content completed.status
-        expect(page).to have_content ordered.status
+        expect(page).to have_content paid.status.capitalize
+        expect(page).to have_content canceled.status.capitalize
+        expect(page).to have_content completed.status.capitalize
+        expect(page).to have_content ordered.status.capitalize
       end
     end
 
@@ -51,7 +51,7 @@ feature "Managing Orders" do
       visit admin_orders_path
       click_link "Paid (1)"
 
-      within('#orders') do
+      within('#shown-orders') do
         expect(page).to     have_content paid.status
         expect(page).not_to have_content canceled.status
         expect(page).not_to have_content completed.status
