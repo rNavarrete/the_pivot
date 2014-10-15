@@ -2,11 +2,15 @@
 
   <h3> Please Choose an Address </h3>
     <% @addresses.each do |a| %>
+    <br>
     <div >
-      <%= a.street_address %>
-      <%= a.city %>
-      <%= a.state %>
-      <%= a.zip %>
+      <div id="addresses" >
+        <%= a.street_address %>
+        <%= a.city %>
+        <%= a.state %>
+        <%= a.zip %>
+      </div>
+
       </br>
       </br>
       <div class="button">
@@ -24,10 +28,12 @@
           <% end %>
         <% end %>
       </div>
+
     </br>
     </br>
     </div>
     <% end %>
+
 
 <h3> Or </h3>
 
