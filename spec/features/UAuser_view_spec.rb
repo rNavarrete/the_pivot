@@ -89,8 +89,9 @@ describe 'the user view', type: :feature do
         expect(page).to have_content('1')
         fill_in('quantity', :with => '5')
         click_on('update')
-        expect(page).to have_content('5')
-        expect(page).to_not have_content('1')
+        within('#cart_table') do
+          expect(page).to have_content('25')
         end
+      end
     end
 end
