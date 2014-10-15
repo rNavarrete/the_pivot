@@ -51,13 +51,50 @@ describe 'the user view', type: :feature do
         page.find("#continue_shopping_btn").click
         end
 
-      it 'adds item to cart' do
+      it 'can add item to cart' do
         create_item_associated_with_a_category
         visit '/categories'
         page.find('#cart_button').click
         click_on('cart')
         expect(page).to have_content('dandelion salad')
         expect(current_path).to eq(cart_path)
+      end
+
+      #refactor with helpers
+      it 'can log in without clearing cart' do
+        #add items to cart
+        create_item_associated_with_a_category
+        visit '/categories'
+        page.find('#cart_button').click
+        click_on('cart')
+        #log in
+        login_as(@user)
+        expect(page).to have_css('.button')
+        expect(page).to have_link('Logout')
+        #check that items are still in cart
+        #setup return redirect so user doesn't have to click on cart?
+        visit '/cart'
+        expect(page).to have_content('dandelion salad')
+        expect(current_path).to eq(cart_path)
+      end
+
+      #refactor with helpers
+      it 'cannot view or use admin functionality' do
+        #try to visit admin paths
+        # visit '/admin'
+        #check current path
+        visit '/admin/dashboard'
+        #check current path
+        visit '/admin/orders'
+        #check current path
+        visit '/admin/items'
+        #check current path
+        visit '/admin/categories'
+        #check current path
+      end
+
+      it 'cannot make self administrator' do
+        #how would a UAU attempt this?
       end
 
 

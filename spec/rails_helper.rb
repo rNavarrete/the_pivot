@@ -71,6 +71,10 @@ module MyHelpers
     Order.create(attributes)
   end
 
+  def add_items_to_cart
+    
+  end
+
 end
 
 # Add additional requires below this line. Rails is not loaded until this point!
