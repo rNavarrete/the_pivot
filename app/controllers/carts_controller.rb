@@ -1,5 +1,8 @@
 class CartsController < ApplicationController
   def show
+    @subtotal = Cart.subtotal(session)
+    @tax = Cart.tax(session)
+    @total = Cart.total(session)
   end
 
   def add_item

@@ -1,20 +1,40 @@
 <h1>Cart</h1>
 <%= flash[:notice] %>
-
+<table class="tg">
+<tr>
+  <td class="tg-e3zv" colspan="4"> Item Name </td>
+  <td class="tg-e3zv"> Quantity </td>
+  <td class="tg-e3zv"> Price </td>
+  <td class="tg-e3zv"> Totals </td>
+  <td class="tg-e3zv"> Delete </td>
+</tr>
 <% cart.items.each_pair do |id, quantity| %>
-  <li id=<%= "item-#{id}"%>>
-    <%= cart.item(id).name %>
-    <%= quantity %>
-    <%= number_to_currency(cart.item(id).price)%>
-
-    <%= form_tag update_quantity_path, :method => :put do  %>
-      <%= hidden_field_tag "item_id", id %>
-      <%= number_field_tag "quantity", quantity, :min => 1, :max => 100 %>
-      <%= submit_tag "update" %>
-    <% end %>
-    <%= link_to "Remove", remove_item_path(item_id: id) %>
-  </li>
+<tr class="cart_items">
+<td class="tg-031e" colspan="4"> <%= cart.item(id).name %> </td>
+<td class="tg-031e"> <%= form_tag update_quantity_path, :method => :put do  %>
+  <%= hidden_field_tag "item_id", id %>
+  <%= number_field_tag "quantity", quantity, :min => 1, :max => 100 %>
+  <%= submit_tag "update" %>
+  <% end %> </td>
+<td class="tg-031e"> <%= number_to_currency(cart.item(id).price) %> </td>
+<td class="tg-031e"> <%= number_to_currency(cart.line_item_price(id, quantity)) %> </td>
+<td class="tg-031e"> <%= link_to "Remove", remove_item_path(item_id: id) %> </td>
+</tr>
 <% end %>
+<tr>
+  <td class="tg-0ord" colspan="7">Sub-total: </td>
+  <td class="tg-031e"><%= number_to_currency(@subtotal) %></td>
+</tr>
+<tr>
+  <td class="tg-0ord" colspan="7">Tax: </td>
+  <td class="tg-031e"><%= number_to_currency(@tax) %></td>
+</tr>
+<tr>
+  <td class="tg-0ord" colspan="7">Total: </td>
+  <td class="tg-031e"><%= number_to_currency(@total) %></td>
+</tr>
+</table>
+</br>
 
 <%= form_tag "/orders/new", method: :get do %>
   <%= button_tag(:class => "btn btn-default btn-sm", :id => "ckout_btn") do %>
