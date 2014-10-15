@@ -247,6 +247,7 @@ body {
  color: white;
 }
 
+
 #item_status {
  color: black;
 }
@@ -255,4 +256,16 @@ body {
  padding: 1px;
  background-color: red;
  display: table;
+}
+
+#checkout-cart-header {
+  text-align: left !important;
+}
+
+#pickup_btn {
+  display: inline;
+  margin-right: 50px;
+}
+.pickup-delivery-button {
+  display: inline;
 }

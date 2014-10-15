@@ -1,7 +1,6 @@
-<div id="checkout_page"
-<h1> Checkout </h1>
-
-<table id="checkout_table2">
+<div id="checkout_page" >
+<h1 id="checkout-cart-header"> Checkout </h1>
+<table class="tg">
 
     <tr>
       <th>Item Name</th>
@@ -40,29 +39,26 @@
   </tr>
 </table>
 
-  <h2> Pick Up or Delivery?</h2>
+  <h2> Is This Order For Pick Up or Delivery?</h2>
 <br/>
-
-<%= form_tag '/orders', method: :post do %>
-<%= button_tag(:class => "btn btn-default btn-sm", :id => "pickup_btn") do %>
-   Pick Up <span class="glyphicon glyphicon-user" ></span>
-<% end %>
-<% end %>
-<br/>
-<h3> or </h3>
-  <% if @addresses.any? %>
-    <%= form_tag addresses_path, method: :get do %>
-    <%= button_tag(:class => "btn btn-default btn-sm", :id => "delivery_btn") do %>
-      Delivery  <span class="glyphicon glyphicon-user" ></span>
-       <% end %>
-       <% end %>
-  <% else %>
-    <%= form_tag new_address_path, method: :get do %>
-    <%= button_tag(:class => "btn btn-default btn-sm", :id => "delivery_btn") do %>
-      Delivery  <span class="glyphicon glyphicon-user" ></span>
-       <% end %>
-       <% end %>
-  <% end %>
-
-
+  <div>
+    <div class="pickup-delivery-button">
+      <%= form_tag '/orders', method: :post do %>
+        <%= button_tag(:class => "btn btn-primary btn-lg", :id => "pickup_btn") do %>
+           Pick Up
+        <% end %>
+        <% if @addresses.any? %>
+          <%= link_to "Delivery", addresses_path, class: "btn btn-primary btn-lg", id: "delivery_btn" %>
+        <% else %>
+          <%= link_to "Delivery", new_address_path, class: "btn btn-primary btn-lg", id: "delivery_btn" %>
+        <% end %>
+      <% end %>
+    </div>
 </div>
+</div>
+</br>
+<%= form_tag categories_path, method: :get do %>
+  <%= button_tag(:class => "btn btn-success btn-sm", :id => "continue_shopping_btn") do %>
+     continue shopping <span class="glyphicon glyphicon-shopping-cart" ></span>
+  <% end %>
+<% end %>
