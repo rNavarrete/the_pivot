@@ -52,7 +52,7 @@ describe 'the user view', type: :feature do
       page.find("#delivery_btn").click
       page.fill_in('Street address', with: "123 Mountain Street")
       page.fill_in('City', with: 'Denver')
-      page.fill_in('State', with: "CO")
+      page.select "Colorado", :from => "State"
       page.fill_in('Zip', with: '80228')
       page.click_button('Create Address')
       page.click_button('use this address')
@@ -87,7 +87,7 @@ describe 'the user view', type: :feature do
       page.find("#delivery_btn").click
       page.fill_in('Street address', with: "123 Mountain Street")
       page.fill_in('City', with: 'Denver')
-      page.fill_in('State', with: "CO")
+      select "Colorado", :from => "State"
       page.fill_in('Zip', with: '80228')
       page.click_button('Create Address')
       expect(page).to have_content("123 Mountain Street")
