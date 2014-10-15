@@ -8,15 +8,15 @@
       <div >
         <%= simple_form_for @contact, url: contact_us_path, method: :post, html: {class: 'contact-us-form' } do |f| %>
 
-        <div class="contact-us-form-line"
+        <div class="contact-us-form-line" >
           <%= f.input :name  %>
         </div>
 
-        <div class="contact-us-form-line"
+        <div class="contact-us-form-line" >
           <%= f.input :email   %>
         </div>
 
-        <div class="contact-us-form-line"
+        <div class="contact-us-form-line" >
           <%= f.input :message, as: :text, input_html: { id: "form-message" } %>
         </div>
 
