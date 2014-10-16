@@ -51,7 +51,7 @@ describe 'the user view', type: :feature do
         page.find("#continue_shopping_btn").click
         end
 
-      it 'adds item to cart' do
+      it 'can add item to cart' do
         create_item_associated_with_a_category
         visit '/categories'
         page.find('#cart_button').click
@@ -60,6 +60,36 @@ describe 'the user view', type: :feature do
         expect(current_path).to eq(cart_path)
       end
 
+      #refactor with helpers
+      it 'can log in without clearing cart' do
+        #add items to cart
+        create_item_associated_with_a_category
+        visit '/categories'
+        page.find('#cart_button').click
+        click_on('cart')
+        #log in
+        login_as(@user)
+        expect(page).to have_css('.button')
+        expect(page).to have_link('Logout')
+        #check that items are still in cart
+        #setup return redirect so user doesn't have to click on cart?
+        visit '/cart'
+        expect(page).to have_content('dandelion salad')
+        expect(current_path).to eq(cart_path)
+      end
+
+      it 'cannot view or use admin functionality' do
+        visit '/admin'
+        assert page.status_code == 404
+        visit '/admin/dashboard'
+        assert page.status_code == 404
+        visit '/admin/orders'
+        assert page.status_code == 404
+        visit '/admin/items'
+        assert page.status_code == 404
+        visit '/admin/categories'
+        assert page.status_code == 404
+      end
 
       it 'can not proceed to checkout' do
         create_item_associated_with_a_category

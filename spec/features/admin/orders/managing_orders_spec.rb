@@ -6,7 +6,7 @@ feature "Managing Orders" do
   describe "as an anonymous user" do
     it "trying to access the orders page" do
       visit admin_orders_path
-      expect(page.current_path).to eq(root_path)
+      assert page.status_code == 404
     end
   end
 
