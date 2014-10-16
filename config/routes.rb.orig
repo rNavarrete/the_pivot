@@ -39,7 +39,13 @@ Rails.application.routes.draw do
 
   get 'gift_cards', to: 'gift_cards#show'
   get 'about',      to: 'about#show'
+<<<<<<< HEAD
+    match '/contact_us',     to: 'contact_us#new',             via: 'get'
+  resources "contact_us", only: [:new, :create]
+  get '/:slug', to: 'categories#index'
+=======
   match '/contact_us',     to: 'contact_us#new',             via: 'get'
   resources "contact_us", only: [:new, :create]
 
+>>>>>>> 45_UAU_not_allowed_to
 end

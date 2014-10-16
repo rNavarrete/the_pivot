@@ -27,7 +27,9 @@ describe 'the admin view', type: :feature do
       click_link 'Manage Food Items'
       click_link 'Mountain Mud Pie'
       page.fill_in('Name', with: 'Valley Mud Pie')
-      click_button 'Save'
+      within('.save') do
+        click_button 'Save'
+      end
       expect(page).to have_content('Valley Mud Pie')
     end
 
@@ -91,7 +93,7 @@ describe 'the admin view', type: :feature do
 
       click_link('Manage Food Categories')
       click_link('Desserts')
-      click_link('Delete this category')
+      click_button('Delete this Category')
       expect(page).to_not have_text('Desserts')
     end
 
@@ -142,7 +144,7 @@ describe 'the admin view', type: :feature do
       expect(page).to have_content('Hamburger')
 
       click_link('Hamburger')
-      click_link('Delete this item')
+      click_button('Delete this item')
       expect(page).to_not have_text('Hamburger')
     end
   end

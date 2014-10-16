@@ -3,7 +3,7 @@ class Admin::BaseController < ApplicationController
 
   def authorize_admin
     if current_user.nil? || current_user.role != 'admin'
-      redirect_to :root
+      head :not_found
     end
   end
 
