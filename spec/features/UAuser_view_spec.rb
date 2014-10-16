@@ -78,25 +78,18 @@ describe 'the user view', type: :feature do
         expect(current_path).to eq(cart_path)
       end
 
-      #refactor with helpers
       it 'cannot view or use admin functionality' do
-        #try to visit admin paths
-        # visit '/admin'
-        #check current path
+        visit '/admin'
+        assert page.status_code == 404
         visit '/admin/dashboard'
-        #check current path
+        assert page.status_code == 404
         visit '/admin/orders'
-        #check current path
+        assert page.status_code == 404
         visit '/admin/items'
-        #check current path
+        assert page.status_code == 404
         visit '/admin/categories'
-        #check current path
+        assert page.status_code == 404
       end
-
-      it 'cannot make self administrator' do
-        #how would a UAU attempt this?
-      end
-
 
       it 'can not proceed to checkout' do
         create_item_associated_with_a_category
