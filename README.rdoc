@@ -1,4 +1,4 @@
-{<img alt='Stories in Ready' src='https://badge.waffle.io/glenegbert/dinner-dash.png?label=ready&title=Ready' />}[https://waffle.io/glenegbert/dinner-dash]
+{<img alt='Stories in Ready' src='https://badge.waffle.io/glenegbert/the_pivot.png?label=ready&title=Ready' />}[https://waffle.io/glenegbert/the_pivot]
 == README
 
 Here is a link to the actual site on Heroku: http://mountain-top-cafe.herokuapp.com/
