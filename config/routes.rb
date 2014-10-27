@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   resources :addresses
 
-  get 'code', to: 'welcome#code'
+  get 'code', to: 'home#code'
 
   get 'complete_delivery_order', to: 'orders#create'
   get 'checkout',         to: 'checkouts#show'
@@ -26,6 +26,8 @@ Rails.application.routes.draw do
 
   resources :users
 
+  get ':id', to: 'stores#show'
+
   get    'login',  to: 'sessions#new'
   post   'login',  to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
@@ -34,7 +36,7 @@ Rails.application.routes.draw do
 
   resources :home
 
-  get 'verification', to: 'verifications#show'
+  get 'confirmation', to: 'confirmations#show'
 
 
   get 'gift_cards', to: 'gift_cards#show'

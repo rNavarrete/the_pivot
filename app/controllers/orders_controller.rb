@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
 
   def create
     if session[:cart_items].empty?
-      redirect_to verification_path
+      redirect_to confirmation_path
     else
       @order = Order.create(user_id: session[:user_id], status: "ordered")
       session[:cart_items].map do |item_id, quantity|
@@ -13,7 +13,7 @@ class OrdersController < ApplicationController
       @order.address_id = params[:address]
       @order.save
       session[:cart_items] = {}
-      redirect_to verification_path
+      redirect_to confirmation_path
     end
   end
 
