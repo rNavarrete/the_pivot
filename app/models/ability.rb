@@ -7,6 +7,8 @@ class Ability
       user ||= User.new # guest user (not logged in)
       if user.is? :admin
         can :manage, :all
+      # elsif user.is? :business_admin
+      #   can :manage, :store if user.store_id == store.id
       else
         can :read, :all
       end

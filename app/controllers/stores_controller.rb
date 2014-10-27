@@ -1,7 +1,7 @@
 class StoresController < ApplicationController
 
   def show
-  	raise params.inspect
+  	#raise params.inspect
   	#@store = Store.find(params[:id])
   end
 
