@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141013224517) do
+ActiveRecord::Schema.define(version: 20141028140318) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
 
   create_table "addresses", force: true do |t|
     t.string   "street_address"
@@ -57,6 +58,7 @@ ActiveRecord::Schema.define(version: 20141013224517) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.string   "status"
+    t.hstore   "clothing_options"
   end
 
   create_table "order_items", force: true do |t|
