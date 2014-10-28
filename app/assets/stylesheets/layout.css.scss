@@ -1,3 +1,45 @@
+
+#item-show-page{
+  width: 70%;
+  background-color: white;
+  margin: auto;
+  background-color: #FAFAFA;
+
+
+  .labels {
+    min-width: 100px;
+    color: black;
+  }
+
+  .thumbnail{
+   height: 390px;
+   width: 100%;
+   background-color: #FAFAFA;
+   height: 100%
+  }
+
+  .show_img{
+    width: 80%;
+    height: 400px;
+    margin-left: 15%;
+    margin-top: 150px;
+  }
+
+  .caption{
+    width: 40%;
+  }
+
+  .item-description{
+    width: 90%;
+    margin: auto;
+  }
+}
+
+#add-to-cart-box{
+  margin-top: 150px;
+  border: 5px solid #E4F3D9;;
+}
+
 .carousel {
   height: 500px;
   margin-bottom: 60px;
@@ -19,9 +61,12 @@
   height: 500px;
 }
 
+#container{
+  padding-top: 60px;
 
 #myCarousel{
   height: 600px;
+
 }
 
 #navbar{
@@ -76,7 +121,6 @@
 .store-name {
   padding-top: 10px;
   text-align: center;
-  color: black;
 }
 
 .store-description {

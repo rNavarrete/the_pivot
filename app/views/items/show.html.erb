@@ -1,12 +1,46 @@
-<div class="col-sm-4 col-md-8">
-  <div class="thumbnail">
-        <%= image_tag @item.image.url(:medium), {class: "menu_cart_img"} %>
-        <!-- <img src="http://whatscookingamerica.net/History/RockyMtnOysters4.jpg" alt="Mountain View" style="width:auto;height:45%"> -->
-    <div class="caption">
-      <h4> <%= @item.name %> </h4>
-      <p class="item_description"> <%= @item.description %> </p>
-      <p class="item_description"> Price: <%= number_to_currency(@item.price) %> </p>
+<div id="item-show-page"
+
+
+  <div class="row">
+
+    <div class="col-sm-4 col-md-8">
+
+            <%= image_tag @item.image.url(:medium), {class: "show_img"} %>
     </div>
+
+    <div class="col-sm-4 col-md-4">
+
+      <div id="add-to-cart-box">
+
+
+        <div class="item-description">
+          <h2 id="header"> <%= @item.name %> </h2>
+          <p> <%= @item.description %> </p>
+          <p> Price: <%= number_to_currency(@item.price) %> </p>
+        </div>
+
+        <%= form_tag '/add_item', method: "get" do %>
+          <div class = "labels">
+            <%= label_tag(:size, "Size:") %>
+            <%= select_tag(:size, options_for_select([["s","1"], ["m","2"],["s","1"], ["l","3"], ["xl","3"]], )) %>
+          </br>
+            <%= label_tag(:colors, "Colors:") %>
+            <%= select_tag(:colors, options_for_select([["red","1"], ["blue","2"],["green","1"], ["yellow","3"], ["tan","3"]], )) %>
+          </br>
+            <%= label_tag(:quantity, "Quantity:") %>
+            <%= number_field_tag :quantity, :min => 1, :max => 100 %>
+            <%= hidden_field_tag :item_id, @item.id  %>
+          </div>
+          <%= button_tag(:class => "btn btn-success btn-sm", :id => "cart_button") do %>
+             add to cart <span class="glyphicon glyphicon-shopping-cart" ></span>
+          <% end %>
+          <% end %>
+
+       </div>
+
+
+
     </div>
   </div>
+
 </div>
