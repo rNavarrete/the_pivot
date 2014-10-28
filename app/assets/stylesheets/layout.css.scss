@@ -1,6 +1,15 @@
+#item-show-page{
+  width: 90%;
+  background-color: white;
+
+  .labels {
+    min-width: 100px;
+    color: black;
+  }
+}
+
 .store-name {
   text-align: center;
-  color: black;
 }
 
 .store-description {
@@ -10,7 +19,6 @@
 
 .labels {
   min-width: 100px;
-  color: black;
 }
 
 .order-buttons form {
