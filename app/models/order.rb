@@ -4,6 +4,7 @@ class Order < ActiveRecord::Base
   has_many :items, through: :order_items
   belongs_to :user
   belongs_to :address
+  belongs_to :store
 
   scope :paid,      -> { where(status: "paid") }
   scope :completed, -> { where(status: "completed") }
@@ -27,6 +28,6 @@ class Order < ActiveRecord::Base
     subtotal + tax
   end
 
-  
+
 
 end
