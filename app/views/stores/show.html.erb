@@ -7,5 +7,10 @@
     <div class="store-description">
     	<%= @store.description %>
    	</div>
+   	<div class="store-items">
+   		<% @store.items.each do |item| %>
+   			<%= item.name %>
+   		<% end %>
+   	</div>
   </div>
 </div>
