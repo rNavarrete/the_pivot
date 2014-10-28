@@ -1,18 +1,21 @@
-<div class="col-md-16 col-md-16">
 	<div class="store-header">
-		<div class="store-name">
-      <h2> <%= @store.name.capitalize %> </h2>
-    </div>
-   	<div class="thumbnail">
-  	<!-- store picture -->
-  	</div>
+	    <div class="store-header-image">
+	  		<%= image_tag @store.image.url(:medium) %>
+	  	</div>
+	  	<div class="store-name">
+	  		<h2> <%= @store.name.capitalize %> </h2>
+	  	</div>
 	</div>
   <div class="store-description">
   	<%= @store.description %>
  	</div>
- 	<div class="store-items">
+ 	<div class="store-items-container">
  		<% @store.items.each do |item| %>
- 			<%= item.name %>
+ 			<div class="store-item">
+ 				<%= item.name %>
+ 				<%= image_tag item.image.url(:medium) %><br/>
+ 				<%= item.description %>
+
+ 			</div>
  		<% end %>
  	</div>
-</div>
