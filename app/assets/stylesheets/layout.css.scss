@@ -46,7 +46,6 @@
 }
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
-  z-index: 10;
 }
 
 /* Declare heights because of positioning of img element */
@@ -62,9 +61,12 @@
   height: 500px;
 }
 
-
 #container{
   padding-top: 60px;
+
+#myCarousel{
+  height: 600px;
+
 }
 
 #navbar{
@@ -94,14 +96,58 @@
   display: flex;
 }
 
+.store-header {
+  background-color:#D4D4D0;
+  width: 100%;
+  height: 110px;
+  border-bottom: 1px solid gray;
+  padding-top:10px;
+}
+
+.store-header-image {
+  float:left;
+  float:top;
+  width: 150px;
+  margin-left: 10px;
+
+}
+
+.store-header-image img {
+  height: 100px;
+  width: 150px;
+  padding-bottom:10px;
+}
 
 .store-name {
+  padding-top: 10px;
   text-align: center;
 }
 
 .store-description {
-  text-align: left;
+  margin:auto;
+  padding-top: 10px;
+  width:75%;
+  text-align: center;
   color: black;
+}
+
+.store-items-container {
+  width:75%;
+  margin:auto;
+  padding: 10px;
+}
+
+.store-item {
+  text-align:center;
+  width:250px;
+  border-radius:10px;
+  border:1px solid gray;
+  display:inline-block;
+}
+
+.store-item img {
+  width:200px;
+  height:200px;
 }
 
 .labels {
