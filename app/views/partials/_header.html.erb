@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default" role="navigation">
+<nav class="navbar navbar-default" role="navigation", id="navbar">
 <div class="container-fluid">
   <div class='flashes'><%= flash[:notice] %></div>
   <div class='flashes'><%= flash[:error] %></div>
@@ -14,16 +14,17 @@
 
   </div>
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    <ul class="nav navbar-nav">
-      <li><%= image_tag('MountainTop Cafe-logo.png', :alt => 'logo', :width => '269', :height=> '97') %></li>
-      <li class="active"><%= link_to "Home", root_path %></li>
-      <li class="active"><%= link_to "Menu", categories_path %></li>
-      <li class="active"><%= link_to "About", about_path %></li>
-      <li class="active"><%= link_to "News and Blog", gift_cards_path %></li>
-      <li class="active"><%= link_to "Contact Us", contact_us_path %></li>
+    <ul class="nav navbar-nav navbar-left" id="navbar-left">
+      <li id="brand-name"><%= link_to "Dope Threads", root_path %></li>
+      <li><%= link_to "Menu", categories_path %></li>
+      <li><%= link_to "About", about_path %></li>
+      <li><%= link_to "News and Blog", gift_cards_path %></li>
+      <li><%= link_to "Contact Us", contact_us_path %></li>
+      <li><%= link_to "Create Account", new_user_path %></li>
+
     </ul>
     <div class="navbar-collapse collapse">
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-right" id="navbar-login-form">
 
         <% if session[:user_id] %>
         <div class="button">
@@ -33,32 +34,25 @@
         <% else %>
         <div class="login_form">
         <%= form_tag login_path do %>
-        <%= label_tag :email_address %>
-        <%= text_field_tag :email_address %> <br>
-        <%= label_tag :password %>
-        <%= password_field_tag :password %>
+        <%= text_field_tag :email_address, nil, placeholder: "Email" %>
+        <%= password_field_tag :password, nil, placeholder: "Password" %>
         <%= submit_tag value="Log In" %>
         <% end %>
-        <p class="link"><%= link_to "Create Account", new_user_path %></p>
         </div>
         <% end %>
 
-        <%= form_tag '/cart', method: :get do %>
-        <%= button_tag(:class => "btn btn-default btn-sm", :id => "cart_btn") do %>
+        <%= form_tag '/cart', method: :get, :id => "cart_btn" do %>
+        <%= button_tag(:class => "btn btn-default btn-sm") do %>
            cart <span class="glyphicon glyphicon-shopping-cart" ></span>
         <% end %>
           <% if session[:cart_items] %>
             <%= session[:cart_items].values.reduce(:+) %> items
-
           <% else  %>
             <%= "0 items" %>
-
           <% end %>
           <%= link_to 'My Orders', orders_path if current_user %>
         <% end %>
         <p><%= link_to 'Admin Dashboard', admin_dashboard_path if can? :create, User %> </p>
-
-
       </ul>
     </nav>
     </div>

@@ -1,12 +1,99 @@
+
 #item-show-page{
-  width: 90%;
+  width: 70%;
   background-color: white;
+  margin: auto;
+  background-color: #FAFAFA;
+
 
   .labels {
     min-width: 100px;
     color: black;
   }
+
+  .thumbnail{
+   height: 390px;
+   width: 100%;
+   background-color: #FAFAFA;
+   height: 100%
+  }
+
+  .show_img{
+    width: 80%;
+    height: 400px;
+    margin-left: 15%;
+    margin-top: 150px;
+  }
+
+  .caption{
+    width: 40%;
+  }
+
+  .item-description{
+    width: 90%;
+    margin: auto;
+  }
 }
+
+#add-to-cart-box{
+  margin-top: 150px;
+  border: 5px solid #E4F3D9;;
+}
+
+.carousel {
+  height: 500px;
+  margin-bottom: 60px;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  z-index: 10;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel .item {
+  height: 500px;
+  background-color: #777;
+}
+.carousel-inner > .item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 500px;
+}
+
+
+#container{
+  padding-top: 60px;
+}
+
+#navbar{
+  background-color: white;
+}
+
+#navbar-left{
+  background-color: white;
+}
+
+#cart_btn{
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+
+#brand-name{
+  padding-right: 5px;
+  margin-right: 18px;
+}
+
+#navbar-login-form{
+  display: flex;
+}
+
+#navbar-login-form{
+  display: flex;
+}
+
 
 .store-name {
   text-align: center;
@@ -28,9 +115,7 @@
 }
 
 .login_form{
-  label{
-   min-width: 100px;
- }
+  padding-top: 12px;
 }
 
 .tg  {
@@ -102,9 +187,6 @@
 }
 
 body {
- background-image: url("mountain.jpg");
- background-size: 1440px 800px;
- display: compact;
 
  h1 {
    color: white;
