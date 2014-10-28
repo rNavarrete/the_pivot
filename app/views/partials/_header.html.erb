@@ -14,8 +14,8 @@
 
   </div>
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    <ul class="nav navbar-nav">
-      <li><%= image_tag('MountainTop Cafe-logo.png', :alt => 'logo', :width => '269', :height=> '97') %></li>
+    <ul class="nav navbar-nav navbar-left">
+      <li>Dope Threads</li>
       <li class="active"><%= link_to "Home", root_path %></li>
       <li class="active"><%= link_to "Menu", categories_path %></li>
       <li class="active"><%= link_to "About", about_path %></li>
@@ -23,7 +23,7 @@
       <li class="active"><%= link_to "Contact Us", contact_us_path %></li>
     </ul>
     <div class="navbar-collapse collapse">
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-right" id="navbar-login-form">
 
         <% if session[:user_id] %>
         <div class="button">
@@ -33,13 +33,11 @@
         <% else %>
         <div class="login_form">
         <%= form_tag login_path do %>
-        <%= label_tag :email_address %>
-        <%= text_field_tag :email_address %> <br>
-        <%= label_tag :password %>
-        <%= password_field_tag :password %>
+        <%= text_field_tag :email_address, nil, placeholder: "Email" %>
+        <%= password_field_tag :password, nil, placeholder: "Password" %>
         <%= submit_tag value="Log In" %>
         <% end %>
-        <p class="link"><%= link_to "Create Account", new_user_path %></p>
+        <%= link_to "Create Account", new_user_path %>
         </div>
         <% end %>
 

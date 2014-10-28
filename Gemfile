@@ -38,3 +38,4 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'rails_12factor', group: :production
 gem 'simple_form'
 gem 'mail_form'
+gem 'bootstrap_form'
