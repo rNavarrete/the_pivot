@@ -28,6 +28,4 @@ class Order < ActiveRecord::Base
     subtotal + tax
   end
 
-
-
 end
