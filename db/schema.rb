@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20141028140318) do
+=======
+ActiveRecord::Schema.define(version: 20141028154604) do
+>>>>>>> master
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,7 +63,10 @@ ActiveRecord::Schema.define(version: 20141028140318) do
     t.datetime "image_updated_at"
     t.string   "status"
     t.hstore   "clothing_options"
+    t.integer  "store_id"
   end
+
+  add_index "items", ["store_id"], name: "index_items_on_store_id", using: :btree
 
   create_table "order_items", force: true do |t|
     t.integer  "order_id"
@@ -83,6 +90,14 @@ ActiveRecord::Schema.define(version: 20141028140318) do
 
   add_index "orders", ["address_id"], name: "index_orders_on_address_id", using: :btree
   add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
+
+  create_table "stores", force: true do |t|
+    t.string  "name"
+    t.text    "description"
+    t.integer "user_id"
+  end
+
+  add_index "stores", ["user_id"], name: "index_stores_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "password_digest"

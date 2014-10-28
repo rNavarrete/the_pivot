@@ -4,4 +4,8 @@ class HomeController < ApplicationController
 
   def show
   end
+
+  def code
+    redirect_to 'https://github.com/glenegbert/the_pivot'
+  end
 end
