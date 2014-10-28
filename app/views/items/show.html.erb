@@ -8,11 +8,17 @@
       <p class="item_description"> Price: <%= number_to_currency(@item.price) %> </p>
     </div>
 
-      <%= form_tag '/add_item', method: :get do %>
+      <%= form_tag '/add_item', method: "get" do %>
+        <div class = "labels">
+        <%= label_tag(:size, "Size:") %>
+        <%= select_tag(:size, options_for_select([["s","1"], ["m","2"]])) %>
+
         <%= hidden_field_tag :item_id, @item.id  %>
+        </div>
         <%= button_tag(:class => "btn btn-default btn-sm", :id => "cart_button") do %>
            add to cart <span class="glyphicon glyphicon-shopping-cart" ></span>
         <% end %>
-      <% end %>
+        <% end %>
+
   </div>
 </div>
