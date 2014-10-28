@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 20141028154604) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.string   "status"
+    t.string   "status",             default: "active"
     t.integer  "store_id"
   end
 
@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(version: 20141028154604) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "open",       default: true
+    t.boolean  "open"
     t.string   "status"
     t.integer  "address_id"
   end
