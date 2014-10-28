@@ -7,6 +7,12 @@
       <p class="item_description"> <%= @item.description %> </p>
       <p class="item_description"> Price: <%= number_to_currency(@item.price) %> </p>
     </div>
-    </div>
+
+      <%= form_tag '/add_item', method: :get do %>
+        <%= hidden_field_tag :item_id, @item.id  %>
+        <%= button_tag(:class => "btn btn-default btn-sm", :id => "cart_button") do %>
+           add to cart <span class="glyphicon glyphicon-shopping-cart" ></span>
+        <% end %>
+      <% end %>
   </div>
 </div>
