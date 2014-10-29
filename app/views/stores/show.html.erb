@@ -3,7 +3,7 @@
 	  		<%= image_tag @store.image.url(:medium) %>
 	  	</div>
 	  	<div class="store-name">
-	  		<h2> <%= @store.name.capitalize %> </h2>
+	  		<h2 id="store-name"> <%= @store.name.capitalize %> </h2>
 	  	</div>
 	</div>
   <div class="store-description">
@@ -15,7 +15,6 @@
  				<%= link_to item.name, item_path(item) %>
  				<%= link_to (image_tag item.image.url(:medium)), item_path(item) %><br/>
  				<%= item.description %>
-
  			</div>
  		<% end %>
  	</div>
