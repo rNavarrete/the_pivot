@@ -4,6 +4,12 @@ require 'capybara/rspec'
 
 describe 'As a Public User', type: :feature do
 
+  describe 'browsing' do
+    it 'can click on a category and see items'
+    it 'can click on a business name and see store page'
+    it 'can click on an item and see item page'
+  end
+
   describe 'cart interaction', type: :feature do
 
     it 'maintains a shared shopping cart across all businesses I browse'
