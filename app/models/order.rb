@@ -1,5 +1,6 @@
 class Order < ActiveRecord::Base
   validates :status, inclusion: {in: %w(paid completed canceled ordered)}
+  validates :store_id, presence: true
   has_many :order_items
   has_many :items, through: :order_items
   belongs_to :user

@@ -6,6 +6,7 @@ class Item < ActiveRecord::Base
   has_many :categories, through: :category_items
   belongs_to :store
 
+  validates :store_id, presence: true
   validates :name, presence: :true
   validates :description, length: { minimum: 25 }
   validates :price, presence: :true
