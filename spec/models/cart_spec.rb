@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Category, :type => :model do
   before do
-    @item1 = Item.create(name: 'Rocky Mountain Oysters',   description: 'Traditional bull balls served thinly sliced, deep fried and with a side of cocktail sauce.', price: 6.50, status: 'active', image_file_name: "RockyMtnOysters4.jpg")
-    @item2 = Item.new(name: 'Flaming Cactus and Chips', description: 'Cactus from southern mexico mixed into our delicious cheese and served to your table on fire!', price: 6.00, status: 'active', image_file_name: "808-chili-cheese-nachos.jpg")
+    @item1 = Item.create(name: 'Rocky Mountain Oysters',   description: 'Traditional bull balls served thinly sliced, deep fried and with a side of cocktail sauce.', price: 6.50, status: 'active', image_file_name: "RockyMtnOysters4.jpg", store_id: 1)
+    @item2 = Item.new(name: 'Flaming Cactus and Chips', description: 'Cactus from southern mexico mixed into our delicious cheese and served to your table on fire!', price: 6.00, status: 'active', image_file_name: "808-chili-cheese-nachos.jpg", store_id: 1)
   end
 
     let(:cart) do
