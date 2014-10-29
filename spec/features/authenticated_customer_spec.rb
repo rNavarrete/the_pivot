@@ -2,7 +2,7 @@ require 'rails_helper'
 require 'capybara/rails'
 require 'capybara/rspec'
 
-describe 'As an Authenicated Customer', type: :feature do
+describe 'As an Authenticated Customer', type: :feature do
 	describe 'I can make purchases on any business I am browsing', type: :feature do
 		it 'can click on a store page'
 		it 'can click on an item'
