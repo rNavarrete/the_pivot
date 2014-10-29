@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :current_user
   helper_method :cart
+  helper_method :all_categories
 
   def current_user
     if session[:user_id]
@@ -11,6 +12,10 @@ class ApplicationController < ActionController::Base
 
   def cart
     @cart ||= Cart.new(session)
+  end
+
+  def all_categories
+    Category.all
   end
 
 end
