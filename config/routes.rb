@@ -26,7 +26,7 @@ Rails.application.routes.draw do
 
   resources :users
 
-  get ':id', to: 'stores#show'
+  get ':id', to: 'stores#show', as: 'stores'
 
   get    'login',  to: 'sessions#new'
   post   'login',  to: 'sessions#create'

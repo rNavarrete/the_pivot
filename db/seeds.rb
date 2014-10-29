@@ -5,12 +5,14 @@ Category.create(name: 'Jackets', position: 4)
 Category.create(name: 'Hats', position: 5)
 Category.create(name: 'Accessories', position: 6)
 
+Store.create(name: 'Trends', description: 'Trendy Clothes for Trendy People', image_file_name: 'trends.jpeg', user_id: 1)
+
 item =Item.create([
-  {name: 'Himalayan Hoodie',   description: 'A stylish top layer to keep you as warm as a Sherpa', price: 30.00, status: 'active', category_ids: [1,4], image_file_name: "HimalayanHoodie.jpg"},
-  {name: 'Urban Sombrero', description: 'A modern nod to old Mexico', price: 45.00, status: 'active', category_ids: [1,2,5], image_file_name: "urbansombrero.jpg"},
-  {name: 'Teddy Bear Jacket', description: 'Cold weather wear that you can cuddle up with', price: 55.00, status: 'active', category_ids: [2, 4], image_file_name: "teddybearjacket.jpg"},
-  {name: 'Metro Duster', description: 'Old west style for a modern world', price: 27.00, status: 'active', category_ids: [1,4], image_file_name: "metro_duster.jpg"},
-  {name: 'Fur Neck Wrap', description: 'Made from the fur of snowshoe hares', price: 28.00, status: 'active', category_ids: [1,2,6], image_file_name: "rabbit_fur.jpg"},
+  {name: 'Himalayan Hoodie',   description: 'A stylish top layer to keep you as warm as a Sherpa', price: 30.00, status: 'active', category_ids: [1,4], image_file_name: "HimalayanHoodie.jpg", store_id: 1},
+  {name: 'Urban Sombrero', description: 'A modern nod to old Mexico', price: 45.00, status: 'active', category_ids: [1,2,5], image_file_name: "urbansombrero.jpg", store_id: 1},
+  {name: 'Teddy Bear Jacket', description: 'Cold weather wear that you can cuddle up with', price: 55.00, status: 'active', category_ids: [2, 4], image_file_name: "teddybearjacket.jpg", store_id: 1},
+  {name: 'Metro Duster', description: 'Old west style for a modern world', price: 27.00, status: 'active', category_ids: [1,4], image_file_name: "metro_duster.jpg", store_id: 1},
+  {name: 'Fur Neck Wrap', description: 'Made from the fur of snowshoe hares', price: 28.00, status: 'active', category_ids: [1,2,6], image_file_name: "rabbit_fur.jpg", store_id: 1},
 ])
 
 User.create(full_name: 'Rachel Warbelow', email_address: 'demo+rachel@jumpstartlab.com', password: 'password', screen_name: '', role: 'user')

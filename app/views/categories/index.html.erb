@@ -7,6 +7,7 @@
           <%= image_tag item.image.url(:medium), {class: "menu_cart_img"} %>
       <div class="caption">
         <h4> <%= item.name %> </h4>
+        <h4> <%= link_to item.store.name, stores_path(item.store.name) %> </h4>
         <p class="item_description"> <%= item.description %></p>
          <p>Price: <%= number_to_currency(item.price) %> </p>
       </div>

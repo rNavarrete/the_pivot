@@ -40,6 +40,7 @@ Unravel the spool of convention and celebrate bold expression with this free-thi
           <a href="<%= item_path(item) %>"><img src="<%= item.image(:medium) %>", class="img-responsive img-rounded", id="menu_item_pics"></a>
           <div class="caption">
             <h3><%= item.name %></h3>
+            <h4> <%= link_to item.store.name, stores_path(item.store.name) %> </h4>
             <h4><%= item.description %></h4>
             <a href="#" class="btn btn-default disabled" role=""><%= item.price %></a>
             <%= submit_tag "Add to Cart", class: "btn btn-success" %>
