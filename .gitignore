@@ -15,5 +15,5 @@
 /log/*.log
 /tmp
 
-# Ignore CodeClimate coverage log file.
-/coverage/.resultset.json
+# Ignore all CodeClimate coverage logs.
+/coverage
