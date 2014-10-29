@@ -6,13 +6,14 @@ Category.create(name: 'Hats', position: 5)
 Category.create(name: 'Accessories', position: 6)
 
 Store.create(name: 'Trends', description: 'Trendy Clothes for Trendy People', image_file_name: 'trends.jpeg', user_id: 1)
-Store.create(name: 'Gasp Jeans', description: "The Word's Most Pretentious Jeans", user_id: 2)
-Store.create(name: 'Inappropriate Cultural Appropriation', description: "Pay a Lot of Money to Pretend Like You're Poor!", user_id: 3)
+Store.create(name: 'Gasp Jeans', description: "The Word's Most Pretentious Jeans", image_file_name: 'gasp.gif', user_id: 2)
+Store.create(name: 'Inappropriate Cultural Appropriation', description: "Pay a Lot of Money to Pretend Like You're Poor!", image_file_name: 'approp.jpeg', user_id: 3)
+
 item =Item.create([
-  {name: 'Himalayan Hoodie',   description: 'A stylish top layer to keep you as warm as a Sherpa', price: 30.00, status: 'active', category_ids: [1,4], image_file_name: "HimalayanHoodie.jpg", store_id: 1},
-  {name: 'Urban Sombrero', description: 'A modern nod to old Mexico', price: 45.00, status: 'active', category_ids: [1,2,5], image_file_name: "urbansombrero.jpg", store_id: 1},
-  {name: 'Teddy Bear Jacket', description: 'Cold weather wear that you can cuddle up with', price: 55.00, status: 'active', category_ids: [2, 4], image_file_name: "teddybearjacket.jpg", store_id: 3},
-  {name: 'Metro Duster', description: 'Old west style for a modern world', price: 27.00, status: 'active', category_ids: [1,4], image_file_name: "metro_duster.jpg", store_id: 2},
+  {name: 'Himalayan Hoodie',   description: 'A stylish top layer to keep you as warm as a Sherpa', price: 30.00, status: 'active', category_ids: [1,4], image_file_name: "HimalayanHoodie.jpg", store_id: 3},
+  {name: 'Urban Sombrero', description: 'A modern nod to old Mexico', price: 45.00, status: 'active', category_ids: [1,2,5], image_file_name: "urbansombrero.jpg", store_id: 3},
+  {name: 'Teddy Bear Jacket', description: 'Cold weather wear that you can cuddle up with', price: 55.00, status: 'active', category_ids: [2, 4], image_file_name: "teddybearjacket.jpg", store_id: 1},
+  {name: 'Metro Duster', description: 'Old west style for a modern world', price: 27.00, status: 'active', category_ids: [1,4], image_file_name: "metro_duster.jpg", store_id: 1},
   {name: 'Fur Neck Wrap', description: 'Made from the fur of snowshoe hares', price: 28.00, status: 'active', category_ids: [1,2,6], image_file_name: "rabbit_fur.jpg", store_id: 2},
 ])
 
