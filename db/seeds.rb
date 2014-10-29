@@ -18,7 +18,7 @@ Store.create(name: 'Gasp Jeans', description: "The Word's Most Pretentious Jeans
 Store.create(name: 'Inappropriate Cultural Appropriation', description: "Pay a Lot of Money to Pretend Like You're Poor!", image_file_name: 'approp.jpeg', user_id: 3)
 
 item =Item.create([
-  {name: 'Himalayan Hoodie',   description: 'A stylish top layer to keep you as warm as a Sherpa', price: 30.00, status: 'active', category_ids: [6, ], image_file_name: "HimalayanHoodie.jpg", store_id: 3},
+  {name: 'Himalayan Hoodie',   description: 'A stylish top layer to keep you as warm as a Sherpa', price: 30.00, status: 'active', category_ids: [6, 7], image_file_name: "HimalayanHoodie.jpg", store_id: 3},
   {name: 'Urban Sombrero', description: 'A modern nod to old Mexico', price: 45.00, status: 'active', category_ids: [1,2,5], image_file_name: "urbansombrero.jpg", store_id: 3},
   {name: 'Teddy Bear Jacket', description: 'Cold weather wear that you can cuddle up with', price: 55.00, status: 'active', category_ids: [2, 4], image_file_name: "teddybearjacket.jpg", store_id: 1},
   {name: 'Metro Duster', description: 'Old west style for a modern world', price: 27.00, status: 'active', category_ids: [1,4], image_file_name: "metro_duster.jpg", store_id: 1},
