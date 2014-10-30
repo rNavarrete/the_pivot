@@ -496,7 +496,7 @@
         1,
         null,
         1,
-        8,
+        14,
         0,
         null,
         null,
@@ -506,7 +506,7 @@
         null,
         null,
         1,
-        12,
+        21,
         null,
         null,
         null
@@ -562,7 +562,7 @@
         1,
         1,
         null,
-        49,
+        59,
         null
       ],
       "/Users/ianderse/Dropbox/Projects/Turing/Section_3/the_pivot/app/models/item.rb": [
@@ -582,7 +582,7 @@
         1,
         1,
         1,
-        46,
+        50,
         null,
         1,
         0,
@@ -644,7 +644,7 @@
         1,
         null,
         1,
-        4,
+        7,
         null,
         null,
         null
@@ -740,7 +740,7 @@
       "/Users/ianderse/Dropbox/Projects/Turing/Section_3/the_pivot/app/controllers/home_controller.rb": [
         1,
         1,
-        2,
+        3,
         null,
         null,
         1,
@@ -758,13 +758,13 @@
         1,
         null,
         null,
-        4,
-        4,
+        7,
+        7,
         0,
         null,
         null,
         null,
-        4,
+        7,
         null,
         null,
         null,
@@ -794,9 +794,9 @@
         null,
         null,
         1,
-        1,
-        1,
-        1,
+        2,
+        2,
+        2,
         null,
         0,
         null,
@@ -813,6 +813,17 @@
         null,
         0,
         null,
+        null,
+        null
+      ],
+      "/Users/ianderse/Dropbox/Projects/Turing/Section_3/the_pivot/app/controllers/items_controller.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        1,
+        1,
         null,
         null
       ],
@@ -867,6 +878,6 @@
         null
       ]
     },
-    "timestamp": 1414618824
+    "timestamp": 1414683672
   }
 }
