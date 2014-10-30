@@ -33,14 +33,70 @@ describe 'As a Public User', type: :feature do
   end
 
   describe 'cart interaction', type: :feature do
+    it 'can add items to a shopping cart' do
+      visit '/'
+      click_on("men")
+      click_on("Mens")
+      first_item = first(:css, '.store-item')
+      within(first_item) do
+        first(:link).click
+      end
+      click_on("add to cart")
+      expect(page).to have_content("1 item")
+    end
 
-    it 'maintains a shared shopping cart across all businesses I browse'
+    it 'maintains a shared shopping cart across all businesses I browse' do
+      visit '/'
+      click_on("men")
+      click_on("Mens")
+      first_item = first(:css, '.store-item')
+      within(first_item) do
+        first(:link).click
+      end
+      click_on("add to cart")
+      expect(page).to have_content("1 item")
+      click_on("Women")
+      click_on("Womens Dresses")
+      first_item = first(:css, '.store-item')
+      within(first_item) do
+        first(:link).click
+      end
+      click_on("add to cart")
+      expect(page).to have_content("2 items")
+    end
 
-    it 'can add items to a shopping cart'
+    it 'must log in before completing checkout' do
+      visit '/'
+      click_on("men")
+      click_on("Mens")
+      first_item = first(:css, '.store-item')
+      within(first_item) do
+        first(:link).click
+      end
+      click_on("add to cart")
+      click_on("cart")
+      click_on("ckout_btn")
+      expect(page).to have_content("Please log in or create account to complete order")
+    end
 
-    it 'must log in before completing checkout'
-
-    it 'after logging in, I immediately resume the checkout process'
+    it 'after logging in, I immediately resume the checkout process' do
+      visit '/'
+      click_on("men")
+      click_on("Mens")
+      first_item = first(:css, '.store-item')
+      within(first_item) do
+        first(:link).click
+      end
+      click_on("add to cart")
+      click_on("cart")
+      click_on("check out")
+      expect(page).to have_content("Please log in or create account to complete order")
+      fill_in "email_address", with: "demo+rachel@jumpstartlab.com"
+      fill_in "password", with: "password"
+      click_on("Log In")
+      click_on("ckout_btn")
+      expect(page).to have_content("Pick Up")
+    end
 
   end
 
