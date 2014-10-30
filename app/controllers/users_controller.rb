@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
 	# layout "special_layout"
 	def index
-		@users = User.all
 	end
 
 	def new
