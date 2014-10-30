@@ -1,10 +1,12 @@
 
+
+
+
 #item-show-page{
   width: 70%;
   background-color: white;
   margin: auto;
   background-color: #FAFAFA;
-
 
   .labels {
     min-width: 100px;
@@ -42,6 +44,7 @@
 }
 
 .carousel {
+  padding-top: 50px;
   height: 500px;
   margin-bottom: 60px;
 }
@@ -62,10 +65,8 @@
   height: 500px;
 }
 
-
 #myCarousel{
   height: 600px;
-
 }
 
 #navbar{
@@ -100,7 +101,8 @@
   width: 100%;
   height: 110px;
   border-bottom: 1px solid gray;
-  padding-top:10px;
+  padding-top: 56px;
+  height: 150px;
 }
 
 .store-header-image {
@@ -231,13 +233,6 @@
  box-shadow: #ffc 0 0 4px;
 }
 
-body {
-
- h1 {
-   color: white;
- }
-}
-
 #font {
  color: white;
 }
@@ -352,9 +347,6 @@ body {
  width: 90%;
  margin: auto;
 
- h2 {
-   color: white;
- }
 }
 
 
@@ -462,4 +454,10 @@ body {
   margin: 15px;
   font-size: 20px;
   min-height: 50px;
+}
+
+
+
+#store-name{
+margin-right: 157px;
 }

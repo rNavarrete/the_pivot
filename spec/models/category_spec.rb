@@ -14,12 +14,8 @@ RSpec.describe Category, :type => :model do
     end
 
     it 'will order by position' do
-      category2 = Category.create(name: 'grubs', position: 2)
-      category1 = Category.create(name: 'rodents', position: 1)
-      category3 = Category.create(name: 'worms', position: 3)
-
-      expect(Category.last).to eq(category3)
-      expect(Category.first).to eq(category1)
+      expect(Category.last.name).to eq("Kids Shoes")
+      expect(Category.first.name).to eq("Mens")
     end
   end
 end

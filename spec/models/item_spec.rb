@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Item, :type => :model do
 
   let(:item) do
-  Item.new(name: 'possum pie', description: "delicious, yummy, delicious, yummy, delicious, yummy,delicious, yummy,delicious, yummy,", price: 5, status: "active")
+  Item.new(name: 'possum pie', description: "delicious, yummy, delicious, yummy, delicious, yummy,delicious, yummy,delicious, yummy,", price: 5, status: "active", store_id: 1)
 end
 
   it 'can create an item' do

@@ -15,11 +15,12 @@
 /log/*.log
 /tmp
 
-# Ignore CodeClimate coverage log file.
-/coverage/.resultset.json
-
 # Ignore Secrets File
 /config/locales/secrets.yml
 
 # Ignore application configuration
 /config/application.yml
+
+# Ignore all CodeClimate coverage logs.
+/coverage
+>>>>>>> master
