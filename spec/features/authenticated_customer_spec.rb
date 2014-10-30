@@ -15,7 +15,7 @@ describe 'As an Authenticated Customer', type: :feature do
 
 	describe 'Manage my account information shared by all businesses centrally on my account page', type: :feature do
 		it 'can change shipping address'
-		it 'can change billin address'
+		it 'can change billing address'
 		it 'can change credit cards associated with account'
 		it 'can change name'
 		it 'can change password'
