@@ -6,12 +6,16 @@ class OrdersController < ApplicationController
     if session[:cart_items].empty?
       redirect_to confirmation_path
     else
-      @order = Order.create(user_id: session[:user_id], status: "ordered")
-      session[:cart_items].map do |item_id, quantity|
-        @order.order_items.new(item_id: item_id, quantity: quantity)
+      items_by_store_id = session[:cart_items].group_by{|item| Item.find(item[0].to_i).store_id }
+
+      items_by_store_id.each do |store_id, items|
+        order = Order.create(user_id: session[:user_id], status: "ordered", store_id: store_id)
+        items.map do |item_id, quantity|
+          order.order_items.new(item_id: item_id, quantity: quantity)
+        end
+        order.address_id = params[:address]
+        order.save
       end
-      @order.address_id = params[:address]
-      @order.save
       session[:cart_items] = {}
       redirect_to confirmation_path
     end
