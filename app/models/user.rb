@@ -7,10 +7,6 @@ class User < ActiveRecord::Base
   validates_format_of :email_address, :with => /.+@.+\..+/i
   validates :email_address, uniqueness: true
 
-  # attr_accessible :name , :email
-
-  # User::Roles
-  # The available roles
   Roles = [ :admin , :user, :seller ]
 
   def is?( requested_role )
