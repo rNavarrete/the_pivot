@@ -76,13 +76,13 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  ActionMailer::Base.smtp_settings = {
-    :user_name => ENV['SG_USERNAME'],
-    :password => ENV['SG_PASSWORD'],
-    :domain => 'mountain-top-cafe.herokuapp.com',
-    :address => 'smtp.sendgrid.net',
-    :port => 587,
-    :authentication => :plain,
-    :enable_starttls_auto => true
-  }
+config.paperclip_defaults = {
+   :storage => :fog,
+   :fog_credentials => {
+     :provider => "AWS",
+     :aws_access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+     :aws_secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+     },
+   :fog_directory => ENV["S3_BUCKET_NAME"]
+   }
 end
