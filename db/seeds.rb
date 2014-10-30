@@ -13,9 +13,9 @@ Category.create(name: 'Girls', position: 12)
 Category.create(name: 'Babies & Toddlers', position: 13)
 Category.create(name: 'Kids Shoes', position: 14)
 
-Store.create(name: 'Trends', description: 'Trendy Clothes for Trendy People', image_file_name: 'trends.jpeg', user_id: 1)
-Store.create(name: 'Gasp Jeans', description: "The Word's Most Pretentious Jeans", image_file_name: 'gasp.gif', user_id: 2)
-Store.create(name: 'Inappropriate Cultural Appropriation', description: "Pay a Lot of Money to Pretend Like You're Poor!", image_file_name: 'approp.jpeg', user_id: 3)
+Store.create(name: 'Trends', description: 'Trendy Clothes for Trendy People', image_file_name: 'trendz.jpg', user_id: 1)
+Store.create(name: 'Gasp Jeans', description: "The Word's Most Pretentious Jeans", image_file_name: 'gasp.jpg', user_id: 2)
+Store.create(name: 'Inappropriate Cultural Appropriation', description: "Pay a Lot of Money to Pretend Like You're Poor!", image_file_name: 'approp.jpg', user_id: 3)
 
 item =Item.create([
   {name: 'Himalayan Hoodie',   description: 'A stylish top layer to keep you as warm as a Sherpa', price: 30.00, status: 'active', category_ids: [6, 7], image_file_name: "HimalayanHoodie.jpg", store_id: 3},

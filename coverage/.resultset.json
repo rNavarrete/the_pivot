@@ -1,14 +1,14 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/ianderse/Dropbox/Projects/Turing/Section_3/the_pivot/config/environment.rb": [
+      "/Users/glenegbert/Dropbox/ruby_projects/the_pivot/config/environment.rb": [
         null,
         1,
         null,
         null,
         1
       ],
-      "/Users/ianderse/Dropbox/Projects/Turing/Section_3/the_pivot/config/application.rb": [
+      "/Users/glenegbert/Dropbox/ruby_projects/the_pivot/config/application.rb": [
         1,
         null,
         null,
@@ -42,13 +42,13 @@
         null,
         null
       ],
-      "/Users/ianderse/Dropbox/Projects/Turing/Section_3/the_pivot/config/boot.rb": [
+      "/Users/glenegbert/Dropbox/ruby_projects/the_pivot/config/boot.rb": [
         null,
         1,
         null,
         1
       ],
-      "/Users/ianderse/Dropbox/Projects/Turing/Section_3/the_pivot/config/environments/test.rb": [
+      "/Users/glenegbert/Dropbox/ruby_projects/the_pivot/config/environments/test.rb": [
         1,
         null,
         null,
@@ -89,7 +89,7 @@
         null,
         null
       ],
-      "/Users/ianderse/Dropbox/Projects/Turing/Section_3/the_pivot/config/initializers/assets.rb": [
+      "/Users/glenegbert/Dropbox/ruby_projects/the_pivot/config/initializers/assets.rb": [
         null,
         null,
         null,
@@ -99,7 +99,7 @@
         null,
         null
       ],
-      "/Users/ianderse/Dropbox/Projects/Turing/Section_3/the_pivot/config/initializers/backtrace_silencers.rb": [
+      "/Users/glenegbert/Dropbox/ruby_projects/the_pivot/config/initializers/backtrace_silencers.rb": [
         null,
         null,
         null,
@@ -108,18 +108,18 @@
         null,
         null
       ],
-      "/Users/ianderse/Dropbox/Projects/Turing/Section_3/the_pivot/config/initializers/cookies_serializer.rb": [
+      "/Users/glenegbert/Dropbox/ruby_projects/the_pivot/config/initializers/cookies_serializer.rb": [
         null,
         null,
         1
       ],
-      "/Users/ianderse/Dropbox/Projects/Turing/Section_3/the_pivot/config/initializers/filter_parameter_logging.rb": [
+      "/Users/glenegbert/Dropbox/ruby_projects/the_pivot/config/initializers/filter_parameter_logging.rb": [
         null,
         null,
         null,
         1
       ],
-      "/Users/ianderse/Dropbox/Projects/Turing/Section_3/the_pivot/config/initializers/inflections.rb": [
+      "/Users/glenegbert/Dropbox/ruby_projects/the_pivot/config/initializers/inflections.rb": [
         null,
         null,
         null,
@@ -137,18 +137,18 @@
         null,
         null
       ],
-      "/Users/ianderse/Dropbox/Projects/Turing/Section_3/the_pivot/config/initializers/mime_types.rb": [
+      "/Users/glenegbert/Dropbox/ruby_projects/the_pivot/config/initializers/mime_types.rb": [
         null,
         null,
         null,
         null
       ],
-      "/Users/ianderse/Dropbox/Projects/Turing/Section_3/the_pivot/config/initializers/session_store.rb": [
+      "/Users/glenegbert/Dropbox/ruby_projects/the_pivot/config/initializers/session_store.rb": [
         null,
         null,
         1
       ],
-      "/Users/ianderse/Dropbox/Projects/Turing/Section_3/the_pivot/config/initializers/simple_form.rb": [
+      "/Users/glenegbert/Dropbox/ruby_projects/the_pivot/config/initializers/simple_form.rb": [
         null,
         1,
         null,
@@ -295,7 +295,7 @@
         null,
         null
       ],
-      "/Users/ianderse/Dropbox/Projects/Turing/Section_3/the_pivot/config/initializers/wrap_parameters.rb": [
+      "/Users/glenegbert/Dropbox/ruby_projects/the_pivot/config/initializers/wrap_parameters.rb": [
         null,
         null,
         null,
@@ -311,7 +311,7 @@
         null,
         null
       ],
-      "/Users/ianderse/Dropbox/Projects/Turing/Section_3/the_pivot/config/routes.rb": [
+      "/Users/glenegbert/Dropbox/ruby_projects/the_pivot/config/routes.rb": [
         1,
         null,
         1,
@@ -360,23 +360,23 @@
         null,
         null
       ],
-      "/Users/ianderse/Dropbox/Projects/Turing/Section_3/the_pivot/app/helpers/about_helper.rb": [
+      "/Users/glenegbert/Dropbox/ruby_projects/the_pivot/app/helpers/about_helper.rb": [
         1,
         null
       ],
-      "/Users/ianderse/Dropbox/Projects/Turing/Section_3/the_pivot/app/helpers/admin/dashboard_helper.rb": [
+      "/Users/glenegbert/Dropbox/ruby_projects/the_pivot/app/helpers/admin/dashboard_helper.rb": [
         1,
         null
       ],
-      "/Users/ianderse/Dropbox/Projects/Turing/Section_3/the_pivot/app/helpers/admin/order_items_helper.rb": [
+      "/Users/glenegbert/Dropbox/ruby_projects/the_pivot/app/helpers/admin/order_items_helper.rb": [
         1,
         null
       ],
-      "/Users/ianderse/Dropbox/Projects/Turing/Section_3/the_pivot/app/helpers/admin/orders_helper.rb": [
+      "/Users/glenegbert/Dropbox/ruby_projects/the_pivot/app/helpers/admin/orders_helper.rb": [
         1,
         null
       ],
-      "/Users/ianderse/Dropbox/Projects/Turing/Section_3/the_pivot/app/helpers/application_helper.rb": [
+      "/Users/glenegbert/Dropbox/ruby_projects/the_pivot/app/helpers/application_helper.rb": [
         1,
         1,
         null,
@@ -436,39 +436,156 @@
         null,
         null
       ],
-      "/Users/ianderse/Dropbox/Projects/Turing/Section_3/the_pivot/app/helpers/carts_helper.rb": [
+      "/Users/glenegbert/Dropbox/ruby_projects/the_pivot/app/helpers/carts_helper.rb": [
         1,
         null
       ],
-      "/Users/ianderse/Dropbox/Projects/Turing/Section_3/the_pivot/app/helpers/categories_helper.rb": [
+      "/Users/glenegbert/Dropbox/ruby_projects/the_pivot/app/helpers/categories_helper.rb": [
         1,
         null
       ],
-      "/Users/ianderse/Dropbox/Projects/Turing/Section_3/the_pivot/app/helpers/contact_us_helper.rb": [
+      "/Users/glenegbert/Dropbox/ruby_projects/the_pivot/app/helpers/contact_us_helper.rb": [
         1,
         null
       ],
-      "/Users/ianderse/Dropbox/Projects/Turing/Section_3/the_pivot/app/helpers/gift_cards_helper.rb": [
+      "/Users/glenegbert/Dropbox/ruby_projects/the_pivot/app/helpers/gift_cards_helper.rb": [
         1,
         null
       ],
-      "/Users/ianderse/Dropbox/Projects/Turing/Section_3/the_pivot/app/helpers/home_helper.rb": [
+      "/Users/glenegbert/Dropbox/ruby_projects/the_pivot/app/helpers/home_helper.rb": [
         1,
         null
       ],
-      "/Users/ianderse/Dropbox/Projects/Turing/Section_3/the_pivot/app/helpers/items_helper.rb": [
+      "/Users/glenegbert/Dropbox/ruby_projects/the_pivot/app/helpers/items_helper.rb": [
         1,
         null
       ],
-      "/Users/ianderse/Dropbox/Projects/Turing/Section_3/the_pivot/app/helpers/orders_helper.rb": [
+      "/Users/glenegbert/Dropbox/ruby_projects/the_pivot/app/helpers/orders_helper.rb": [
         1,
         null
       ],
-      "/Users/ianderse/Dropbox/Projects/Turing/Section_3/the_pivot/app/helpers/sessions_helper.rb": [
+      "/Users/glenegbert/Dropbox/ruby_projects/the_pivot/app/helpers/sessions_helper.rb": [
         1,
         null
       ],
-      "/Users/ianderse/Dropbox/Projects/Turing/Section_3/the_pivot/app/controllers/admin/order_items_controller.rb": [
+      "/Users/glenegbert/Dropbox/ruby_projects/the_pivot/db/schema.rb": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/glenegbert/Dropbox/ruby_projects/the_pivot/app/controllers/admin/order_items_controller.rb": [
         1,
         1,
         0,
@@ -488,7 +605,7 @@
         null,
         null
       ],
-      "/Users/ianderse/Dropbox/Projects/Turing/Section_3/the_pivot/app/controllers/application_controller.rb": [
+      "/Users/glenegbert/Dropbox/ruby_projects/the_pivot/app/controllers/application_controller.rb": [
         1,
         1,
         1,
@@ -511,7 +628,7 @@
         null,
         null
       ],
-      "/Users/ianderse/Dropbox/Projects/Turing/Section_3/the_pivot/app/controllers/users_controller.rb": [
+      "/Users/glenegbert/Dropbox/ruby_projects/the_pivot/app/controllers/users_controller.rb": [
         1,
         null,
         1,
@@ -543,7 +660,7 @@
         null,
         null
       ],
-      "/Users/ianderse/Dropbox/Projects/Turing/Section_3/the_pivot/app/models/address.rb": [
+      "/Users/glenegbert/Dropbox/ruby_projects/the_pivot/app/models/address.rb": [
         1,
         1,
         1,
@@ -556,7 +673,7 @@
         null,
         null
       ],
-      "/Users/ianderse/Dropbox/Projects/Turing/Section_3/the_pivot/app/models/category.rb": [
+      "/Users/glenegbert/Dropbox/ruby_projects/the_pivot/app/models/category.rb": [
         1,
         1,
         1,
@@ -565,7 +682,7 @@
         49,
         null
       ],
-      "/Users/ianderse/Dropbox/Projects/Turing/Section_3/the_pivot/app/models/item.rb": [
+      "/Users/glenegbert/Dropbox/ruby_projects/the_pivot/app/models/item.rb": [
         1,
         1,
         null,
@@ -593,7 +710,7 @@
         null,
         null
       ],
-      "/Users/ianderse/Dropbox/Projects/Turing/Section_3/the_pivot/app/models/order.rb": [
+      "/Users/glenegbert/Dropbox/ruby_projects/the_pivot/app/models/order.rb": [
         1,
         1,
         1,
@@ -627,7 +744,7 @@
         null,
         null
       ],
-      "/Users/ianderse/Dropbox/Projects/Turing/Section_3/the_pivot/app/models/user.rb": [
+      "/Users/glenegbert/Dropbox/ruby_projects/the_pivot/app/models/user.rb": [
         1,
         1,
         1,
@@ -649,7 +766,7 @@
         null,
         null
       ],
-      "/Users/ianderse/Dropbox/Projects/Turing/Section_3/the_pivot/db/seeds.rb": [
+      "/Users/glenegbert/Dropbox/ruby_projects/the_pivot/db/seeds.rb": [
         1,
         1,
         1,
@@ -704,7 +821,7 @@
         1,
         1
       ],
-      "/Users/ianderse/Dropbox/Projects/Turing/Section_3/the_pivot/app/models/store.rb": [
+      "/Users/glenegbert/Dropbox/ruby_projects/the_pivot/app/models/store.rb": [
         1,
         1,
         1,
@@ -716,13 +833,13 @@
         null,
         null
       ],
-      "/Users/ianderse/Dropbox/Projects/Turing/Section_3/the_pivot/app/models/category_item.rb": [
+      "/Users/glenegbert/Dropbox/ruby_projects/the_pivot/app/models/category_item.rb": [
         1,
         1,
         1,
         null
       ],
-      "/Users/ianderse/Dropbox/Projects/Turing/Section_3/the_pivot/app/models/order_item.rb": [
+      "/Users/glenegbert/Dropbox/ruby_projects/the_pivot/app/models/order_item.rb": [
         1,
         1,
         1,
@@ -737,7 +854,7 @@
         null,
         null
       ],
-      "/Users/ianderse/Dropbox/Projects/Turing/Section_3/the_pivot/app/controllers/home_controller.rb": [
+      "/Users/glenegbert/Dropbox/ruby_projects/the_pivot/app/controllers/home_controller.rb": [
         1,
         1,
         2,
@@ -751,7 +868,7 @@
         null,
         null
       ],
-      "/Users/ianderse/Dropbox/Projects/Turing/Section_3/the_pivot/app/models/ability.rb": [
+      "/Users/glenegbert/Dropbox/ruby_projects/the_pivot/app/models/ability.rb": [
         1,
         1,
         null,
@@ -787,7 +904,7 @@
         null,
         null
       ],
-      "/Users/ianderse/Dropbox/Projects/Turing/Section_3/the_pivot/app/controllers/categories_controller.rb": [
+      "/Users/glenegbert/Dropbox/ruby_projects/the_pivot/app/controllers/categories_controller.rb": [
         1,
         1,
         0,
@@ -803,7 +920,7 @@
         null,
         null
       ],
-      "/Users/ianderse/Dropbox/Projects/Turing/Section_3/the_pivot/app/controllers/stores_controller.rb": [
+      "/Users/glenegbert/Dropbox/ruby_projects/the_pivot/app/controllers/stores_controller.rb": [
         1,
         null,
         1,
@@ -816,7 +933,7 @@
         null,
         null
       ],
-      "/Users/ianderse/Dropbox/Projects/Turing/Section_3/the_pivot/app/models/cart.rb": [
+      "/Users/glenegbert/Dropbox/ruby_projects/the_pivot/app/models/cart.rb": [
         1,
         1,
         8,
@@ -867,6 +984,6 @@
         null
       ]
     },
-    "timestamp": 1414618824
+    "timestamp": 1414681576
   }
 }
