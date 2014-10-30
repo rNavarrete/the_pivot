@@ -1,7 +1,7 @@
 class StoresController < ApplicationController
 
   def show
-  	@store = Store.where(name: params[:id]).first
+  	@store = Store.where(slug: params[:id]).first
   	if @store
   		render :show
   	else
