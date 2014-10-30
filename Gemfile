@@ -39,3 +39,6 @@ gem 'rails_12factor', group: :production
 gem 'simple_form'
 gem 'mail_form'
 gem 'bootstrap_form'
+gem 'aws-sdk', '~> 1.54.0'
+gem 'fog'
+gem 'figaro'
