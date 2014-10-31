@@ -1,5 +1,5 @@
 class Store < ActiveRecord::Base
-	validates :name, uniqueness: true
+	validates :name, :slug, uniqueness: true
   has_many :items
   has_many :orders
   belongs_to :user
