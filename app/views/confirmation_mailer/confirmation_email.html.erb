@@ -25,7 +25,7 @@
     <td class="tg-031e"><%= order_item.item.name %></td>
     <td class="tg-031e"><%= number_to_currency(order_item.item.price) %></td>
     <td class="tg-031e"><%= order_item.quantity %></td>
-    <td class="tg-031e"><%= order_item.line_total %></td>
+    <td class="tg-031e"><%= number_to_currency(order_item.line_total) %></td>
   <% end %>
   </tr>
   <tr>
