@@ -15,7 +15,7 @@ class OrdersController < ApplicationController
         end
         order.address_id = params[:address]
         order.save
-        ConfirmationMailer.confirmation_email(current_user).deliver
+        ConfirmationMailer.confirmation_email(current_user, order).deliver
       end
       session[:cart_items] = {}
       redirect_to confirmation_path

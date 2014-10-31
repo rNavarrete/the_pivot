@@ -1,9 +1,9 @@
 class ConfirmationMailer < ActionMailer::Base
   default from: "dopethreads5280@gmail.com"
 
-  def confirmation_email(user)
+  def confirmation_email(user, order)
     @user = user
-    mail(to: @user.email_address, subject: "order confirmation" )
-
+    @order = order
+    mail(to: @user.email_address, subject: "Dope Threads: Order Confirmation" )
   end
 end
