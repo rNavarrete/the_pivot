@@ -9,14 +9,14 @@
     <td class="tg-e3zv">Item</td>
     <td class="tg-e3zv">Unit Price</td>
     <td class="tg-e3zv">Quantity</td>
-    <td class="tg-e3zv">Quantity Price</td>
+    <td class="tg-e3zv">Total Price</td>
   </tr>
   <% @order.order_items.each do |order_item| %>
   <tr>
     <td class="tg-031e"><%= link_to order_item.item.name, item_path(order_item.item) %></td>
     <td class="tg-031e"><%= number_to_currency(order_item.item.price) %></td>
     <td class="tg-031e"><%= order_item.quantity %></td>
-    <td class="tg-031e"><%= order_item.line_total %></td>
+    <td class="tg-031e"><%= number_to_currency(order_item.line_total) %></td>
   <% end %>
   </tr>
   <tr>
