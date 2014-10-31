@@ -27,6 +27,6 @@ class StoreDashboardController < ApplicationController
 
 
 	def store_params
-		params.require(:store).permit(:name, :description, :image_file_name, :image_content_type, :image_file_name, :image_updated_at)
+		params.require(:store).permit(:name, :description, :image)
 	end
 end
