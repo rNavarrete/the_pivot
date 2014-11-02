@@ -2,7 +2,7 @@
   <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist">
     <li role="presentation" class="active"><a href="#store_settings" role="tab" data-toggle="tab">Store Settings</a></li>
-    <li role="presentation"><a href="#edit_items" role="tab" data-toggle="tab">Edit Items</a></li>
+    <li role="presentation"><a href="#edit_items" role="tab" data-toggle="tab">Item Settings</a></li>
     <li role="presentation"><a href="#messages" role="tab" data-toggle="tab">Messages</a></li>
     <li role="presentation"><a href="#settings" role="tab" data-toggle="tab">Settings</a></li>
   </ul>
@@ -24,8 +24,8 @@
     </div>
     <div role="tabpanel" class="tab-pane fade" id="edit_items">
       <div class="edit-items-container">
-      <h1>Edit Items</h1>
-      <p><%= link_to "Create a new item", new_admin_item_path, id: "new_item_button", class: "btn-lg btn-success" %></p>
+      <h1 class="page-header">Item Settings</h1>
+      <p><%= link_to "Create a new item", new_admin_item_path, id: "new_item_button", class: "btn-lg btn-success" %></p><br />
       <table class="table table-striped">
         <thead>
           <tr>
@@ -39,8 +39,8 @@
             <tr>
               <td><span class="item_title"><%= item.name %><span></td>
               <td><%= item.description %></td>
-              <td><%= link_to 'Edit', edit_item_path(item), class: "btn btn-warning" %></td>
-              <td><%= link_to 'Destroy', edit_item_path(item), class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to 'Edit', edit_admin_item_path(item), class: "btn btn-warning" %></td>
+              <td><%= link_to 'Destroy', admin_item_path(item), class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
           <% end %>
         </tbody>
