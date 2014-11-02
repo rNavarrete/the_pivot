@@ -5,5 +5,43 @@
   </head>
   <body>
     <h1>Hey <%= @user.full_name %>! We have received your order. </h1>
+    <h4>Over at Dope Threads HQ we are busy customizing your order.</h4>
+
+    <h1>Details for your order # <%= @order.id %> at <%= @order.store.name %></h1>
+
+<table class="tg">
+  <tr>
+    <th class="tg-e3zv">Name: <br>Email: <br>Order status: </th>
+    <th class="tg-031e" colspan="3"><%= @order.user.full_name %><br><%= @order.user.email_address %></th>
+  </tr>
+  <tr>
+    <td class="tg-e3zv">Item</td>
+    <td class="tg-e3zv">Unit Price</td>
+    <td class="tg-e3zv">Quantity</td>
+    <td class="tg-e3zv">Total Price</td>
+  </tr>
+  <% @order.order_items.each do |order_item| %>
+  <tr>
+    <td class="tg-031e"><%= order_item.item.name %></td>
+    <td class="tg-031e"><%= number_to_currency(order_item.item.price) %></td>
+    <td class="tg-031e"><%= order_item.quantity %></td>
+    <td class="tg-031e"><%= number_to_currency(order_item.line_total) %></td>
+  <% end %>
+  </tr>
+  <tr>
+    <td class="tg-0ord" colspan="3">Sub-total: </td>
+    <td class="tg-031e"><%= number_to_currency(@order.subtotal) %></td>
+  </tr>
+  <tr>
+    <td class="tg-0ord" colspan="3">Tax: </td>
+    <td class="tg-031e"><%= number_to_currency(@order.tax) %></td>
+  </tr>
+  <tr>
+    <td class="tg-0ord" colspan="3">Total: </td>
+    <td class="tg-e3zv"><%= number_to_currency(@order.total) %></td>
+  </tr>
+</table>
+
+
   </body>
 </html>
