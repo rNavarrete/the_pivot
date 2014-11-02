@@ -2,8 +2,9 @@
 <html>
   <head>
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   </head>
-  <body>
+      <body>
     <h1>We have received your order. </h1>
     <p>
       Dear <%= @user.full_name %> <br>
@@ -12,15 +13,37 @@
       your orders please visit <a href="http://localhost:3000/orders">your orders page</a> on our site
       (you will need to login to view this page).
     </p>
-    <% @orders.each do |order| %>
-    <p> <%= order.store.name %> <p>
-    <p> <% order.order_items.each do |order_item| %> </p>
-    <p>  <%= order_item.item.name%> </p>
-    <p>  <%= order_item.item.price%> </p>
-    <p>  <%= order_item.quantity %> </p>
-    <p>  <%= order_item.line_total %> </p>
-    <% end %>
-    <% end %>
+    <h3> Order Details </h3>
+    <div id="email_order_box">
+      <% @orders.each do |order| %>
+
+      <h3> Items From: <%= order.store.name %> </h3>
+      <table>
+      <th align="left"> Name </th>
+      <th align="left"> Price </th>
+      <th align="left"> Quantity </th>
+      <th align="left"> Line Total</th>
+      <tr>
+      <% order.order_items.each do |order_item| %>
+      <td> <%= order_item.item.name%> </td>
+      <td> <%= number_to_currency(order_item.item.price)%></td>
+      <td> <%= order_item.quantity %> </td>
+      <td> <%= number_to_currency(order_item.line_total) %> </td>
+      </tr>
+      <% end %>
+      <tr>
+      <td class="tg-0ord" colspan="3">Sub-total: </td>
+      <td class="tg-031e"><%= number_to_currency(order.subtotal) %></td>
+      </tr>
+      </table>
+      <% end %>
+
+      <h3> Your Total </h3>
+      <% taxes = @orders.map {|order| order.tax} %>
+      <span> Taxes: <%= number_to_currency(taxes.reduce(:+)) %> </span> </br>
+      <% totals = @orders.map {|order| order.total} %>
+      <span> Order Total: <%= number_to_currency(totals.reduce(:+)) %> </span>
+    </div>
 
 
 
