@@ -13,5 +13,4 @@ class Store < ActiveRecord::Base
   def remove_slug_spaces
     self.slug.gsub!(/[" "]/, '_')
   end
-
 end

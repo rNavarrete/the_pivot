@@ -3,8 +3,15 @@ require 'capybara/rails'
 require 'capybara/rspec'
 
 describe 'As an Authenticated Business Administrator', type: :feature do
+  before :each do
+    User.make(:user_id => 1, :email => "park@chanwook.com", :password => "oldboy", :fullname => "Park Chan-Wook", :screename => "Song Kang-Ho", :role => "seller")
+    Store.make(:name => "Boots", :description => "Boots and Shit", :user_id => 1, :image => "", :slug => "boots")
+  end
   describe 'I can manage my store', type: :feature do
-    it 'can add items'
+    it 'can add items' do
+      visit '/'
+    end
+
     it 'can edit items'
     it 'can retire items'
   end

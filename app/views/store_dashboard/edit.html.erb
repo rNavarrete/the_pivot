@@ -1,15 +1,56 @@
-<div class="container">
-  <%= @store.name %>
-  <%= @store.description %>
-</div>
+<h1 class="page-header">Seller Options</h1>
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#store_settings" role="tab" data-toggle="tab">Store Settings</a></li>
+    <li role="presentation"><a href="#edit_items" role="tab" data-toggle="tab">Edit Items</a></li>
+    <li role="presentation"><a href="#messages" role="tab" data-toggle="tab">Messages</a></li>
+    <li role="presentation"><a href="#settings" role="tab" data-toggle="tab">Settings</a></li>
+  </ul>
 
 <div class="container">
-<%= form_for @store, url: {action: "update"} do |f| %>
-  <%= f.text_field :name %><br />
-  <%= f.text_area  :description %><br />
-  <%= f.text_area  :slug %><br />
-  <%= f.file_field :image %><br />
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane fade in active" id="store_settings">
+      <h2 class="page-header">Edit Store Settings</h2>
+      <%= bootstrap_form_for @store, url: {action: "update"} do |f| %>
+        <%= f.text_field :name %><br />
+        <%= f.text_area  :description %><br />
+        <%= f.text_field  :slug %><br />
+        <%= image_tag @store.image(:medium) %>
+        <%= f.file_field :image %><br />
 
-  <%= f.submit %>
-<% end %>
+        <%= f.submit class: "btn btn-success" %>
+      <% end %>
+    </div>
+    <div role="tabpanel" class="tab-pane fade" id="edit_items">
+      <div class="edit-items-container">
+      <h1>Edit Items</h1>
+      <p><%= link_to "Create a new item", new_admin_item_path, id: "new_item_button", class: "btn-lg btn-success" %></p>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+        <tbody id="admin_categories_edit_table">
+          <% @store.items.each do |item| %>
+            <tr>
+              <td><span class="item_title"><%= item.name %><span></td>
+              <td><%= item.description %></td>
+              <td><%= link_to 'Edit', edit_item_path(item), class: "btn btn-warning" %></td>
+              <td><%= link_to 'Destroy', edit_item_path(item), class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    </div>
+    <div role="tabpanel" class="tab-pane fade" id="messages">...</div>
+    <div role="tabpanel" class="tab-pane fade" id="settings">...</div>
+  </div>
 </div>
+
+
