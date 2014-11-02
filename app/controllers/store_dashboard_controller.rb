@@ -3,13 +3,17 @@ class StoreDashboardController < ApplicationController
 	def index
 		@stores = Store.where(:user_id => current_user.id)
 		if @stores.count == 1
-			redirect_to store_show_path(@stores.first.id)
+			redirect_to store_edit_path(@stores.first.id)
 		else
 			render :index
 		end
 	end
 
 	def show
+		@store = Store.find(params[:id])
+	end
+
+	def edit
 		@store = Store.find(params[:id])
 	end
 
@@ -27,6 +31,6 @@ class StoreDashboardController < ApplicationController
 
 
 	def store_params
-		params.require(:store).permit(:name, :description, :image)
+		params.require(:store).permit(:name, :description, :image, :slug)
 	end
 end
