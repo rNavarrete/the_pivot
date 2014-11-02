@@ -8,6 +8,7 @@ class OrdersController < ApplicationController
     else
       items_by_store_id = session[:cart_items].group_by{|item| Item.find(item[0].to_i).store_id }
 
+      orders = []
       items_by_store_id.each do |store_id, items|
         order = Order.create(user_id: session[:user_id], status: "ordered", store_id: store_id)
         items.map do |item_id, quantity|
@@ -15,8 +16,9 @@ class OrdersController < ApplicationController
         end
         order.address_id = params[:address]
         order.save
-        ConfirmationMailer.confirmation_email(current_user).deliver
+        orders << order
       end
+      ConfirmationMailer.confirmation_email(current_user, orders).deliver
       session[:cart_items] = {}
       redirect_to confirmation_path
     end

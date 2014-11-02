@@ -4,6 +4,27 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Hey <%= @user.full_name %>! We have received your order. </h1>
+    <h1>We have received your order. </h1>
+    <p>
+      Dear <%= @user.full_name %> <br>
+      Thank you for placing an order with Dope Threads.  Below you will see order information from
+      each vender from which you have purchased a product. If you would like more information on
+      your orders please visit <a href="http://localhost:3000/orders">your orders page</a> on our site
+      (you will need to login to view this page).
+    </p>
+    <% @orders.each do |order| %>
+    <p> <%= order.store.name %> <p>
+    <p> <% order.order_items.each do |order_item| %> </p>
+    <p>  <%= order_item.item.name%> </p>
+    <p>  <%= order_item.item.price%> </p>
+    <p>  <%= order_item.quantity %> </p>
+    <p>  <%= order_item.line_total %> </p>
+    <% end %>
+    <% end %>
+
+
+
+
+  </p>
   </body>
 </html>
