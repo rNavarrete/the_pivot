@@ -16,6 +16,8 @@ class OrdersController < ApplicationController
         end
         order.address_id = params[:address]
         order.save
+        order_owner = order.store.user
+        OwnerConfirmationMailer.owner_confirmation_email(order_owner, order).deliver
         orders << order
       end
       ConfirmationMailer.confirmation_email(current_user, orders).deliver
