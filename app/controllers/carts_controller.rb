@@ -1,15 +1,17 @@
 class CartsController < ApplicationController
   def show
     if cart.items.any?
-    @subtotal = Cart.subtotal(session)
-    @tax = Cart.tax(session)
-    @total = Cart.total(session)
+      @subtotal = Cart.subtotal(session)
+      @tax = Cart.tax(session)
+      @total = Cart.total(session)
     end
   end
 
   def add_item
     cart.add_item(params[:item_id])
-    redirect_to categories_path
+    item = Item.find(:item_id)
+    store = Store.find(item.store_id)
+    redirect_to stores_path(store)
   end
 
   def remove_item
