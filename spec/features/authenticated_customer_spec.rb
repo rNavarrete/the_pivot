@@ -41,8 +41,8 @@ describe 'As an Authenticated Customer', type: :feature do
 			expect(page).to have_content("1 item")
 		end
 
-		it 'can complete checkout'
-			
+		it 'can complete checkout' do 
+
 		end
 
 		it 'can select size of item'
