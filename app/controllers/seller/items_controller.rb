@@ -28,6 +28,11 @@ class Seller::ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
+    if store_owner?(Store.find(@item.store_id))
+    else
+      flash[:notice] = "You do not own this store."
+      redirect_to seller_dashboard_path
+    end
   end
 
   def update
@@ -37,7 +42,6 @@ class Seller::ItemsController < ApplicationController
       redirect_to seller_dashboard_path, notice: 'Item Successfully Updated!'
     else
       render_to seller_dashboard_path, notice: "Item coundn't be updated!"
-
     end
   end
 
@@ -46,10 +50,17 @@ class Seller::ItemsController < ApplicationController
   end
 
   private
+
   def item_params
     params.require(:item).permit(:name, :description, :price, :image, :category_ids, :status)
   end
 
-
-
+  def store_owner?(store)
+    stores = Store.where(:user_id => current_user.id)
+    if stores.include?(store)
+    else
+      redirect_to root_path
+      flash[:notice] = "Unauthorized"
+    end
+  end
 end
