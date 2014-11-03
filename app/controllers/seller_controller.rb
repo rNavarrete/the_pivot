@@ -1,4 +1,4 @@
-class StoreDashboardController < ApplicationController
+class SellerController < ApplicationController
 
 	def index
 		@stores = Store.where(:user_id => current_user.id)
@@ -15,6 +15,7 @@ class StoreDashboardController < ApplicationController
 
 	def edit
 		@store = Store.find(params[:id])
+		@item  = Item.new
 	end
 
 	def update

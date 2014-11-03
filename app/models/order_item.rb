@@ -10,4 +10,8 @@ class OrderItem < ActiveRecord::Base
     item.price * quantity
   end
 
+  def item_name
+    Item.find(self.item_id).name
+  end
+
 end

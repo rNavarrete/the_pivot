@@ -29,4 +29,9 @@ class Order < ActiveRecord::Base
     subtotal + tax
   end
 
+  def items
+
+  end
+
+
 end

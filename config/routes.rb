@@ -24,10 +24,13 @@ Rails.application.routes.draw do
     get 'dashboard',          to: 'dashboard#show'
   end
 
-  get  'stores',        to: 'store_dashboard#index',   as: 'store_dashboard'
-  get  'store/:id/edit', to: 'store_dashboard#edit',    as: 'store_edit'
-  get  'store/:id',     to: 'store_dashboard#show',    as: 'store_show'
-  patch 'store/:id',    to: 'store_dashboard#update',  as: 'update_store'
+  namespace :seller do
+    resources :items, :orders
+    get  'stores',        to: 'seller#index',   as: 'dashboard'
+    get  'store/:id/edit', to: 'seller#edit',   as: 'store_edit'
+    get  'store/:id',     to: 'seller#show',    as: 'store_show'
+    patch 'store/:id',    to: 'seller#update',  as: 'store_update'
+  end
 
   resources :users
 

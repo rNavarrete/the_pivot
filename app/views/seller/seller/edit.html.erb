@@ -1,10 +1,24 @@
-<h1 class="page-header">Seller Options</h1>
+<div class="store-header">
+  <div class="store-header-image">
+    <%= image_tag @store.image.url(:medium) %>
+  </div>
+  <div class="store-name">
+    <h2 id="store-name"> <%= @store.name.titleize %> </h2>
+  </div>
+</div>
+<div class="store-description">
+  <%= @store.description %>
+</div>
+
+
+
+<h1 class="page-header">Seller Dashboard</h1>
   <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist">
     <li role="presentation" class="active"><a href="#store_settings" role="tab" data-toggle="tab">Store Settings</a></li>
-    <li role="presentation"><a href="#edit_items" role="tab" data-toggle="tab">Item Settings</a></li>
-    <li role="presentation"><a href="#messages" role="tab" data-toggle="tab">Messages</a></li>
-    <li role="presentation"><a href="#settings" role="tab" data-toggle="tab">Settings</a></li>
+    <li role="presentation"><a href="#create_item" role="tab" data-toggle="tab">Create New Item</a></li>
+    <li role="presentation"><a href="#edit_items" role="tab" data-toggle="tab">Edit Items</a></li>
+    <li role="presentation"><a href="#orders" role="tab" data-toggle="tab">Orders</a></li>
   </ul>
 
 <div class="container">
@@ -24,8 +38,7 @@
     </div>
     <div role="tabpanel" class="tab-pane fade" id="edit_items">
       <div class="edit-items-container">
-      <h1 class="page-header">Item Settings</h1>
-      <p><%= link_to "Create a new item", new_admin_item_path, id: "new_item_button", class: "btn-lg btn-success" %></p><br />
+      <h1 class="page-header">Edit Items</h1>
       <table class="table table-striped">
         <thead>
           <tr>
@@ -39,7 +52,7 @@
             <tr>
               <td><span class="item_title"><%= item.name %><span></td>
               <td><%= item.description %></td>
-              <td><%= link_to 'Edit', edit_admin_item_path(item), class: "btn btn-warning" %></td>
+              <td><%= link_to 'Edit', edit_seller_item_path(item), class: "btn btn-warning" %></td>
               <td><%= link_to 'Destroy', admin_item_path(item), class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
           <% end %>
@@ -48,8 +61,23 @@
     </div>
 
     </div>
-    <div role="tabpanel" class="tab-pane fade" id="messages">...</div>
-    <div role="tabpanel" class="tab-pane fade" id="settings">...</div>
+    <div role="tabpanel" class="tab-pane fade" id="create_item">
+      <h1 class="page-header">Create an item</h1>
+        <%= bootstrap_form_for @item, url: seller_items_path do |form| %>
+          <%= form.text_field :name  %>
+          <%= form.text_area :description %>
+          <%= form.select :status, options_for_select([ 'Active', 'Retired'], 'True') %>
+          <%= form.text_area :price %>
+          <%= form.submit  %>
+        <% end %>
+    </div>
+    <div role="tabpanel" class="tab-pane fade" id="orders">
+      <% @store.orders.each do |order| %>
+        <% order.order_items.each do |order_item| %>
+          <%= order_item.item_name %>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
 

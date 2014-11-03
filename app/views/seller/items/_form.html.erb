@@ -1,0 +1,7 @@
+<%= bootstrap_form_for [:seller, @item] do |form| %>
+  <%= form.text_field :name  %>
+  <%= form.text_area :description %>
+  <%= form.select :status, options_for_select([ 'Active', 'Retired'], 'True') %>
+  <%= form.number_field :price %>
+  <%= form.submit %>
+<% end %>
