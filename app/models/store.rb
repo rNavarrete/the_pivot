@@ -22,7 +22,7 @@ class Store < ActiveRecord::Base
     orders.where(:status => "paid")
   end
 
-  def cancelled_orders
+  def canceled_orders
     orders.where(:status => "cancelsed")
   end
 

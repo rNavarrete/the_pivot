@@ -44,7 +44,6 @@ Rails.application.routes.draw do
   post   'login',  to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
 
-  root 'home#index'
 
   get 'gift_cards', to: 'gift_cards#show'
   get 'about',      to: 'about#show'

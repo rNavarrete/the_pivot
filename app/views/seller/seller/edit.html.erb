@@ -131,8 +131,8 @@
           </tr>
         </thead>
         <tbody>
-          <h4 class="page-header">Cancelled Orders(<%= @store.cancelled_orders.count %>)</h4>
-          <% @store.cancelled_orders.each do |order| %>
+          <h4 class="page-header">Canceled Orders(<%= @store.canceled_orders.count %>)</h4>
+          <% @store.canceled_orders.each do |order| %>
           <tr>
             <td><%= order.user.full_name %></td>
             <td><%= order.user.email_address %></td>
