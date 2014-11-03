@@ -1,6 +1,9 @@
 
-
-
+#confirmation_message {
+  width:95%;
+  margin:auto;
+  text-align: center;
+}
 
 #item-show-page{
   width: 70%;
@@ -429,10 +432,7 @@ body {
   margin-bottom: 150px;
 }
 
-#confirmation_message {
-  width:95%;
-  margin:auto;
-}
+
 
 #new_address {
   width:95%;
@@ -460,4 +460,8 @@ body {
 
 #store-name{
 margin-right: 157px;
+}
+
+#email_order_box{
+  border-top: 1px solid black;
 }
