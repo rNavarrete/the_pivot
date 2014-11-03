@@ -6,6 +6,31 @@ require 'rspec/rails'
 require 'database_cleaner'
 
 module MyHelpers
+
+  def order_item
+    click_on("men")
+    click_on("Mens")
+    first_item = first(:css, '.store-item')
+    within(first_item) do
+      first(:link).click
+    end
+    click_on("add to cart")
+    click_on("cart")
+    page.find("#ckout_btn").click
+    page.find("#delivery_btn").click
+    page.fill_in('Street address', with: "123 Mountain Street")
+    page.fill_in('City', with: 'Denver')
+    page.select "Colorado", :from => "State"
+    page.fill_in('Zip', with: '80228')
+    page.click_button('Create Address')
+    page.click_button('use this address')
+  end
+
+
+
+
+
+
   def user_with(overrides = {})
     attributes = {
       full_name: "John",
@@ -71,7 +96,7 @@ module MyHelpers
     Order.create(attributes)
   end
 
-  def add_items_to_cart
+  def add_item_to_cart
 
   end
 
