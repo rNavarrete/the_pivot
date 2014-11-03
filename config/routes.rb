@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   resources :addresses
 
+  get 'confirmation', to: 'confirmations#show'
+
   get 'code', to: 'home#code'
 
   get 'complete_delivery_order', to: 'orders#create'
@@ -38,7 +40,7 @@ Rails.application.routes.draw do
 
   resources :home
 
-  get 'confirmation', to: 'confirmations#show'
+
 
 
   get 'gift_cards', to: 'gift_cards#show'
