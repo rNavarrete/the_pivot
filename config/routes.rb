@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   end
 
   get 'stores', to: 'store_dashboard#index', as: 'store_dashboard'
+  get 'stores/:store_name', to: 'store_dashboard#show', as: 'store_dashboard_show'
 
   resources :users
 
