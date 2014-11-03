@@ -1,5 +1,5 @@
 class StoreDashboardController < ApplicationController
-
+	load_and_authorize_resource :class => Store
 	def index
 		@stores = Store.where(:user_id => current_user.id)
 
@@ -11,6 +11,6 @@ class StoreDashboardController < ApplicationController
 	end
 
 	def show
-		@store = Store.where(:user_id => current_user.id).first
+		@store = Store.find_by(:slug => params[:store_name])
 	end
 end
