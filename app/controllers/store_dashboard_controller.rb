@@ -1,5 +1,6 @@
 class StoreDashboardController < ApplicationController
 	load_and_authorize_resource :class => Store
+
 	def index
 		@stores = Store.where(:user_id => current_user.id)
 
