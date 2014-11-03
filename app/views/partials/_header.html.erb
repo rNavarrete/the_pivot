@@ -75,6 +75,23 @@
           <% end %>
           <%= link_to 'My Orders', orders_path if current_user %>
         <% end %>
+
+        <% if session[:user_id] %>
+        <div class="btn-group">
+          <button type="button" class="btn btn-default dropdown-toggle glyphicon glyphicon-user" data-toggle="dropdown">
+            You <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </div>
+        <% end %>
+
+
         <p><%= link_to 'Admin Dashboard', admin_dashboard_path if can? :manage, User %> </p>
         <p><%= link_to 'Manage Store', store_dashboard_path if can? :manage, Store %></p>
       </ul>
