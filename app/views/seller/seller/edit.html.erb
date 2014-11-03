@@ -73,10 +73,29 @@
     </div>
     <div role="tabpanel" class="tab-pane fade" id="orders">
       <% @store.orders.each do |order| %>
-        <% order.order_items.each do |order_item| %>
-          <%= order_item.item_name %>
-        <% end %>
-      <% end %>
+
+   <h1>Details for your order # <%= order.id %> at <%= order.store.name %></h1>
+     <h3> Items From: <%= order.store.name %> </h3>
+     <a href="http://localhost:3000/orders/<%= order.id %>">Order Details</a>
+     <table>
+     <th align="left"> Name </th>
+     <th align="left"> Price </th>
+     <th align="left"> Quantity </th>
+     <th align="left"> Line Total</th>
+     <tr>
+     <% order.order_items.each do |order_item| %>
+     <td> <%= order_item.item.name%> </td>
+     <td> <%= number_to_currency(order_item.item.price)%></td>
+     <td> <%= order_item.quantity %> </td>
+     <td> <%= number_to_currency(order_item.line_total) %> </td>
+     </tr>
+     <% end %>
+     <tr>
+     <td class="tg-0ord" colspan="3">Sub-total: </td>
+     <td class="tg-031e"><%= number_to_currency(order.subtotal) %></td>
+     </tr>
+     </table>
+     <% end %>
     </div>
   </div>
 </div>
