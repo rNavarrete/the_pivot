@@ -8,6 +8,7 @@ class CartsController < ApplicationController
   end
 
   def add_item
+    raise params.inspect
     cart.add_item(params[:item_id])
     item = Item.find(params[:item_id])
     store = Store.find(item.store_id)
