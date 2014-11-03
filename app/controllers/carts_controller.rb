@@ -9,9 +9,9 @@ class CartsController < ApplicationController
 
   def add_item
     cart.add_item(params[:item_id])
-    item = Item.find(:item_id)
+    item = Item.find(params[:item_id])
     store = Store.find(item.store_id)
-    redirect_to stores_path(store)
+    redirect_to stores_path(store.slug)
   end
 
   def remove_item
