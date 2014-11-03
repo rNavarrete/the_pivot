@@ -31,13 +31,10 @@ class OrdersController < ApplicationController
   end
 
   def new
+    session[:return_to] = new_order_path
     @addresses = Address.where(user_id: session[:id])
     if cart.empty?
       redirect_to cart_path, notice: 'Please add items to your cart before checking out. Thank you!'
-    else
-      @subtotal = Cart.subtotal(session)
-      @tax = Cart.tax(session)
-      @total = Cart.total(session)
     end
   end
 

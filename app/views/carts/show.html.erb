@@ -41,11 +41,15 @@
 <% end %>
 </br>
 
-<%= form_tag "/orders/new", method: :get do %>
-  <%= button_tag(:class => "btn btn-primary btn-sm", :id => "ckout_btn") do %>
-     check out <span class="glyphicon glyphicon-usd" ></span>
-  <% end %>
-<% end %>
+<div>
+  <div class="pickup-delivery-button">
+      <% if @addresses.any? %>
+        <%= link_to "Complete Order", new_order_path, class: "btn btn-primary btn-lg", id: "delivery_btn" %>
+      <% else %>
+        <%= link_to "Complete Order", new_address_path, class: "btn btn-primary btn-lg", id: "delivery_btn" %>
+      <% end %>
+  </div>
+</div>
 </br>
 <%= form_tag categories_path, method: :get do %>
   <%= button_tag(:class => "btn btn-success btn-sm", :id => "continue_shopping_btn") do %>

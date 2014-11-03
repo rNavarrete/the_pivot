@@ -1,59 +1,32 @@
-<div id="checkout_page" >
-<h1 id="checkout-cart-header"> Checkout </h1>
-<table class="tg">
+<h1> Where would you like your items delivered? </h1>
 
-    <tr>
-      <th>Item Name</th>
-      <th>Quantity</th>
-      <th>Price</th>
-      <th>Total  </th>
-    </tr>
+  <h3> Please Choose an Address </h3>
+<div class="row">
+  <% @addresses.each do |a| %>
 
-    <% cart.items.each do |item_id, quantity| %>
-    <tr>
-      <td> <%= cart.item(item_id).name %>  </td>
-      <td> <%= quantity %> </td>
-      <td> <%= number_to_currency(cart.item(item_id).price, precision: 2) %> </td>
-      <td> <%= number_to_currency(cart.line_item_price(item_id, quantity)) %> </td>
-    </tr>
-    <% end %>
-  <tr>
-    <td>  Subtotal </td>
-    <td>  </td>
-    <td>  </td>
-    <td> <%= number_to_currency(@subtotal) %> </td>
-  </tr>
 
-  <tr>
-    <td>  Tax </td>
-    <td>  </td>
-    <td>  </td>
-    <td> <%= number_to_currency(@tax) %> </td>
-  </tr>
 
-  <tr>
-    <td>  Total </td>
-    <td>  </td>
-    <td>  </td>
-    <td> <%= number_to_currency(@total) %> </td>
-  </tr>
-</table>
+      <div <div class="col-sm-1 col-md-3 address_buttons">
+         <%= a.street_address %>
+         <%= a.city %>,
+         <%= a.state %>
+         <%= a.zip %>
+         <%= form_tag orders_path, method: :post do %>
+         <%= hidden_field_tag :address, a.id %>
+           <%= button_tag(:class => "btn btn-primary btn-sm", :id => "cart_button") do %>
+              use this address <span class="glyphicon glyphicon-shopping-cart" ></span>
+           <% end %>
+         <% end %>
+         <br>
+      </div>
+    <%end%>
 
-  <h2> Is This Order For Pick Up or Delivery?</h2>
-<br/>
-  <div>
-    <div class="pickup-delivery-button">
-        <% if @addresses.any? %>
-          <%= link_to "Complete Order", addresses_path, class: "btn btn-primary btn-lg", id: "delivery_btn" %>
-        <% else %>
-          <%= link_to "Complete Order", new_address_path, class: "btn btn-primary btn-lg", id: "delivery_btn" %>
-        <% end %>
-    </div>
 </div>
-</div>
-</br>
-<%= form_tag categories_path, method: :get do %>
-  <%= button_tag(:class => "btn btn-success btn-sm", :id => "continue_shopping_btn") do %>
-     continue shopping <span class="glyphicon glyphicon-shopping-cart" ></span>
-  <% end %>
+
+
+
+<%= form_tag new_address_path, method: :get do %>
+<%= button_tag(:class => "btn btn-success btn-lg", :id => "cart_button") do %>
+Enter a New Address <span class="glyphicon glyphicon-shopping-cart" ></span>
+<% end %>
 <% end %>

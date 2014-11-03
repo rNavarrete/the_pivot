@@ -1,20 +1,21 @@
-<h1> Where would you like your food delivered? </h1>
+</br>
+</br>
+</br>
+</br>
 
-  <h3> Please Choose an Address </h3>
+<h1> Your Addresses </h1>
+
 <div class="row">
   <% @addresses.each do |a| %>
-
-
-
-      <div <div class="col-sm-1 col-md-3 address_buttons">
+  <div class="col-sm-1 col-md-3 address_buttons">
          <%= a.street_address %>
          <%= a.city %>,
          <%= a.state %>
          <%= a.zip %>
-         <%= form_tag orders_path, method: :post do %>
+         <%= form_tag edit_address_path(a), method: :get do %>
          <%= hidden_field_tag :address, a.id %>
            <%= button_tag(:class => "btn btn-primary btn-sm", :id => "cart_button") do %>
-              use this address <span class="glyphicon glyphicon-shopping-cart" ></span>
+              edit address <span class="glyphicon glyphicon-shopping-cart" ></span>
            <% end %>
          <% end %>
          <br>

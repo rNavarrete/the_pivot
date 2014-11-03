@@ -4,7 +4,7 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1> Welcome to Deep Threads <%= @user.full_name %> </h1>
+    <h1> Welcome to Dope Threads <%= @user.full_name %> </h1>
     <p> You can login to your account at https://young-ocean-9633.herokuapp.com/. <br>
     <br>
         Here are a couple of tips to help you get started:
