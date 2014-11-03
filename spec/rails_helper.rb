@@ -24,7 +24,7 @@ module MyHelpers
 
   def login_as(user)
     visit "/"
-    page.fill_in('Email address', with: user.email_address)
+    page.fill_in('email_address', with: user.email_address)
     page.fill_in('Password', with: '1234')
     page.click_button('Log In')
   end

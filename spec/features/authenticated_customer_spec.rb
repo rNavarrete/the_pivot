@@ -3,8 +3,23 @@ require 'capybara/rails'
 require 'capybara/rspec'
 
 describe 'As an Authenticated Customer', type: :feature do
+	before do
+			@user = user_with({email_address: 'John@example.com', role: 'user'})
+			@user.save
+			login_as(@user)
+	end
+
 	describe 'I can make purchases on any business I am browsing', type: :feature do
-		it 'can click on a store page'
+
+		it 'can click on a store page' do
+			visit '/'
+			first_store = first(:css, '.store-link')
+			within(first_store) do
+				first(:link).click
+				end
+			expect(page).to have_css(".store-header")
+		end
+
 		it 'can click on an item'
 		it 'can select size of item'
 		it 'can select color of item'
