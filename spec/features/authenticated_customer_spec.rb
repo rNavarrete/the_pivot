@@ -41,9 +41,28 @@ describe 'As an Authenticated Customer', type: :feature do
 			expect(page).to have_content("1 item")
 		end
 
-		it 'can complete checkout' do 
-
-		end
+		it 'can complete checkout' do
+			click_on("men")
+			click_on("Mens")
+			first_item = first(:css, '.store-item')
+			within(first_item) do
+				first(:link).click
+			end
+			click_on("add to cart")
+      click_on('cart')
+      page.find("#ckout_btn").click
+      page.find("#delivery_btn").click
+      page.fill_in('Street address', with: "123 Mountain Street")
+      page.fill_in('City', with: 'Denver')
+      page.select "Colorado", :from => "State"
+      page.fill_in('Zip', with: '80228')
+      page.click_button('Create Address')
+      page.click_button('use this address')
+      order = Order.last
+      expect(order.address.city).to eq("Denver")
+			expect(order.order_items.count).to eq(1)
+      expect(order.user_id).to eq(@user.id)
+    end
 
 		it 'can select size of item'
 		it 'can select color of item'
@@ -64,5 +83,5 @@ describe 'As an Authenticated Customer', type: :feature do
 		it 'can see all past orders from all businesses'
 		it 'can click on an order to see order specifics'
 	end
-
+	
 end
