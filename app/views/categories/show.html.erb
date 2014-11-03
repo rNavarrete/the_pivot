@@ -11,7 +11,7 @@
  			<div class="store-item">
  				<%= link_to item.name, item_path(item) %>
  				<%= link_to (image_tag item.image.url(:medium)), item_path(item) %><br/>
- 				<%= link_to item.store.name, stores_path(item.store.name) %><br/>
+ 				<%= link_to item.store.name, stores_path(item.store.slug) %><br/>
  				<%= item.description %>
  			</div>
  		<% end %>

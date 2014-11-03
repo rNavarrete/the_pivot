@@ -18,7 +18,7 @@
       <% @orders.each do |order| %>
 
       <h3> Items From: <%= order.store.name %> </h3>
-      <a href="http://localhost:3000/orders/<%= order.id %>">Order Details</a>  
+      <a href="http://localhost:3000/orders/<%= order.id %>">Order Details</a>
       <table>
       <th align="left"> Name </th>
       <th align="left"> Price </th>
@@ -46,9 +46,7 @@
       <span> Order Total: <%= number_to_currency(totals.reduce(:+)) %> </span>
     </div>
 
-
-
-
   </p>
+
   </body>
 </html>
