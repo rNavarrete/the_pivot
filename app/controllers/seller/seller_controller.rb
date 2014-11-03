@@ -37,10 +37,10 @@ class Seller::SellerController < ApplicationController
 		if @store.update(store_params)
  			flash[:notice] = "You're changes were sucessfully saved."
 
-			redirect_to store_show_path(@store.id)
+			redirect_to seller_dashboard_path
 		else
 			flash[:notice] = "Unable to save your changes."
-			redirect_to store_show_path(@store.id)
+			redirect_to seller_dashboard_path
 		end
 	end
 

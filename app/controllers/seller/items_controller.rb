@@ -12,7 +12,7 @@ class Seller::ItemsController < ApplicationController
   def destroy
     @item = Item.find(params[:id])
     @item.destroy
-    redirect_to seller_items_path, notice: 'Item Successfully Deleted!'
+    redirect_to seller_dashboard_path, notice: 'Item Successfully Deleted!'
   end
 
   def create
@@ -22,7 +22,7 @@ class Seller::ItemsController < ApplicationController
       redirect_to seller_store_edit_path(@store.id)
     else
       flash[:notice] = "Something went wrong."
-      redirect_to seller_store_show_path(@store.id)
+      redirect_to seller_store_edit_path(@store.id)
     end
   end
 
@@ -34,9 +34,10 @@ class Seller::ItemsController < ApplicationController
     @item = Item.find(params[:id])
     if @item.update(item_params)
       @item.categories = Category.where(id: params[:item][:category_ids])
-      redirect_to admin_items_path, notice: 'Item Successfully Updated!'
+      redirect_to seller_dashboard_path, notice: 'Item Successfully Updated!'
     else
-      render :edit
+      render_to seller_dashboard_path, notice: "Item coundn't be updated!"
+
     end
   end
 
