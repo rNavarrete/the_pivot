@@ -1,17 +1,4 @@
-<div class="store-header">
-  <div class="store-header-image">
-    <%= image_tag @store.image.url(:medium) %>
-  </div>
-  <div class="store-name">
-    <h2 id="store-name"> <%= @store.name.titleize %> </h2>
-  </div>
-</div>
-<div class="store-description">
-  <%= @store.description %>
-</div>
-
-
-
+<div class="container">
 <h1 class="page-header">Seller Dashboard</h1>
   <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist">
@@ -72,32 +59,103 @@
         <% end %>
     </div>
     <div role="tabpanel" class="tab-pane fade" id="orders">
-      <% @store.orders.each do |order| %>
+    <div class="container">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Customer Name</th>
+            <th>Customer Email</th>
+            <th>Date Ordered</th>
+            <th>Pickup or Delivery</th>
+            <th>Subtotal</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <h3><u>Active Orders</u>(<%= @store.recent_orders.count %>)</h3>
+          <% @store.recent_orders.each do |order| %>
+          <tr>
+            <td><%= order.user.full_name %></td>
+            <td><%= order.user.email_address %></td>
+            <td><%= distance_of_time_in_words(order.created_at, Time.now) + " ago" %></td>
+            <td><%= number_to_currency(order.subtotal) %></td>
+            <td><%= link_to "View Order", order_path(order), class: "btn btn-primary" %></td>
+            <td><%= link_to 'Mark as Paid', order_path(order, :status => :completed), method: 'patch', class: 'btn btn-warning', data: {confirm: 'Are you sure you want to change this order to paid?'}%></td>
+            <td><%= link_to 'Cancel This Order', order_path(order, :status => :cancelled), method: 'patch', class: 'btn btn-danger', confirm: {message: 'This will remove your order permanently. '}%></td>
+          </tr>
+        </tbody>
+        <tbody>
+          <% end %>
+        </tbody>
+      </table>
 
-   <h1>Details for your order # <%= order.id %> at <%= order.store.name %></h1>
-     <h3> Items From: <%= order.store.name %> </h3>
-     <a href="http://localhost:3000/orders/<%= order.id %>">Order Details</a>
-     <table>
-     <th align="left"> Name </th>
-     <th align="left"> Price </th>
-     <th align="left"> Quantity </th>
-     <th align="left"> Line Total</th>
-     <tr>
-     <% order.order_items.each do |order_item| %>
-     <td> <%= order_item.item.name%> </td>
-     <td> <%= number_to_currency(order_item.item.price)%></td>
-     <td> <%= order_item.quantity %> </td>
-     <td> <%= number_to_currency(order_item.line_total) %> </td>
-     </tr>
-     <% end %>
-     <tr>
-     <td class="tg-0ord" colspan="3">Sub-total: </td>
-     <td class="tg-031e"><%= number_to_currency(order.subtotal) %></td>
-     </tr>
-     </table>
-     <% end %>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Customer Name</th>
+            <th>Customer Email</th>
+            <th>Date Ordered</th>
+            <th>Pickup or Delivery</th>
+            <th>Subtotal</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <h3><u>Paid Orders</u>(<%= @store.paid_orders.count %>)</h3>
+          <% @store.paid_orders.each do |order| %>
+          <tr>
+            <td><%= order.user.full_name %></td>
+            <td><%= order.user.email_address %></td>
+            <td><%= distance_of_time_in_words(order.created_at, Time.now) + " ago" %></td>
+            <td><%= number_to_currency(order.subtotal) %></td>
+            <td><%= link_to "View Order", order_path(order), class: "btn btn-success" %></td>
+          </tr>
+        </tbody>
+        <tbody>
+          <% end %>
+        </tbody>
+      </table>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Customer Name</th>
+            <th>Customer Email</th>
+            <th>Date Ordered</th>
+            <th>Pickup or Delivery</th>
+            <th>Subtotal</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <h3><u>Cancelled Orders</u>(<%= @store.cancelled_orders.count %>)</h3>
+          <% @store.cancelled_orders.each do |order| %>
+          <tr>
+            <td><%= order.user.full_name %></td>
+            <td><%= order.user.email_address %></td>
+            <td><%= distance_of_time_in_words(order.created_at, Time.now) + " ago" %></td>
+            <td><%= number_to_currency(order.subtotal) %></td>
+            <td><%= link_to "View Order", order_path(order), class: "btn btn-danger" %></td>
+          </tr>
+        </tbody>
+        <tbody>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
     </div>
   </div>
 </div>
+</div>
+
+
+
+
+
+
+
 
 

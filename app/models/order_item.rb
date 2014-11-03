@@ -13,5 +13,4 @@ class OrderItem < ActiveRecord::Base
   def item_name
     Item.find(self.item_id).name
   end
-
 end

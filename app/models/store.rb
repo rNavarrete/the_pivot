@@ -13,4 +13,20 @@ class Store < ActiveRecord::Base
   def remove_slug_spaces
     self.slug.gsub!(/[" "]/, '_')
   end
+
+  def completed_orders
+    orders.where(:status => "completed")
+  end
+
+  def paid_orders
+    orders.where(:status => "paid")
+  end
+
+  def cancelled_orders
+    orders.where(:status => "canceled")
+  end
+
+  def recent_orders
+    orders.where(:status => "ordered")
+  end
 end

@@ -28,10 +28,4 @@ class Order < ActiveRecord::Base
   def total
     subtotal + tax
   end
-
-  def items
-
-  end
-
-
 end
