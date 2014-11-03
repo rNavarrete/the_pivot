@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  </head>
+      <body>
+    <h1>Your Store Has Received New Order </h1>
+    <p>
+      Dear <%= @owner.full_name %> <br>
+      Your store has received a new order.  The details are below:
+    </p>
+
+    <h3>Details for order # <%= @order.id %></h3>
+
+    <table class="tg">
+      <tr>
+        <th class="tg-e3zv" align="left">Name: <br>Email: <br>Order status: <br>Order created: <br>Last Updated: </th>
+        <th class="tg-031e" align="left" colspan="3"><%= @order.user.full_name %><br><%= @order.user.email_address %><br><%= @order.status %><br><%= @order.user.created_at.strftime("%d %b. %Y at %l:%M %p") %><br><%= @order.updated_at.strftime("%d %b. %Y at %l:%M %p") %></th>
+      </tr>
+      <tr>
+        <td class="tg-e3zv" STYLE="font-weight: bold">Item</td>
+        <td class="tg-e3zv" STYLE="font-weight: bold">Unit Price</td>
+        <td class="tg-e3zv" STYLE="font-weight: bold">Quantity</td>
+        <td class="tg-e3zv" STYLE="font-weight: bold">Total Price</td>
+      </tr>
+      <% @order.order_items.each do |order_item| %>
+      <tr>
+        <td class="tg-031e"><%= link_to order_item.item.name, item_path(order_item.item) %></td>
+        <td class="tg-031e"><%= number_to_currency(order_item.item.price) %></td>
+        <td class="tg-031e"><%= order_item.quantity %></td>
+        <td class="tg-031e"><%= number_to_currency(order_item.line_total) %></td>
+      <% end %>
+      </tr>
+      <tr>
+        <td class="tg-0ord" colspan="3">Sub-total: </td>
+        <td class="tg-031e"><%= number_to_currency(@order.subtotal) %></td>
+      </tr>
+      <tr>
+        <td class="tg-0ord" colspan="3">Tax: </td>
+        <td class="tg-031e"><%= number_to_currency(@order.tax) %></td>
+      </tr>
+      <tr>
+        <td class="tg-0ord" colspan="3">Total: </td>
+        <td class="tg-e3zv"><%= number_to_currency(@order.total) %></td>
+      </tr>
+    </table>
+  </body>
+</html>
