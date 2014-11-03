@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-	# layout "special_layout"
 	def index
 	end
 
