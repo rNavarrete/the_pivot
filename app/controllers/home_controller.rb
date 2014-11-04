@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @items = Item.limit(3)
+    @items = Item.limit(3).includes(:store)
   end
 
   def show

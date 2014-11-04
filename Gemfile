@@ -18,6 +18,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'guard-rspec', require: false
+  gem 'bullet'
 end
 
 gem 'cancancan', '~> 1.9'

@@ -11,8 +11,8 @@ class OrdersController < ApplicationController
       orders = []
       items_by_store_id.each do |store_id, items|
         order = Order.create(user_id: session[:user_id], status: "ordered", store_id: store_id)
-        items.map do |item_id, quantity|
-          order.order_items.new(item_id: item_id, quantity: quantity)
+        items.map do |item_id, options|
+          order.order_items.new(item_id: item_id, quantity: options[0])
         end
         order.address_id = params[:address]
         order.save
