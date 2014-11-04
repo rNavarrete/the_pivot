@@ -69,7 +69,7 @@
            cart <span class="glyphicon glyphicon-shopping-cart" ></span>
         <% end %>
           <% if session[:cart_items] %>
-            <%= pluralize(session[:cart_items].values.reduce(:+), 'item') %>
+            <%= pluralize(cart.items.size, 'item') %>
           <% else  %>
             <%= "0 items" %>
           <% end %>

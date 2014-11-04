@@ -4,24 +4,28 @@
 <% if cart.items.any? %>
   <table class="tg" id="cart_table">
     <tr>
-      <th> Item Name </td>
-      <th> Quantity </td>
-      <th> Price </td>
-      <th> Totals </td>
-      <th> Delete </td>
+      <th> Item Name </th>
+      <th> Quantity </th>
+      <th> Options </th>
+      <th> Price </th>
+      <th> Totals </th>
+      <th> Delete </th>
     </tr>
 
-  <% cart.items.each_pair do |id, quantity| %>
+  <% cart.items.each_pair do |id, options| %>
     <tr>
       <td> <%= cart.item(id).name %> </td>
       <td>
           <%= form_tag update_quantity_path, :method => :put do  %>
             <%= hidden_field_tag "item_id", id %>
-            <%= number_field_tag "quantity", quantity, :min => 1, :max => 100 %>
+            <%= number_field_tag "quantity", options[0], :min => 1, :max => 100 %>
             <%= submit_tag "update" %>
           <% end %> </td>
+      <td> <% options[1].each do |k, v| %>
+              <%= k.singularize.capitalize %> - <%= v %>
+           <% end %> </td>
       <td> <%= number_to_currency(cart.item(id).price) %> </td>
-      <td> <%= number_to_currency(cart.line_item_price(id, quantity)) %> </td>
+      <td> <%= number_to_currency(cart.line_item_price(id, options)) %> </td>
       <td> <%= link_to "Remove", remove_item_path(item_id: id) %> </td>
     </tr>
   <% end %>

@@ -5,16 +5,21 @@
     <tr>
       <th>Item Name</th>
       <th>Quantity</th>
+      <th>Options</th>
       <th>Price</th>
       <th>Total  </th>
     </tr>
 
-    <% cart.items.each do |item_id, quantity| %>
+    <% cart.items.each do |item_id, options| %>
+
     <tr>
       <td> <%= cart.item(item_id).name %>  </td>
-      <td> <%= quantity %> </td>
+      <td> <%= options[0] %> </td>
+      <td> <% options[1].each do |k, v| %>
+              <%= k.singularize.capitalize %> - <%= v %>
+           <% end %> </td>
       <td> <%= number_to_currency(cart.item(item_id).price, precision: 2) %> </td>
-      <td> <%= number_to_currency(cart.line_item_price(item_id, quantity)) %> </td>
+      <td> <%= number_to_currency(cart.line_item_price(item_id, options)) %> </td>
     </tr>
     <% end %>
   <tr>

@@ -8,9 +8,8 @@ class CartsController < ApplicationController
   end
 
   def add_item
-    raise params.inspect
-    cart.add_item(params[:item_id])
-    #cart.add_options(params[:])
+    cart.add_item(params[:item_id], params[:options])
+    #cart.add_options(params[:item_id], params[:options])
     item = Item.find(params[:item_id])
     store = Store.find(item.store_id)
     redirect_to stores_path(store.slug)
