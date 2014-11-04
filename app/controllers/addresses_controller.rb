@@ -1,16 +1,13 @@
 class AddressesController < ApplicationController
   def index
-    if Address.where(user_id: session[:id]).count != 0
       @shipping_addresses = ShippingAddress.where(user_id: current_user.id)
       @billing_addresses = BillingAddress.where(user_id: current_user.id)
-    else
-      redirect_to new_address_path
-    end
     session[:return_to] = addresses_path
-    @address = Address.new
+  
   end
 
   def new
+
     if params[:category] == "shipping"
       @address = ShippingAddress.new
     else
