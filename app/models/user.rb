@@ -4,7 +4,9 @@ class User < ActiveRecord::Base
   has_many :addresses
 
   validates :full_name, presence: true
-  validates_format_of :email_address, :with => /\A.+@.+\..+\z/i
+
+  validates_format_of :email_address, :with => /[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+\.[a-zA-Z]{2,4}/i
+
   validates :email_address, uniqueness: true
 
   Roles = [ :admin , :user, :seller ]
