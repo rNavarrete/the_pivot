@@ -5,6 +5,7 @@ class Cart
 
   def add_item(item_id)
     items[item_id] = (items[item_id] || 0) + 1
+
   end
 
   def remove_item(item_id)

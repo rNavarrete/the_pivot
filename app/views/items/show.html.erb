@@ -12,11 +12,13 @@
         </div>
         <%= form_tag '/add_item', method: "post" do %>
           <div class = "labels">
-            <% @item.options.each do |option| %>
-              <%= label_tag(:option, option.first.capitalize) %>
-              <%= select_tag(:option, options_for_select(option.last.split(',').each_with_index.map {|name, index| [name,index]})) %><br/>
-            <% end %>
-            <%= hidden_field_tag :item_id, @item.id  %>
+
+              <% @item.options.each do |option| %>
+                <%= label_tag(option.first, option.first.capitalize) %>
+                <%= select_tag("options[#{option.first}]", options_for_select(option.last.split(',').each_with_index.map {|name, index| [name,index]})) %><br/>
+              <% end %>
+
+            <%= hidden_field_tag :item_id, @item.id %>
           </div>
           <%= button_tag(:class => "btn btn-success btn-sm", :id => "cart_button") do %>
              add to cart <span class="glyphicon glyphicon-shopping-cart" ></span>
