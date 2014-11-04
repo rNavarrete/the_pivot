@@ -4,12 +4,21 @@ require 'capybara/rspec'
 
 describe 'As an Authenticated Business Administrator', type: :feature do
   before :each do
-    User.make(:user_id => 1, :email => "park@chanwook.com", :password => "oldboy", :fullname => "Park Chan-Wook", :screename => "Song Kang-Ho", :role => "seller")
-    Store.make(:name => "Boots", :description => "Boots and Shit", :user_id => 1, :image => "", :slug => "boots")
+    @seller = user_with({id: 1, email_address: "ghostface@sholin.com", role: "seller"})
+    @seller.save
+    @store = store_with({name: "corner store", description: "Cooking up that incredible", user_id: 1, slug: "ghosts_corner_store"})
+    @store.save
+    login_as(@seller)
+    visit "/"
+    # User.make(:user_id => 1, :email => "park@chanwook.com", :password => "oldboy", :fullname => "Park Chan-Wook", :screename => "Song Kang-Ho", :role => "seller")
+    # Store.make(:name => "Boots", :description => "Boots and Shit", :user_id => 1, :image => "", :slug => "boots")
   end
   describe 'I can manage my store', type: :feature do
     it 'can add items' do
-      visit '/'
+      click_link("Manage Store")
+      # print page.html
+      save_and_open_page
+      expect(page).to have_content("Seller Dashboard")
     end
 
     it 'can edit items'
