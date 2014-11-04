@@ -19,7 +19,7 @@ class Seller::ItemsController < ApplicationController
     @store = Store.find_by(:user_id => current_user.id)
     if @store.items.create(item_params)
       flash[:notice] = "Your item was successfully created"
-      redirect_to seller_store_edit_path(@store.id)
+      redirect_to seller_dashboard_path
     else
       flash[:notice] = "Something went wrong."
       redirect_to seller_store_edit_path(@store.id)
@@ -27,10 +27,10 @@ class Seller::ItemsController < ApplicationController
   end
 
   def edit
-    @item = Item.find(params[:id])
-    if store_owner?(Store.find(@item.store_id))
+    if item_creator?(params[:id])
+      @item = Item.find(params[:id])
     else
-      flash[:notice] = "You do not own this store."
+      flash[:notice] = "This isn't your item."
       redirect_to seller_dashboard_path
     end
   end
@@ -55,12 +55,21 @@ class Seller::ItemsController < ApplicationController
     params.require(:item).permit(:name, :description, :price, :image, :category_ids, :status)
   end
 
-  def store_owner?(store)
+  def item_creator?(params_id)
     stores = Store.where(:user_id => current_user.id)
-    if stores.include?(store)
-    else
-      redirect_to root_path
-      flash[:notice] = "Unauthorized"
+    stores.any? do |store|
+      store.items.any? do |item|
+        item.id == Item.find(params_id).id
+      end
     end
   end
+
+
+    # stores = Store.where(:user_id => current_user.id)
+
+    # if stores.include?(store)
+    # else
+    #   redirect_to root_path
+    #   flash[:notice] = "Unauthorized"
+    # end
 end
