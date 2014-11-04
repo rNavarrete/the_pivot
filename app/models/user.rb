@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
 
   validates :full_name, presence: true
 
-  validates_format_of :email_address, :with => /[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+\.[a-zA-Z]{2,4}/i
+  validates_format_of :email_address, :with => /\A[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+\.[a-zA-Z]{2,4}\z/i
 
   validates :email_address, uniqueness: true
 
