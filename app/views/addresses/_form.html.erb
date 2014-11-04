@@ -3,9 +3,8 @@
 
 <h1>  Please Enter an Address </h1>
 
-  <%= form_for(@address) do |f| %>
+  <%= form_for(@address.becomes(Address)) do |f| %>
     <%= render "layouts/errors", object: @address %>
-
 
     <div class="field">
       <%= f.label :street_address %><br>
@@ -24,6 +23,7 @@
       <%= f.text_field :zip %>
     </div>
   </br>
+    <%= hidden_field_tag :category, @address.class %>
     <div class="actions">
       <%= f.submit %>
     </div>

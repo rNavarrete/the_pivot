@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :categories
 
   resources :addresses
+  resources :mailing_addresses, controller: 'addresses', type: 'MailingAddress'
+  resources :billing_addresses, controller: 'addresses', type: 'BillingAddress'
 
   get 'confirmation', to: 'confirmations#show'
 
