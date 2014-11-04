@@ -40,7 +40,7 @@
               <tr>
                 <td><span class="item_title"><%= item.name %><span></td>
                 <td><%= item.description %></td>
-                <td><%= link_to 'Edit', edit_seller_item_path(item), class: "btn btn-warning" %></td>
+                <td><%= link_to 'Edit', edit_seller_item_path(item), class: "btn btn-primary" %></td>
                 <td><%= link_to 'Destroy', seller_item_path(item), class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
               </tr>
               <% end %>
@@ -56,7 +56,7 @@
         <%= form.text_area :description %>
         <%= form.select :status, options_for_select([ 'Active', 'Retired'], 'True') %>
         <%= form.text_area :price %>
-        <%= form.submit  %>
+        <%= form.submit class: "btn btn-success" %>
         <% end %>
       </div>
       <div role="tabpanel" class="tab-pane fade" id="orders">
@@ -64,107 +64,137 @@
           <li role="presentation" class="active"><a href="#active_orders" role="tab" data-toggle="tab">Active</a></li>
           <li role="presentation"><a href="#paid_orders" role="tab" data-toggle="tab">Paid</a></li>
           <li role="presentation"><a href="#canceled_orders" role="tab" data-toggle="tab">Canceled</a></li>
+          <li role="presentation"><a href="#completed_orders" role="tab" data-toggle="tab">Completed</a></li>
         </ul>
 
 
 
         <div class="tab-content">
           <div role="tabpanel" class="tab-pane active" id="active_orders">
-            <div class="container">
-              <table class="table table-striped">
-                <thead>
-                  <tr>
-                    <th>Customer Name</th>
-                    <th>Customer Email</th>
-                    <th>Date Ordered</th>
-                    <th>Pickup or Delivery</th>
-                    <th>Subtotal</th>
-                    <th></th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <h4 class="page-header">Active Orders(<%= @store.recent_orders.count %>)</h4>
-                  <% @store.recent_orders.each do |order| %>
-                  <tr>
-                    <td><%= order.user.full_name %></td>
-                    <td><%= order.user.email_address %></td>
-                    <td><%= distance_of_time_in_words(order.created_at, Time.now) + " ago" %></td>
-                    <td><%= number_to_currency(order.subtotal) %></td>
-                    <td><%= link_to "View Order", seller_order_path(order), class: "btn btn-primary" %></td>
-                    <td><%= link_to 'Mark as Paid', seller_order_path(order, order:{status:'paid'}), method: 'patch', class: 'btn btn-warning', data: {confirm: 'Are you sure you want to change this order to paid?'}%></td>
-                    <td><%= link_to 'Cancel This Order', seller_order_path(order, order: { status: 'canceled' }), method: 'patch', class: 'btn btn-danger', confirm: {message: 'This will remove your order permanently. '}%></td>
-                  </tr>
-                </tbody>
-                <tbody>
-                  <% end %>
-                </tbody>
-              </table>
-            </div>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Customer Name</th>
+                  <th>Customer Email</th>
+                  <th>Date Ordered</th>
+                  <th>Pickup or Delivery</th>
+                  <th>Subtotal</th>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <h4 class="page-header">Active Orders(<%= @store.recent_orders.count %>)</h4>
+                <% @store.recent_orders.each do |order| %>
+                <tr>
+                  <td><%= order.user.full_name %></td>
+                  <td><%= order.user.email_address %></td>
+                  <td><%= distance_of_time_in_words(order.created_at, Time.now) + " ago" %></td>
+                  <td><%= number_to_currency(order.subtotal) %></td>
+                  <td><%= link_to "View Order", seller_order_path(order), class: "btn btn-primary" %></td>
+                  <td><%= link_to 'Mark as Paid', seller_order_path(order, order:{status:'paid'}), method: 'patch', class: 'btn btn-warning', data: {confirm: 'Are you sure you want to change this order to paid?'}%></td>
+                  <td><%= link_to 'Cancel This Order', seller_order_path(order, order: { status: 'canceled' }), method: 'patch', class: 'btn btn-danger', confirm: {message: 'This will remove your order permanently. '}%></td>
+                </tr>
+              </tbody>
+              <tbody>
+                <% end %>
+              </tbody>
+            </table>
           </div>
-            <div role="tabpanel" class="tab-pane" id="paid_orders">
-              <table class="table table-striped">
-                <thead>
-                  <tr>
-                    <th>Customer Name</th>
-                    <th>Customer Email</th>
-                    <th>Date Ordered</th>
-                    <th>Pickup or Delivery</th>
-                    <th>Subtotal</th>
-                    <th></th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <h4><u>Paid Orders(<%= @store.paid_orders.count %></u>)</h4>
-                  <% @store.paid_orders.each do |order| %>
-                  <tr>
-                    <td><%= order.user.full_name %></td>
-                    <td><%= order.user.email_address %></td>
-                    <td><%= distance_of_time_in_words(order.created_at, Time.now) + " ago" %></td>
-                    <td><%= number_to_currency(order.subtotal) %></td>
-                    <td><%= link_to "View Order", seller_order_path(order), class: "btn btn-success" %></td>
-                  </tr>
-                </tbody>
-                <tbody>
-                  <% end %>
-                </tbody>
-              </table>
-            </div>
-            <div role="tabpanel" class="tab-pane" id="canceled_orders">
-              <table class="table table-striped">
-                <thead>
-                  <tr>
-                    <th>Customer Name</th>
-                    <th>Customer Email</th>
-                    <th>Date Ordered</th>
-                    <th>Pickup or Delivery</th>
-                    <th>Subtotal</th>
-                    <th></th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <h4 class="page-header">Canceled Orders(<%= @store.canceled_orders.count %>)</h4>
-                  <% @store.canceled_orders.each do |order| %>
-                  <tr>
-                    <td><%= order.user.full_name %></td>
-                    <td><%= order.user.email_address %></td>
-                    <td><%= distance_of_time_in_words(order.created_at, Time.now) + " ago" %></td>
-                    <td><%= number_to_currency(order.subtotal) %></td>
-                    <td><%= link_to "View Order", order_path(order), class: "btn btn-danger" %></td>
-                  </tr>
-                </tbody>
-                <tbody>
-                  <% end %>
-                </tbody>
-              </table>
-            </div>
+          <div role="tabpanel" class="tab-pane" id="paid_orders">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Customer Name</th>
+                  <th>Customer Email</th>
+                  <th>Date Ordered</th>
+                  <th>Pickup or Delivery</th>
+                  <th>Subtotal</th>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <h4 class="page-header">Paid Orders(<%= @store.paid_orders.count %>)</h4>
+                <% @store.paid_orders.each do |order| %>
+                <tr>
+                  <td><%= order.user.full_name %></td>
+                  <td><%= order.user.email_address %></td>
+                  <td><%= distance_of_time_in_words(order.created_at, Time.now) + " ago" %></td>
+                  <td><%= number_to_currency(order.subtotal) %></td>
+                  <td><%= link_to "View Order", seller_order_path(order), class: "btn btn-success" %></td>
+                </tr>
+              </tbody>
+              <tbody>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="canceled_orders">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Customer Name</th>
+                  <th>Customer Email</th>
+                  <th>Date Ordered</th>
+                  <th>Pickup or Delivery</th>
+                  <th>Subtotal</th>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <h4 class="page-header">Canceled Orders(<%= @store.canceled_orders.count %>)</h4>
+                <% @store.canceled_orders.each do |order| %>
+                <tr>
+                  <td><%= order.user.full_name %></td>
+                  <td><%= order.user.email_address %></td>
+                  <td><%= distance_of_time_in_words(order.created_at, Time.now) + " ago" %></td>
+                  <td><%= number_to_currency(order.subtotal) %></td>
+                  <td><%= link_to "View Order", order_path(order), class: "btn btn-danger" %></td>
+                </tr>
+              </tbody>
+              <tbody>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="completed_orders">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Customer Name</th>
+                  <th>Customer Email</th>
+                  <th>Date Ordered</th>
+                  <th>Pickup or Delivery</th>
+                  <th>Subtotal</th>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <h4 class="page-header">Completed Orders(<%= @store.completed_orders.count %>)</h4>
+                <% @store.completed_orders.each do |order| %>
+                <tr>
+                  <td><%= order.user.full_name %></td>
+                  <td><%= order.user.email_address %></td>
+                  <td><%= distance_of_time_in_words(order.created_at, Time.now) + " ago" %></td>
+                  <td><%= number_to_currency(order.subtotal) %></td>
+                  <td><%= link_to "View Order", seller_order_path(order), class: "btn btn-success" %></td>
+                  <td><%= link_to 'Mark as Paid', seller_order_path(order, order:{status:'paid'}), method: 'patch', class: 'btn btn-warning', data: {confirm: 'Are you sure you want to change this order to paid?'}%></td>
+                  <td><%= link_to 'Cancel This Order', seller_order_path(order, order: { status: 'canceled' }), method: 'patch', class: 'btn btn-danger', confirm: {message: 'This will remove your order permanently. '}%></td>
+                </tr>
+              </tbody>
+              <tbody>
+                <% end %>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 </div>
 
 

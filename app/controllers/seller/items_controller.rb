@@ -12,7 +12,8 @@ class Seller::ItemsController < ApplicationController
   def destroy
     @item = Item.find(params[:id])
     @item.destroy
-    redirect_to seller_dashboard_path, notice: 'Item Successfully Deleted!'
+    flash[:notice] = 'Item Successfully Deleted!'
+    redirect_to seller_dashboard_path,
   end
 
   def create
@@ -63,13 +64,4 @@ class Seller::ItemsController < ApplicationController
       end
     end
   end
-
-
-    # stores = Store.where(:user_id => current_user.id)
-
-    # if stores.include?(store)
-    # else
-    #   redirect_to root_path
-    #   flash[:notice] = "Unauthorized"
-    # end
 end

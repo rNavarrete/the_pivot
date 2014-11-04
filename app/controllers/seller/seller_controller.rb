@@ -59,7 +59,7 @@ class Seller::SellerController < ApplicationController
 		if stores.include?(store)
 		else
     	redirect_to root_path
-    	flash[:notice] = "Unauthorized"
+    	flash[:notice] = "This isn't your store."
     end
   end
 end
