@@ -1,5 +1,5 @@
 Category.create(name: 'Mens', position: 1)
-Category.create(name: 'Mens Bottoms', position: 2)
+Category.create(name: 'Mens Jeans', position: 2)
 Category.create(name: 'Mens Shirts', position: 3)
 Category.create(name: 'Mens Jackets', position: 4)
 Category.create(name: 'Mens Shoes', position: 5)
