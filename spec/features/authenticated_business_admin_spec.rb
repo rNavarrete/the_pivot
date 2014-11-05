@@ -6,8 +6,8 @@ describe 'As an Authenticated Business Administrator', type: :feature do
   before :each do
     @seller = user_with(email_address: "ghostface@sholin.com", role: "seller")
     @seller.save
-    @store  = Store.create(name: "corner store", description: "Cooking up that incredible", user_id: @seller.id, slug: "ghosts_corner_store")
-    @item =   Item.create(name: 'Himalayan Hoodie',   description: 'A stylish top layer to keep you as warm as a Sherpa', price: 30.00, status: 'active', category_ids: [6, 7], image_file_name: "HimalayanHoodie.jpg", store_id: @store.id)
+    @store = Store.create(name: "corner store", description: "Cooking up that incredible", user_id: @seller.id, slug: "ghosts_corner_store")
+    @item  = Item.create(name: 'Brick',   description: 'Some high quality fishscale', price: 30.00, status: 'active', category_ids: [6, 7], image_file_name: "HimalayanHoodie.jpg", store_id: @store.id)
     login_as(@seller)
     visit "/"
     click_link("Manage Store")
@@ -16,7 +16,6 @@ describe 'As an Authenticated Business Administrator', type: :feature do
   describe 'I can access the admin area', type: :feature do
     it 'can reach the seller dashboard' do
       expect(page).to have_content("Seller Dashboard")
-      save_and_open_page
     end
   end
 
@@ -31,13 +30,23 @@ describe 'As an Authenticated Business Administrator', type: :feature do
       expect(page).to have_content("a kilo is one thousand grams")
     end
 
-    # it 'lets me edit items' do
-
-    # end
-
-
-
-    it 'can retire items'
+    it 'lets me edit items' do
+      click_link("Edit")
+      page.fill_in("Name", with: "Herb")
+      page.fill_in("Description", with: "a pound is 453 grams easy to remember")
+      page.fill_in("Price", with: 9000)
+      click_button('Update Item')
+      expect(page).to have_content("a pound is 453 grams easy to remember")
+    end
+    it 'can retire items' do
+      save_and_open_page
+      expect(page).to_not have_content("retired")
+      click_link("Edit")
+      select "Retired", :from => "Status"
+      click_button('Update Item')
+      expect(page).to have_content("retired")
+      save_and_open_page
+    end
   end
 
   describe 'I can update the details of my business', type: :feature do

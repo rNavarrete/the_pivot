@@ -42,7 +42,7 @@ class Seller::ItemsController < ApplicationController
       @item.categories = Category.where(id: params[:item][:category_ids])
       redirect_to seller_dashboard_path, notice: 'Item Successfully Updated!'
     else
-      render_to seller_dashboard_path, notice: "Item coundn't be updated!"
+      redirect_to seller_dashboard_path, notice: "Item coundn't be updated!"
     end
   end
 
