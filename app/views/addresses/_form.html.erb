@@ -16,7 +16,7 @@
     </div>
     <div class="field">
       <%= f.label :state %><br>
-      <section class='select'><%= f.select :state, options_for_select(us_states)%></section>
+      <section class='select'><%= f.select :state, options_for_select(us_states, @address.state)%></section>
     </div>
     <div class="field">
       <%= f.label :zip %><br>
