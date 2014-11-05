@@ -6,15 +6,15 @@ class OrdersController < ApplicationController
     if session[:cart_items].empty?
       redirect_to confirmation_path
     else
-      items_by_store_id = session[:cart_items].group_by{|item| Item.find(item[0].to_i).store_id }
-
+      items_by_store_id = session[:cart_items].group_by{|item| Item.find(item[0].to_i).store_id}
       orders = []
       items_by_store_id.each do |store_id, items|
         order = Order.create(user_id: session[:user_id], status: "ordered", store_id: store_id)
         items.map do |item_id, quantity|
           order.order_items.new(item_id: item_id, quantity: quantity)
         end
-        order.address_id = params[:address]
+        order.shipping_address_id = params[:order]["shipping_address_id"]
+        order.billing_address_id = params[:order]["billing_address_id"]
         order.save
         order_owner = order.store.user
         OwnerConfirmationMailer.owner_confirmation_email(order_owner, order).deliver

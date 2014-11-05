@@ -10,6 +10,13 @@ class Address < ActiveRecord::Base
 
   def self.categories
       %w(ShippingAddress BillingAddress)
-    end
+  end
+
+  def display
+
+    "#{self.street_address.to_s} \n #{self.city.to_s}, #{self.state.to_s} #{self.zip.to_s}" 
+
+  end
+
 
 end
