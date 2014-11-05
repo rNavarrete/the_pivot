@@ -1,4 +1,6 @@
 class OrderItem < ActiveRecord::Base
+	serialize :options
+
   belongs_to :order
   belongs_to :item
 
