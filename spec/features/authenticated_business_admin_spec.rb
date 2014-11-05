@@ -40,18 +40,26 @@ describe 'As an Authenticated Business Administrator', type: :feature do
     end
 
     it 'can retire items' do
-      save_and_open_page
       expect(page).to_not have_content("retired")
       click_link("Edit")
       select "Retired", :from => "Status"
       click_button('Update Item')
       expect(page).to have_content("retired")
-      save_and_open_page
     end
   end
 
   describe 'I can update the details of my business', type: :feature do
-    it 'can update its name'
+    it 'can update its name' do
+      save_and_open_page
+      within(:css, "#store_settings") do
+        expect(page).to_not have_content("still have the best Colombian")
+        page.fill_in("Name", with: "The brothel")
+        page.fill_in("Description", with: "still have the best Colombian")
+        click_button('Update Store')
+        expect(page).to have_content("still have the best Colombian")
+      end
+    end
+
     it 'can update its URL identifier'
     it 'can update its description'
   end
