@@ -19,9 +19,14 @@ describe 'As an Authenticated Business Administrator', type: :feature do
 
   describe 'I can add new items to my store', type: :feature do
     it 'lets me add new items' do
-      save_and_open_page
-
-
+      within(:css, "#create_item") do
+        page.fill_in("Name", with: "Kilo")
+        page.fill_in("Description", with: "a kilo is one thousand grams")
+        page.fill_in("Price", with: 30000)
+        click_button('Create Item')
+        save_and_open_page
+      end
+      expect(page).to have_content("a kilo is one thousand grams")
     end
 
     it 'can edit items'

@@ -13,7 +13,7 @@ class Seller::ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @item.destroy
     flash[:notice] = 'Item Successfully Deleted!'
-    redirect_to seller_dashboard_path,
+    redirect_to seller_dashboard_path
   end
 
   def create
