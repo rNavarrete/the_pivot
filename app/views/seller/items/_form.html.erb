@@ -3,19 +3,18 @@
   <%= form.text_area :description %>
   <%= form.file_field :image %>
   <%= form.select :status, options_for_select([ 'Active', 'Retired'], 'True') %>
+
   <b>Categories:</b>
   <% @categories.each do |category| %>
     <%= form.label category.name %>
     <%= check_box_tag "categories[]", category.id, @item.categories.include?(category) ? true : false, class: "category_checkbox" %>
-  <% end %>
+  <% end %><br/>
   <b>Options (Separate desired options with commas)</b>:
-
-  <%= fields_for "options" do |options_form| %>
-  	<%= label_tag(:sizes) %>
-    <%= options_form.text_field :sizes %>
-    <%= label_tag(:colors) %>
-    <%= options_form.text_field :colors %>
-  <% end %>
+  <% @item.options.each do |option| %>
+	  <%= label_tag(option[0]) %>
+	  <%= text_field_tag("options[#{option.first}]", option[1]) %>
+	<% end %>
   <%= form.number_field :price %>
+
   <%= form.submit %>
 <% end %>
