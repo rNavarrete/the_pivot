@@ -4,21 +4,24 @@ require 'capybara/rspec'
 
 describe 'As an Authenticated Business Administrator', type: :feature do
   before :each do
-    @seller = user_with({id: 1, email_address: "ghostface@sholin.com", role: "seller"})
+    @seller = user_with({email_address: "ghostface@sholin.com", role: "seller"})
     @seller.save
-    @store = store_with({name: "corner store", description: "Cooking up that incredible", user_id: 1, slug: "ghosts_corner_store"})
-    @store.save
+    @store = Store.create({name: "corner store", description: "Cooking up that incredible", user_id: @seller.id, slug: "ghosts_corner_store"})
     login_as(@seller)
     visit "/"
-    # User.make(:user_id => 1, :email => "park@chanwook.com", :password => "oldboy", :fullname => "Park Chan-Wook", :screename => "Song Kang-Ho", :role => "seller")
-    # Store.make(:name => "Boots", :description => "Boots and Shit", :user_id => 1, :image => "", :slug => "boots")
+    click_link("Manage Store")
   end
-  describe 'I can manage my store', type: :feature do
-    it 'can add items' do
-      click_link("Manage Store")
-      # print page.html
-      save_and_open_page
+  describe 'I can access the admin area', type: :feature do
+    it 'can reach the seller dashboard' do
       expect(page).to have_content("Seller Dashboard")
+    end
+  end
+
+  describe 'I can add new items to my store', type: :feature do
+    it 'lets me add new items' do
+      save_and_open_page
+
+
     end
 
     it 'can edit items'
