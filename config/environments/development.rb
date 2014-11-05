@@ -67,15 +67,15 @@ config.paperclip_defaults = {
    enable_starttls_auto: true
   }
 
-  config.after_initialize do
-    Bullet.enable = true
-    Bullet.alert = true
-    Bullet.bullet_logger = true
-    Bullet.console = true
-    Bullet.rails_logger = true
-    Bullet.bugsnag = true
-    Bullet.airbrake = true
-    Bullet.add_footer = true
-    Bullet.stacktrace_includes = [ 'your_gem', 'your_middleware' ]
-  end
+  # config.after_initialize do
+  #   Bullet.enable = true
+  #   Bullet.alert = true
+  #   Bullet.bullet_logger = true
+  #   Bullet.console = true
+  #   Bullet.rails_logger = true
+  #   Bullet.bugsnag = true
+  #   Bullet.airbrake = true
+  #   Bullet.add_footer = true
+  #   Bullet.stacktrace_includes = [ 'your_gem', 'your_middleware' ]
+  # end
  end
