@@ -4,16 +4,19 @@ require 'capybara/rspec'
 
 describe 'As an Authenticated Business Administrator', type: :feature do
   before :each do
-    @seller = user_with({email_address: "ghostface@sholin.com", role: "seller"})
+    @seller = user_with(email_address: "ghostface@sholin.com", role: "seller")
     @seller.save
-    @store = Store.create({name: "corner store", description: "Cooking up that incredible", user_id: @seller.id, slug: "ghosts_corner_store"})
+    @store  = Store.create(name: "corner store", description: "Cooking up that incredible", user_id: @seller.id, slug: "ghosts_corner_store")
+    @item =   Item.create(name: 'Himalayan Hoodie',   description: 'A stylish top layer to keep you as warm as a Sherpa', price: 30.00, status: 'active', category_ids: [6, 7], image_file_name: "HimalayanHoodie.jpg", store_id: @store.id)
     login_as(@seller)
     visit "/"
     click_link("Manage Store")
   end
+
   describe 'I can access the admin area', type: :feature do
     it 'can reach the seller dashboard' do
       expect(page).to have_content("Seller Dashboard")
+      save_and_open_page
     end
   end
 
@@ -24,12 +27,16 @@ describe 'As an Authenticated Business Administrator', type: :feature do
         page.fill_in("Description", with: "a kilo is one thousand grams")
         page.fill_in("Price", with: 30000)
         click_button('Create Item')
-        save_and_open_page
       end
       expect(page).to have_content("a kilo is one thousand grams")
     end
 
-    it 'can edit items'
+    # it 'lets me edit items' do
+
+    # end
+
+
+
     it 'can retire items'
   end
 

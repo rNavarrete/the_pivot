@@ -1,5 +1,5 @@
 class Item < ActiveRecord::Base
-  store_accessor :size
+  store_accessor :options, :sizes, :colors
 
   has_many :order_items
   has_many :category_items

@@ -1,4 +1,4 @@
-class AddHStoreColumnToItems < ActiveRecord::Migration
+class AddHStore < ActiveRecord::Migration
   def up
     enable_extension :hstore
   end

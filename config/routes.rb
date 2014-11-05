@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   get 'checkout',         to: 'checkouts#show'
   get 'complete_order',   to: 'checkouts#complete_order'
 
-  get 'add_item',         to: 'carts#add_item',       as: 'add_item'
+  post 'add_item',         to: 'carts#add_item',       as: 'add_item'
   get 'remove_item',      to: 'carts#remove_item',    as: 'remove_item'
   put 'update_quantity',  to: 'carts#update_quantity',as: 'update_quantity'
 
