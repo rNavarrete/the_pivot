@@ -76,7 +76,7 @@
           <%= link_to 'My Orders', orders_path if current_user %>
         <% end %>
         <p><%= link_to 'Admin Dashboard', admin_dashboard_path if can? :manage, User %> </p>
-        <p><%= link_to 'Manage Store', store_dashboard_path if can? :manage, Store %></p>
+        <p><%= link_to 'Manage Store', seller_dashboard_path if can? :manage, Store %></p>
       </ul>
     </nav>
     </div>

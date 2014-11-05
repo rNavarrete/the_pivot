@@ -29,17 +29,25 @@ Rails.application.routes.draw do
   get 'remove_item',      to: 'carts#remove_item',    as: 'remove_item'
   put 'update_quantity',  to: 'carts#update_quantity',as: 'update_quantity'
 
+  namespace :seller do
+    resources :items, :orders
+    get  'stores',        to: 'seller#index',   as: 'dashboard'
+    get  'store/:id/edit', to: 'seller#edit',   as: 'store_edit'
+    get  'store/:id',     to: 'seller#show',    as: 'store_show'
+    patch 'store/:id',    to: 'seller#update',  as: 'store_update'
+  end
+
+
   get 'stores', to: 'store_dashboard#index', as: 'store_dashboard'
-  get 'stores/:store_name', to: 'store_dashboard#show', as: 'store_dashboard_show'
 
   get    'login',  to: 'sessions#new'
   post   'login',  to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
 
-  get 'gift_cards',        to: 'gift_cards#show'
-  get 'about',             to: 'about#show'
+
+  get 'gift_cards', to: 'gift_cards#show'
+  get 'about',      to: 'about#show'
+
   resources "contact_us", only: [:new, :create]
-
   get ':store_name', to: 'stores#show', as: 'stores'
-
 end
