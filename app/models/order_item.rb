@@ -1,4 +1,6 @@
 class OrderItem < ActiveRecord::Base
+	serialize :options
+
   belongs_to :order
   belongs_to :item
 
@@ -10,4 +12,7 @@ class OrderItem < ActiveRecord::Base
     item.price * quantity
   end
 
+  def item_name
+    Item.find(self.item_id).name
+  end
 end

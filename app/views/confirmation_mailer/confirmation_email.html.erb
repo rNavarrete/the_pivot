@@ -23,12 +23,16 @@
       <th align="left"> Name </th>
       <th align="left"> Price </th>
       <th align="left"> Quantity </th>
+      <th align="left"> Options </th>
       <th align="left"> Line Total</th>
       <tr>
       <% order.order_items.each do |order_item| %>
       <td> <%= order_item.item.name%> </td>
       <td> <%= number_to_currency(order_item.item.price)%></td>
       <td> <%= order_item.quantity %> </td>
+      <td> <% order_item.options.each do |k, v| %>
+             <%= k.singularize.capitalize %> - <%= v %>
+           <% end %> </td>
       <td> <%= number_to_currency(order_item.line_total) %> </td>
       </tr>
       <% end %>

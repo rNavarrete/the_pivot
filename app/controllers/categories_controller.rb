@@ -5,6 +5,7 @@ class CategoriesController < ApplicationController
 
   def show
   	@category = Category.find(params[:id])
+    @items = @category.items.includes(:store)
   	if @category
   		render :show
   	else

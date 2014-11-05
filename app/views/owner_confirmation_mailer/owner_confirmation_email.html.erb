@@ -22,6 +22,7 @@
         <td class="tg-e3zv" STYLE="font-weight: bold">Item</td>
         <td class="tg-e3zv" STYLE="font-weight: bold">Unit Price</td>
         <td class="tg-e3zv" STYLE="font-weight: bold">Quantity</td>
+        <td class="tg-e3zv" STYLE="font-weight: bold">Options</td>
         <td class="tg-e3zv" STYLE="font-weight: bold">Total Price</td>
       </tr>
       <% @order.order_items.each do |order_item| %>
@@ -29,6 +30,9 @@
         <td class="tg-031e"><%= link_to order_item.item.name, item_path(order_item.item) %></td>
         <td class="tg-031e"><%= number_to_currency(order_item.item.price) %></td>
         <td class="tg-031e"><%= order_item.quantity %></td>
+        <td class="tg-031e"><% order_item.options.each do |k, v| %>
+                          <%= k.singularize.capitalize %> - <%= v %>
+                        <% end %> </td>
         <td class="tg-031e"><%= number_to_currency(order_item.line_total) %></td>
       <% end %>
       </tr>
