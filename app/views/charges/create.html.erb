@@ -1,1 +1,20 @@
-<h2>Thanks, you paid <strong> <%=  number_to_currency(@total_paid) %> </strong>!</h2>
+</br>
+<div id="confirmation-options">
+  <h2>Thank you for your payment of: <strong> <%=  number_to_currency(@total_paid) %> </strong>!</h2>
+<h2>What would you like to do next?</h2>
+</br>
+<%= form_tag categories_path, method: :get do %>
+<%= button_tag(:class => "btn btn-primary btn-lg", :id => "continue_shopping") do %>
+   Create a New Order <span class="glyphicon glyphicon-cart" ></span>
+<% end %>
+<% end %>
+</br>
+</br>
+</br>
+<%= form_tag orders_path, method: :get do %>
+<%= button_tag(:class => "btn btn-primary btn-lg", :id => "review_orders_btn") do %>
+   Review Existing Orders <span class="glyphicon glyphicon-cart" ></span>
+<% end %>
+<% end %>
+<div id="confirmation-options">
+</div>

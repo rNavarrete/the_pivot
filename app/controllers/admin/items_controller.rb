@@ -30,7 +30,6 @@ class Admin::ItemsController < Admin::BaseController
   end
 
   def update
-    fail
     @item = Item.find(params[:id])
     if @item.update(item_params)
       @item.categories = Category.where(id: params[:item][:category_ids])

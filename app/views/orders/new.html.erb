@@ -4,6 +4,7 @@
 </br>
 </br>
 </br>
+<div class='flashes'><%= flash[:notice] %></div>
 <%= form_tag new_address_path, method: :get do %>
 <%= hidden_field_tag :category, "shipping" %>
 <%= button_tag(:class => "btn btn-success btn-sm", :id => "cart_button") do %>
@@ -22,12 +23,12 @@ Enter a New Billing Address <span class="glyphicon glyphicon-shopping-cart" ></s
 <%= form_tag orders_path, method: :post do %>
 <h3> Please Choose Shipping Address </h3>
 <ul id='collection' >
-  <%= collection_radio_buttons(:order, :shipping_address_id, @shipping_addresses, :id, :display) %>
+  <%= collection_radio_buttons(:order, :shipping_address_id, @shipping_addresses, :id, :display, {checked: @shipping_addresses.first.id}, {}) %>
 </ul>
 </br>
 <h3> Please Choose Billing Address </h3>
 <ul id='collection' >
-  <%= collection_radio_buttons(:order, :billing_address_id, @billing_addresses, :id, :display) %>
+  <%= collection_radio_buttons(:order, :billing_address_id, @billing_addresses, :id, :display, {checked: @billing_addresses.first.id}, {}) %>
 </ul>
 
 <%= button_tag(:class => "btn btn-success btn-sm", :id => "cart_button") do %>
