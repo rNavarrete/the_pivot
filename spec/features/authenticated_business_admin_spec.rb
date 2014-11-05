@@ -70,7 +70,13 @@ describe 'As an Authenticated Business Administrator', type: :feature do
       expect(page).to have_content("Some high quality fishscale")
     end
 
-    it 'can update its description'
+    it 'can update its description' do
+      within(:css, "#store_settings") do
+        page.fill_in("Description", with: "red tops, green tops, yellow tops")
+        click_button('Update Store')
+      end
+      expect(page).to have_content("red tops, green tops, yellow tops")
+    end
   end
 
   describe 'I can add or remove other admins from the business', type: :feature do
