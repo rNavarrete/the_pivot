@@ -20,9 +20,13 @@ class OrdersController < ApplicationController
         OwnerConfirmationMailer.owner_confirmation_email(order_owner, order).deliver
         orders << order
       end
+        totals = orders.map {|order| order.total}
+        order_total = totals.reduce(:+)
+
       ConfirmationMailer.confirmation_email(current_user, orders).deliver
       session[:cart_items] = {}
-      redirect_to confirmation_path
+      session[:order_total] = order_total
+      redirect_to new_charge_path
     end
   end
 
