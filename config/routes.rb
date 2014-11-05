@@ -1,11 +1,17 @@
 Rails.application.routes.draw do
 
-  root 'home#index'
 
+  resources :charges
+  resources :items
+  root 'home#index'
   resources :items
 	resources :orders
   resources :categories
   resources :addresses
+
+  resources :mailing_addresses, controller: 'addresses', type: 'MailingAddress'
+  resources :billing_addresses, controller: 'addresses', type: 'BillingAddress'
+
   resources :users
   resources :home
 

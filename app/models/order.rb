@@ -5,6 +5,8 @@ class Order < ActiveRecord::Base
   has_many :items, through: :order_items
   belongs_to :user
   belongs_to :address
+  belongs_to :shipping_address
+  belongs_to :billing_address
   belongs_to :store
 
   scope :paid,      -> { where(status: "paid") }

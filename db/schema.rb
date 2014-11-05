@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20141105181743) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "category"
   end
 
   add_index "addresses", ["user_id"], name: "index_addresses_on_user_id", using: :btree
@@ -57,9 +58,8 @@ ActiveRecord::Schema.define(version: 20141105181743) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.string   "status"
+    t.string   "status",             default: "active"
     t.integer  "store_id"
-    t.hstore   "clothing_options"
     t.hstore   "options"
   end
 
@@ -81,10 +81,12 @@ ActiveRecord::Schema.define(version: 20141105181743) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "open",       default: true
+    t.boolean  "open"
     t.string   "status"
     t.integer  "address_id"
     t.integer  "store_id"
+    t.integer  "shipping_address_id"
+    t.integer  "billing_address_id"
   end
 
   add_index "orders", ["address_id"], name: "index_orders_on_address_id", using: :btree

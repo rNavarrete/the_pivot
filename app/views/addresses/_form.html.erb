@@ -1,8 +1,10 @@
-<h1>  Please Enter an Address </h1>
+</br>
+</br>
 
-  <%= form_for(@address) do |f| %>
+<h1>  <%= @message %> </h1>
+
+  <%= form_for(@address.becomes(Address)) do |f| %>
     <%= render "layouts/errors", object: @address %>
-
 
     <div class="field">
       <%= f.label :street_address %><br>
@@ -14,15 +16,19 @@
     </div>
     <div class="field">
       <%= f.label :state %><br>
-      <section class='select'><%= f.select :state, options_for_select(us_states)%></section>
+      <section class='select'><%= f.select :state, options_for_select(us_states, @address.state)%></section>
     </div>
     <div class="field">
       <%= f.label :zip %><br>
       <%= f.text_field :zip %>
     </div>
   </br>
+    <%= hidden_field_tag :category, @address.class %>
     <div class="actions">
       <%= f.submit %>
     </div>
   <% end %>
 </div>
+
+
+    <%= button_to "Cancel", new_order_path, method: 'get' %>
