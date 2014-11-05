@@ -38,6 +38,7 @@ describe 'As an Authenticated Business Administrator', type: :feature do
       click_button('Update Item')
       expect(page).to have_content("a pound is 453 grams easy to remember")
     end
+
     it 'can retire items' do
       save_and_open_page
       expect(page).to_not have_content("retired")
