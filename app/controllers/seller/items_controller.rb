@@ -20,6 +20,7 @@ class Seller::ItemsController < ApplicationController
     @categories = Category.all
     @store = Store.find_by(:user_id => current_user.id)
     if @store.items.create(item_params)
+      create_item_options(@store.items.last, params)
       flash[:notice] = "Your item was successfully created"
       redirect_to seller_dashboard_path
     else
@@ -63,8 +64,19 @@ class Seller::ItemsController < ApplicationController
 
   private
 
+  def create_item_options(item, params)
+    item.options = params[:options]
+    item.save
+    categories = params[:categories] || []
+    item.categories.clear
+    categories.each do |category|
+      category = Category.find(category)
+      item.categories << category
+    end
+  end
+
   def item_params
-    params.require(:item).permit(:name, :description, :price, :image, :category_ids, :status, :options)
+    params.require(:item).permit(:name, :description, :price, :image, :category_ids, :status)
   end
 
   def item_creator?(params_id)

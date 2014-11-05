@@ -30,7 +30,6 @@ class SellerController < ApplicationController
 		end
 	end
 
-
 	def store_params
 		params.require(:store).permit(:name, :description, :image, :slug)
 	end

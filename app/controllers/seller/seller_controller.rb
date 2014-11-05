@@ -14,21 +14,11 @@ class Seller::SellerController < ApplicationController
 	end
 
 	def edit
+		@categories = Category.all
 		@store = Store.find(params[:id])
 		if store_owner?(@store)
 		else
 			@item = Item.new
-		end
-	end
-
-	def create
-		@store = Store.find(:user_id => current_user.id)
-		if @store.items.create(item_params)
-			flash[:notice] = "Your item was successfully created"
-			redirect_to seller_store_show_path(@store.id)
-		else
-			flash[:notice] = "Something went wrong."
-			redirect_to seller_store_show_path(@store.id)
 		end
 	end
 
@@ -48,10 +38,6 @@ class Seller::SellerController < ApplicationController
 
 	def store_params
 		params.require(:store).permit(:name, :description, :image, :slug)
-	end
-
-	def item_params
-    params.require(:item).permit(:name, :description, :price, :image, :category_ids, :status)
 	end
 
 	def store_owner?(store)

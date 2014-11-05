@@ -7,9 +7,9 @@ class Item < ActiveRecord::Base
   belongs_to :store
 
   validates :store_id, presence: true
-  validates :name, presence: :true
-  validates :description, length: { minimum: 25 }
-  validates :price, presence: :true
+  validates :name, presence: true
+  validates :description, presence: true
+  validates :price, presence: true
   validates :price, numericality: { greater_than_or_equal_to: 0}
   validates :status, inclusion: ['active', 'retired', 'Active', 'Retired']
   has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
