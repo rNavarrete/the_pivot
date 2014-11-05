@@ -41,6 +41,22 @@ module MyHelpers
     User.new(attributes)
   end
 
+  def complete_shipping_address
+    page.fill_in('Street address', with: "123 Mountain Street")
+    page.fill_in('City', with: 'Atlanta')
+    page.select "Colorado", :from => "State"
+    page.fill_in('Zip', with: '80228')
+    page.click_button('Create Address')
+  end
+
+  def complete_billing_address
+    page.fill_in('Street address', with: "123 Mountain Street")
+    page.fill_in('City', with: 'Philadelphia')
+    page.select "Pennsylvania", :from => "State"
+    page.fill_in('Zip', with: '80234')
+    page.click_button('Create Address')
+  end
+
   def create(user)
     user.save
     user
