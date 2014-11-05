@@ -20,7 +20,7 @@ class Seller::ItemsController < ApplicationController
     @categories = Category.all
     @store = Store.find_by(:user_id => current_user.id)
     if @store.items.create(item_params)
-      create_item_options(@store.items.last, params)
+      set_item_options(@store.items.last, params)
       flash[:notice] = "Your item was successfully created"
       redirect_to seller_dashboard_path
     else
@@ -41,16 +41,7 @@ class Seller::ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
-    @item.options = params[:options]
-
-    categories = params[:categories] || []
-    @item.categories.clear
-    categories.each do |category|
-      category = Category.find(category)
-      @item.categories << category
-    end
-
-    @item.save
+    set_item_options(@item, params)
     if @item.update(item_params)
       redirect_to seller_dashboard_path, notice: 'Item Successfully Updated!'
     else
@@ -64,9 +55,9 @@ class Seller::ItemsController < ApplicationController
 
   private
 
-  def create_item_options(item, params)
+  def set_item_options(item, params)
     item.options = params[:options]
-    item.save
+    item.save!
     categories = params[:categories] || []
     item.categories.clear
     categories.each do |category|
