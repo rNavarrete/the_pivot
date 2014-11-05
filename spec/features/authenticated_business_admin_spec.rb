@@ -60,7 +60,16 @@ describe 'As an Authenticated Business Administrator', type: :feature do
       end
     end
 
-    it 'can update its URL identifier'
+    it 'can update its URL identifier' do
+      within(:css, "#store_settings") do
+        expect(page).to_not have_content("rae_and_ghosts_wonder_emporium")
+        page.fill_in("Slug", with: "rae_and_ghosts_wonder_emporium")
+        click_button('Update Store')
+        visit ('/rae_and_ghosts_wonder_emporium')
+      end
+      expect(page).to have_content("Some high quality fishscale")
+    end
+
     it 'can update its description'
   end
 
