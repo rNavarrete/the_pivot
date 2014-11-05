@@ -7,7 +7,7 @@ describe 'As an Authenticated Business Administrator', type: :feature do
     @seller = user_with(email_address: "ghostface@sholin.com", role: "seller")
     @seller.save
     @store = Store.create(name: "corner store", description: "Cooking up that incredible", user_id: @seller.id, slug: "ghosts_corner_store")
-    @item  = Item.create(name: 'Brick',   description: 'Some high quality fishscale', price: 30.00, status: 'active', category_ids: [6, 7], image_file_name: "HimalayanHoodie.jpg", store_id: @store.id)
+    @item  = Item.create(name: 'Brick',   description: 'Some high quality fishscale', price: 30.00, status: 'active', category_ids: [6, 7], image_file_name: "HimalayanHoodie.jpg", store_id: @store.id, options: {"size" => "L"})
     login_as(@seller)
     visit "/"
     click_link("Manage Store")

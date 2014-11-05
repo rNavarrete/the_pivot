@@ -8,7 +8,7 @@ class Item < ActiveRecord::Base
 
   validates :store_id, presence: true
   validates :name, presence: true
-  validates :description, presence: true
+  validates :description, length: { minimum: 25 }
   validates :price, presence: true
   validates :price, numericality: { greater_than_or_equal_to: 0}
   validates :status, inclusion: ['active', 'retired', 'Active', 'Retired']
