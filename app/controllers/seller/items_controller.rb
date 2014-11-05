@@ -17,6 +17,7 @@ class Seller::ItemsController < ApplicationController
   end
 
   def create
+    @categories = Category.all
     @store = Store.find_by(:user_id => current_user.id)
     if @store.items.create(item_params)
       flash[:notice] = "Your item was successfully created"
@@ -28,6 +29,7 @@ class Seller::ItemsController < ApplicationController
   end
 
   def edit
+    @categories = Category.all
     if item_creator?(params[:id])
       @item = Item.find(params[:id])
     else
@@ -38,8 +40,17 @@ class Seller::ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
+    @item.options = params[:options]
+
+    categories = params[:categories] || []
+    @item.categories.clear
+    categories.each do |category|
+      category = Category.find(category)
+      @item.categories << category
+    end
+
+    @item.save
     if @item.update(item_params)
-      @item.categories = Category.where(id: params[:item][:category_ids])
       redirect_to seller_dashboard_path, notice: 'Item Successfully Updated!'
     else
       redirect_to seller_dashboard_path, notice: "Item coundn't be updated!"
@@ -53,7 +64,7 @@ class Seller::ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :description, :price, :image, :category_ids, :status)
+    params.require(:item).permit(:name, :description, :price, :image, :category_ids, :status, :options)
   end
 
   def item_creator?(params_id)
