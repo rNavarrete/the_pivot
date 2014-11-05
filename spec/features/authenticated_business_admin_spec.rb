@@ -50,7 +50,6 @@ describe 'As an Authenticated Business Administrator', type: :feature do
 
   describe 'I can update the details of my business', type: :feature do
     it 'can update its name' do
-      save_and_open_page
       within(:css, "#store_settings") do
         expect(page).to_not have_content("still have the best Colombian")
         page.fill_in("Name", with: "The brothel")

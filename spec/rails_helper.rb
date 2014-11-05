@@ -16,20 +16,19 @@ module MyHelpers
     end
     click_on("add to cart")
     click_on("cart")
-    page.find("#ckout_btn").click
     page.find("#delivery_btn").click
     page.fill_in('Street address', with: "123 Mountain Street")
     page.fill_in('City', with: 'Denver')
     page.select "Colorado", :from => "State"
     page.fill_in('Zip', with: '80228')
     page.click_button('Create Address')
-    page.click_button('use this address')
+    page.fill_in('Street address', with: "123 Mountain Street")
+    page.fill_in('City', with: 'Pittsburgh')
+    page.select "Colorado", :from => "State"
+    page.fill_in('Zip', with: '80228')
+    page.click_button('Create Address')
+    page.click_button('submit order')
   end
-
-
-
-
-
 
   def user_with(overrides = {})
     attributes = {

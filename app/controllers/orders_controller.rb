@@ -40,6 +40,8 @@ class OrdersController < ApplicationController
     @billing_addresses = BillingAddress.where(user_id: current_user.id)
     if cart.empty?
       redirect_to cart_path, notice: 'Please add items to your cart before checking out. Thank you!'
+    elsif @shipping_addresses.count == 0 || @billing_addresses.count == 0
+      redirect_to new_address_path
     end
   end
 

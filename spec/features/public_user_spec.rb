@@ -75,7 +75,7 @@ describe 'As a Public User', type: :feature do
       end
       click_on("add to cart")
       click_on("cart")
-      click_on("ckout_btn")
+      click_on("delivery_btn")
       expect(page).to have_content("Please log in or create account to complete order")
     end
 
@@ -89,13 +89,13 @@ describe 'As a Public User', type: :feature do
       end
       click_on("add to cart")
       click_on("cart")
-      click_on("check out")
+      click_on("Complete Order")
       expect(page).to have_content("Please log in or create account to complete order")
       fill_in "email_address", with: "demo+rachel@jumpstartlab.com"
       fill_in "password", with: "password"
       click_on("Log In")
-      click_on("ckout_btn")
-      expect(page).to have_content("Pick Up")
+      click_on("delivery_btn")
+      expect(page).to have_content("Address")
     end
 
   end
