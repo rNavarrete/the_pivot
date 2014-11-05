@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :charges
+
   resources :items
 
 	resources :orders
