@@ -3,16 +3,30 @@ class AddressesController < ApplicationController
       @shipping_addresses = ShippingAddress.where(user_id: current_user.id)
       @billing_addresses = BillingAddress.where(user_id: current_user.id)
     session[:return_to] = addresses_path
-  
+
   end
 
   def new
-
+    @shipping_addresses = ShippingAddress.where(user_id: current_user.id)
+    @billing_addresses = BillingAddress.where(user_id: current_user.id)
     if params[:category] == "shipping"
       @address = ShippingAddress.new
-    else
+    elsif params[:category] == "billing"
       @address = BillingAddress.new
+    elsif @shipping_addresses.count == 0 && @billing_addresses.count == 0
+      @address = ShippingAddress.new
+      @message = "Please Enter a Shipping Address"
+      session[:return_to] = new_address_path
+    elsif @billing_addresses.count == 0
+      @address = BillingAddress.new
+      @message = "Please Enter a Billing Address"
+      session[:return_to] = new_order_path
+    else
+      @address = ShippingAddress.new
+      @message = "Please Enter a Shipping Address"
+      session[:return_to] = new_order_path
     end
+
   end
 
   def create

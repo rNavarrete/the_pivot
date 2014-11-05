@@ -43,7 +43,7 @@
 
 <div>
   <div class="pickup-delivery-button">
-      <% if @addresses.any? %>
+      <% if @shipping_addresses.any? && @billing_addresses.any? %>
         <%= link_to "Complete Order", new_order_path, class: "btn btn-primary btn-lg", id: "delivery_btn" %>
       <% else %>
         <%= link_to "Complete Order", new_address_path, class: "btn btn-primary btn-lg", id: "delivery_btn" %>

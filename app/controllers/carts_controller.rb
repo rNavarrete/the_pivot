@@ -1,7 +1,8 @@
 class CartsController < ApplicationController
   def show
     session[:return_to] = new_order_path
-    @addresses = Address.where(user_id: current_user.id)
+    @shipping_addresses = ShippingAddress.where(user_id: current_user.id)
+    @billing_addresses = BillingAddress.where(user_id: current_user.id)
     if cart.items.any?
     @subtotal = Cart.subtotal(session)
     @tax = Cart.tax(session)

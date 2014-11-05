@@ -1,7 +1,7 @@
 </br>
 </br>
 
-<h1>  Please Enter an Address </h1>
+<h1>  <%= @message %> </h1>
 
   <%= form_for(@address.becomes(Address)) do |f| %>
     <%= render "layouts/errors", object: @address %>
