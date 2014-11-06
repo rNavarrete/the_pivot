@@ -5,6 +5,8 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
+    <script src="/assets/masonry.pkgd.min.js"></script>
+    <script src="/assets/imagesloaded.pkgd.min.js"></script>
   </head>
   <body data-no-turbolink='true'>
 
@@ -17,11 +19,22 @@
       </div>
     </div>
     <script>
-    $('#myTab a').click(function (e) {
-  e.preventDefault()
-  $(this).tab('show')
-})
-</script>
+      $('#myTab a').click(function (e) {
+        e.preventDefault()
+        $(this).tab('show')
+      })
+    </script>
+    <script>
+      var container = document.querySelector('#masonry-grid');
+      var msnry = new Masonry( container, {
+        columnWidth: ".grid-sizer",
+        itemSelector: '.grid-item'
+      });
+      imagesLoaded( container, function() {
+        msnry.layout();
+      });
+    </script>
+
   </body>
   <footer>
   </footer>
