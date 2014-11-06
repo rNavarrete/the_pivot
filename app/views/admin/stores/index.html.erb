@@ -1,0 +1,68 @@
+<br />
+<br />
+<h1>Stores</h1>
+<div class="container">
+<h4 class="page-header">Edit Stores</h4>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Slug</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody id="admin_categories_edit_table">
+    <% @authorized_stores.each do |store| %>
+    <tr>
+      <td><span class="item_title"><%= store.name %><span></td>
+      <td><%= store.description %></td>
+      <td><%= store.slug %></td>
+      <% if store.online %>
+        <td><%= link_to 'Take Offline', admin_store_path(store, store:{online:'false'}), method: 'patch', class: 'btn btn-warning', data: {confirm: 'Are you sure you want to take this store offline?'}%></td>
+      <% else %>
+        <td><%= link_to 'Bring Online', admin_store_path(store, store:{online:'true'}), method: 'patch', class: 'btn btn-warning', data: {confirm: 'Are you sure you want to bring this store online?'}%></td>
+      <% end  %>
+
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+
+<h2>Stores waiting for Approval</h2>
+<div class="container">
+  <h4 class="page-header">Edit Items</h4>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Slug</th>
+        <th>Authorized</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+    <tbody id="admin_categories_edit_table">
+      <% @stores_waiting_approval.each do |store| %>
+      <tr>
+        <td><span class="item_title"><%= store.name %><span></td>
+        <td><%= store.description %></td>
+        <td><%= store.slug %></td>
+        <td><%= store.authorized %></td>
+        <td><%= link_to 'Approve Request', admin_store_path(store, store:{authorized:'true'}), method: 'patch', class: 'btn btn-warning', data: {confirm: 'Are you sure you want to approve the creation of this store?'}%></td>
+        <td><%= link_to 'Delete Request', admin_store_path(store), class: "btn btn-danger", method: :delete, data: { confirm: 'Are you want to delete this store request?' } %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
