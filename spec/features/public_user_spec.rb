@@ -8,8 +8,8 @@ describe 'As a Public User', type: :feature do
     it 'can click on a category and see items' do
       visit '/'
       click_on("men")
-      click_on("Mens Bottoms")
-      expect(page).to have_content("Mens Bottoms")
+      click_on("Mens Pants")
+      expect(page).to have_content("Mens Pants")
     end
 
     it 'can click on a business name and see store page' do
