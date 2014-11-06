@@ -1,7 +1,7 @@
 class Store < ActiveRecord::Base
   before_validation :remove_slug_spaces
 
-	validates :name, :slug, uniqueness: true
+	validates :name, :slug, :user_id, uniqueness: true
   has_many :items
   has_many :orders
   belongs_to :user
