@@ -83,9 +83,7 @@
 
           <ul class="dropdown-menu" role="menu">
             <li> <%=link_to 'My Addresses', addresses_path %></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
+            <li><%= link_to 'My Account Details', edit_user_path(current_user) %></li>
             <li><%= link_to 'My Orders', orders_path %></li>
           </ul>
         </div>
