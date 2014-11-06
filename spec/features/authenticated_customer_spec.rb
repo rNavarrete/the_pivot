@@ -139,15 +139,50 @@ describe 'As an Authenticated Customer', type: :feature do
 			expect(page).not_to have_content("80234")
 		end
 
-		it 'can change name'
-		it 'can change password'
+		it 'can change username' do
+			click_on("You")
+			click_on("My Account Details")
+			page.fill_in('Email address', with: 'John2@test.com')
+			click_on("Update User")
+			expect(page).to have_content("John2@test.com")
+		end
+
+		it 'can change password' do
+			click_on("You")
+			click_on("My Account Details")
+			page.fill_in('Password', with: '12345678')
+			page.fill_in('Password confirmation', with: '12345678')
+			click_on("Update User")
+			click_on('Logout')
+			page.fill_in('email_address', with: "John@example.com")
+			page.fill_in('Password', with: '12345678')
+			page.click_button('Log In')
+			expect(page).to have_content("John@example.com")
+		end
 	end
 
 	describe 'Viewing past orders', type: :feature do
-		it 'can click on my account'
-		it 'can click on past orders'
-		it 'can see all past orders from all businesses'
-		it 'can click on an order to see order specifics'
+		it 'can click on past orders' do
+			click_on("You")
+			click_on("My Orders")
+			expect(page).to have_content("Status")
+		end
+
+		it 'can see all past orders from all businesses' do
+			click_on("You")
+			click_on("My Orders")
+			expect(page).to have_content("Ordered From")
+		end
+
+		it 'can click on an order to see order specifics' do
+			order_item
+			visit '/orders'
+			table = first(:css, '.tg')
+			within(table) do
+				first(:link).click
+			end
+			expect(page).to have_content("Ordered From")
+		end
 	end
 
 end

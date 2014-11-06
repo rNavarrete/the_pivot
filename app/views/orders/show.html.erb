@@ -2,8 +2,8 @@
 
 <table class="tg">
   <tr>
-    <th class="tg-e3zv">Name: <br>Email: <br>Order status: <br>Order created: <br>Last Updated: </th>
-    <th class="tg-031e" colspan="4"><%= @order.user.full_name %><br><%= @order.user.email_address %><br><%= @order.status %><br><%= @order.user.created_at.strftime("%d %b. %Y at %l:%M %p") %><br><%= @order.updated_at.strftime("%d %b. %Y at %l:%M %p") %></th>
+    <th class="tg-e3zv">Name: <br>Email: <br>Order status: <br>Order created: <br>Last Updated: <br>Ordered From</th>
+    <th class="tg-031e" colspan="4"><%= @order.user.full_name %><br><%= @order.user.email_address %><br><%= @order.status %><br><%= @order.user.created_at.strftime("%d %b. %Y at %l:%M %p") %><br><%= @order.updated_at.strftime("%d %b. %Y at %l:%M %p") %><br> <%= link_to @order.store.name, stores_path(@order.store.slug) %></th>
   </tr>
   <tr>
     <td class="tg-e3zv">Item</td>
