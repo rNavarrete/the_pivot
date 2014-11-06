@@ -24,7 +24,9 @@ class Admin::StoresController < Admin::BaseController
   end
 
   def update
-
+    @store = Store.find(params[:id])
+    @store.update(authorized: params[:store][:authorized])
+    redirect_to admin_stores_path
   end
 
   def destroy
