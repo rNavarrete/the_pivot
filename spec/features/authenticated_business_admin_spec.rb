@@ -39,12 +39,33 @@ describe 'As an Authenticated Business Administrator', type: :feature do
       expect(page).to have_content("a pound is 453 grams easy to remember")
     end
 
+    it 'can edit items and add an option' do
+      click_link("Edit")
+      page.fill_in("Name", with: "Herb")
+      page.fill_in("Description", with: "a pound is 453 grams easy to remember")
+      page.fill_in("Price", with: 9000)
+      page.fill_in("options_size", with: "1,2,3")
+      click_button('Update Item')
+      expect(page).to have_content("Sizes")
+    end
+
     it 'can retire items' do
       expect(page).to_not have_content("retired")
       click_link("Edit")
       select "Retired", :from => "Status"
       click_button('Update Item')
       expect(page).to have_content("retired")
+    end
+
+    it 'can add an item with options' do
+      within(:css, "#create_item") do
+        page.fill_in("Name", with: "Kilo")
+        page.fill_in("Description", with: "a kilo is one thousand grams")
+        page.fill_in("Price", with: 30000)
+        page.fill_in("options_sizes", with: "1,2,3")
+        click_button('Create Item')
+      end
+      expect(page).to have_content("Sizes")
     end
   end
 

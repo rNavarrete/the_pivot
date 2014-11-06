@@ -51,7 +51,6 @@ User.create(full_name: 'Slave Driver', email_address: 'slaves@example.com', pass
     password: 'password',
     role: 'user'
     )
-  puts "User #{i}: #{user.full_name} - #{user.email_address} created!"
 end
 
 
