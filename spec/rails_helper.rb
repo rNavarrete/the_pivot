@@ -10,7 +10,7 @@ module MyHelpers
   def order_item
     click_on("men")
     click_on("Mens")
-    first_item = first(:css, '.store-item')
+    first_item = first(:css, '.grid-item')
     within(first_item) do
       first(:link).click
     end
