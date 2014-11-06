@@ -36,8 +36,8 @@ class OrdersController < ApplicationController
 
   def new
     session[:return_to] = new_order_path
-    @shipping_addresses = ShippingAddress.where(user_id: current_user.id)
-    @billing_addresses = BillingAddress.where(user_id: current_user.id)
+    @shipping_addresses = current_user.shipping_addresses
+    @billing_addresses = current_user.billing_addresses
     if cart.empty?
       redirect_to cart_path, notice: 'Please add items to your cart before checking out. Thank you!'
     elsif @shipping_addresses.count == 0 || @billing_addresses.count == 0
