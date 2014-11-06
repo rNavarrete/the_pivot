@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   has_secure_password
   has_many :orders
   has_many :addresses
+  has_many :shipping_addresses
+  has_many :billing_addresses
 
   validates :full_name, presence: true
 
