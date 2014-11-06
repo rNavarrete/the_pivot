@@ -5,7 +5,7 @@ class StoresController < ApplicationController
     if @store
       render :show
     else
-      redirect_to root_path
+      redirect_to '/404'
     end
   end
 

@@ -23,7 +23,6 @@ describe 'As an Authenticated Customer', type: :feature do
 			within(first_store_link) do
 				first(:link).click
 				end
-				save_and_open_page
 			expect(page).to have_css(".store-header")
 		end
 

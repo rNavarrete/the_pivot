@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  match "/404" => "errors#error404", via: [ :get, :post, :patch, :delete ]
 
 
   resources :charges
@@ -57,5 +58,6 @@ Rails.application.routes.draw do
   get 'about',      to: 'about#show'
 
   resources "contact_us", only: [:new, :create]
+
   get ':store_name', to: 'stores#show', as: 'stores'
 end
