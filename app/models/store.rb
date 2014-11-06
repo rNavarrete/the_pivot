@@ -1,14 +1,17 @@
 class Store < ActiveRecord::Base
+  scope :authorized, -> { where(authorized: true)}
+
   before_validation :remove_slug_spaces
 
   validates :name, :slug, :user_id, uniqueness: true
-  validates :description, :slug, :name, :request_message, presence: true
+  validates :description, :slug, :name, presence: true
   has_many :items
   has_many :orders
   belongs_to :user
 
   has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
+
 
 
   def remove_slug_spaces
