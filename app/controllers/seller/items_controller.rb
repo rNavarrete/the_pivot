@@ -17,8 +17,10 @@ class Seller::ItemsController < ApplicationController
   end
 
   def create
+    @categories = Category.all
     @store = Store.find_by(:user_id => current_user.id)
     if @store.items.create(item_params)
+      set_item_options(@store.items.last, params)
       flash[:notice] = "Your item was successfully created"
       redirect_to seller_dashboard_path
     else
@@ -28,6 +30,7 @@ class Seller::ItemsController < ApplicationController
   end
 
   def edit
+    @categories = Category.all
     if item_creator?(params[:id])
       @item = Item.find(params[:id])
     else
@@ -38,8 +41,8 @@ class Seller::ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
+    set_item_options(@item, params)
     if @item.update(item_params)
-      @item.categories = Category.where(id: params[:item][:category_ids])
       redirect_to seller_dashboard_path, notice: 'Item Successfully Updated!'
     else
       redirect_to seller_dashboard_path, notice: "Item coundn't be updated!"
@@ -51,6 +54,17 @@ class Seller::ItemsController < ApplicationController
   end
 
   private
+
+  def set_item_options(item, params)
+    item.options = params[:options]
+    item.save!
+    categories = params[:categories] || []
+    item.categories.clear
+    categories.each do |category|
+      category = Category.find(category)
+      item.categories << category
+    end
+  end
 
   def item_params
     params.require(:item).permit(:name, :description, :price, :image, :category_ids, :status)

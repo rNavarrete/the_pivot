@@ -12,11 +12,12 @@
         </div>
         <%= form_tag '/add_item', method: "post" do %>
           <div class = "labels">
-
-              <% @item.options.each do |option| %>
+            <% @item.options.each do |option| %>
+              <% if !option.empty? %>
                 <%= label_tag(option.first, option.first.capitalize) %>
                 <%= select_tag("options[#{option.first}]", options_for_select(option.last.split(',').each_with_index.map {|name, index| [name,name]})) %><br/>
               <% end %>
+            <% end %>
 
             <%= hidden_field_tag :item_id, @item.id %>
           </div>

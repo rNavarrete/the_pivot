@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   helper_method :cart
   helper_method :all_categories
+  helper_method :default_options
 
   def current_user
     if session[:user_id]
@@ -16,6 +17,10 @@ class ApplicationController < ActionController::Base
 
   def all_categories
     Category.all
+  end
+
+  def default_options
+    ["sizes","colors"]
   end
 
 end
