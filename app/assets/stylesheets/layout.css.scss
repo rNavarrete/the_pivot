@@ -1,5 +1,90 @@
+//Masonry Grid Styling//
+#masonry-container {
+  background: #FFF;
+  padding: 5px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  clear: both;
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+}
+
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }
+
+.grid-sizer { width: 20%; }
+
+@media screen and (min-width: 720px) {
+  /* 10 columns for larger screens */
+  .grid-sizer { width: 10%; }
+}
+
+.grid-item {
+  text-align: center;
+  width: 25%;
+  margin: 20px;
+  padding: 20px;
+  border: solid;
+  border-width: 3px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  border-color: #545454;
+}
+
+.grid-item.on {
+  display: initial;
+}
+
+.grid-item .item-description {
+  width: 100%;
+  height: 50px;
+}
+
+.grid-item:hover {
+  opacity: 1 !important;
+}
+
+.not_active {
+  background-color: #eed3d7 !important;
+}
+
+.grid-item img {
+  max-width: 100%;
+}
+
 #container{
   padding-top: 53px;
+}
+
+#new-user-container {
+  padding-top: 53px;
+  width:40%;
+  margin:auto;
+}
+
+#new-address-container {
+  padding-top: 53px;
+  width:20%;
+  margin:auto;
+}
+
+#new-order-container {
+  padding-top: 53px;
+  width:40%;
+  margin:auto;
+}
+
+#cart-container {
+  padding-top: 53px;
+  width:70%;
+  margin:auto;
+}
+
+#cart-container a {
+  color:black;
 }
 
 #confirmation_message {
@@ -46,6 +131,7 @@
 
 #add-to-cart-box{
   margin-top: 150px;
+  padding-bottom: 10px;
   border: 5px solid #E4F3D9;
 }
 
@@ -105,10 +191,9 @@
 .store-header {
   background-color:#D4D4D0;
   width: 100%;
-  height: 110px;
   border-bottom: 1px solid gray;
-  padding-top: 56px;
-  height: 150px;
+  padding-top:5px;
+  height: 100px;
 }
 
 .store-header-image {
@@ -147,6 +232,7 @@
 .store-item {
   text-align:center;
   width:250px;
+  height:300px;
   border-radius:10px;
   border:1px solid gray;
   display:inline-block;
@@ -317,9 +403,8 @@ body {
 }
 
 .thumbnail{
- height: 390px;
+ height: 450px;
  width: 100%;
-
 
 .menu_cart_img {
  margin-left: 20px;

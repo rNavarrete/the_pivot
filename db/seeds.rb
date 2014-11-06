@@ -13,12 +13,12 @@ Category.create(name: 'Girls', position: 12)
 Category.create(name: 'Babies & Toddlers', position: 13)
 Category.create(name: 'Kids Shoes', position: 14)
 
-Store.create(name: 'Trends', description: 'Trendy Clothes for Trendy People', image_file_name: 'trendz.jpg', user_id: 1, slug: "trends", authorized: true)
-Store.create(name: 'Gasp Jeans', description: "The Word's Most Pretentious Jeans", image_file_name: 'gasp.jpg', user_id: 2, slug: "gasp_jeans", authorized: true)
-Store.create(name: 'Inappropriate Cultural Appropriation', description: "Pay a Lot of Money to Pretend Like You're Poor!", image_file_name: 'approp.jpg', user_id: 3, slug: "inappropriate_cultural_appropriation", authorized: true)
-Store.create(name: 'Abercrombie & The Other Guy', description: "We Are Better than You", image_file_name: 'abercrombie.jpeg', slug: "abercrombie", user_id: 5, authorized: true)
-Store.create(name: 'Pure Lava', description: 'Our Clothes Literally Burn You', image_file_name: 'lava.jpg', slug: 'lava', user_id: 6, authorized: true)
-Store.create(name: 'Abidas', description: 'So close.', image_file_name: 'abidas.jpg', slug: 'abidas', user_id: 7, authorized: true)
+Store.create(name: 'Trends', description: 'Trendy Clothes for Trendy People', image_file_name: 'trendz.jpg', user_id: 1, slug: "trends")
+Store.create(name: 'Gasp Jeans', description: "The Word's Most Pretentious Jeans", image_file_name: 'gasp.jpg', user_id: 2, slug: "gasp_jeans")
+Store.create(name: 'Inappropriate Cultural Appropriation', description: "Pay a Lot of Money to Pretend Like You're Poor!", image_file_name: 'approp.jpg', user_id: 3, slug: "inappropriate_cultural_appropriation")
+Store.create(name: 'Abercrombie & The Other Guy', description: "We Are Better than You", image_file_name: 'abercrombie.jpeg', slug: "abercrombie", user_id: 5)
+Store.create(name: 'Pure Lava', description: 'Our Clothes Literally Burn You', image_file_name: 'lava.jpg', slug: 'lava', user_id: 6)
+Store.create(name: 'Abidas', description: 'So close to the real thing.', image_file_name: 'abidas.jpg', slug: 'abidas', user_id: 7)
 #new custom stores go right above me!
 
 item =Item.create([
@@ -30,8 +30,8 @@ item =Item.create([
   {name: 'Invisible Shirt', description: "You can't see it because it doesn't exist!", price: 550.00, status: 'active', category_ids: [1,3], image_file_name: 'invisible_shirt.jpg', sizes: "S,M", colors: "Invisible", store_id: 4},
   {name: 'Two Left Shoes', description: 'Perfect if you have two left feet', price: 53.95, status: 'active', category_ids: [1,5,6,10], image_file_name: 'left_shoes.jpg', sizes: "5,6,7,8,9,9.5,10,10.5,11,12", colors: "Red,Orange,Yellow,Blue,Black", store_id: 6},
   {name: 'Liquid Lava Coat', description: 'The hottest coat in town', price: 123.00, status: 'active', category_ids: [1,6,4], image_file_name: 'lava_coat.jpg', sizes: "S,M,L,XL", colors: "Red,Orange,Yellow", store_id: 5},
-  {name: 'Fat Pants', description: "If you're above size 32, guys, we think you're a fattie!", price: 2332.00, status: 'active', category_ids: [1,2], image_file_name: 'fat_pants.jpg', sizes: "L,XL", colors: "Fat", store_id: 4},
-  {name: 'Kids Cool-Magma Pants', description: 'Get Stoned!', price: 52.10, status: 'active', category_ids: [11,12,13], image_file_name: 'magma_pants.jpg', sizes: "2,2.5,3,3.5,4,4.5", colors: "Red,Orange,Yellow", store_id: 5},
+  {name: 'Fat Pants', description: "If you're above size 32, guys, we think you're a fattie and we charge you more!", price: 2332.00, status: 'active', category_ids: [1,2], image_file_name: 'fat_pants.jpg', sizes: "L,XL", colors: "Fat", store_id: 4},
+  {name: 'Kids Cool-Magma Pants', description: 'Get Stoned Kids!', price: 52.10, status: 'active', category_ids: [11,12,13], image_file_name: 'magma_pants.jpg', sizes: "2,2.5,3,3.5,4,4.5", colors: "Red,Orange,Yellow", store_id: 5},
   #new custom items go right above me!
 ])
 

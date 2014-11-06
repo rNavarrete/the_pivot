@@ -1,58 +1,60 @@
-<h1 id="checkout-cart-header">Cart</h1>
+<div id="cart-container">
+<h1 id="checkout-cart-header">The Dopest Cart</h1>
 <%= flash[:notice] %>
+  <% if cart.items.any? %>
+    <table class="tg" id="cart_table">
+      <tr>
+        <th> Item Name </th>
+        <th> Quantity </th>
+        <th> Options </th>
+        <th> Price </th>
+        <th> Delete </th>
+        <th> Totals </th>
+      </tr>
 
-<% if cart.items.any? %>
-  <table class="tg" id="cart_table">
-    <tr>
-      <th> Item Name </th>
-      <th> Quantity </th>
-      <th> Options </th>
-      <th> Price </th>
-      <th> Totals </th>
-      <th> Delete </th>
-    </tr>
+    <% cart.items.each_pair do |id, options| %>
+      <tr>
+        <td> <%= cart.item(id).name %> </td>
+        <td>
+            <%= form_tag update_quantity_path, :method => :put do  %>
+              <%= hidden_field_tag "item_id", id %>
+              <%= number_field_tag "quantity", options[0], :min => 1, :max => 100 %>
+              <%= submit_tag "update" %>
+            <% end %> </td>
+        <td> <% options[1].each do |k, v| %>
+                <%= k.singularize.capitalize %> - <%= v %>
+             <% end %> </td>
+        <td> <%= number_to_currency(cart.item(id).price) %> </td>
+        <td> <%= link_to "Remove", remove_item_path(item_id: id) %> </td>
+        <td> <%= number_to_currency(cart.line_item_price(id, options)) %> </td>
 
-  <% cart.items.each_pair do |id, options| %>
-    <tr>
-      <td> <%= cart.item(id).name %> </td>
-      <td>
-          <%= form_tag update_quantity_path, :method => :put do  %>
-            <%= hidden_field_tag "item_id", id %>
-            <%= number_field_tag "quantity", options[0], :min => 1, :max => 100 %>
-            <%= submit_tag "update" %>
-          <% end %> </td>
-      <td> <% options[1].each do |k, v| %>
-              <%= k.singularize.capitalize %> - <%= v %>
-           <% end %> </td>
-      <td> <%= number_to_currency(cart.item(id).price) %> </td>
-      <td> <%= number_to_currency(cart.line_item_price(id, options)) %> </td>
-      <td> <%= link_to "Remove", remove_item_path(item_id: id) %> </td>
-    </tr>
+      </tr>
+    <% end %>
+      <tr>
+        <td colspan="5">Sub-total: </td>
+        <td><%= number_to_currency(@subtotal) %></td>
+      </tr>
+      <tr>
+        <td colspan="5">Tax: </td>
+        <td><%= number_to_currency(@tax) %></td>
+      </tr>
+      <tr>
+        <td colspan="5">Total: </td>
+        <td><%= number_to_currency(@total) %></td>
+      </tr>
+    </table>
   <% end %>
-    <tr>
-      <td colspan="4">Sub-total: </td>
-      <td><%= number_to_currency(@subtotal) %></td>
-    </tr>
-    <tr>
-      <td colspan="4">Tax: </td>
-      <td><%= number_to_currency(@tax) %></td>
-    </tr>
-    <tr>
-      <td colspan="4">Total: </td>
-      <td><%= number_to_currency(@total) %></td>
-    </tr>
-  </table>
-<% end %>
-</br>
+  </br>
 
-<div>
-  <div class="pickup-delivery-button">
-        <%= link_to "Complete Order", new_order_path, class: "btn btn-primary btn-lg", id: "delivery_btn" %>
+  <div>
+    <div class="pickup-delivery-button">
+          <%= link_to "Complete Order", new_order_path, class: "btn btn-primary btn-lg", id: "delivery_btn" %>
+    </div>
   </div>
-</div>
-</br>
-<%= form_tag categories_path, method: :get do %>
-  <%= button_tag(:class => "btn btn-success btn-sm", :id => "continue_shopping_btn") do %>
-     continue shopping <span class="glyphicon glyphicon-shopping-cart" ></span>
+  </br>
+  <%= form_tag categories_path, method: :get do %>
+    <%= button_tag(:class => "btn btn-success btn-sm", :id => "continue_shopping_btn") do %>
+       continue shopping <span class="glyphicon glyphicon-shopping-cart" ></span>
+    <% end %>
   <% end %>
-<% end %>
+</div>
