@@ -4,15 +4,15 @@ require 'capybara/rspec'
 
 describe 'As an Authenticated Customer', type: :feature do
 	before do
-			@user = user_with({email_address: 'John@example.com', role: 'user'})
-			@user.save
-			login_as(@user)
-			visit '/'
+		@user = user_with({email_address: 'John@example.com', role: 'user'})
+		@user.save
+		login_as(@user)
+		visit '/'
 	end
 
 	describe 'I can make purchases on any business I am browsing', type: :feature do
 
-	 it 'does not create a duplicate order if user clicks back button after order confirmation' do
+	 	it 'does not create a duplicate order if user clicks back button after order confirmation' do
       expect(Order.all.count).to eq(10)
   		order_item
       expect(Order.all.count).to eq(11)
@@ -97,7 +97,20 @@ describe 'As an Authenticated Customer', type: :feature do
 			expect(order.billing_address.city).to eq("Pittsburgh")
 		end
 
-		it 'can select size of item'
+		it 'can select size of item' do
+			visit '/'
+      click_on("men")
+      click_on("Mens")
+      first_item = first(:css, '.store-item')
+      within(first_item) do
+        first(:link).click
+      end
+      page.select "XL", :from => "options_sizes"
+      click_on("add to cart")
+      click_on("cart")
+      expect(page).to have_content("XL")
+		end
+
 		it 'can select color of item'
 	end
 

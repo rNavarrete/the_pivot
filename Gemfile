@@ -10,6 +10,7 @@ group :test do
   gem 'launchy'
   gem 'database_cleaner'
   gem "codeclimate-test-reporter", require: nil
+  gem 'faker'
 end
 
 group :development do
