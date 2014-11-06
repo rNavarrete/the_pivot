@@ -29,4 +29,8 @@ class Store < ActiveRecord::Base
   def recent_orders
     orders.where(:status => "ordered")
   end
+
+  def self.waitng_approval
+    where(:authorized == false)
+  end
 end
