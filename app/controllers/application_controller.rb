@@ -25,7 +25,13 @@ class ApplicationController < ActionController::Base
   end
 
   def has_no_store?
-    current_user.nil? || Store.where(:user_id => current_user.id).nil?
+    if current_user.nil?
+      false
+    elsif Store.where(:user_id => current_user.id).empty?
+      true
+    else
+      false
+    end
   end
 
 end
