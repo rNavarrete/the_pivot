@@ -92,6 +92,7 @@
 
         <p><%= link_to 'Admin Dashboard', admin_dashboard_path if can? :manage, User %> </p>
         <p><%= link_to 'Manage Store', seller_dashboard_path if can? :manage, Store %></p>
+        <p><%= link_to 'Open a Dope Store', request_store_path if has_no_store? %></p>
       </ul>
     </nav>
     </div>

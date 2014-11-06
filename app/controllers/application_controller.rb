@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   helper_method :cart
   helper_method :all_categories
   helper_method :default_options
+  helper_method :has_no_store?
 
   def current_user
     if session[:user_id]
@@ -21,6 +22,16 @@ class ApplicationController < ActionController::Base
 
   def default_options
     ["sizes","colors"]
+  end
+
+  def has_no_store?
+    if current_user.nil?
+      false
+    elsif Store.where(:user_id => current_user.id).empty?
+      true
+    else
+      false
+    end
   end
 
 end

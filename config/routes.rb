@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  match "/404" => "errors#error404", via: [ :get, :post, :patch, :delete ]
 
 
   resources :charges
@@ -16,7 +17,7 @@ Rails.application.routes.draw do
   resources :home
 
   namespace :admin do
-    resources :items, :categories, :orders, :order_items
+    resources :items, :categories, :orders, :order_items, :stores
     get 'dashboard', to: 'dashboard#show'
   end
 
@@ -50,10 +51,13 @@ Rails.application.routes.draw do
   post   'login',  to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
 
+  get  'request_store', to: 'stores#new', as: 'request_store'
+  post 'send_store_request',  to: 'stores#create'
 
   get 'gift_cards', to: 'gift_cards#show'
   get 'about',      to: 'about#show'
 
   resources "contact_us", only: [:new, :create]
+
   get ':store_name', to: 'stores#show', as: 'stores'
 end
