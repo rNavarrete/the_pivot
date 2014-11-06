@@ -1,5 +1,5 @@
 <div id="cart-container">
-<h1 id="checkout-cart-header">Cart</h1>
+<h1 id="checkout-cart-header">The Dopest Cart</h1>
 <%= flash[:notice] %>
   <% if cart.items.any? %>
     <table class="tg" id="cart_table">
@@ -10,7 +10,6 @@
         <th> Price </th>
         <th> Delete </th>
         <th> Totals </th>
-
       </tr>
 
     <% cart.items.each_pair do |id, options| %>

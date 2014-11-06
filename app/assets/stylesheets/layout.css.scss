@@ -8,6 +8,10 @@
   margin:auto;
 }
 
+#cart-container a {
+  color:black;
+}
+
 #confirmation_message {
   width:95%;
   margin:auto;
@@ -153,6 +157,7 @@
 .store-item {
   text-align:center;
   width:250px;
+  height:300px;
   border-radius:10px;
   border:1px solid gray;
   display:inline-block;
@@ -323,9 +328,8 @@ body {
 }
 
 .thumbnail{
- height: 390px;
+ height: 450px;
  width: 100%;
-
 
 .menu_cart_img {
  margin-left: 20px;
