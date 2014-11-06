@@ -66,7 +66,6 @@ describe 'As an Authenticated Business Administrator', type: :feature do
         click_button('Update Store')
         visit ('/rae_and_ghosts_wonder_emporium')
       end
-      save_and_open_page
       expect(page).to have_content("Some high quality fishscale")
     end
 

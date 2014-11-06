@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
   def index
-    @items = Item.limit(3)
+    stores = Store.authorized.online.limit(3)
+    @items = stores.map {|store| store.items.sample}
   end
 
   def show
