@@ -111,6 +111,15 @@ module MyHelpers
     Order.create(attributes)
   end
 
+  def create_a_dope_store
+    click_on("Open a Dope Store")
+    page.fill_in('Name', with: "My Store")
+    page.fill_in('Description', with: 'The best store on the web')
+    page.fill_in('Slug', with: 'My_Store')
+    page.fill_in('Request message', with: "I need to sell my threads")
+    click_on ("Create Store")
+  end
+  
   def add_item_to_cart
 
   end

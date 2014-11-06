@@ -20,9 +20,9 @@
       <td><%= store.description %></td>
       <td><%= store.slug %></td>
       <% if store.online %>
-        <td><%= link_to 'Take Offline', admin_store_path(store, store:{online:'false'}), method: 'patch', class: 'btn btn-warning', data: {confirm: 'Are you sure you want to take this store offline?'}%></td>
+        <td><%= link_to "Take Offline", admin_store_path(store, store:{online:'false'}), method: 'patch', class: 'btn btn-warning', id: "#{store.slug}", data: {confirm: 'Are you sure you want to take this store offline?'}%></td>
       <% else %>
-        <td><%= link_to 'Bring Online', admin_store_path(store, store:{online:'true'}), method: 'patch', class: 'btn btn-warning', data: {confirm: 'Are you sure you want to bring this store online?'}%></td>
+        <td><%= link_to 'Bring Online', admin_store_path(store, store:{online:'true'}), method: 'patch', class: 'btn btn-warning', id: "#{store.slug}", data: {confirm: 'Are you sure you want to bring this store online?'}%></td>
       <% end  %>
 
     </tr>
