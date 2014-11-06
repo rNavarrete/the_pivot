@@ -19,6 +19,7 @@ Store.create(name: 'Inappropriate Cultural Appropriation', description: "Pay a L
 Store.create(name: 'Abercrombie & The Other Guy', description: "We Are Better than You", image_file_name: 'abercrombie.jpeg', slug: "abercrombie", user_id: 5)
 Store.create(name: 'Pure Lava', description: 'Our Clothes Literally Burn You', image_file_name: 'lava.jpg', slug: 'lava', user_id: 6)
 Store.create(name: 'Abidas', description: 'So close.', image_file_name: 'abidas.jpg', slug: 'abidas', user_id: 7)
+#new custom stores go right above me!
 
 item =Item.create([
   {name: 'Himalayan Hoodie',   description: 'A stylish top layer to keep you as warm as a Sherpa', price: 30.00, status: 'active', category_ids: [6, 7], image_file_name: "HimalayanHoodie.jpg", sizes: "S,M,L", colors: "Red,Blue,Green", store_id: 3},
@@ -31,6 +32,7 @@ item =Item.create([
   {name: 'Liquid Lava Coat', description: 'The hottest coat in town', price: 123.00, status: 'active', category_ids: [1,6,4], image_file_name: 'lava_coat.jpg', sizes: "S,M,L,XL", colors: "Red,Orange,Yellow", store_id: 5},
   {name: 'Fat Pants', description: "If you're above size 32, guys, we think you're a fattie!", price: 2332.00, status: 'active', category_ids: [1,2], image_file_name: 'fat_pants.jpg', sizes: "L,XL", colors: "Fat", store_id: 4},
   {name: 'Kids Cool-Magma Pants', description: 'Get Stoned!', price: 52.10, status: 'active', category_ids: [11,12,13], image_file_name: 'magma_pants.jpg', sizes: "2,2.5,3,3.5,4,4.5", colors: "Red,Orange,Yellow", store_id: 5},
+  #new custom items go right above me!
 ])
 
 User.create(full_name: 'Rachel Warbelow', email_address: 'demo+rachel@jumpstartlab.com', password: 'password', screen_name: '', role: 'seller')
@@ -40,8 +42,7 @@ User.create(full_name: 'Josh Cheek', email_address: 'demo+josh@jumpstartlab.com'
 User.create(full_name: 'D-bag', email_address: 'd_bag@example.com', password: 'password', screen_name: 'd_bag', role: 'seller')
 User.create(full_name: 'Hot Lava', email_address: 'lava@example.com', password: 'password', screen_name: 'laval', role: 'seller')
 User.create(full_name: 'Slave Driver', email_address: 'slaves@example.com', password: 'password', screen_name: 'slaves', role: 'seller')
-
-#new custom users go here
+#new custom users go right above me!
 
 100.times do |i|
   user = User.create!(
