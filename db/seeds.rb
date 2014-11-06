@@ -41,6 +41,19 @@ User.create(full_name: 'D-bag', email_address: 'd_bag@example.com', password: 'p
 User.create(full_name: 'Hot Lava', email_address: 'lava@example.com', password: 'password', screen_name: 'laval', role: 'seller')
 User.create(full_name: 'Slave Driver', email_address: 'slaves@example.com', password: 'password', screen_name: 'slaves', role: 'seller')
 
+#new custom users go here
+
+100.times do |i|
+  user = User.create!(
+    full_name: Faker::Name.name,
+    email_address: Faker::Internet.email,
+    password: 'password',
+    role: 'user'
+    )
+  puts "User #{i}: #{user.full_name} - #{user.email_address} created!"
+end
+
+
 order1  = Order.create(status: 'ordered',     user_id: 4, store_id: 1)
 order2  = Order.create(status: 'ordered',     user_id: 4, store_id: 1)
 order3  = Order.create(status: 'canceled',    user_id: 4, store_id: 1)

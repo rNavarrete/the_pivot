@@ -19,6 +19,7 @@ group :development do
   gem 'binding_of_caller'
   gem 'guard-rspec', require: false
   gem 'bullet'
+  gem 'faker'
 end
 
 gem 'cancancan', '~> 1.9'
