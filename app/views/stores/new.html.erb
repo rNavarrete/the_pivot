@@ -1,0 +1,15 @@
+<div class="container">
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane fade in active" id="store_settings">
+      <h4 class="page-header">Store Request Page</h4>
+        <%= bootstrap_form_for @store, url: {action: "create"} do |f| %>
+        <%= f.text_field :name %><br />
+        <%= f.text_area  :description %><br />
+        <%= f.text_field :slug %><br />
+        <%= f.file_field :image %><br />
+        <h3>Why do you want to sell on dope threads?</h3>
+        <%= f.text_area  :request_message %><br />
+        <%= f.submit class: "btn btn-success" %>
+      <% end %>
+    </div>

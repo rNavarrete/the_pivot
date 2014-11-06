@@ -50,6 +50,9 @@ Rails.application.routes.draw do
   post   'login',  to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
 
+  get  'request_store', to: 'stores#new', as: 'request_store'
+  post 'send_store_request',  to: 'stores#create'
+
 
   get 'gift_cards', to: 'gift_cards#show'
   get 'about',      to: 'about#show'
