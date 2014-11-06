@@ -111,7 +111,19 @@ describe 'As an Authenticated Customer', type: :feature do
       expect(page).to have_content("XL")
 		end
 
-		it 'can select color of item'
+		it 'can select color of item' do
+			visit '/'
+      click_on("men")
+      click_on("Mens")
+      first_item = first(:css, '.store-item')
+      within(first_item) do
+        first(:link).click
+      end
+      page.select "Fat", :from => "options_colors"
+      click_on("add to cart")
+      click_on("cart")
+      expect(page).to have_content("Fat")
+		end
 	end
 
 	describe 'Manage my account information shared by all businesses centrally on my account page', type: :feature do
