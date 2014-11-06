@@ -59,8 +59,8 @@
         <td><%= store.description %></td>
         <td><%= store.slug %></td>
         <td><%= store.authorized %></td>
-        <td><%= link_to 'Approve Request', admin_store_path(store, store:{authorized:'true'}), method: 'patch', class: 'btn btn-warning', data: {confirm: 'Are you sure you want to approve the creation of this store?'}%></td>
-        <td><%= link_to 'Delete Request', admin_store_path(store), class: "btn btn-danger", method: :delete, data: { confirm: 'Are you want to delete this store request?' } %></td>
+        <td><%= link_to 'Approve Request', admin_store_path(store, store:{authorized:'true'}), method: 'patch', class: 'btn btn-warning',id: "#{store.slug}_approve", data: {confirm: 'Are you sure you want to approve the creation of this store?'}%></td>
+        <td><%= link_to 'Delete Request', admin_store_path(store), class: "btn btn-danger", id: "#{store.slug}_delete", method: :delete, data: { confirm: 'Are you want to delete this store request?' } %></td>
       </tr>
       <% end %>
     </tbody>

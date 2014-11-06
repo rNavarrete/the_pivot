@@ -28,7 +28,7 @@ describe 'As a platform administrator', type: :feature  do
     login_as(@admin)
     click_on("Admin Dashboard")
     click_on("Manage Stores")
-    click_on("Approve Request")
+    click_on("My_Store_approve")
     visit '/My_Store'
     expect(page).to have_content("My Store")
   end
@@ -42,7 +42,7 @@ describe 'As a platform administrator', type: :feature  do
     login_as(@admin)
     click_on("Admin Dashboard")
     click_on("Manage Stores")
-    click_on("Delete Request")
+    click_on("My_Store_delete")
     visit '/My_Store'
     expect(page).not_to have_content("My Store")
   end
@@ -53,7 +53,7 @@ describe 'As a platform administrator', type: :feature  do
     login_as(@admin)
     click_on("Admin Dashboard")
     click_on("Manage Stores")
-    click_on("Approve Request")
+    click_on("My_Store_approve")
     visit '/My_Store'
     expect(page).to have_content("My Store")
     click_on("Admin Dashboard")
@@ -69,7 +69,7 @@ describe 'As a platform administrator', type: :feature  do
     login_as(@admin)
     click_on("Admin Dashboard")
     click_on("Manage Stores")
-    click_on("Approve Request")
+    click_on("My_Store_approve")
     page.find("#My_Store").click
     visit '/My_Store'
     expect(page).to have_content("You have reached a store")
