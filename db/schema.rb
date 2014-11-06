@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141106033218) do
+ActiveRecord::Schema.define(version: 20141106180750) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -104,6 +104,7 @@ ActiveRecord::Schema.define(version: 20141106033218) do
     t.string   "slug"
     t.boolean  "authorized",         default: false
     t.text     "request_message"
+    t.boolean  "online",             default: true
   end
 
   add_index "stores", ["user_id"], name: "index_stores_on_user_id", using: :btree

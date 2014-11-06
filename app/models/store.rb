@@ -1,5 +1,6 @@
 class Store < ActiveRecord::Base
   scope :authorized, -> { where(authorized: true)}
+  scope :online, -> { where(online: true)}
 
   before_validation :remove_slug_spaces
 

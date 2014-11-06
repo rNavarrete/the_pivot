@@ -1,7 +1,7 @@
 class StoresController < ApplicationController
 
   def show
-    @store = Store.authorized.where(slug: params[:store_name]).first
+    @store = Store.authorized.online.where(slug: params[:store_name]).first
     if @store
       render :show
     else

@@ -25,7 +25,7 @@ class Admin::StoresController < Admin::BaseController
 
   def update
     @store = Store.find(params[:id])
-    @store.update(authorized: params[:store][:authorized])
+    @store.update(store_params)
     redirect_to admin_stores_path
   end
 
@@ -34,6 +34,6 @@ class Admin::StoresController < Admin::BaseController
     redirect_to admin_stores_path
   end
   def store_params
-    params.require(:store).permit(:name, :description, :image, :slug, :request_message, :user_id)
+    params.require(:store).permit(:name, :description, :image, :slug, :request_message, :user_id, :authorized, :online)
   end
 end
