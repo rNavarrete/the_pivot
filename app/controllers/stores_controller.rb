@@ -11,6 +11,7 @@ class StoresController < ApplicationController
 
   def create
     @store = Store.create(store_params)
+    current_user.update(:role => "seller")
     if @store.save
       flash[:notice] = "Thanks for your store request, check your inbox for a response."
       redirect_to root_path
