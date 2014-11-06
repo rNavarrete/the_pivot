@@ -10,6 +10,7 @@ group :test do
   gem 'launchy'
   gem 'database_cleaner'
   gem "codeclimate-test-reporter", require: nil
+  gem 'faker'
 end
 
 group :development do
@@ -19,6 +20,7 @@ group :development do
   gem 'binding_of_caller'
   gem 'guard-rspec', require: false
   gem 'bullet'
+  gem 'faker'
 end
 
 gem 'cancancan', '~> 1.9'
