@@ -14,6 +14,7 @@ describe 'As an Authenticated Customer', type: :feature do
 
 	 	it 'does not create a duplicate order if user clicks back button after order confirmation' do
       expect(Order.all.count).to eq(10)
+      # save_and_open_page
   		order_item
       expect(Order.all.count).to eq(11)
     end
@@ -82,10 +83,10 @@ describe 'As an Authenticated Customer', type: :feature do
 			page.find("#delivery_btn").click
 			complete_shipping_address
 			complete_billing_address
-			click_on("Enter a New Billing Address")
+			click_on("New Billing Address")
 			complete_billing_address
 			expect(page).to have_content("Philadelphia")
-			click_on("Enter a New Shipping Address")
+			click_on("New Shipping Address")
 			complete_shipping_address
 			expect(page).to have_content("Atlanta")
 		end
@@ -130,7 +131,7 @@ describe 'As an Authenticated Customer', type: :feature do
 		it 'can create a shipping address' do
 			click_on("You")
 			click_on("My Addresses")
-			click_on("Enter a New Shipping Address")
+			click_on("New Shipping Address")
 			complete_shipping_address
 			expect(page).to have_content("Atlanta")
 		end
@@ -138,7 +139,7 @@ describe 'As an Authenticated Customer', type: :feature do
 		it 'can create a billing address' do
 			click_on("You")
 			click_on("My Addresses")
-			click_on("Enter a New Shipping Address")
+			click_on("New Shipping Address")
 			complete_billing_address
 			expect(page).to have_content("Philadelphia")
 		end
@@ -146,7 +147,7 @@ describe 'As an Authenticated Customer', type: :feature do
 		it 'can edit an address' do
 			click_on("You")
 			click_on("My Addresses")
-			click_on("Enter a New Shipping Address")
+			click_on("New Shipping Address")
 			complete_billing_address
 			click_on("edit")
 			page.fill_in('Zip', with: '80111')
@@ -157,7 +158,7 @@ describe 'As an Authenticated Customer', type: :feature do
 		it 'can delete an address' do
 			click_on("You")
 			click_on("My Addresses")
-			click_on("Enter a New Shipping Address")
+			click_on("New Shipping Address")
 			complete_billing_address
 			expect(page).to have_content("80234")
 			click_on("Delete Address")

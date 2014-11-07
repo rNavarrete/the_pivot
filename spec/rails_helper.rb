@@ -119,7 +119,7 @@ module MyHelpers
     page.fill_in('Request message', with: "I need to sell my threads")
     click_on ("Create Store")
   end
-  
+
   def add_item_to_cart
 
   end

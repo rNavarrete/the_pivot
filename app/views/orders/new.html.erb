@@ -1,32 +1,30 @@
-
 <div id="new-order-container">
-	<%= form_tag orders_path, method: :post do %>
+<%= form_tag orders_path, method: :post do %>
 	<h3> Please Choose Shipping Address </h3>
 	<ul id='collection' >
 	  <%= collection_radio_buttons(:order, :shipping_address_id, @shipping_addresses, :id, :display, {checked: @shipping_addresses.first.id}, {}) %>
 	</ul>
 	</br>
-		<%= form_tag new_address_path, method: :get do %>
-		<%= hidden_field_tag :category, "shipping" %>
-		<%= button_tag(:class => "btn btn-success btn-sm", :id => "cart_button") do %>
-			New Shipping Address <span class="glyphicon glyphicon-shopping-cart" ></span>
-		<% end %>
-	<% end %>
 	<h3> Please Choose Billing Address </h3>
 	<ul id='collection' >
 	  <%= collection_radio_buttons(:order, :billing_address_id, @billing_addresses, :id, :display, {checked: @billing_addresses.first.id}, {}) %>
 	</ul>
-	<br/>
-	<%= form_tag new_address_path, method: :get do %>
-		<%= hidden_field_tag :category, "billing" %>
-		<%= button_tag(:class => "btn btn-success btn-sm", :id => "cart_button") do %>
-			New Billing Address <span class="glyphicon glyphicon-shopping-cart" ></span>
-		<% end %>
-	<% end %>
-	<br/>
 
 	<%= button_tag(:class => "btn btn-success btn-sm", :id => "cart_button") do %>
-	submit order <span class="glyphicon glyphicon-shopping-cart" ></span>
+		submit order <span class="glyphicon glyphicon-shopping-cart" ></span>
 	<% end %>
+<% end %>
+<br/>
+<%= form_tag new_address_path, method: :get, id: "cart-form" do %>
+	<%= hidden_field_tag :category, "shipping" %>
+	<%= button_tag(:class => "btn btn-success btn-sm", :id => "cart_button") do %>
+		New Shipping Address <span class="glyphicon glyphicon-shopping-cart" ></span>
 	<% end %>
+<% end %>
+<%= form_tag new_address_path, method: :get, id: "cart-form" do %>
+	<%= hidden_field_tag :category, "billing" %>
+	<%= button_tag(:class => "btn btn-success btn-sm", :id => "cart_button") do %>
+		New Billing Address <span class="glyphicon glyphicon-shopping-cart" ></span>
+	<% end %>
+<% end %>
 </div>
