@@ -10,7 +10,7 @@ module MyHelpers
   def order_item
     click_on("men")
     click_on("Mens")
-    first_item = first(:css, '.store-item')
+    first_item = first(:css, '.grid-item')
     within(first_item) do
       first(:link).click
     end
@@ -109,6 +109,15 @@ module MyHelpers
       status: 'paid'
     }.merge(overrides)
     Order.create(attributes)
+  end
+
+  def create_a_dope_store
+    click_on("Open a Dope Store")
+    page.fill_in('Name', with: "My Store")
+    page.fill_in('Description', with: 'The best store on the web')
+    page.fill_in('Slug', with: 'My_Store')
+    page.fill_in('Request message', with: "I need to sell my threads")
+    click_on ("Create Store")
   end
 
   def add_item_to_cart

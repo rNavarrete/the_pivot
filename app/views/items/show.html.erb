@@ -8,9 +8,8 @@
         <div class="item-description">
           <h2 id="header"> <%= @item.name %> </h2>
           <p> <%= @item.description %> </p>
-          <p> Price: <%= number_to_currency(@item.price) %> </p>
-        </div>
-        <%= form_tag '/add_item', method: "post" do %>
+          <p> <b>Price:</b> <%= number_to_currency(@item.price) %> </p>
+          <%= form_tag '/add_item', method: "post" do %>
           <div class = "labels">
             <% @item.options.each do |option| %>
               <% if !option.empty? %>
@@ -25,6 +24,7 @@
              add to cart <span class="glyphicon glyphicon-shopping-cart" ></span>
           <% end %>
         <% end %>
+       </div>
        </div>
        <%= link_to "< Back to Store", stores_path(@store.slug) %>
     </div>

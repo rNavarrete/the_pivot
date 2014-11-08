@@ -7,12 +7,16 @@
   	<%= @category.description %>
  	</div>
  	<div class="store-items-container">
+ 	<div id="masonry-grid">
+  	<div class="grid-sizer">
  		<% @items.each do |item| %>
- 			<div class="store-item">
+ 			<div class="grid-item">
  				<%= link_to item.name, item_path(item) %>
  				<%= link_to (image_tag item.image.url(:medium)), item_path(item) %><br/>
- 				<%= link_to item.store.name, stores_path(item.store.slug) %><br/>
  				<%= item.description %>
  			</div>
  		<% end %>
- 	</div>
+ 		</div>
+	</div>
+	</div>
+

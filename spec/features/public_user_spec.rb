@@ -23,7 +23,7 @@ describe 'As a Public User', type: :feature do
       visit '/'
       click_on("men")
       click_on("Mens")
-      first_item = first(:css, '.store-item')
+      first_item = first(:css, '.grid-item')
       within(first_item) do
         first(:link).click
       end
@@ -37,7 +37,7 @@ describe 'As a Public User', type: :feature do
       visit '/'
       click_on("men")
       click_on("Mens")
-      first_item = first(:css, '.store-item')
+      first_item = first(:css, '.grid-item')
       within(first_item) do
         first(:link).click
       end
@@ -49,7 +49,7 @@ describe 'As a Public User', type: :feature do
       visit '/'
       click_on("men")
       click_on("Mens")
-      first_item = first(:css, '.store-item')
+      first_item = first(:css, '.grid-item')
       within(first_item) do
         first(:link).click
       end
@@ -57,7 +57,7 @@ describe 'As a Public User', type: :feature do
       expect(page).to have_content("1 item")
       click_on("Women")
       click_on("Womens Dresses")
-      first_item = first(:css, '.store-item')
+      first_item = first(:css, '.grid-item')
       within(first_item) do
         first(:link).click
       end
@@ -69,7 +69,7 @@ describe 'As a Public User', type: :feature do
       visit '/'
       click_on("men")
       click_on("Mens")
-      first_item = first(:css, '.store-item')
+      first_item = first(:css, '.grid-item')
       within(first_item) do
         first(:link).click
       end
@@ -83,7 +83,7 @@ describe 'As a Public User', type: :feature do
       visit '/'
       click_on("men")
       click_on("Mens")
-      first_item = first(:css, '.store-item')
+      first_item = first(:css, '.grid-item')
       within(first_item) do
         first(:link).click
       end

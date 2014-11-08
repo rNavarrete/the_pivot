@@ -3,14 +3,14 @@
   <ul class="nav nav-tabs" role="tablist">
     <li role="presentation" class="active"><a href="#active_stores"
       role="tab" data-toggle="tab">Active Stores</a></li>
-    <li role="presentation"><a href="#inactive_stores" role="tab" data-toggle="tab">Inactive Stores</a></li>
-    <li role="presentation"><a href="#pending_approval" role="tab" data-toggle="tab">Stores Waiting Approval</a></li>
+    <li role="presentation"><a href="#inactive_stores" role="tab" data-toggle="tab">Offline Stores</a></li>
+    <li role="presentation"><a href="#pending_approval" role="tab" data-toggle="tab">Stores Pending Approval</a></li>
   </ul>
 
   <div class="container">
     <div class="tab-content">
       <div role="tabpanel" class="tab-pane fade in active" id="active_stores">
-        <h4 class="page-header">Active Stores</h4>
+        <h4 class="page-header">Active Stores (<%= "#{@authorized_stores.count}" %>)</h4>
         <table class="table table-striped">
           <thead>
             <tr>
@@ -38,6 +38,7 @@
         </table>
       </div>
       <div role="tabpanel" class="tab-pane fade in" id="inactive_stores">
+        <h4 class="page-header">Offline Stores (<%= "#{@offline_stores.count}" %>)</h4>
         <table class="table table-striped">
           <thead>
             <tr>
@@ -64,8 +65,8 @@
           </tbody>
         </table>
       </div>
-    </div>
-    <div role="tabpanel" class="tab-pane fade in" id="pending_approval">
+      <div role="tabpanel" class="tab-pane fade in" id="pending_approval">
+        <h4 class="page-header">Stores Pending Approval (<%= "#{@stores_waiting_approval.count}" %>)</h4>
         <table class="table table-striped">
           <thead>
             <tr>
