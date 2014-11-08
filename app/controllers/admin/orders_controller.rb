@@ -5,14 +5,6 @@ class Admin::OrdersController < Admin::BaseController
     @completed_orders = Order.where(:status => "completed")
     @canceled_orders = Order.where(:status => "canceled")
     @ordered = Order.where(:status => "ordered")
-
-    # status = params[:status]
-    # if Order.valid_statuses.include?(status)
-    #   @orders = Order.where(status: status)
-    # else
-    #   @orders = Order.all
-    # end
-    # @all = Order.all
   end
 
   def show

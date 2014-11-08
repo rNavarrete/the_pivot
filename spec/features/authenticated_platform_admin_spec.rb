@@ -75,6 +75,7 @@ describe 'As a platform administrator', type: :feature  do
     expect(page).to have_content("You have reached a store")
     click_on("Admin Dashboard")
     click_on("Manage Stores")
+    save_and_open_page
     page.find("#My_Store").click
     visit '/My_Store'
     expect(page).to have_content("My Store")
