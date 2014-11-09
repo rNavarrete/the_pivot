@@ -1,6 +1,6 @@
 class CartsController < ApplicationController
   def show
-    session[:return_to] = new_order_path
+    # session[:return_to] = new_order_path
 
     if cart.items.any?
       @subtotal = Cart.subtotal(session)

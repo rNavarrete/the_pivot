@@ -20,6 +20,12 @@ class Item < ActiveRecord::Base
     where(status: 'active')
   end
 
+  def self.items_from_active_and_online_stores
+    active.select do
+      |item| item.store.authorized && item.store.online
+    end
+  end
+
   def status=(new_status)
     super(new_status.downcase)
   end
