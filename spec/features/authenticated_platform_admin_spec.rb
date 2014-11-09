@@ -9,7 +9,7 @@ describe 'As a platform administrator', type: :feature  do
     @admin.save
 
     @user= user_with({email_address: 'John1@example.com', role: 'user'})
-   d @user.save
+    @user.save
     login_as(@user)
     visit '/'
   end
