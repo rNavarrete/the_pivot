@@ -1,7 +1,7 @@
 <% @category.each do |c| %>
 <h2> <%= c.name %> </h2>
 <div class="row">
- <% c.items.each do |item| %>
+ <% c.items_from_active_and_online_stores.each do |item| %>
   <div class="col-sm-4 col-md-3">
     <div class="thumbnail">
           <%= image_tag item.image.url(:medium), {class: "menu_cart_img"} %>

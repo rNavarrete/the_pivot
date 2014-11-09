@@ -51,8 +51,8 @@
 
       <% if current_user %>
         <div class="btn-group">
-          <button type="button" class="btn btn-default dropdown-toggle glyphicon glyphicon-user btn-sm" data-toggle="dropdown">
-            <%= current_user.full_name %><span class="caret"></span>
+          <button type="button" class="btn btn-default dropdown-toggle glyphicon glyphicon-user btn-sm" data-toggle="dropdown" id="drop-down">
+            <%= current_user.email_address %><span class="caret"></span>
           </button>
           <ul class="dropdown-menu" role="menu">
             <li> <%=link_to 'My Addresses', addresses_path %></li>
@@ -77,10 +77,10 @@
       <% end %>
 
       <%= form_tag '/cart', method: :get, :id => "cart_btn" do %>
-        <%= button_tag(:class => "btn btn-default btn-sm") do %>
+        <%= button_tag(:class => "btn btn-default btn-sm", id: "cart-bttn") do %>
           <span class="glyphicon glyphicon-shopping-cart" >
           <% if session[:cart_items] %>
-            <%= cart.items.size %>
+            <%= pluralize(cart.items.size, 'item') %>
           <% else  %>
             <%= "0" %>
           <% end %>

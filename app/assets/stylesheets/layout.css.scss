@@ -39,6 +39,7 @@
   -moz-border-radius: 20px;
   border-radius: 20px;
   border-color: #545454;
+  min-height: 367px;
 }
 
 .grid-item.on {
@@ -69,6 +70,12 @@
 #new-user-container {
   padding-top: 53px;
   width:40%;
+  margin:auto;
+}
+
+#new-charge-container {
+  padding-top: 53px;
+  text-align:center;
   margin:auto;
 }
 
@@ -166,13 +173,13 @@
 }
 
 #myCarousel{
-  height: 510px;
+  height: 503px;
   margin-bottom: 0px;
-}
+  border-bottom: ridge 3px rgb(130, 47, 12);}
 
 #navbar{
   background-image: url('../assets/pattern8.jpg');
-  border-top: solid 3px white;
+  border-top: solid 3px rgb(46, 130, 119);
   background-position: 30% 73%;
   -webkit-box-shadow: -1px 3px 5px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: -1px 3px 5px 0px rgba(0,0,0,0.75);

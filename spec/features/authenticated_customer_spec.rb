@@ -14,7 +14,6 @@ describe 'As an Authenticated Customer', type: :feature do
 
 	 	it 'does not create a duplicate order if user clicks back button after order confirmation' do
       expect(Order.all.count).to eq(10)
-      # save_and_open_page
   		order_item
       expect(Order.all.count).to eq(11)
     end
@@ -65,7 +64,7 @@ describe 'As an Authenticated Customer', type: :feature do
 				first(:link).click
 			end
 			click_on("add to cart")
-			click_on("cart")
+			click_on("cart-bttn")
 			page.find("#delivery_btn").click
 			expect(page).to have_content("Shipping Address")
 			complete_shipping_address
@@ -79,7 +78,7 @@ describe 'As an Authenticated Customer', type: :feature do
 				first(:link).click
 			end
 			click_on("add to cart")
-			click_on("cart")
+			click_on("cart-bttn")
 			page.find("#delivery_btn").click
 			complete_shipping_address
 			complete_billing_address
@@ -108,7 +107,7 @@ describe 'As an Authenticated Customer', type: :feature do
       end
       page.select "XL", :from => "options_sizes"
       click_on("add to cart")
-      click_on("cart")
+      click_on("cart-bttn")
       expect(page).to have_content("XL")
 		end
 
@@ -122,14 +121,15 @@ describe 'As an Authenticated Customer', type: :feature do
       end
       page.select "Fat", :from => "options_colors"
       click_on("add to cart")
-      click_on("cart")
+      click_on("cart-bttn")
       expect(page).to have_content("Fat")
 		end
 	end
 
 	describe 'Manage my account information shared by all businesses centrally on my account page', type: :feature do
 		it 'can create a shipping address' do
-			click_on("You")
+			save_and_open_page
+			click_on("drop-down")
 			click_on("My Addresses")
 			click_on("New Shipping Address")
 			complete_shipping_address
@@ -137,7 +137,7 @@ describe 'As an Authenticated Customer', type: :feature do
 		end
 
 		it 'can create a billing address' do
-			click_on("You")
+			click_on("drop-down")
 			click_on("My Addresses")
 			click_on("New Shipping Address")
 			complete_billing_address
@@ -145,7 +145,7 @@ describe 'As an Authenticated Customer', type: :feature do
 		end
 
 		it 'can edit an address' do
-			click_on("You")
+			click_on("drop-down")
 			click_on("My Addresses")
 			click_on("New Shipping Address")
 			complete_billing_address
@@ -156,7 +156,7 @@ describe 'As an Authenticated Customer', type: :feature do
 		end
 
 		it 'can delete an address' do
-			click_on("You")
+			click_on("drop-down")
 			click_on("My Addresses")
 			click_on("New Shipping Address")
 			complete_billing_address
@@ -166,7 +166,7 @@ describe 'As an Authenticated Customer', type: :feature do
 		end
 
 		it 'can change username' do
-			click_on("You")
+			click_on("drop-down")
 			click_on("My Account Details")
 			page.fill_in('Email address', with: 'John2@test.com')
 			click_on("Update User")
@@ -174,7 +174,7 @@ describe 'As an Authenticated Customer', type: :feature do
 		end
 
 		it 'can change password' do
-			click_on("You")
+			click_on("drop-down")
 			click_on("My Account Details")
 			page.fill_in('Password', with: '12345678')
 			page.fill_in('Password confirmation', with: '12345678')
@@ -182,20 +182,20 @@ describe 'As an Authenticated Customer', type: :feature do
 			click_on('Logout')
 			page.fill_in('email_address', with: "John@example.com")
 			page.fill_in('Password', with: '12345678')
-			page.click_button('Log In')
+			page.click_button('Sign in')
 			expect(page).to have_content("John@example.com")
 		end
 	end
 
 	describe 'Viewing past orders', type: :feature do
 		it 'can click on past orders' do
-			click_on("You")
+			click_on("drop-down")
 			click_on("My Orders")
 			expect(page).to have_content("Status")
 		end
 
 		it 'can see all past orders from all businesses' do
-			click_on("You")
+			click_on("drop-down")
 			click_on("My Orders")
 			expect(page).to have_content("Ordered From")
 		end

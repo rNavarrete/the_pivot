@@ -5,7 +5,7 @@
   <!-- Tab panes -->
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane fade in active" id="store_settings">
-      <h4 class="page-header">Store Request Page</h4>
+      <h4 class="page-header">Store Request</h4>
         <%= bootstrap_form_for @store, url: {action: "create"} do |f| %>
         <%= f.text_field :name %>
         <%= f.text_area  :description %>
