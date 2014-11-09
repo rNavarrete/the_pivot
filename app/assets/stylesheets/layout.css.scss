@@ -1,3 +1,10 @@
+//Login Form Nav Bar //
+
+#login-form{
+  display: flex;
+}
+
+
 //Masonry Grid Styling//
 #masonry-container {
   background: #FFF;
@@ -170,8 +177,15 @@
 }
 
 #cart_btn{
-  padding-top: 10px;
+  margin-top: 12px;
   padding-left: 10px;
+  padding-top: 3;
+  padding-bottom: 3;
+}
+
+#signin-button{
+  padding-top: 3;
+  padding-bottom: 3;
 }
 
 #cart_button {
