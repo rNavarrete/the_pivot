@@ -19,7 +19,7 @@ Store.create(name: 'Inappropriate Cultural Appropriation', description: "Pay a L
 Store.create(name: 'Abercrombie & The Other Guy', description: "We Are Better than You", image_file_name: 'abercrombie.jpeg', slug: "abercrombie", user_id: 5, authorized:true)
 Store.create(name: 'Pure Lava', description: 'Our Clothes Literally Burn You', image_file_name: 'lava.jpg', slug: 'lava', user_id: 6, authorized:true)
 Store.create(name: 'Abidas', description: 'So close to the real thing.', image_file_name: 'abidas.jpg', slug: 'abidas', user_id: 7, authorized:true)
-Store.create(name: 'Patagucci', description: 'Overengineered sophistication for your commute', image_file_name: 'patagucci.jpg', user_id: 8, slug: "patagucci", authorized:true)
+Store.create(name: 'Patagucci', description: 'Overengineered sophistication for your workday', image_file_name: 'patagucci.jpg', user_id: 8, slug: "patagucci", authorized:true)
 Store.create(name: 'Psych', description: "Look like an athlete, even if you're not", image_file_name: 'psych.jpg', user_id: 9, slug: "psych", authorized:true)
 #new custom stores go right above me!
 
@@ -34,8 +34,11 @@ item =Item.create([
   {name: 'Liquid Lava Coat', description: 'The hottest coat in town', price: 123.00, status: 'active', category_ids: [1,6,4], image_file_name: 'lava_coat.jpg', sizes: "S,M,L,XL", colors: "Red,Orange,Yellow", store_id: 5},
   {name: 'Fat Pants', description: "If you're above size 32, guys, we think you're a fattie and we charge you more!", price: 2332.00, status: 'active', category_ids: [1,2], image_file_name: 'fat_pants.jpg', sizes: "L,XL", colors: "Fat", store_id: 4},
   {name: 'Kids Cool-Magma Pants', description: 'Get Stoned Kids!', price: 52.10, status: 'active', category_ids: [11,12,13], image_file_name: 'magma_pants.jpg', sizes: "2,2.5,3,3.5,4,4.5", colors: "Red,Orange,Yellow", store_id: 5},
-  {name: 'Womens Commuter Backpack', description: 'For the "I just got back from Everest" look', price: 1200.00, status: 'active', category_ids: [6.8,9], image_file_name: 'commuter_backpack.jpg', sizes: "S,M,L,XL", colors: "Purple, Green, Black", store_id: 8},
-
+  {name: 'Womens Commuter Backpack', description: 'For the "I just got back from Everest" look', price: 1200.00, status: 'active', category_ids: [6,8,9], image_file_name: 'commuter_backpack.jpg', sizes: "S,M,L,XL", colors: "Purple, Green, Black", store_id: 7},
+  {name: 'Mens Technical Shirt', description: 'Provides comfort and warmth on that strenous stair climb to your office', price: 250.79, status: 'active', category_ids: [1,3], image_file_name: 'technical_shirt.jpg', sizes: "S,M,L,XL", colors: "Green, Black", store_id: 7},
+  {name: 'Womens Active Office Sandal', description: 'Be prepared for an after work outing without changing shoes', price: 175.00, status: 'active', category_ids: [6,10], image_file_name: 'office_sandal.jpg', sizes: "7,8,9,10", colors: "Black", store_id: 7},
+  {name: 'Movie Marathon Pajama', description: 'Watch your favorite box set in the comfort of gym clothes', price: 60.00, status: 'active', category_ids: [11,12], image_file_name: 'marathon_pajama.jpg', sizes: "S,M,L,XL,XXL", colors: "Dark Vader, Sunshine Sparkle", store_id: 8},
+  {name: 'Homework Hoodie', description: 'Stay warm while working on your skills', price: 65.00, status: 'active', category_ids: [11,12], image_file_name: 'homework_hoodie.jpg', sizes: "S,M,L,XL", colors: "Red, Yellow, Green", store_id: 8},
   #new custom items go right above me!
 ])
 
