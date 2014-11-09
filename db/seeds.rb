@@ -20,7 +20,7 @@ Store.create(name: 'Abercrombie & The Other Guy', description: "We Are Better th
 Store.create(name: 'Pure Lava', description: 'Our Clothes Literally Burn You', image_file_name: 'lava.jpg', slug: 'lava', user_id: 6, authorized:true)
 Store.create(name: 'Abidas', description: 'So close to the real thing.', image_file_name: 'abidas.jpg', slug: 'abidas', user_id: 7, authorized:true)
 Store.create(name: 'Patagucci', description: 'Overengineered sophistication for your commute', image_file_name: 'patagucci.jpg', user_id: 8, slug: "patagucci", authorized:true)
-
+Store.create(name: 'Psych', description: "Look like an athlete, even if you're not", image_file_name: 'psych.jpg', user_id: 9, slug: "psych", authorized:true)
 #new custom stores go right above me!
 
 item =Item.create([
@@ -46,7 +46,7 @@ User.create(full_name: 'D-bag', email_address: 'd_bag@example.com', password: 'p
 User.create(full_name: 'Hot Lava', email_address: 'lava@example.com', password: 'password', screen_name: 'laval', role: 'seller')
 User.create(full_name: 'Slave Driver', email_address: 'slaves@example.com', password: 'password', screen_name: 'slaves', role: 'seller')
 User.create(full_name: 'Poser', email_address: 'poser@example.com', password: 'password', screen_name: 'poser', role: 'seller')
-
+User.create(full_name: 'Couch Guy', email_address: 'couchguy@example.com', password: 'password', screen_name: 'couch_guy', role: 'seller')
 #new custom users go right above me!
 
 100.times do |i|
