@@ -34,6 +34,8 @@ item =Item.create([
   {name: 'Liquid Lava Coat', description: 'The hottest coat in town', price: 123.00, status: 'active', category_ids: [1,6,4], image_file_name: 'lava_coat.jpg', sizes: "S,M,L,XL", colors: "Red,Orange,Yellow", store_id: 5},
   {name: 'Fat Pants', description: "If you're above size 32, guys, we think you're a fattie and we charge you more!", price: 2332.00, status: 'active', category_ids: [1,2], image_file_name: 'fat_pants.jpg', sizes: "L,XL", colors: "Fat", store_id: 4},
   {name: 'Kids Cool-Magma Pants', description: 'Get Stoned Kids!', price: 52.10, status: 'active', category_ids: [11,12,13], image_file_name: 'magma_pants.jpg', sizes: "2,2.5,3,3.5,4,4.5", colors: "Red,Orange,Yellow", store_id: 5},
+  {name: 'Womens Commuter Backpack', description: 'For the "I just got back from Everest" look', price: 1200.00, status: 'active', category_ids: [6.8,9], image_file_name: 'commuter_backpack.jpg', sizes: "S,M,L,XL", colors: "Purple, Green, Black", store_id: 8},
+
   #new custom items go right above me!
 ])
 
