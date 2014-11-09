@@ -5,7 +5,7 @@ class CategoriesController < ApplicationController
 
   def show
   	@category = Category.find(params[:id])
-    @items = @category.items.includes(:store)
+    @items = @category.items_from_active_and_online_stores
   	if @category
   		render :show
   	else
