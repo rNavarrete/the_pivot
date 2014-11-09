@@ -101,7 +101,16 @@ describe 'As a Public User', type: :feature do
   end
 
   describe 'creating/managing an account' do
-    it 'can create an account'
+    it 'can create an account' do
+      visit '/'
+      click_on("Create Account")
+      fill_in "user_full_name", with: "Test User"
+      fill_in "user_email_address", with: "testuser@example.com"
+      fill_in "user_password", with: "password"
+      fill_in "user_password_confirmation", with: "password"
+      click_on("Create User")
+      expect(page).to have_content("You Have Successfully Created A New Account!")
+    end
 
     it 'expects to receive a welcome email after creating account'
 
