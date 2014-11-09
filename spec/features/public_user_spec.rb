@@ -114,7 +114,20 @@ describe 'As a Public User', type: :feature do
 
     it 'expects to receive a welcome email after creating account'
 
-    it 'can request that my account become a business owner'
+    it 'can request that my account become a business owner' do
+      visit '/'
+      click_on("Create Account")
+      fill_in "user_full_name", with: "Test User"
+      fill_in "user_email_address", with: "testuser@example.com"
+      fill_in "user_password", with: "password"
+      fill_in "user_password_confirmation", with: "password"
+      click_on("Create User")
+      fill_in "email_address", with: "testuser@example.com"
+      fill_in "password", with: "password"
+      click_on("Log In")
+      click_on("Open a Dope Store")
+      expect(page).to have_content("Store Request")
+    end
   end
 
 end
