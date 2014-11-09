@@ -29,3 +29,27 @@ body{
   background-color: #f8f8f8;
   border-color: #070707;
 }
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus{
+  color: rgb(37, 93, 231);
+}
+
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus{
+  background-color: black;
+}
+
+.dropdown-menu > li > a{
+  color: white;
+}
+
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus{
+  color: white;
+}
+
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus{
+  background-color: transparent;
+  color: #255de7;
+}
+
+
+

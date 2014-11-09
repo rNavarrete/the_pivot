@@ -1,7 +1,57 @@
 //Login Form Nav Bar //
+#container > a.left.carousel-control{
+  height: 553px;
+}
+
+#container > a.right.carousel-control{
+  height: 553px;
+}
+
+#Featured-Products{
+  text-align: center;
+  font-weight: 600;
+  font-family: 'Pacifico', cursive;
+  text-shadow: 2px 4px #FFFFFF;
+  font-size: 40px;
+}
+
+
+#navbar-left > li.dropdown.open > ul{
+  background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,1) 1%, rgba(0,0,0,0.86) 40%, rgba(0,0,0,0.65) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(1%,rgba(0,0,0,1)), color-stop(40%,rgba(0,0,0,0.86)), color-stop(100%,rgba(0,0,0,0.65))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,1) 1%,rgba(0,0,0,0.86) 40%,rgba(0,0,0,0.65) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,1) 1%,rgba(0,0,0,0.86) 40%,rgba(0,0,0,0.65) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,1) 1%,rgba(0,0,0,0.86) 40%,rgba(0,0,0,0.65) 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,1) 1%,rgba(0,0,0,0.86) 40%,rgba(0,0,0,0.65) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); /* IE6-9 */
+  border: solid 1px rgb(255, 254, 255);
+}
+
+#navbar-login-form > div > ul{
+background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,1) 1%, rgba(0,0,0,0.86) 40%, rgba(0,0,0,0.65) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(1%,rgba(0,0,0,1)), color-stop(40%,rgba(0,0,0,0.86)), color-stop(100%,rgba(0,0,0,0.65))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,1) 1%,rgba(0,0,0,0.86) 40%,rgba(0,0,0,0.65) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,1) 1%,rgba(0,0,0,0.86) 40%,rgba(0,0,0,0.65) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,1) 1%,rgba(0,0,0,0.86) 40%,rgba(0,0,0,0.65) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,1) 1%,rgba(0,0,0,0.86) 40%,rgba(0,0,0,0.65) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); /* IE6-9 */
+color: white;
+border: solid 1px rgb(255, 254, 255);
+
+}
+
+
+#navbar-left > li.dropdown.open > ul > li > a{
+  color: white;
+}
+
 
 #login-form{
   display: flex;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+  color: red;
 }
 
 
@@ -150,12 +200,15 @@
 }
 
 .carousel {
-  height: 504px;
-  margin-bottom: 60px;
+  height: 502px;
+  margin-bottom: 0px;
+  border-bottom: solid 1px;
 }
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
 }
+
+
 
 /* Declare heights because of positioning of img element */
 .carousel .item {
@@ -175,7 +228,8 @@
 #myCarousel{
   height: 503px;
   margin-bottom: 0px;
-  border-bottom: ridge 3px rgb(130, 47, 12);}
+  border-bottom: ridge 1px black;
+}
 
 #navbar{
   background-image: url('../assets/pattern8.jpg');
@@ -189,7 +243,7 @@
 .navbar-default .navbar-nav > li > a {
   color: white;
   font-size: 23px;
-  text-shadow: 2px 2px #000000;
+  text-shadow: 2px 4px #C12D2D;
 }
 
 #navbar-left{
@@ -220,11 +274,14 @@
 #brand-name{
   padding-right: 5px;
   margin-right: 18px;
+  font-weight: 600;
+  font-family: 'Pacifico', cursive;
+  text-shadow: 2px 4px #DFD459;
 }
 
 #brand-name > a {
   color: white;
-  font-size: 27px;
+  font-size: 30px;
   color: white;
 }
 

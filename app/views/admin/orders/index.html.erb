@@ -120,7 +120,7 @@
               <td class="order-buttons">
                 <%  if order.status == 'ordered' %>
                   <%= button_to "Cancel", admin_order_path(order, order: { status: 'canceled' }), method: :patch, class: "btn btn-sm btn-danger" %>
-                  <%= button_to "Mark As Paid", admin_order_path(order, order: { status: 'paid' }), method: :patch, class: "btn btn-primary" %>
+                  <%= button_to "Mark As Paid", admin_order_path(order, order: { status: 'paid' }), method: :patch, class: "btn-sm btn-primary" %>
                 <%  elsif order.status == 'paid' %>
                   <%= button_to "Cancel", admin_order_path(order, order: { status: 'canceled' }), method: :patch %>
                   <%= button_to "Mark As Completed", admin_order_path(order, order: { status: 'completed' }), method: :patch %>
