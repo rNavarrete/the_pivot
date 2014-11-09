@@ -128,7 +128,6 @@ describe 'As an Authenticated Customer', type: :feature do
 
 	describe 'Manage my account information shared by all businesses centrally on my account page', type: :feature do
 		it 'can create a shipping address' do
-			save_and_open_page
 			click_on("drop-down")
 			click_on("My Addresses")
 			click_on("New Shipping Address")
