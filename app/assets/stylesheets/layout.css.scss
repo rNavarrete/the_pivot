@@ -63,7 +63,7 @@
 }
 
 #container{
-  padding-top: 53px;
+  padding-top: 50px;
 }
 
 #new-user-container {
@@ -143,7 +143,6 @@
 }
 
 .carousel {
-  padding-top: 50px;
   height: 500px;
   margin-bottom: 60px;
 }
@@ -169,11 +168,17 @@
 }
 
 #navbar{
-  background-color: white;
+  background-image: url('../assets/pattern3.jpg');
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: white;
+  font-size: 27px;
+  text-shadow: 2px 2px #000000;
 }
 
 #navbar-left{
-  background-color: white;
+  color: white;
 }
 
 #cart_btn{
@@ -200,6 +205,12 @@
 #brand-name{
   padding-right: 5px;
   margin-right: 18px;
+}
+
+#brand-name > a {
+  color: white;
+  font-size: 27px;
+  color: rgb(249, 197, 230);
 }
 
 #navbar-login-form{
