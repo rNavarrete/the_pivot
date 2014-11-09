@@ -14,7 +14,6 @@ describe 'As an Authenticated Customer', type: :feature do
 
 	 	it 'does not create a duplicate order if user clicks back button after order confirmation' do
       expect(Order.all.count).to eq(10)
-      # save_and_open_page
   		order_item
       expect(Order.all.count).to eq(11)
     end
