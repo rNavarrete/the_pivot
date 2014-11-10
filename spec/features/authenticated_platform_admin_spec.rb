@@ -93,13 +93,13 @@ describe 'As a platform administrator', type: :feature  do
     click_on("Admin Dashboard")
     click_on("Manage Store Details")
     page.find("#My_Store").click
-    within(:css, "#create_item") do
+    click_on("Create a New Item")
+    within(:css, "#new_item") do
       page.fill_in("Name", with: "Kilo")
       page.fill_in("Description", with: "a kilo is one thousand grams")
       page.fill_in("Price", with: 30000)
       click_button('Create Item')
     end
     expect(page).to have_content("a kilo is one thousand grams")
-    save_and_open_page
   end
 end
