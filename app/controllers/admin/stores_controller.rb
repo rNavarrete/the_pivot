@@ -6,7 +6,12 @@ class Admin::StoresController < Admin::BaseController
     @stores_waiting_approval = Store.where(:authorized => false)
   end
 
+  def edit
+    @store = Store.find(params[:id])
+  end
+
   def show
+    @store = Store.find(params[:id])
   end
 
   def new

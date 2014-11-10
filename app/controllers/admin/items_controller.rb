@@ -1,7 +1,8 @@
 
 class Admin::ItemsController < Admin::BaseController
   def index
-    @items = Item.all
+    # Quering stores so I can have items organized by store
+    @stores = Store.where(:online => true, :authorized => true)
     @categories = Category.all
   end
 
@@ -16,6 +17,7 @@ class Admin::ItemsController < Admin::BaseController
   end
 
   def create
+    # @store = Store.find
     @item = Item.create(item_params)
     if @item.valid?
       redirect_to admin_items_path, notice: 'Item Successfully Created!'
@@ -41,6 +43,7 @@ class Admin::ItemsController < Admin::BaseController
 
   def new
     @item = Item.new
+    @categories = Category.all
   end
 
   private

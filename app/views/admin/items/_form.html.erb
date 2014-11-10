@@ -25,6 +25,11 @@
     <%= form.file_field :image %>
   </p>
 
+  <p>
+    <%= form.hidden_field (:item, :store_id, ) %>
+    <%= form.hidden_field :store_id %>
+  </p>
+
   <p> Current Categories:</p>
 
   <ul id='collection' >

@@ -24,7 +24,7 @@
           <tbody id="admin_categories_edit_table">
             <% @authorized_stores.each do |store| %>
               <tr>
-                <td><span class="item_title"><%= store.name %><span></td>
+                <td><span class="item_title"><%= link_to store.name, admin_store_path(store) %><span></td>
                 <td><%= store.description %></td>
                 <td><%= store.slug %></td>
                 <% if store.online %>
@@ -52,7 +52,7 @@
           <tbody id="admin_categories_edit_table">
             <% @offline_stores.each do |store| %>
               <tr>
-                <td><span class="item_title"><%= store.name %><span></td>
+                <td><span class="item_title"><%= link_to store.name, admin_store_path(store) %><span></td>
                 <td><%= store.description %></td>
                 <td><%= store.slug %></td>
                 <% if store.online %>
@@ -79,7 +79,7 @@
           <tbody>
             <% @stores_waiting_approval.each do |store| %>
               <tr>
-                <td><span class="item_title"><%= store.name %><span></td>
+                <td><span class="item_title"><%= link_to store.name, admin_store_path(store) %><span></td>
                 <td><%= store.description %></td>
                 <td><%= store.slug %></td>
                 <td><%= link_to 'Approve Request', admin_store_path(store, store:{authorized:'true'}), method: 'patch', class: 'btn btn-success',id: "#{store.slug}_approve", data: {confirm: 'Are you sure you want to approve the creation of this store?'}%></td>
