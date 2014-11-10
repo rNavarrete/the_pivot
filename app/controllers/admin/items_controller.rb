@@ -13,15 +13,18 @@ class Admin::ItemsController < Admin::BaseController
   def destroy
     @item = Item.find(params[:id])
     @item.destroy
-    redirect_to admin_items_path, notice: 'Item Successfully Deleted!'
+    redirect_to admin_store_path(@item.store_id), notice: 'Item Successfully Deleted!'
   end
 
   def create
-    # @store = Store.find
-    @item = Item.create(item_params)
-    if @item.valid?
-      redirect_to admin_items_path, notice: 'Item Successfully Created!'
+    @categories = Category.all
+    @store = Store.find(params[:item][:store_id])
+    if @store.items.create(item_params)
+      set_item_options(@store.items.last, params)
+      flash[:notice] = "Your item was successfully created"
+      redirect_to admin_store_path(@store)
     else
+      flash[:notice] = "Something went wrong."
       render :new
     end
   end
@@ -42,11 +45,25 @@ class Admin::ItemsController < Admin::BaseController
   end
 
   def new
-    @item = Item.new
     @categories = Category.all
+    @item = Item.new
+    @store = Store.find(params[:store_id])
   end
 
   private
+
+  def set_item_options(item, params)
+    item.options = params[:options]
+    item.save!
+    categories = params[:categories] || []
+    item.categories.clear
+    categories.each do |category|
+      category = Category.find(category)
+      item.categories << category
+    end
+    item.save!
+  end
+
   def item_params
     params.require(:item).permit(:name, :description, :price, :image, :category_ids, :status)
   end

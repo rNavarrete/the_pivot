@@ -1,20 +1,17 @@
 <div class="container">
   <h1> Edit a Store's Items</h1>
-
-
     <br />
     <br />
-
   <% @stores.each do |store| %>
     <div class="panel panel-default">
       <div class="panel-heading" role="tab" id="headingOne">
         <h3 class="panel-title"><%= link_to store.name, admin_store_path(store) %></h3>
-        <div class='btn btn-default' id="create_store_item_btn"><%= link_to "Manage Store", seller_store_edit_path(store) %></div>
+        <div class='btn btn-default' id="create_store_item_btn"><%= link_to "Manage Store", admin_store_path(store), id: "#{store.slug}" %></div>
       </div>
         <div id="" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
           <div class="panel-body">
             <% store.items.each do |item| %>
-              <li><%= link_to "#{item.name}", edit_admin_item_path(item) %></li>
+              <li><%= item.name %></li>
             <% end  %>
           </div>
         </div>
