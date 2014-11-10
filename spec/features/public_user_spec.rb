@@ -74,7 +74,7 @@ describe 'As a Public User', type: :feature do
         first(:link).click
       end
       click_on("add to cart")
-      click_on("cart")
+      click_on("cart-bttn")
       click_on("delivery_btn")
       expect(page).to have_content("Please log in or create account to complete order")
     end
@@ -88,12 +88,12 @@ describe 'As a Public User', type: :feature do
         first(:link).click
       end
       click_on("add to cart")
-      click_on("cart")
+      click_on("cart-bttn")
       click_on("Complete Order")
       expect(page).to have_content("Please log in or create account to complete order")
       fill_in "email_address", with: "demo+rachel@jumpstartlab.com"
       fill_in "password", with: "password"
-      click_on("Log In")
+      click_on("Sign in")
       click_on("delivery_btn")
       expect(page).to have_content("Address")
     end
@@ -103,7 +103,7 @@ describe 'As a Public User', type: :feature do
   describe 'creating/managing an account' do
     it 'can create an account' do
       visit '/'
-      click_on("Create Account")
+      click_on("Sign Up")
       fill_in "user_full_name", with: "Test User"
       fill_in "user_email_address", with: "testuser@example.com"
       fill_in "user_password", with: "password"
@@ -116,7 +116,7 @@ describe 'As a Public User', type: :feature do
 
     it 'can request that my account become a business owner' do
       visit '/'
-      click_on("Create Account")
+      click_on("Sign Up")
       fill_in "user_full_name", with: "Test User"
       fill_in "user_email_address", with: "testuser@example.com"
       fill_in "user_password", with: "password"
@@ -124,7 +124,7 @@ describe 'As a Public User', type: :feature do
       click_on("Create User")
       fill_in "email_address", with: "testuser@example.com"
       fill_in "password", with: "password"
-      click_on("Log In")
+      click_on("Sign in")
       click_on("Open a Dope Store")
       expect(page).to have_content("Store Request")
     end

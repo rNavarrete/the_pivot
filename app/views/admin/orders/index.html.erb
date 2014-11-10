@@ -1,57 +1,135 @@
-<h1>Orders</h1>
+<div class="container">
+  <h1>Orders</h1>
+
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#paid_orders" role="tab" data-toggle="tab">Paid Orders</a></li>
+    <li role="presentation"><a href="#completed_orders" role="tab" data-toggle="tab">Completed Orders</a></li>
+    <li role="presentation"><a href="#canceled_orders" role="tab" data-toggle="tab">Canceled Orders</a></li>
+    <li role="presentation"><a href="#ordered" role="tab" data-toggle="tab">Pending</a></li>
+  </ul>
 
 
-<table class='tg'>
 
 
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane fade in active" id="paid_orders">
+      <h3 class="page-header">Paid Orders (<%= "#{@paid_orders.count}" %>)</h3>
+      <table class='table table-striped'>
+        <thead>
+          <tr>
+            <th>Order For</th>
+            <th>Status</th>
+            <th>Options</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @paid_orders.each do |order| %>
+            <tr>
+              <td><%= link_to "#{ order.user.full_name }",admin_order_path(order.id) %></td>
+              <td><%= link_to "#{ order.status }", admin_order_path(order.id) %></td>
+              <td class="order-buttons">
+                <%  if order.status == 'ordered' %>
+                  <%= button_to "Cancel", admin_order_path(order, order: { status: 'canceled' }), method: :patch, class: "btn btn-sm btn-danger" %>
+                  <%= button_to "Mark As Paid", admin_order_path(order, order: { status: 'paid' }), method: :patch %>
+                <%  elsif order.status == 'paid' %>
+                  <%= button_to "Cancel", admin_order_path(order, order: { status: 'canceled' }), method: :patch, class: "btn btn-sm btn-danger" %>
+                  <%= button_to "Mark As Completed", admin_order_path(order, order: { status: 'completed' }), method: :patch, class: "btn btn-sm btn-primary" %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
 
-  <tr id='orders'>
-    <td>
-      <%= link_to "Paid (#{ @all.paid.count })",
-                   admin_orders_path(status: "paid") %></td>
-    <td>
-     <%= link_to "Completed (#{ @all.completed.count })",
-                  admin_orders_path(status: "completed") %></td>
-    <td>
-     <%= link_to "Canceled (#{ @all.canceled.count })",
-                  admin_orders_path(status: "canceled") %></td>
-    <td>
-     <%= link_to "Ordered (#{ @all.ordered.count })",
-                  admin_orders_path(status: "ordered") %></td>
-      <td>
-        <%= link_to 'View All Orders', admin_orders_path %>
-      </td>
-  </tr>
-</table><br>
+    <div role="tabpanel" class="tab-pane fade active" id="completed_orders">
+      <h3 class="page-header">Completed Orders(<%="#{@completed_orders.count}"%>)</h3>
+      <table class='table table-striped'>
+        <thead>
+          <tr>
+            <th>Order For</th>
+            <th>Status</th>
+            <th>Options</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @completed_orders.each do |order| %>
+            <tr>
+              <td><%= link_to "#{ order.user.full_name }",admin_order_path(order.id) %></td>
+              <td><%= link_to "#{ order.status }", admin_order_path(order.id) %></td>
+              <td class="order-buttons">
+                <%  if order.status == 'ordered' %>
+                  <%= button_to "Cancel", admin_order_path(order, order: { status: 'canceled' }), method: :patch %>
+                  <%= button_to "Mark As Paid", admin_order_path(order, order: { status: 'paid' }), method: :patch %>
+                <%  elsif order.status == 'paid' %>
+                  <%= button_to "Cancel", admin_order_path(order, order: { status: 'canceled' }), method: :patch %>
+                  <%= button_to "Mark As Completed", admin_order_path(order, order: { status: 'completed' }), method: :patch %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
 
-<table class='tg'>
+    <div role="tabpanel" class="tab-pane fade" id="canceled_orders">
+      <h3 class="page-header">Canceled Orders(<%="#{@canceled_orders.count}"%>)</h3>
+      <table class='table table-striped'>
+        <thead>
+          <tr>
+            <th>Order For</th>
+            <th>Status</th>
+            <th>Options</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @canceled_orders.each do |order| %>
+            <tr>
+              <td><%= link_to "#{ order.user.full_name }",admin_order_path(order.id) %></td>
+              <td><%= link_to "#{ order.status }", admin_order_path(order.id) %></td>
+              <td class="order-buttons">
+                <%  if order.status == 'ordered' %>
+                  <%= button_to "Cancel", admin_order_path(order, order: { status: 'canceled' }), method: :patch %>
+                  <%= button_to "Mark As Paid", admin_order_path(order, order: { status: 'paid' }), method: :patch %>
+                <%  elsif order.status == 'paid' %>
+                  <%= button_to "Cancel", admin_order_path(order, order: { status: 'canceled' }), method: :patch %>
+                  <%= button_to "Mark As Completed", admin_order_path(order, order: { status: 'completed' }), method: :patch %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
 
-  <th>
-    Order For:
-  </th>
-  <th>
-    Status:
-  </th>
-  <th>
-    Status Change Options
-  </th>
-
-
-    <% @orders.each do |order| %>
-  <tr id='shown-orders'>
-      <td><%= link_to "#{ order.user.full_name }",
-                  admin_order_path(order.id) %></td>
-      <td><%= link_to "#{ order.status }",
-                  admin_order_path(order.id) %></td>
-      <td class="order-buttons">
-        <%  if order.status == 'ordered' %>
-          <%= button_to "Cancel", admin_order_path(order, order: { status: 'canceled' }), method: :patch %>
-          <%= button_to "Mark As Paid", admin_order_path(order, order: { status: 'paid' }), method: :patch %>
-        <%  elsif order.status == 'paid' %>
-          <%= button_to "Cancel", admin_order_path(order, order: { status: 'canceled' }), method: :patch %>
-          <%= button_to "Mark As Completed", admin_order_path(order, order: { status: 'completed' }), method: :patch %>
-        <% end %><br>
-      </td>
-    <% end %>
-  </tr>
-</table>
+    <div role="tabpanel" class="tab-pane fade" id="ordered">
+      <h3 class="page-header">Pending Orders(<%="#{@completed_orders.count}"%>)</h3>
+      <table class='table table-striped'>
+        <thead>
+          <tr>
+            <th>Order For</th>
+            <th>Status</th>
+            <th>Options</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @ordered.each do |order| %>
+            <tr>
+              <td><%= link_to "#{ order.user.full_name }",admin_order_path(order.id) %></td>
+              <td><%= link_to "#{ order.status }", admin_order_path(order.id) %></td>
+              <td class="order-buttons">
+                <%  if order.status == 'ordered' %>
+                  <%= button_to "Cancel", admin_order_path(order, order: { status: 'canceled' }), method: :patch, class: "btn btn-sm btn-danger" %>
+                  <%= button_to "Mark As Paid", admin_order_path(order, order: { status: 'paid' }), method: :patch, class: "btn-sm btn-primary" %>
+                <%  elsif order.status == 'paid' %>
+                  <%= button_to "Cancel", admin_order_path(order, order: { status: 'canceled' }), method: :patch %>
+                  <%= button_to "Mark As Completed", admin_order_path(order, order: { status: 'completed' }), method: :patch %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -42,7 +42,7 @@ class Seller::SellerController < ApplicationController
 
 	def store_owner?(store)
 		stores = Store.where(:user_id => current_user.id)
-		if stores.include?(store)
+		if stores.include?(store) or current_user.is? :admin
 		else
     	redirect_to root_path
     	flash[:notice] = "This isn't your store."

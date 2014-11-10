@@ -15,7 +15,7 @@ module MyHelpers
       first(:link).click
     end
     click_on("add to cart")
-    click_on("cart")
+    click_on("cart-bttn")
     page.find("#delivery_btn").click
     page.fill_in('Street address', with: "123 Mountain Street")
     page.fill_in('City', with: 'Denver')
@@ -66,7 +66,7 @@ module MyHelpers
     visit "/"
     page.fill_in('email_address', with: user.email_address)
     page.fill_in('Password', with: '1234')
-    page.click_button('Log In')
+    page.click_button('Sign in')
   end
 
   def create_item(overrides = {})

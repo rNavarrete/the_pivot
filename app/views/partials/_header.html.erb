@@ -1,100 +1,91 @@
 <nav class="navbar navbar-default" role="navigation", id="navbar">
-<div class="container-fluid">
-  <div class='flashes'><%= flash[:notice] %></div>
-  <div class='flashes'><%= flash[:error] %></div>
-  <div class='flashes'><%= flash[:errors] %></div>
+  <div class="container-fluid">
+    <div class='flashes'><%= flash[:notice] %></div>
+    <div class='flashes'><%= flash[:error] %></div>
+    <div class='flashes'><%= flash[:errors] %></div>
 
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
 
-  </div>
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav navbar-left" id="navbar-left">
       <li id="brand-name"><%= link_to "Dope Threads", root_path %></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="men">Men <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <% all_categories[0..4].each do |category| %>
-              <li><%= link_to category.name, category_path(category.id) %></li>
-            <% end %>
-          </ul>
-        </li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="men">Men <span class="caret"></span></a>
+        <ul class="dropdown-menu" role="menu">
+          <% all_categories[0..4].each do |category| %>
+            <li><%= link_to category.name, category_path(category.id) %></li>
+          <% end %>
+        </ul>
+      </li>
 
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Women <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <% all_categories[6..9].each do |category| %>
-              <li><%= link_to category.name, category_path(category.id) %></li>
-            <% end %>
-          </ul>
-        </li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Women <span class="caret"></span></a>
+        <ul class="dropdown-menu" role="menu">
+          <% all_categories[6..9].each do |category| %>
+            <li><%= link_to category.name, category_path(category.id) %></li>
+          <% end %>
+        </ul>
+      </li>
 
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Kids <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <% all_categories[10..15].each do |category| %>
-              <li><%= link_to category.name, category_path(category.id) %></li>
-            <% end %>
-          </ul>
-        </li>
-        <li><%= link_to "Contact Us", contact_us_path %></li>
-        <li><%= link_to "Create Account", new_user_path %></li>
-
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Kids <span class="caret"></span></a>
+        <ul class="dropdown-menu" role="menu">
+          <% all_categories[10..15].each do |category| %>
+            <li><%= link_to category.name, category_path(category.id) %></li>
+          <% end %>
+        </ul>
+      </li>
+      <li><%= link_to "Contact Us", contact_us_path %></li>
+      <li><%= link_to "Sign Up", new_user_path unless current_user %></li>
     </ul>
+
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right" id="navbar-login-form">
 
-        <% if session[:user_id] %>
-        <div class="button">
-        <p>Logged in as <%= current_user.email_address %></p>
-        <%= link_to "Logout", logout_path, method: :delete %>
-        </div>
-        <% else %>
-        <div class="login_form">
-        <%= form_tag login_path do %>
-        <%= text_field_tag :email_address, nil, placeholder: "Email" %>
-        <%= password_field_tag :password, nil, placeholder: "Password" %>
-        <%= submit_tag value="Log In" %>
-        <% end %>
-        </div>
-        <% end %>
-
-        <%= form_tag '/cart', method: :get, :id => "cart_btn" do %>
-        <%= button_tag(:class => "btn btn-default btn-sm") do %>
-           cart <span class="glyphicon glyphicon-shopping-cart" ></span>
-        <% end %>
-          <% if session[:cart_items] %>
-            <%= pluralize(cart.items.size, 'item') %>
-          <% else  %>
-            <%= "0 items" %>
-          <% end %>
-        <% end %>
-
-        <% if current_user %>
+      <% if current_user %>
         <div class="btn-group">
-          <button type="button" class="btn btn-default dropdown-toggle glyphicon glyphicon-user btn-sm" data-toggle="dropdown">
-            You <span class="caret"></span>
+          <button type="button" class="btn btn-default dropdown-toggle glyphicon glyphicon-user btn-sm" data-toggle="dropdown" id="drop-down">
+            <%= current_user.email_address %><span class="caret"></span>
           </button>
-
           <ul class="dropdown-menu" role="menu">
             <li> <%=link_to 'My Addresses', addresses_path %></li>
             <li><%= link_to 'My Account Details', edit_user_path(current_user) %></li>
             <li><%= link_to 'My Orders', orders_path %></li>
+            <li><%= link_to 'Admin Dashboard', admin_dashboard_path if can? :manage, User %></li>
+            <li><%= link_to 'Manage Store', seller_dashboard_path if can? :manage, Store %></li>
+            <li><%= link_to 'Open a Dope Store', request_store_path if has_no_store?  %><li>
+            <li><%= link_to "Logout", logout_path, method: :delete %></li>
           </ul>
         </div>
+      <% end %>
+
+      <% unless session[:user_id] %>
+        <div class="login_form" id="login-form">
+          <%= form_tag login_path do %>
+            <%= text_field_tag :email_address, nil, placeholder: "Email" %>
+            <%= password_field_tag :password, nil, placeholder: "Password" %>
+            <%= submit_tag value="Sign in", class: "btn btn-default btn-sm", id: "sigin-button" %>
+          <% end %>
+        </div>
+      <% end %>
+
+      <%= form_tag '/cart', method: :get, :id => "cart_btn" do %>
+        <%= button_tag(:class => "btn btn-default btn-sm", id: "cart-bttn") do %>
+          <span class="glyphicon glyphicon-shopping-cart" >
+          <% if session[:cart_items] %>
+            <%= pluralize(cart.items.size, 'item') %>
+          <% else  %>
+            <%= "0" %>
+          <% end %>
         <% end %>
-
-
-        <p><%= link_to 'Admin Dashboard', admin_dashboard_path if can? :manage, User %> </p>
-        <p><%= link_to 'Manage Store', seller_dashboard_path if can? :manage, Store %></p>
-        <p><%= link_to 'Open a Dope Store', request_store_path if has_no_store? %></p>
-      </ul>
-    </nav>
-    </div>
-   </div>
+      <% end %>
+    </ul>
   </div>
+</nav>

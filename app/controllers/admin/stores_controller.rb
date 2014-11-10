@@ -1,11 +1,17 @@
 class Admin::StoresController < Admin::BaseController
 
   def index
-    @authorized_stores = Store.where(:authorized => true)
+    @authorized_stores = Store.where(:authorized => true, :online => true)
+    @offline_stores = Store.where(:online => false)
     @stores_waiting_approval = Store.where(:authorized => false)
   end
 
+  def edit
+    @store = Store.find(params[:id])
+  end
+
   def show
+    @store = Store.find(params[:id])
   end
 
   def new

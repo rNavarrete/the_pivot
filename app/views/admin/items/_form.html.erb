@@ -1,36 +1,23 @@
-<%= form_for [:admin, @item] do |form| %>
-<%= render "layouts/errors" , object: @item%>
 
-  <p>
-    <div class='labels'><%= form.label :name %>:</div>
-    <%= form.text_field :name %>
-  </p>
-  <p>
-    <div class='labels'><%= form.label :description %>:</div>
+  <h4 class="page-header">Create an item</h4>
+  <%= bootstrap_form_for @item, url: admin_items_path do |form| %>
+    <%= form.text_field :name  %>
     <%= form.text_area :description %>
-  </p>
-  <p>
-    <div class='labels'><%= form.label :status %>:</div>
-    <%= form.select :status, options_for_select([ 'Active', 'Retired'], 'True') %>
-  </p>
-  <p>
-    <div class='labels'><%= form.label :price %>:</div>
-    <%= form.text_area :price %>
-  </p>
-
-  <h2> Edit Item-Categories </h3>
-
-  <p>
-    <%= form.label :image %>:
     <%= form.file_field :image %>
-  </p>
+    <%= form.hidden_field :store_id, :value => @store.id %>
+    <%= form.select :status, options_for_select([ 'Active', 'Retired'], 'True') %>
 
-  <p> Current Categories:</p>
+    <b>Categories:</b>
+    <% @categories.each do |category| %>
+      <%= form.label category.name %>
+      <%= check_box_tag "categories[]", category.id, @item.categories.include?(category) ? true : false, class: "category_checkbox" %>
+    <% end %><br/>
+    <b>Options (Separate desired options with commas)</b>:
+      <% default_options.each do |option| %>
+      <%= label_tag(option) %>
+      <%= text_field_tag("options[#{option}]") %>
+    <% end %>
+    <%= form.number_field :price %>
 
-  <ul id='collection' >
-    <%= form.collection_check_boxes :category_ids, @categories, :id, :name %>
-  </ul>
-  <p id="form_button" class='save'>
-    <%= form.submit 'Save' %>
-  </p>
-<% end %>
+    <%= form.submit %>
+  <% end %>

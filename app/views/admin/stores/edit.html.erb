@@ -1,0 +1,16 @@
+<%= render "layouts/errors", object: @store %>
+
+<div class="container">
+
+      <h4 class="page-header">Edit Users Store</h4>
+        <%= bootstrap_form_for @store, :url => {:action => :update} do |f| %>
+        <%= f.text_field :name %>
+        <%= f.text_area  :description %>
+        <%= f.text_field :slug, placeholder: "example: louies_ck_for_men" %>
+        <%= f.file_field :image %>
+        <%= f.text_area  :request_message, placeholder: "Why do you want to sell on dope threads?" %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+
+        <%= f.submit class: "btn btn-success" %>
+      <% end %>
+    </div>

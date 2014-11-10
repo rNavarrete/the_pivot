@@ -1,0 +1,29 @@
+  <div class="store-header">
+    <div class="store-header-image">
+      <%= image_tag @store.image.url(:medium) %>
+
+    </div>
+    <div class="store-name">
+      <h2 id="store-name"> <%= @store.name.titleize %> </h2>
+      <%= link_to("Create a New Item", {:controller => "admin/items", :action => "new", :store_id => @store.id}) %>
+    </div>
+  </div>
+  <div class="store-description">
+    <%= @store.description %>
+  </div>
+  <div class="store-items-container">
+    <div id="masonry-grid">
+      <div class="grid-sizer">
+        <% @store.items.each do |item| %>
+        <div class="grid-item">
+          <%= link_to item.name, item_path(item) %>
+          <%= link_to (image_tag item.image.url(:medium)), item_path(item) %><br/>
+          <%= item.description %>
+          <li><%= link_to("Delete Item", admin_item_path(item) , method: :delete) %></li>
+          <li><%= link_to("Edit Item", edit_admin_item_path(item)) %></li>
+
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
