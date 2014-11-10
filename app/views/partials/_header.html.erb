@@ -59,8 +59,8 @@
             <li><%= link_to 'My Account Details', edit_user_path(current_user) %></li>
             <li><%= link_to 'My Orders', orders_path %></li>
             <li><%= link_to 'Admin Dashboard', admin_dashboard_path if can? :manage, User %></li>
-            <li><%= link_to 'Manage Store', seller_dashboard_path if can? :manage, Store %></li>
-            <li><%= link_to 'Open a Dope Store', request_store_path if has_no_store?  %><li>
+            <li><%= link_to 'Manage Store', seller_dashboard_path if can? :manage, Store unless can? :manage, User %></li>
+            <li><%= link_to 'Open a Dope Store', request_store_path if has_no_store? unless can? :manage, User %><li>
             <li><%= link_to "Logout", logout_path, method: :delete %></li>
           </ul>
         </div>
