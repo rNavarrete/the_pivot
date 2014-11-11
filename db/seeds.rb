@@ -21,6 +21,9 @@ Store.create(name: 'Pure Lava', description: 'Our Clothes Literally Burn You', i
 Store.create(name: 'Abidas', description: 'So close to the real thing.', image_file_name: 'abidas.jpg', slug: 'abidas', user_id: 7, authorized:true)
 Store.create(name: 'Patagucci', description: 'Overengineered sophistication for your workday', image_file_name: 'patagucci.jpg', user_id: 8, slug: "patagucci", authorized:true)
 Store.create(name: 'Psych', description: "Look like an athlete, even if you're not", image_file_name: 'psych.jpg', user_id: 9, slug: "psych", authorized:true)
+Store.create(name: 'Queensbridge', description: "Hand Crafted Outerwear", image_file_name: 'bauhus.jpg', user_id: 10, slug: "queensbridge", authorized:true)
+Store.create(name: 'Human Made', description: "Gears for Futuristic Teenagers", image_file_name: 'bauhus.jpg', user_id: 10, slug: "queensbridge", authorized:true)
+
 #new custom stores go right above me!
 
 item =Item.create([
@@ -39,6 +42,21 @@ item =Item.create([
   {name: 'Womens Active Office Sandal', description: 'Be prepared for an after work outing without changing shoes', price: 175.00, status: 'active', category_ids: [6,10], image_file_name: 'office_sandal.jpg', sizes: "7,8,9,10", colors: "Black", store_id: 7},
   {name: 'Movie Marathon Pajama', description: 'Watch your favorite box set in the comfort of gym clothes', price: 60.00, status: 'active', category_ids: [11,12], image_file_name: 'marathon_pajama.jpg', sizes: "S,M,L,XL,XXL", colors: "Dark Vader, Sunshine Sparkle", store_id: 8},
   {name: 'Homework Hoodie', description: 'Stay warm while working on your skills', price: 65.00, status: 'active', category_ids: [11,12], image_file_name: 'homework_hoodie.jpg', sizes: "S,M,L,XL", colors: "Red, Yellow, Green", store_id: 8},
+  {name: 'Liquid Metal Jacket', description: 'Ultra-lightweight and reflectivity for comfort and visibility on cool, low-light runs. ', price: 99.00, status: 'active', category_ids: [1,4], image_file_name: '3m_jacket.jpg', sizes: "S,M,L,XL", colors: "Red, Yellow, Green", store_id: 9},
+  {name: 'L.A Natives Jacket', description: 'Hand Crafted, limited edition only 50 made', price: 200.00, status: 'active', category_ids: [1,4], image_file_name: 'jacket2.jpg', sizes: "S,M,L,XL", colors: "Orange", store_id: 9},
+  {name: 'L.A Natives Jacket', description: 'Hand Crafted, limited edition only 50 made', price: 200.00, status: 'active', category_ids: [1,4], image_file_name: 'jacket3.jpg', sizes: "S,M,L,XL", colors: "Blue", store_id: 9},
+  {name: 'L.A Natives Jacket', description: 'Hand Crafted, limited edition only 50 made', price: 200.00, status: 'active', category_ids: [1,4], image_file_name: 'jacket4.jpg', sizes: "S,M,L,XL", colors: "Pink", store_id: 9},
+  {name: 'L.A Natives Jacket', description: 'Hand Crafted, limited edition only 50 made', price: 200.00, status: 'active', category_ids: [1,4], image_file_name: 'jacket5.jpg', sizes: "S,M,L,XL", colors: "Blue", store_id: 9},
+  {name: 'L.A Native Navajo Jacket', description: 'Hand Crafted, Inspired by Native American Art', price: 200.00, status: 'active', category_ids: [1,4], image_file_name: 'jacket6.jpg', sizes: "S,M,L,XL", colors: "Orange", store_id: 9},
+  {name: 'American Hegemony', description: 'One Half Zen, the Other Half Bad Ass. ', price: 250.00, status: 'active', category_ids: [1,4], image_file_name: 'eagle_jacket.jpg', sizes: "S,M,L,XL", colors: "Red, Yellow, Green", store_id: 10},
+  {name: 'Rescue Ranger', description: 'Inspired by Indiana Jones and Chip and Dale ', price: 449.00, status: 'active', category_ids: [1,4], image_file_name: 'hm_jackt.jpg', sizes: "S,M,L,XL", colors: "Red, Yellow, Green", store_id: 10},
+  {name: 'Human Made T-Shirt 1', description: 'Human Made T', price: 49.00, status: 'active', category_ids: [1,3], image_file_name: 'hm_tshirt1.jpg', sizes: "S,M,L,XL", colors: "White", store_id: 10},
+  {name: 'Human Made T-Shirt 2', description: 'Human Made T', price: 49.00, status: 'active', category_ids: [1,3], image_file_name: 'hm_tshirt2.jpg', sizes: "S,M,L,XL", colors: "White", store_id: 10},
+  {name: 'Human Made T-Shirt 3', description: 'Human Made T', price: 49.00, status: 'active', category_ids: [1,3], image_file_name: 'hm_tshirt3.jpg', sizes: "S,M,L,XL", colors: "White", store_id: 10},
+  {name: 'Human Made Jacket 1', description: 'Human Made Jacket', price: 49.00, status: 'active', category_ids: [1,4], image_file_name: 'plaid_jacket1.jpg', sizes: "S,M,L,XL", colors: "Brown", store_id: 10},
+  {name: 'Human Made Jacket 2', description: 'Human Made Jacket 2', price: 49.00, status: 'active', category_ids: [1,4], image_file_name: 'plaid_jacket2.jpg', sizes: "S,M,L,XL", colors: "Green", store_id: 10},
+  {name: 'Human Made Jacket 2', description: 'Human Made Jacket 2', price: 49.00, status: 'active', category_ids: [1,4], image_file_name: 'plaid_jacket2.jpg', sizes: "S,M,L,XL", colors: "Green", store_id: 10},
+  {name: 'Human Made Shirt', description: 'Human Made Shirt', price: 99.00, status: 'active', category_ids: [1,3], image_file_name: 'plaid_jacket2.jpg', sizes: "S,M,L,XL", colors: "Red", store_id: 10},
   #new custom items go right above me!
 ])
 
