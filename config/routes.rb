@@ -1,16 +1,11 @@
 Rails.application.routes.draw do
-require 'resque/server'
+  require 'resque/server'
 
-# Of course, you need to substitute your application name here, a block
-# like this probably already exists.
-DinnerDash::Application.routes.draw do
- mount Resque::Server.new, at: "/resque"
-end
-
-
+  DinnerDash::Application.routes.draw do
+   mount Resque::Server.new, at: "/resque"
+  end
 
   match "/404" => "errors#error404", via: [:get, :post, :patch, :delete]
-
 
   resources :charges
   resources :items
@@ -27,7 +22,9 @@ end
   resources :home
 
   namespace :admin do
-    resources :items, :categories, :orders, :order_items, :stores
+    resources :items, :categories, :orders, :order_items
+    resources :stores, except: :patch
+    patch 'stores/:id', to: 'stores#authorize_store', as: "authorize_store"
     get 'dashboard', to: 'dashboard#show'
   end
 
@@ -53,7 +50,6 @@ end
     get  'store/:id',     to: 'seller#show',    as: 'store_show'
     patch 'store/:id',    to: 'seller#update',  as: 'store_update'
   end
-
 
   get 'stores', to: 'store_dashboard#index', as: 'store_dashboard'
 

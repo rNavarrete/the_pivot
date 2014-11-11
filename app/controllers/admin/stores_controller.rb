@@ -35,6 +35,12 @@ class Admin::StoresController < Admin::BaseController
     redirect_to admin_stores_path
   end
 
+  def authorize_store
+    @store = Store.find(params[:id])
+    @store.update(store_params)
+    redirect_to admin_stores_path
+  end
+
   def destroy
     Store.find(params[:id]).destroy
     redirect_to admin_stores_path
