@@ -43,8 +43,8 @@
         </ul>
       </li>
       <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Stores <span class="caret"></span></a>
-        <ul class="dropdown-menu" role="menu">
+        <a href="#" class="dropdown-toggle"  data-toggle="dropdown">Stores <span class="caret"></span></a>
+        <ul class="dropdown-menu" role="menu" id="stores-dropdown">
           <% all_stores.each do |store| %>
             <li><%= link_to store.name, "/#{store.slug}" %></li>
           <% end %>
