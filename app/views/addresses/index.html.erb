@@ -2,70 +2,84 @@
 </br>
 </br>
 </br>
+<div class="container">
+  <h2> Your Addresses </h2>
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#shipping_addresses"
+      role="tab" data-toggle="tab">Shipping Addresses</a></li>
+    <li role="presentation"><a href="#billing_addresses" role="tab" data-toggle="tab">Billing Addresses</a></li>
+  </ul>
 
-<h1> Your Addresses </h1>
-<h2> Billing Addresses </h2>
-<div class="row">
-  <% @billing_addresses.each do |a| %>
-  <div class="col-sm-1 col-md-3 address_buttons">
-         <%= a.street_address %>
-         <%= a.city %>,
-         <%= a.state %>
-         <%= a.zip %>
-         <%= form_tag edit_address_path(a), method: :get do %>
-           <%= hidden_field_tag :address, a.state %>
-           <%= button_tag(:class => "btn btn-primary btn-sm", :id => "cart_button") do %>
-              edit address <span class="glyphicon glyphicon-shopping-cart" ></span>
-           <% end %>
-         <% end %>
-         <br>
-         <%= form_tag address_path(a), method: :delete do %>
-         <%= hidden_field_tag :address, a.id %>
-           <%= button_tag(:class => "btn btn-primary btn-sm", :id => "cart_button") do %>
-              Delete Address <span class="glyphicon glyphicon-shopping-cart" ></span>
-           <% end %>
-         <% end %>
+  <div class="container">
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane fade in active" id="shipping_addresses">
+        <h4 class="page-header">Shipping Addresses</h4>
+        <div class="row">
+          <% @shipping_addresses.each do |a| %>
+          <div class="col-sm-1 col-md-3 address_buttons">
+                 <%= a.street_address %>
+                 <%= a.city %>,
+                 <%= a.state %>
+                 <%= a.zip %>
+                 <%= form_tag edit_address_path(a), method: :get do %>
+                   <%= hidden_field_tag :address, a.state %>
+                   <%= button_tag(:class => "btn btn-danger btn-sm", :id => "cart_button") do %>
+                      edit address <span class="glyphicon glyphicon-shopping-cart" ></span>
+                   <% end %>
+                 <% end %>
+                 <br>
+                 <%= form_tag address_path(a), method: :delete do %>
+                 <%= hidden_field_tag :address, a.id %>
+                   <%= button_tag(:class => "btn btn-danger btn-sm", :id => "cart_button") do %>
+                      Delete Address <span class="glyphicon glyphicon-shopping-cart" ></span>
+                   <% end %>
+                 <% end %>
+              </div>
+            <%end%>
+          </div>
+            <%= form_tag new_address_path, method: :get do %>
+            <%= hidden_field_tag :category, "shipping" %>
+            <%= button_tag(:class => "btn btn-primary btn-sm", :id => "cart_button") do %>
+            New Shipping Address <span class="glyphicon glyphicon-shopping-cart" ></span>
+            <% end %>
+            <% end %>
+
       </div>
-    <%end%>
 
+
+      <div role="tabpanel" class="tab-pane fade in" id="billing_addresses">
+        <h4 class="page-header">Billing Addresses</h4>
+        <div class="row">
+          <% @billing_addresses.each do |a| %>
+          <div class="col-sm-1 col-md-3 address_buttons">
+                 <%= a.street_address %>
+                 <%= a.city %>,
+                 <%= a.state %>
+                 <%= a.zip %>
+                 <%= form_tag edit_address_path(a), method: :get do %>
+                   <%= hidden_field_tag :address, a.state %>
+                   <%= button_tag(:class => "btn btn-danger btn-sm", :id => "cart_button") do %>
+                      edit address <span class="glyphicon glyphicon-shopping-cart" ></span>
+                   <% end %>
+                 <% end %>
+                 <br>
+                 <%= form_tag address_path(a), method: :delete do %>
+                 <%= hidden_field_tag :address, a.id %>
+                   <%= button_tag(:class => "btn btn-danger btn-sm", :id => "cart_button") do %>
+                      Delete Address <span class="glyphicon glyphicon-shopping-cart" ></span>
+                   <% end %>
+                 <% end %>
+              </div>
+            <%end%>
+          </div>
+
+        <%= form_tag new_address_path, method: :get do %>
+        <%= hidden_field_tag :category, "billing" %>
+        <%= button_tag(:class => "btn btn-primary btn-sm", :id => "cart_button") do %>
+        New Billing Address <span class="glyphicon glyphicon-shopping-cart" ></span>
+        <% end %>
+        <% end %>
+
+    </div>
+  </div>
 </div>
-
-<%= form_tag new_address_path, method: :get do %>
-<%= hidden_field_tag :category, "billing" %>
-<%= button_tag(:class => "btn btn-success btn-sm", :id => "cart_button") do %>
-Enter a New Billing Address <span class="glyphicon glyphicon-shopping-cart" ></span>
-<% end %>
-<% end %>
-
-<h2> Shipping Addresses </h2>
-<div class="row">
-  <% @shipping_addresses.each do |a| %>
-  <div class="col-sm-1 col-md-3 address_buttons">
-         <%= a.street_address %>
-         <%= a.city %>,
-         <%= a.state %>
-         <%= a.zip %>
-         <%= form_tag edit_address_path(a), method: :get do %>
-         <%= hidden_field_tag :address, a.id %>
-           <%= button_tag(:class => "btn btn-primary btn-sm", :id => "cart_button") do %>
-              edit address <span class="glyphicon glyphicon-shopping-cart" ></span>
-           <% end %>
-         <% end %>
-         <br>
-         <%= form_tag address_path(a), method: :delete do %>
-         <%= hidden_field_tag :address, a.id %>
-           <%= button_tag(:class => "btn btn-primary btn-sm", :id => "cart_button") do %>
-              Delete Address <span class="glyphicon glyphicon-shopping-cart" ></span>
-           <% end %>
-         <% end %>
-      </div>
-    <%end%>
-
-</div>
-
-<%= form_tag new_address_path, method: :get do %>
-<%= hidden_field_tag :category, "shipping" %>
-<%= button_tag(:class => "btn btn-success btn-sm", :id => "cart_button") do %>
-Enter a New Shipping Address <span class="glyphicon glyphicon-shopping-cart" ></span>
-<% end %>
-<% end %>
