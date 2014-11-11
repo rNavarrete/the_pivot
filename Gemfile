@@ -10,7 +10,6 @@ group :test do
   gem 'launchy'
   gem 'database_cleaner'
   gem "codeclimate-test-reporter", require: nil
-  gem 'faker'
 end
 
 group :development do
@@ -20,7 +19,6 @@ group :development do
   gem 'binding_of_caller'
   gem 'guard-rspec', require: false
   gem 'bullet'
-  gem 'faker'
   gem 'quiet_assets'
 end
 
@@ -49,3 +47,4 @@ gem 'figaro'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'resque'
 gem 'redis'
+gem 'faker'

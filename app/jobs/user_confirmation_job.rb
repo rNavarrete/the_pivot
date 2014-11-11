@@ -1,4 +1,4 @@
-class CreateJob
+class UserConfirmationJob
   @queue = :create
 
   def self.perform(user_id, order_ids)

@@ -10,7 +10,7 @@ describe 'As an Authenticated Business Administrator', type: :feature do
     @item  = Item.create(name: 'Brick',   description: 'Some high quality fishscale', price: 30.00, status: 'active', category_ids: [6, 7], image_file_name: "HimalayanHoodie.jpg", store_id: @store.id, options: {"size" => "L"})
     login_as(@seller)
     visit "/"
-    click_link("Manage Store")
+    click_link("Manage My Store")
   end
 
   describe 'I can access the admin area', type: :feature do
@@ -87,6 +87,7 @@ describe 'As an Authenticated Business Administrator', type: :feature do
         click_button('Update Store')
         visit ('/rae_and_ghosts_wonder_emporium')
       end
+      save_and_open_page
       expect(page).to have_content("Some high quality fishscale")
     end
 

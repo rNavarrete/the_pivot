@@ -60,7 +60,6 @@ item =Item.create([
   #new custom items go right above me!
 ])
 
-
 User.create(full_name: 'Rachel Warbelow', email_address: 'demo+rachel@jumpstartlab.com', password: 'password', screen_name: '', role: 'seller')
 User.create(full_name: 'Jeff', email_address: 'demo+jeff@jumpstartlab.com', password: 'password', screen_name: 'j3', role: 'user')
 User.create(full_name: 'Jorge Tellez', email_address: 'demo+jorge@jumpstartlab.com', password: 'password', screen_name: 'novohispano', role: 'seller')
@@ -72,6 +71,7 @@ User.create(full_name: 'Poser', email_address: 'poser@example.com', password: 'p
 User.create(full_name: 'Couch Guy', email_address: 'couchguy@example.com', password: 'password', screen_name: 'couch_guy', role: 'seller')
 User.create(full_name: 'Rolando', email_address: 'kinglouis.belmont@gmail.com', password: 'password', screen_name: 'rolando', role: 'seller')
 User.create(full_name: 'Christian', email_address: 'idinkyy@gmail.com', password: 'password', screen_name: 'christian', role: 'seller')
+
 #new custom users go right above me!
 
 100.times do |i|
@@ -80,7 +80,7 @@ User.create(full_name: 'Christian', email_address: 'idinkyy@gmail.com', password
     email_address: Faker::Internet.email,
     password: 'password',
     role: 'user'
-    ):
+    )
 end
 
 

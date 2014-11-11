@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 	def create
 		@user = User.new(user_params)
 		if @user.save
-			WelcomeMailer.welcome_email(@user).deliver
+			Resque.enqueue(WelcomeJob, @user.id)
 			redirect_path = session[:return_to] || '/'
 			redirect_to redirect_path, notice: "You Have Successfully Created A New Account!"
 		else
