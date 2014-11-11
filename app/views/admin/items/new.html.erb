@@ -1,6 +1,27 @@
 <div class="container">
   <h1>Create New Item</h1>
-  <%= render 'form' %>
+
+  <%= bootstrap_form_for @item, url: admin_items_path do |form| %>
+    <%= form.text_field :name  %>
+    <%= form.text_area :description %>
+    <%= form.file_field :image %>
+    <%= form.hidden_field :store_id, :value => @store.id %>
+    <%= form.select :status, options_for_select([ 'Active', 'Retired'], 'True') %>
+
+    <b>Categories:</b>
+    <% @categories.each do |category| %>
+      <%= form.label category.name %>
+      <%= check_box_tag "categories[]", category.id, @item.categories.include?(category) ? true : false, class: "category_checkbox" %>
+    <% end %><br/>
+    <b>Options (Separate desired options with commas)</b>:
+      <% default_options.each do |option| %>
+      <%= label_tag(option) %>
+      <%= text_field_tag("options[#{option}]") %>
+    <% end %>
+    <%= form.number_field :price %>
+
+    <%= form.submit %>
+  <% end %>
 
   <div class='btn-group'>
     <%= button_to "Cancel", admin_items_path, method: 'get' %>

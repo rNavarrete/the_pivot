@@ -18,11 +18,10 @@ class Admin::ItemsController < Admin::BaseController
 
   def create
     @categories = Category.all
-    @store = Store.find(params[:item][:store_id])
-    if @store.items.create(item_params)
-      set_item_options(@store.items.last, params)
+    if item = Item.create(item_params)
+      set_item_options(item, params)
       flash[:notice] = "Your item was successfully created"
-      redirect_to admin_store_path(@store)
+      redirect_to admin_store_path(item.store.id)
     else
       flash[:notice] = "Something went wrong."
       render :new
@@ -31,6 +30,7 @@ class Admin::ItemsController < Admin::BaseController
 
   def edit
     @item = Item.find(params[:id])
+    @store = @item.store
     @categories = Category.all
   end
 
@@ -65,6 +65,6 @@ class Admin::ItemsController < Admin::BaseController
   end
 
   def item_params
-    params.require(:item).permit(:name, :description, :price, :image, :category_ids, :status)
+    params.require(:item).permit(:name, :description, :price, :image, :category_ids, :status, :store_id)
   end
 end

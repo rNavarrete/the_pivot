@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   helper_method :all_categories
   helper_method :default_options
   helper_method :has_no_store?
+  helper_method :all_stores
 
   def current_user
     if session[:user_id]
@@ -18,6 +19,10 @@ class ApplicationController < ActionController::Base
 
   def all_categories
     Category.all
+  end
+
+  def all_stores
+    Store.authorized.online
   end
 
   def default_options

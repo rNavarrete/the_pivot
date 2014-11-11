@@ -1,4 +1,6 @@
 //Login Form Nav Bar //
+
+
 #create_store_item_btn{
   float: right;
   margin-top: 16px;
@@ -95,7 +97,7 @@ border: solid 1px rgb(255, 254, 255);
   -moz-border-radius: 20px;
   border-radius: 20px;
   border-color: #545454;
-  min-height: 367px;
+  min-height: 400px;
 }
 
 .grid-item.on {
@@ -377,7 +379,7 @@ border: solid 1px rgb(255, 254, 255);
      border-style:solid;
 
      a{
-       color: white;
+       color: blue;
      }
      td{
        font-family:Arial,sans-serif;
@@ -659,11 +661,20 @@ body {
 }
 
 
-
 #store-name{
 margin-right: 157px;
 }
 
 #email_order_box{
   border-top: 1px solid black;
+}
+
+#users-form {
+  width: 40%;
+  margin: auto;
+}
+
+.centered {
+  width:40%;
+  margin: auto;
 }

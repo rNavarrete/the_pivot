@@ -14,8 +14,9 @@ describe 'As a Public User', type: :feature do
 
     it 'can click on a business name and see store page' do
       visit '/'
-      click_on("men")
-      click_on("Gasp Jeans")
+      within("#stores-dropdown") do
+        first(:link).click
+      end
       expect(page).to have_css("#store-name")
     end
 

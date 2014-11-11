@@ -119,10 +119,10 @@ describe 'As an Authenticated Customer', type: :feature do
       within(first_item) do
         first(:link).click
       end
-      page.select "Fat", :from => "options_colors"
+      page.select "Red", :from => "options_colors"
       click_on("add to cart")
       click_on("cart-bttn")
-      expect(page).to have_content("Fat")
+      expect(page).to have_content("Red")
 		end
 	end
 
