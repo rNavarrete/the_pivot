@@ -17,7 +17,7 @@
         <div class="row">
           <% @shipping_addresses.each do |a| %>
           <div class="col-sm-1 col-md-3 address_buttons">
-                 <%= a.street_address %>
+                 <%= a.street_address %> </br>
                  <%= a.city %>,
                  <%= a.state %>
                  <%= a.zip %>
@@ -52,7 +52,7 @@
         <div class="row">
           <% @billing_addresses.each do |a| %>
           <div class="col-sm-1 col-md-3 address_buttons">
-                 <%= a.street_address %>
+                 <%= a.street_address %>  </br>
                  <%= a.city %>,
                  <%= a.state %>
                  <%= a.zip %>
