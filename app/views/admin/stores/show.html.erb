@@ -5,11 +5,15 @@
     </div>
     <div class="store-name">
       <h2 id="store-name"> <%= @store.name.titleize %> </h2>
-      <%= link_to("Create a New Item", {:controller => "admin/items", :action => "new", :store_id => @store.id}) %>
+
     </div>
   </div>
   <div class="store-description">
     <%= @store.description %>
+    <div class="text-right">
+      <%= link_to("Edit Store Details", edit_admin_store_path(@store), class: "btn btn-sm btn-success") %>
+      <%= link_to("Create a New Item", {:controller => "admin/items", :action => "new", :store_id => @store.id}, class: "btn btn-sm btn-primary") %>
+    </div>
   </div>
   <div class="store-items-container">
     <div id="masonry-grid">
