@@ -37,7 +37,9 @@ class Admin::StoresController < Admin::BaseController
 
   def authorize_store
     @store = Store.find(params[:id])
-    @store.update(store_params)
+    if @store.update(store_params)
+      Resque.enqueue(StoreConfirmationJob, @store.user.id)
+    end
     redirect_to admin_stores_path
   end
 
