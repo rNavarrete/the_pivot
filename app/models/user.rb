@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   has_many :addresses
   has_many :shipping_addresses
   has_many :billing_addresses
+  has_many :stores, through: :store_managers
+  has_many :store_managers
+
 
   validates :full_name, presence: true
 
