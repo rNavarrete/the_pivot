@@ -7,11 +7,21 @@
     <li role="presentation"><a href="#create_item" role="tab" data-toggle="tab">Create New Item</a></li>
     <li role="presentation"><a href="#edit_items" role="tab" data-toggle="tab">Edit Items</a></li>
     <li role="presentation"><a href="#orders" role="tab" data-toggle="tab">Orders</a></li>
+    <li role="presentation"><a href="#managers" role="tab" data-toggle="tab">Store Managers</a></li>
+
   </ul>
 
   <div class="container">
     <!-- Tab panes -->
     <div class="tab-content">
+      <div role="tabpanel" class="tab-pane fade in" id="managers">
+        <h4 class="page-header">Add Store Managers</h4>
+        <%= form_for @store, url: {action: "update"} do |f| %>
+         <%= f.text_field (:email) %>
+         <%= submit_tag("Add Manager") %>
+        <% end %>
+      </div>
+
       <div role="tabpanel" class="tab-pane fade in active" id="store_settings">
         <h4 class="page-header">Edit Store Settings</h4>
         <%= bootstrap_form_for @store, url: {action: "update"} do |f| %>

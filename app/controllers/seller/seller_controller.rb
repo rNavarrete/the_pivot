@@ -23,6 +23,7 @@ class Seller::SellerController < ApplicationController
 	end
 
 	def update
+		raise "OMG"
 		@store = Store.find(params[:id])
 		if @store.update(store_params)
  			flash[:notice] = "You're changes were sucessfully saved."
