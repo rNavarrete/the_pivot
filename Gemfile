@@ -21,6 +21,7 @@ group :development do
   gem 'guard-rspec', require: false
   gem 'bullet'
   gem 'faker'
+  gem 'quiet_assets'
 end
 
 gem 'cancancan', '~> 1.9'
@@ -46,3 +47,5 @@ gem 'aws-sdk', '~> 1.54.0'
 gem 'fog'
 gem 'figaro'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+gem 'resque'
+gem 'redis'

@@ -58,12 +58,24 @@ config.paperclip_defaults = {
    }
 
 
- config.action_mailer.smtp_settings = {
-   address:              'smtp.gmail.com',
-   port:                 587,
-   domain:               'my_app.com',
-   user_name:            ENV['GMAIL_USERNAME'],
-   password:             ENV['GMAIL_PASSWORD'],
-   authentication:       'plain',
-   enable_starttls_auto: true  }
+ # config.action_mailer.smtp_settings = {
+ #   address:              'smtp.gmail.com',
+ #   port:                 587,
+ #   domain:               'my_app.com',
+ #   user_name:            ENV['GMAIL_USERNAME'],
+ #   password:             ENV['GMAIL_PASSWORD'],
+ #   authentication:       'plain',
+ #   enable_starttls_auto: true  }
+
+  ENV["REDISTOGO_URL"] = 'redis://redistogo:497514ed7473db204dee71df72425b9a@greeneye.redistogo.com:11431/'
+
+  ActionMailer::Base.smtp_settings = {
+    :user_name => ENV['SENDGRID_USERNAME'],
+    :password => ENV['SENDGRID_PASSWORD'],
+    :domain => 'yourdomain.com',
+    :address => 'smtp.sendgrid.net',
+    :port => 587,
+    :authentication => :plain,
+    :enable_starttls_auto => true
+  }
  end

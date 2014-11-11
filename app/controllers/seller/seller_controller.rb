@@ -23,16 +23,21 @@ class Seller::SellerController < ApplicationController
 	end
 
 	def update
-		raise "OMG"
 		@store = Store.find(params[:id])
 		if @store.update(store_params)
+			@store.manager = User.where(email: params[:email]).first
  			flash[:notice] = "You're changes were sucessfully saved."
-
 			redirect_to seller_dashboard_path
 		else
 			flash[:notice] = "Unable to save your changes."
 			redirect_to seller_dashboard_path
 		end
+	end
+
+	def add_manager
+		@store = Store.find(params[:id])
+		@store.users << User.where(:email_address => params[:email]).first
+		raise "OMG"
 	end
 
 	private
@@ -49,4 +54,6 @@ class Seller::SellerController < ApplicationController
     	flash[:notice] = "This isn't your store."
     end
   end
+
+
 end

@@ -16,7 +16,7 @@
     <div class="tab-content">
       <div role="tabpanel" class="tab-pane fade in" id="managers">
         <h4 class="page-header">Add Store Managers</h4>
-        <%= form_tag seller_store_update_path(@store.id), method: "PATCH" do %>
+        <%= form_tag seller_store_add_manager_path(@store), method: "PATCH" do %>
          <%= text_field_tag (:email) %>
          <%= submit_tag("Add Manager") %>
         <% end %>

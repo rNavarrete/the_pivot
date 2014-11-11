@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
-  match "/404" => "errors#error404", via: [ :get, :post, :patch, :delete ]
+require 'resque/server'
+
+# Of course, you need to substitute your application name here, a block
+# like this probably already exists.
+DinnerDash::Application.routes.draw do
+ mount Resque::Server.new, at: "/resque"
+end
+
+
+
+  match "/404" => "errors#error404", via: [:get, :post, :patch, :delete]
 
 
   resources :charges
@@ -42,6 +52,7 @@ Rails.application.routes.draw do
     get  'store/:id/edit', to: 'seller#edit',   as: 'store_edit'
     get  'store/:id',     to: 'seller#show',    as: 'store_show'
     patch 'store/:id',    to: 'seller#update',  as: 'store_update'
+    patch 'store/add_manager/:id',    to: 'seller#add_manager',  as: 'store_add_manager'
   end
 
 
