@@ -50,13 +50,13 @@ item =Item.create([
   {name: 'L.A Native Navajo Jacket', description: 'Hand Crafted, Inspired by Native American Art', price: 200.00, status: 'active', category_ids: [1,4], image_file_name: 'jacket6.jpg', sizes: "S,M,L,XL", colors: "Orange", store_id: 9},
   {name: 'American Hegemony', description: 'One Half Zen, the Other Half Bad Ass. ', price: 250.00, status: 'active', category_ids: [1,4], image_file_name: 'eagle_jacket.jpg', sizes: "S,M,L,XL", colors: "Red, Yellow, Green", store_id: 10},
   {name: 'Rescue Ranger', description: 'Inspired by Indiana Jones and Chip and Dale ', price: 449.00, status: 'active', category_ids: [1,4], image_file_name: 'hm_jackt.jpg', sizes: "S,M,L,XL", colors: "Red, Yellow, Green", store_id: 10},
-  {name: 'Human Made T-Shirt 1', description: 'Human Made T', price: 49.00, status: 'active', category_ids: [1,3], image_file_name: 'hm_tshirt1.jpg', sizes: "S,M,L,XL", colors: "White", store_id: 10},
-  {name: 'Human Made T-Shirt 2', description: 'Human Made T', price: 49.00, status: 'active', category_ids: [1,3], image_file_name: 'hm_tshirt2.jpg', sizes: "S,M,L,XL", colors: "White", store_id: 10},
-  {name: 'Human Made T-Shirt 3', description: 'Human Made T', price: 49.00, status: 'active', category_ids: [1,3], image_file_name: 'hm_tshirt3.jpg', sizes: "S,M,L,XL", colors: "White", store_id: 10},
-  {name: 'Human Made Jacket 1', description: 'Human Made Jacket', price: 49.00, status: 'active', category_ids: [1,4], image_file_name: 'plaid_jacket1.jpg', sizes: "S,M,L,XL", colors: "Brown", store_id: 10},
-  {name: 'Human Made Jacket 2', description: 'Human Made Jacket 2', price: 49.00, status: 'active', category_ids: [1,4], image_file_name: 'plaid_jacket2.jpg', sizes: "S,M,L,XL", colors: "Green", store_id: 10},
-  {name: 'Human Made Jacket 2', description: 'Human Made Jacket 2', price: 49.00, status: 'active', category_ids: [1,4], image_file_name: 'plaid_jacket2.jpg', sizes: "S,M,L,XL", colors: "Green", store_id: 10},
-  {name: 'Human Made Shirt', description: 'Human Made Shirt', price: 99.00, status: 'active', category_ids: [1,3], image_file_name: 'plaid_jacket2.jpg', sizes: "S,M,L,XL", colors: "Red", store_id: 10}
+  {name: 'Human Made T-Shirt 1', description: 'Human Made T, limited edition only 25 made', price: 49.00, status: 'active', category_ids: [1,3], image_file_name: 'hm_tshirt1.jpg', sizes: "S,M,L,XL", colors: "White", store_id: 10},
+  {name: 'Human Made T-Shirt 2', description: 'Human Made T, limited edition only 25 made', price: 49.00, status: 'active', category_ids: [1,3], image_file_name: 'hm_tshirt2.jpg', sizes: "S,M,L,XL", colors: "White", store_id: 10},
+  {name: 'Human Made T-Shirt 3', description: 'Human Made T, limited edition only 25 made', price: 49.00, status: 'active', category_ids: [1,3], image_file_name: 'hm_tshirt3.jpg', sizes: "S,M,L,XL", colors: "White", store_id: 10},
+  {name: 'Human Made Jacket 1', description: 'Human Made Jacket, limited edition only 25 made', price: 49.00, status: 'active', category_ids: [1,4], image_file_name: 'plaid_jacket1.jpg', sizes: "S,M,L,XL", colors: "Brown", store_id: 10},
+  {name: 'Human Made Jacket 2', description: 'Human Made Jacket 2, limited edition only 25 made', price: 49.00, status: 'active', category_ids: [1,4], image_file_name: 'plaid_jacket2.jpg', sizes: "S,M,L,XL", colors: "Green", store_id: 10},
+  {name: 'Human Made Jacket 2', description: 'Human Made Jacket 2, limited edition only 25 made', price: 49.00, status: 'active', category_ids: [1,4], image_file_name: 'plaid_jacket2.jpg', sizes: "S,M,L,XL", colors: "Green", store_id: 10},
+  {name: 'Human Made Shirt', description: 'Human Made Shirt, limited edition only 25 made', price: 99.00, status: 'active', category_ids: [1,3], image_file_name: 'plaid_jacket2.jpg', sizes: "S,M,L,XL", colors: "Red", store_id: 10}
   #new custom items go right above me!
 ])
 
