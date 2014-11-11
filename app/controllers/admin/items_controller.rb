@@ -48,7 +48,7 @@ class Admin::ItemsController < Admin::BaseController
     @categories = Category.all
     @item = Item.new
     @store = Store.find(params[:store_id])
-  end
+    end
 
   private
 
