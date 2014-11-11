@@ -30,6 +30,7 @@ class Admin::ItemsController < Admin::BaseController
 
   def edit
     @item = Item.find(params[:id])
+    @store = @item.store
     @categories = Category.all
   end
 
