@@ -12,7 +12,10 @@ class OrdersController < ApplicationController
 
       totals = orders.map {|order| order.total}
       order_total = totals.reduce(:+)
-      Resque.enqueue(CreateJob, [current_user, orders])
+
+      order_ids = orders.map {|order| order.id}
+
+      Resque.enqueue(CreateJob, current_user.id, order_ids)
 
       session[:cart_items] = {}
       session[:order_total] = order_total
