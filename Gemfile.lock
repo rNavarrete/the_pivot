@@ -333,6 +333,7 @@ DEPENDENCIES
   quiet_assets
   rails (= 4.1.6)
   rails_12factor
+  redis
   resque
   rspec-rails
   sass-rails (~> 4.0.3)

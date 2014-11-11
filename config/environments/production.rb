@@ -67,8 +67,9 @@ config.paperclip_defaults = {
  #   authentication:       'plain',
  #   enable_starttls_auto: true  }
 
+  ENV["REDISTOGO_URL"] = 'redis://redistogo:497514ed7473db204dee71df72425b9a@greeneye.redistogo.com:11431/'
 
-   ActionMailer::Base.smtp_settings = {
+  ActionMailer::Base.smtp_settings = {
     :user_name => ENV['SENDGRID_USERNAME'],
     :password => ENV['SENDGRID_PASSWORD'],
     :domain => 'yourdomain.com',
