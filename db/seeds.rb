@@ -70,6 +70,7 @@ User.create(full_name: 'Hot Lava', email_address: 'lava@example.com', password: 
 User.create(full_name: 'Slave Driver', email_address: 'slaves@example.com', password: 'password', screen_name: 'slaves', role: 'seller')
 User.create(full_name: 'Poser', email_address: 'poser@example.com', password: 'password', screen_name: 'poser', role: 'seller')
 User.create(full_name: 'Couch Guy', email_address: 'couchguy@example.com', password: 'password', screen_name: 'couch_guy', role: 'seller')
+
 #new custom users go right above me!
 
 100.times do |i|
