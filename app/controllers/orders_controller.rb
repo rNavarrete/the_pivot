@@ -9,10 +9,11 @@ class OrdersController < ApplicationController
       items_by_store_id = session[:cart_items].group_by{|item| Item.find(item[0].to_i).store_id}
       order_creator = OrderCreator.new(items_by_store_id, session[:user_id], params[:order]["shipping_address_id"], params[:order]["billing_address_id"])
       orders = order_creator.process_orders
-      
+
       totals = orders.map {|order| order.total}
       order_total = totals.reduce(:+)
-      ConfirmationMailer.confirmation_email(current_user, orders).deliver
+      Resque.enqueue(CreateJob, [current_user, orders])
+
       session[:cart_items] = {}
       session[:order_total] = order_total
       redirect_to new_charge_path
