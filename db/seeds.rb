@@ -22,7 +22,7 @@ Store.create(name: 'Abidas', description: 'So close to the real thing.', image_f
 Store.create(name: 'Patagucci', description: 'Overengineered sophistication for your workday', image_file_name: 'patagucci.jpg', user_id: 8, slug: "patagucci", authorized:true)
 Store.create(name: 'Psych', description: "Look like an athlete, even if you're not", image_file_name: 'psych.jpg', user_id: 9, slug: "psych", authorized:true)
 Store.create(name: 'Queensbridge', description: "Hand Crafted Outerwear", image_file_name: 'bauhus.jpg', user_id: 10, slug: "queensbridge", authorized:true)
-Store.create(name: 'Human Made', description: "Gears for Futuristic Teenagers", image_file_name: 'bauhus.jpg', user_id: 10, slug: "queensbridge", authorized:true)
+Store.create(name: 'Human Made', description: "Gears for Futuristic Teenagers", image_file_name: 'human_made_background.jpg', user_id: 11, slug: "humanmade", authorized:true)
 
 #new custom stores go right above me!
 
@@ -56,7 +56,7 @@ item =Item.create([
   {name: 'Human Made Jacket 1', description: 'Human Made Jacket', price: 49.00, status: 'active', category_ids: [1,4], image_file_name: 'plaid_jacket1.jpg', sizes: "S,M,L,XL", colors: "Brown", store_id: 10},
   {name: 'Human Made Jacket 2', description: 'Human Made Jacket 2', price: 49.00, status: 'active', category_ids: [1,4], image_file_name: 'plaid_jacket2.jpg', sizes: "S,M,L,XL", colors: "Green", store_id: 10},
   {name: 'Human Made Jacket 2', description: 'Human Made Jacket 2', price: 49.00, status: 'active', category_ids: [1,4], image_file_name: 'plaid_jacket2.jpg', sizes: "S,M,L,XL", colors: "Green", store_id: 10},
-  {name: 'Human Made Shirt', description: 'Human Made Shirt', price: 99.00, status: 'active', category_ids: [1,3], image_file_name: 'plaid_jacket2.jpg', sizes: "S,M,L,XL", colors: "Red", store_id: 10},
+  {name: 'Human Made Shirt', description: 'Human Made Shirt', price: 99.00, status: 'active', category_ids: [1,3], image_file_name: 'plaid_jacket2.jpg', sizes: "S,M,L,XL", colors: "Red", store_id: 10}
   #new custom items go right above me!
 ])
 
