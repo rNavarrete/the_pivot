@@ -59,7 +59,18 @@ item =Item.create([
   {name: 'Human Made Shirt', description: 'Human Made Shirt, limited edition only 25 made', price: 99.00, status: 'active', category_ids: [1,3], image_file_name: 'plaid_jacket2.jpg', sizes: "S,M,L,XL", colors: "Red", store_id: 10}
   #new custom items go right above me!
 ])
-
+100.times do
+  item = Item.create!(name:         'Lorem Ipsum',
+                      description:  'Lorem Ipsum Lorem Ipsum Lorem IpsumyLorem Ipsum Lorem Ipsum',
+                      price: (1..10000).to_a.sample,
+                      status: 'active',
+                      category_ids: (1..14).to_a.sample((1..4).to_a.sample),
+                      image_file_name: "Default_Image.jpg",
+                      sizes: "S,M,L",
+                      colors: "Red,Blue,Green",
+                      store_id: (1..10).to_a.sample
+                      )
+end
 
 User.create(full_name: 'Rachel Warbelow', email_address: 'demo+rachel@jumpstartlab.com', password: 'password', screen_name: '', role: 'seller')
 User.create(full_name: 'Jeff', email_address: 'demo+jeff@jumpstartlab.com', password: 'password', screen_name: 'j3', role: 'user')
