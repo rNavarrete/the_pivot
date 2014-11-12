@@ -19,8 +19,7 @@ class Seller::SellerController < ApplicationController
 			@categories = Category.all
 			@item = Item.new
 		else
-			flash[:notice] = "This isn't your store."
-			redirect_to root_path
+9			redirect_to root_path
 		end
 	end
 
@@ -64,11 +63,11 @@ class Seller::SellerController < ApplicationController
 	end
 
 	def store_owner?(store)
-		current_user.is? :admin or my_store?(store) or store_managers(store).include?(current_user)
+		my_store?(store) or store_managers(store).include?(current_user) or current_user.is? :admin
   end
 
   def my_store?(store)
-  	Store.where(:user_id => current_user.id).include?(store)
+  	current_user.id == store.user_id
   end
 
   def store_managers(store)

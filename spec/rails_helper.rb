@@ -120,6 +120,28 @@ module MyHelpers
     click_on ("Create Store")
   end
 
+
+  def create_a_store_manager
+    @seller = user_with(email_address: "ghostface@sholin.com", role: "seller")
+    @seller.save
+    @store = Store.create(authorized: "true", name: "corner store", description: "Cooking up that incredible", user_id: @seller.id, slug: "ghosts_corner_store")
+    @item  = Item.create(name: 'Brick',   description: 'Some high quality fishscale', price: 30.00, status: 'active', category_ids: [6, 7], image_file_name: "HimalayanHoodie.jpg", store_id: @store.id, options: {"size" => "L"})
+    @manager = user_with(full_name: "Raekwon", email_address: "thechef@sholin.com", role: "seller")
+    @manager.save
+    login_as(@seller)
+    visit "/"
+    click_link("Manage My Store")
+    within(:css, "#managers") do
+      fill_in("email", with: "thechef@sholin.com" )
+      click_button("Add Manager")
+    end
+    click_link("Logout")
+    login_as(@manager)
+    within(:css, "#navbar-login-form") do
+      click_link("corner store")
+    end
+  end
+
   def add_item_to_cart
 
   end

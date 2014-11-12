@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   has_many :billing_addresses
   has_many :stores, through: :store_managers
   has_many :store_managers
+  has_one :store
 
 
   validates :full_name, presence: true

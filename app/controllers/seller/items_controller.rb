@@ -18,11 +18,12 @@ class Seller::ItemsController < ApplicationController
 
   def create
     @categories = Category.all
-    @store = Store.find_by(:user_id => current_user.id)
-    if @store.items.create(item_params)
+    @store = Store.find_by(params[:store_id])
+
+    if authorized_to_create?(@store) && @store.items.create(item_params)
       set_item_options(@store.items.last, params)
       flash[:notice] = "Your item was successfully created"
-      redirect_to seller_dashboard_path
+      redirect_to seller_store_edit_path(@store.id)
     else
       flash[:notice] = "Something went wrong."
       redirect_to seller_store_edit_path(@store.id)
@@ -77,5 +78,9 @@ class Seller::ItemsController < ApplicationController
         item.id == Item.find(params_id).id
       end
     end
+  end
+
+  def authorized_to_create?(store)
+    current_user.id == store.user_id || store.users.include?(current_user)
   end
 end

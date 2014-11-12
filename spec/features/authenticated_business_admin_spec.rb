@@ -1,4 +1,4 @@
- require 'rails_helper'
+require 'rails_helper'
 require 'capybara/rails'
 require 'capybara/rspec'
 
@@ -87,7 +87,6 @@ describe 'As an Authenticated Business Administrator', type: :feature do
         click_button('Update Store')
         visit ('/rae_and_ghosts_wonder_emporium')
       end
-      save_and_open_page
       expect(page).to have_content("Some high quality fishscale")
     end
 
@@ -101,9 +100,30 @@ describe 'As an Authenticated Business Administrator', type: :feature do
   end
 
   describe 'I can add or remove other admins from the business', type: :feature do
-    it 'can delete fellow store admins'
+    before :each do
+    @manager = user_with(full_name: "Raekwon", email_address: "thechef@sholin.com", role: "seller")
+    @manager.save
+    end
+    it 'can add fellow store admins' do
+      within(:css, "#managers") do
+        fill_in("email", with: "thechef@sholin.com" )
+        click_button("Add Manager")
+      end
+      expect(page).to have_content("Raekwon")
+    end
+
+    it 'can delete fellow store admins' do
+      within(:css, "#managers") do
+        fill_in("email", with: "thechef@sholin.com" )
+        click_button("Add Manager")
+      end
+      within(:css, "#remove_manager") do
+        fill_in("email", with: "thechef@sholin.com" )
+        click_button("Remove Manager")
+      end
+      expect(page).to_not have_content("Raekwon")
+    end
+
     it 'shouldn\'t have less than one site administrator'
-    it 'can add fellow store admins'
-    it 'can perform the admin actions that were available in dinner dash (add/edit items etc)'
   end
 end
