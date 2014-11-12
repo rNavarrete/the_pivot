@@ -14,18 +14,19 @@ class Seller::SellerController < ApplicationController
 	end
 
 	def edit
-		@categories = Category.all
 		@store = Store.find(params[:id])
 		if store_owner?(@store)
-		else
+			@categories = Category.all
 			@item = Item.new
+		else
+			flash[:notice] = "This isn't your store."
+			redirect_to root_path
 		end
 	end
 
 	def update
 		@store = Store.find(params[:id])
 		if @store.update(store_params)
-			@store.manager = User.where(email: params[:email]).first
  			flash[:notice] = "You're changes were sucessfully saved."
 			redirect_to seller_dashboard_path
 		else
@@ -37,7 +38,34 @@ class Seller::SellerController < ApplicationController
 	def add_manager
 		@store = Store.find(params[:id])
 		user = User.where(:email_address => params[:email]).first
-		if @store.users.include?(user)
+		add_user_as_manager(@store, user)
+	end
+
+	def remove_manager
+		@store = Store.find(params[:id])
+		@store.users.where(:user_id => params[:user_id] )
+	end
+
+	private
+
+	def store_params
+		params.require(:store).permit(:name, :description, :image, :slug)
+	end
+
+	def store_owner?(store)
+		current_user.is? :admin or my_store?(store) or store_managers(store).include?(current_user)
+  end
+
+  def my_store?(store)
+  	Store.where(:user_id => current_user.id).include?(store)
+  end
+
+  def store_managers(store)
+  	store.users
+  end
+
+  def add_user_as_manager(store, user)
+  	if @store.users.include?(user)
 			redirect_to :back
 			flash[:notice] = "User is already a manager."
 		elsif User.all.include?(user)
@@ -48,23 +76,5 @@ class Seller::SellerController < ApplicationController
 			redirect_to :back
 			flash[:notice] = "Unable to find this user"
 		end
-	end
-
-	private
-
-	def store_params
-		params.require(:store).permit(:name, :description, :image, :slug)
-	end
-
-	def store_owner?(store)
-		stores = Store.where(:user_id => current_user.id)
-		store_managers = store.users
-		if stores.include?(store) or current_user.is? :admin or store_managers.include?(current_user)
-		else
-    	redirect_to root_path
-    	flash[:notice] = "This isn't your store."
-    end
   end
-
-
 end

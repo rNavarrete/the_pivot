@@ -15,23 +15,49 @@
     <!-- Tab panes -->
     <div class="tab-content">
       <div role="tabpanel" class="tab-pane fade in" id="managers">
+
         <h4 class="page-header">Add Store Managers</h4>
         <%= form_tag seller_store_add_manager_path(@store), method: "PATCH" do %>
          <%= text_field_tag (:email) %>
          <%= submit_tag("Add Manager") %>
         <% end %>
+
+        <% if  @store.user_id == current_user.id or current_user.is? :admin %>
+          <h4 class="page-header">Manage Store Managers</h4>
+          <div class="edit-items-container">
+            <h4 class="page-header">Remove Store Managers</h4>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Full Name</th>
+                  <th>Email</th>
+                  <th>Screen Name</th>
+                </tr>
+              </thead>
+              <tbody id="admin_categories_edit_table">
+                <% @store.users.each do |user| %>
+                  <tr>
+                    <td><span class="item_title"><%= user.full_name %><span></td>
+                    <td><%= user.email_address %></td>
+                    <td><%= link_to "Remove", seller_store_add_manager_path(@store.id, user.id), class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        <% end %>
       </div>
+
 
       <div role="tabpanel" class="tab-pane fade in active" id="store_settings">
         <h4 class="page-header">Edit Store Settings</h4>
         <%= bootstrap_form_for @store, url: {action: "update"} do |f| %>
-        <%= f.text_field :name %><br />
-        <%= f.text_area  :description %><br />
-        <%= f.text_field  :slug %><br />
-        <%= image_tag @store.image(:medium) %>
-        <%= f.file_field :image %><br />
-
-        <%= f.submit class: "btn btn-success" %>
+          <%= f.text_field :name %><br />
+          <%= f.text_area  :description %><br />
+          <%= f.text_field  :slug %><br />
+          <%= image_tag @store.image(:medium) %>
+          <%= f.file_field :image %><br />
+          <%= f.submit class: "btn btn-success" %>
         <% end %>
       </div>
       <div role="tabpanel" class="tab-pane fade" id="edit_items">
@@ -48,13 +74,13 @@
             </thead>
             <tbody id="admin_categories_edit_table">
               <% @store.items.each do |item| %>
-              <tr>
-                <td><span class="item_title"><%= item.name %><span></td>
-                <td><%= item.description %></td>
-                <td><%= item.status %></td>
-                <td><%= link_to 'Edit', edit_seller_item_path(item), class: "btn btn-primary" %></td>
-                <td><%= link_to 'Destroy', seller_item_path(item), class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
-              </tr>
+                <tr>
+                  <td><span class="item_title"><%= item.name %><span></td>
+                  <td><%= item.description %></td>
+                  <td><%= item.status %></td>
+                  <td><%= link_to 'Edit', edit_seller_item_path(item), class: "btn btn-primary" %></td>
+                  <td><%= link_to 'Destroy', seller_item_path(item), class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                </tr>
               <% end %>
             </tbody>
           </table>

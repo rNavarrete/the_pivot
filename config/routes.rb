@@ -45,11 +45,12 @@ Rails.application.routes.draw do
 
   namespace :seller do
     resources :items, :orders
-    get  'stores',        to: 'seller#index',   as: 'dashboard'
-    get  'store/:id/edit', to: 'seller#edit',   as: 'store_edit'
-    get  'store/:id',     to: 'seller#show',    as: 'store_show'
-    patch 'store/:id',    to: 'seller#update',  as: 'store_update'
-    patch 'store/add_manager/:id',    to: 'seller#add_manager',  as: 'store_add_manager'
+    get  'stores',                    to: 'seller#index',           as: 'dashboard'
+    get  'store/:id/edit',            to: 'seller#edit',            as: 'store_edit'
+    get  'store/:id',                 to: 'seller#show',            as: 'store_show'
+    patch 'store/:id',                to: 'seller#update',          as: 'store_update'
+    patch 'store/add_manager/:id',    to: 'seller#add_manager',     as: 'store_add_manager'
+    patch 'store/remove_manager/:id', to: 'seller#remove_manager',  as: 'store_remove_manager'
   end
 
   get 'stores', to: 'store_dashboard#index', as: 'store_dashboard'
