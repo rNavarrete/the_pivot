@@ -66,7 +66,7 @@ item =Item.create([
                       price: (1..10000).to_a.sample,
                       status: 'active',
                       category_ids: (1..14).to_a.sample((1..4).to_a.sample),
-                      image_file_name: "Default_Image.jpg",
+                      image_file_name: "manequin1.jpg",
                       sizes: "S,M,L",
                       colors: "Red,Blue,Green",
                       store_id: (1..10).to_a.sample

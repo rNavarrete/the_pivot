@@ -1,5 +1,3 @@
-# if !Rails.env.test?
-	uri = URI.parse(ENV["REDISTOGO_URL"])
-	REDIS = Redis.new(:url => ENV['REDISTOGO_URL'])
-	Resque.redis = REDIS
-# end
+if ENV["REDISCLOUD_URL"]
+  $redis = Resque.redis = Redis.new(:url => ENV["REDISCLOUD_URL"])
+end
