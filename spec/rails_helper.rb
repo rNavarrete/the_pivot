@@ -120,6 +120,7 @@ module MyHelpers
     click_on ("Create Store")
   end
 
+
   def add_item_to_cart
 
   end
