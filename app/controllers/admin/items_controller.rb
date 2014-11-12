@@ -1,7 +1,7 @@
 
 class Admin::ItemsController < Admin::BaseController
   def index
-    # Quering stores so I can have items organized by store
+    # Queuing stores so I can have items organized by store
     @stores = Store.where(:online => true, :authorized => true)
     @categories = Category.all
   end
