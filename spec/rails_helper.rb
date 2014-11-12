@@ -27,7 +27,6 @@ module MyHelpers
     page.select "Colorado", :from => "State"
     page.fill_in('Zip', with: '80228')
     page.click_button('Create Address')
-    page.click_button('submit order')
   end
 
   def user_with(overrides = {})
