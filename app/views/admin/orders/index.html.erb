@@ -7,10 +7,6 @@
     <li role="presentation"><a href="#canceled_orders" role="tab" data-toggle="tab">Canceled Orders</a></li>
     <li role="presentation"><a href="#ordered" role="tab" data-toggle="tab">Pending</a></li>
   </ul>
-
-
-
-
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane fade in active" id="paid_orders">
       <h3 class="page-header">Paid Orders (<%= "#{@paid_orders.count}" %>)</h3>
@@ -41,7 +37,6 @@
         </tbody>
       </table>
     </div>
-
     <div role="tabpanel" class="tab-pane fade active" id="completed_orders">
       <h3 class="page-header">Completed Orders(<%="#{@completed_orders.count}"%>)</h3>
       <table class='table table-striped'>
@@ -71,7 +66,6 @@
         </tbody>
       </table>
     </div>
-
     <div role="tabpanel" class="tab-pane fade" id="canceled_orders">
       <h3 class="page-header">Canceled Orders(<%="#{@canceled_orders.count}"%>)</h3>
       <table class='table table-striped'>
