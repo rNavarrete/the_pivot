@@ -6,7 +6,7 @@
     <%= form.hidden_field :store_id, :value => @store.id %>
     <%= form.select :status, options_for_select([ 'Active', 'Retired'], 'True') %>
 
-    <b>Categories!!!:</b>
+    <b>Categories:</b>
   <% @categories.each do |category| %>
     <%= form.label category.name %>
     <%= check_box_tag "categories[]", category.id, @item.categories.include?(category) ? true : false, class: "category_checkbox" %>
