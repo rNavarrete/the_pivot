@@ -67,7 +67,8 @@ config.paperclip_defaults = {
  #   enable_starttls_auto: true  }
 
   ENV["REDISTOGO_URL"] = 'redis://redistogo:497514ed7473db204dee71df72425b9a@greeneye.redistogo.com:11431/'
-  ENV["REDISCLOUD_URL"] = 'pub-redis-14758.us-east-1-2.5.ec2.garantiadata.com:14758'
+  ENV["REDISCLOUD_URL"] = 'redis://pub-redis-14758.us-east-1-2.5.ec2.garantiadata.com:14758'
+
   ActionMailer::Base.smtp_settings = {
     :user_name => ENV['SENDGRID_USERNAME'],
     :password => ENV['SENDGRID_PASSWORD'],
