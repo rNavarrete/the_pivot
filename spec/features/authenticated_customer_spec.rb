@@ -105,16 +105,16 @@ describe 'As an Authenticated Customer', type: :feature do
       within(first_item) do
         first(:link).click
       end
-      page.select "XL", :from => "options_sizes"
+      page.select "54cm", :from => "options_sizes"
       click_on("add to cart")
       click_on("cart-bttn")
-      expect(page).to have_content("XL")
+      expect(page).to have_content("54cm")
 		end
 
 		it 'can select color of item' do
 			visit '/'
-      click_on("men")
-      click_on("Mens")
+      click_on("Women")
+      click_on("Womens Dresses")
       first_item = first(:css, '.grid-item')
       within(first_item) do
         first(:link).click

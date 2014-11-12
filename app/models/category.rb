@@ -4,7 +4,7 @@ class Category < ActiveRecord::Base
   has_many :items, through: :category_items
   validates :name, presence: :true
 
-  default_scope { order('position ASC')}
+  default_scope { order('id ASC')}
 
   def active_items
     items.where(:status => "active")
