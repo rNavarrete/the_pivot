@@ -7,21 +7,61 @@
     <li role="presentation"><a href="#create_item" role="tab" data-toggle="tab">Create New Item</a></li>
     <li role="presentation"><a href="#edit_items" role="tab" data-toggle="tab">Edit Items</a></li>
     <li role="presentation"><a href="#orders" role="tab" data-toggle="tab">Orders</a></li>
+    <% if  @store.user_id == current_user.id or current_user.is? :admin %>
+    <li role="presentation"><a href="#managers" role="tab" data-toggle="tab">Store Managers</a></li>
+    <% end %>
+
+
   </ul>
 
   <div class="container">
     <!-- Tab panes -->
     <div class="tab-content">
+
+      <div role="tabpanel" class="tab-pane fade in" id="managers">
+
+          <h4 class="page-header">Add Store Managers</h4>
+
+          <%= form_tag seller_store_add_manager_path(@store), method: "PATCH" do %>
+          <%= text_field_tag (:email), nil, placeholder: "Manager's Email" %>
+          <%= submit_tag("Add Manager") %>
+
+        <h4 class="page-header">Remove Store Managers</h4>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Full Name</th>
+              <th>Email</th>
+              <th>Enter Email to Confirm</th>
+            </tr>
+          </thead>
+          <tbody id="admin_categories_edit_table">
+            <% @store.users.each do |user| %>
+            <tr>
+              <td><span class="item_title"><%= user.full_name %><span></td>
+              <td><%= user.email_address %></td>
+              <td><%= form_tag seller_store_remove_manager_path(@store), method: "PATCH", id: "remove_manager" do %>
+                <%= text_field_tag (:email) %>
+                <%= submit_tag "Remove Manager", :class => "btn btn-sm btn-danger" %>
+                <% end %>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <% end %>
+      </div>
+
+
       <div role="tabpanel" class="tab-pane fade in active" id="store_settings">
         <h4 class="page-header">Edit Store Settings</h4>
         <%= bootstrap_form_for @store, url: {action: "update"} do |f| %>
-        <%= f.text_field :name %><br />
-        <%= f.text_area  :description %><br />
-        <%= f.text_field  :slug %><br />
-        <%= image_tag @store.image(:medium) %>
-        <%= f.file_field :image %><br />
-
-        <%= f.submit class: "btn btn-success" %>
+          <%= f.text_field :name %><br />
+          <%= f.text_area  :description %><br />
+          <%= f.text_field  :slug %><br />
+          <%= image_tag @store.image(:medium) %>
+          <%= f.file_field :image %><br />
+          <%= f.submit class: "btn btn-success" %>
         <% end %>
       </div>
       <div role="tabpanel" class="tab-pane fade" id="edit_items">
@@ -38,13 +78,13 @@
             </thead>
             <tbody id="admin_categories_edit_table">
               <% @store.items.each do |item| %>
-              <tr>
-                <td><span class="item_title"><%= item.name %><span></td>
-                <td><%= item.description %></td>
-                <td><%= item.status %></td>
-                <td><%= link_to 'Edit', edit_seller_item_path(item), class: "btn btn-primary" %></td>
-                <td><%= link_to 'Destroy', seller_item_path(item), class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
-              </tr>
+                <tr>
+                  <td><span class="item_title"><%= item.name %><span></td>
+                  <td><%= item.description %></td>
+                  <td><%= item.status %></td>
+                  <td><%= link_to 'Edit', edit_seller_item_path(item), class: "btn btn-primary" %></td>
+                  <td><%= link_to 'Destroy', seller_item_path(item), class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                </tr>
               <% end %>
             </tbody>
           </table>
@@ -58,6 +98,8 @@
           <%= form.text_area :description %>
           <%= form.file_field :image %>
           <%= form.select :status, options_for_select([ 'Active', 'Retired'], 'True') %>
+          <%= form.hidden_field :store_id, :value => @store.id %>
+
 
           <b>Categories:</b>
           <% @categories.each do |category| %>
@@ -166,7 +208,7 @@
                   <td><%= order.user.email_address %></td>
                   <td><%= distance_of_time_in_words(order.created_at, Time.now) + " ago" %></td>
                   <td><%= number_to_currency(order.subtotal) %></td>
-                  <td><%= link_to "View Order", order_path(order), class: "btn btn-danger" %></td>
+                  <td><%= link_to "View Order", seller_order_path(order), class: "btn btn-danger" %></td>
                 </tr>
               </tbody>
               <tbody>
