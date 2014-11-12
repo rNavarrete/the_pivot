@@ -57,7 +57,6 @@ config.paperclip_defaults = {
    :fog_directory => ENV["S3_BUCKET_NAME"]
    }
 
-
  # config.action_mailer.smtp_settings = {
  #   address:              'smtp.gmail.com',
  #   port:                 587,

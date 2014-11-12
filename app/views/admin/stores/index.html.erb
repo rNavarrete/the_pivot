@@ -82,7 +82,7 @@
                 <td><span class="item_title"><%= link_to store.name, admin_store_path(store) %><span></td>
                 <td><%= store.description %></td>
                 <td><%= store.slug %></td>
-                <td><%= link_to 'Approve Request', admin_store_path(store, store:{authorized:'true'}), method: 'patch', class: 'btn btn-success',id: "#{store.slug}_approve", data: {confirm: 'Are you sure you want to approve the creation of this store?'}%></td>
+                <td><%= link_to 'Approve Request', admin_authorize_store_path(store.id, store:{authorized:'true'}), method: 'patch', class: 'btn btn-success',id: "#{store.slug}_approve", data: {confirm: 'Are you sure you want to approve the creation of this store?'}%></td>
                 <td><%= link_to 'Delete Request', admin_store_path(store), class: "btn btn-danger", id: "#{store.slug}_delete", method: :delete, data: { confirm: 'Are you want to delete this store request?' } %></td>
               </tr>
             <% end %>

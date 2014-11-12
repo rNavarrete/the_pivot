@@ -59,6 +59,7 @@ item =Item.create([
   {name: 'Human Made Shirt', description: 'Human Made Shirt, limited edition only 25 made', price: 99.00, status: 'active', category_ids: [1,3], image_file_name: 'plaid_jacket2.jpg', sizes: "S,M,L,XL", colors: "Red", store_id: 10}
   #new custom items go right above me!
 ])
+
 100.times do
   item = Item.create!(name:         'Lorem Ipsum',
                       description:  'Lorem Ipsum Lorem Ipsum Lorem IpsumyLorem Ipsum Lorem Ipsum',
