@@ -104,7 +104,8 @@ describe 'As an Authenticated Business Administrator', type: :feature do
     @manager = user_with(full_name: "Raekwon", email_address: "thechef@sholin.com", role: "seller")
     @manager.save
     end
-    it 'can add fellow store admins' do
+
+    it 'can add a manager' do
       within(:css, "#managers") do
         fill_in("email", with: "thechef@sholin.com" )
         click_button("Add Manager")
