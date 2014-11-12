@@ -36,7 +36,7 @@
       <% @items.each do |item| %>
       <div class="col-sm-6 col-md-4">
         <div class="thumbnail",  id="menu_items">
-          <a href="<%= item_path(item) %>"><img src="<%= item.image(:medium) %>", class="img-responsive img-rounded", id="menu_item_pics"></a>
+          <a href="<%= item_path(item) %>"><img src="<%= item.image(:medium) %>", class="image-limiter"></a>
           <div class="caption">
             <h3><%= link_to item.name, item_path(item) %></h3>
             <h4 class="store-link"> <%= link_to item.store.name, stores_path(item.store.slug) %> </h4>

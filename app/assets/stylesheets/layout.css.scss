@@ -516,7 +516,9 @@ body {
 }
 
 .thumbnail{
- height: 450px;
+ .image-limiter {
+    max-height: 300px;
+ }
  width: 100%;
 
 .menu_cart_img {
