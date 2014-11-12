@@ -20,7 +20,22 @@ class OrdersController < ApplicationController
 
       session[:cart_items] = {}
       session[:order_total] = order_total
-      redirect_to new_charge_path
+
+      @amount = (session[:order_total].to_f*100).to_i
+      @total_paid = session[:order_total]
+      customer = Stripe::Customer.create(
+        :email => 'example@stripe.com',
+        :card  => params[:stripeToken]
+      )
+
+      charge = Stripe::Charge.create(
+        :customer    => customer.id,
+        :amount      => @amount,
+        :description => 'Rails Stripe customer',
+        :currency    => 'usd'
+      )
+
+      redirect_to charges_path
     end
   end
 
@@ -29,6 +44,7 @@ class OrdersController < ApplicationController
   end
 
   def new
+    @amount = session[:order_total]
     session[:return_to] = new_order_path
     @shipping_addresses = current_user.shipping_addresses
     @billing_addresses = current_user.billing_addresses

@@ -9,10 +9,11 @@
 	<ul id='collection' >
 	  <%= collection_radio_buttons(:order, :billing_address_id, @billing_addresses, :id, :display, {checked: @billing_addresses.first.id}, {}) %>
 	</ul>
-
-	<%= button_tag(:class => "btn btn-success btn-sm", :id => "cart_button") do %>
-		submit order <span class="glyphicon glyphicon-shopping-cart" ></span>
-	<% end %>
+	<h3> Total: $<%= @amount.to_f.round(2) %></h3>
+	<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+	          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+	          data-description="Your Order Total"
+	          data-amount= <%= (@amount.to_f*100).to_i %> ></script>
 <% end %>
 <br/>
 <%= form_tag new_address_path, method: :get, id: "cart-form" do %>
