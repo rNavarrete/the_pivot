@@ -9,7 +9,7 @@
 	<ul id='collection' >
 	  <%= collection_radio_buttons(:order, :billing_address_id, @billing_addresses, :id, :display, {checked: @billing_addresses.first.id}, {}) %>
 	</ul>
-	<h3> Total: $<%= @amount.to_f.round(2) %></h3>
+	<h3> Total: <%= number_to_currency(@amount.to_i) %></h3>
 	<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
 	          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
 	          data-description="Your Order Total"
