@@ -69,7 +69,7 @@ item =Item.create([
                       image_file_name: "manequin1.jpg",
                       sizes: "S,M,L",
                       colors: "Red,Blue,Green",
-                      store_id: (1..10).to_a.sample
+                      store_id: (1..10).to_a.sample,
                       timetoproduce: rand(5)
                       )
 end
