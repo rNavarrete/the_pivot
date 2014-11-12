@@ -42,8 +42,19 @@ class Seller::SellerController < ApplicationController
 	end
 
 	def remove_manager
-		@store = Store.find(params[:id])
-		@store.users.where(:user_id => params[:user_id] )
+		if params[:email].empty?
+			flash[:notice] = "Blank Email Field"
+			redirect_to :back
+		elsif User.where(:email => params[:email])
+			@store = Store.find(params[:id])
+			manager = @store.users.where(:email_address => params[:email])
+			@store.users.delete(manager)
+			redirect_to seller_dashboard_path
+			flash[:notice] = "Manager Successfully Deleted."
+		else
+			flash[:notice] = "Could not find a manager with with invalid email."
+			redirect_to seller_dashboard_path
+		end
 	end
 
 	private

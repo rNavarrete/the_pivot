@@ -91,7 +91,7 @@
         <%= button_to "Mark As Paid", edit_seller_order_path(@order, order: { status: 'paid' }), method: :patch %>
       <%  elsif @order.status == 'paid' %>
         <%= button_to "Cancel", edit_seller_order_path(@order, order: { status: 'canceled' }), method: :patch %>
-        <%= button_to "Mark As Completed", edit_seller_order_path(@order, order: { status: 'completed' }), method: :patch %>
+        <%= button_to "Mark As Completed", seller_order_path(@order, order: { status: 'completed' }), method: :patch %>
       <% end %><br>
     </td>
   </tr>

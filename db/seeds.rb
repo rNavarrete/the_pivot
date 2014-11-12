@@ -60,6 +60,19 @@ item =Item.create([
   #new custom items go right above me!
 ])
 
+100.times do
+  item = Item.create!(name:         'Lorem Ipsum',
+                      description:  'Lorem Ipsum Lorem Ipsum Lorem IpsumyLorem Ipsum Lorem Ipsum',
+                      price: (1..10000).to_a.sample,
+                      status: 'active',
+                      category_ids: (1..14).to_a.sample((1..4).to_a.sample),
+                      image_file_name: "Default_Image.jpg",
+                      sizes: "S,M,L",
+                      colors: "Red,Blue,Green",
+                      store_id: (1..10).to_a.sample
+                      )
+end
+
 User.create(full_name: 'Rachel Warbelow', email_address: 'demo+rachel@jumpstartlab.com', password: 'password', screen_name: '', role: 'seller')
 User.create(full_name: 'Jeff', email_address: 'demo+jeff@jumpstartlab.com', password: 'password', screen_name: 'j3', role: 'user')
 User.create(full_name: 'Jorge Tellez', email_address: 'demo+jorge@jumpstartlab.com', password: 'password', screen_name: 'novohispano', role: 'seller')
