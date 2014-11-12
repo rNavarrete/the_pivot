@@ -1,8 +1,4 @@
 class ItemsController < ApplicationController
-
-  def index
-  end
-
   def show
     if find_item
       @item = find_item

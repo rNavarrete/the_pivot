@@ -3,9 +3,6 @@ class HomeController < ApplicationController
     @items = Item.custom_items.sample(3)
   end
 
-  def show
-  end
-
   def code
     redirect_to 'https://github.com/glenegbert/the_pivot'
   end
