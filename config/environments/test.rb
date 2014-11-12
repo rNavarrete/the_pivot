@@ -35,7 +35,7 @@ Rails.application.configure do
   config.active_support.deprecation = :stderr
 
   ENV["REDISTOGO_URL"] = 'redis://redistogo:497514ed7473db204dee71df72425b9a@greeneye.redistogo.com:11431/'
-  ENV["REDISCLOUD_URL"] = 'redis://rediscloud:md6OivUgTZcT3cMb@pub-redis-14758.us-east-1-2.5.ec2.garantiadata.com:14758'
+  ENV["REDISCLOUD_URL"] = 'redis://127.0.0.1'
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 end
