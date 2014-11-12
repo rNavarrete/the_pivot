@@ -64,7 +64,8 @@ Rails.application.routes.draw do
 
   get 'about',      to: 'about#show'
 
-  resources "contact_us", only: [:new, :create]
+  get "contact_us", to: 'contact_us#new'
+  resources "contact_us", only: [:create]
 
   get ':store_name', to: 'stores#show', as: 'stores'
 end
