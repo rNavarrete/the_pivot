@@ -24,6 +24,4 @@ class OrderCreator
       order
     end
   end
-
-
 end

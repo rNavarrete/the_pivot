@@ -4,7 +4,6 @@ class Cart
   end
 
   def add_item(item_id, options)
-    #refactoring needed
     if !items[item_id].nil?
       items[item_id] = [((items[item_id][0] || 0) + 1), (items[item_id][1] || options)]
     else
