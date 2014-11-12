@@ -14,7 +14,7 @@ class Item < ActiveRecord::Base
   validates :status, inclusion: ['active', 'retired', 'Active', 'Retired']
   has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "http://placekitten.com/200/300"
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
-  default_scope { order('name ASC')}
+  default_scope { order('id ASC')}
 
   def self.active
     where(status: 'active')
@@ -28,5 +28,11 @@ class Item < ActiveRecord::Base
 
   def status=(new_status)
     super(new_status.downcase)
+  end
+
+  def self.custom_items
+    Item.first(10).select do |item|
+      item.store.authorized == true || item.store.online == true
+    end
   end
 end
