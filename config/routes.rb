@@ -62,7 +62,6 @@ Rails.application.routes.draw do
   get  'request_store', to: 'stores#new', as: 'request_store'
   post 'send_store_request',  to: 'stores#create'
 
-  get 'gift_cards', to: 'gift_cards#show'
   get 'about',      to: 'about#show'
 
   resources "contact_us", only: [:new, :create]

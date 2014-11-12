@@ -1,9 +1,8 @@
 class AddressesController < ApplicationController
   def index
-      @shipping_addresses = ShippingAddress.where(user_id: current_user.id)
-      @billing_addresses = BillingAddress.where(user_id: current_user.id)
+    @shipping_addresses = ShippingAddress.where(user_id: current_user.id)
+    @billing_addresses = BillingAddress.where(user_id: current_user.id)
     session[:return_to] = addresses_path
-
   end
 
   def new
@@ -11,10 +10,9 @@ class AddressesController < ApplicationController
     @billing_addresses = current_user.billing_addresses
     if params[:category] == "shipping"
       @address = ShippingAddress.new
-    else 
+    else
       @address = BillingAddress.new
     end
-
   end
 
   def create
