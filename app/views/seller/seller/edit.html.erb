@@ -17,7 +17,7 @@
   <div class="container">
     <!-- Tab panes -->
     <div class="tab-content">
-
+      <% if  @store.user_id == current_user.id or current_user.is? :admin %>
       <div role="tabpanel" class="tab-pane fade in" id="managers">
 
           <h4 class="page-header">Add Store Managers</h4>
@@ -51,7 +51,7 @@
         </table>
         <% end %>
       </div>
-
+      <% end %>
 
       <div role="tabpanel" class="tab-pane fade in active" id="store_settings">
         <h4 class="page-header">Edit Store Settings</h4>
@@ -253,16 +253,3 @@
   </div>
 </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
