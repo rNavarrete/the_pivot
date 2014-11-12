@@ -19,7 +19,7 @@ class Seller::SellerController < ApplicationController
 			@categories = Category.all
 			@item = Item.new
 		else
-9			redirect_to root_path
+			redirect_to root_path
 		end
 	end
 
