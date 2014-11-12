@@ -13,14 +13,13 @@ class Seller::ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @item.destroy
     flash[:notice] = 'Item Successfully Deleted!'
-    redirect_to seller_dashboard_path
+    redirect_to :back
   end
 
   def create
     @categories = Category.all
-    @store = Store.find_by(params[:store_id])
-
-    if authorized_to_create?(@store) && @store.items.create(item_params)
+    @store = Store.find(params[:item][:store_id])
+    if authorized_to_create?(@store) &&  @store.items.create(item_params)
       set_item_options(@store.items.last, params)
       flash[:notice] = "Your item was successfully created"
       redirect_to seller_store_edit_path(@store.id)
@@ -32,7 +31,7 @@ class Seller::ItemsController < ApplicationController
 
   def edit
     @categories = Category.all
-    if item_creator?(params[:id])
+    if item_creator?(params[:id]) or item_manager?(params[:id])
       @item = Item.find(params[:id])
     else
       flash[:notice] = "This isn't your item."
@@ -44,9 +43,9 @@ class Seller::ItemsController < ApplicationController
     @item = Item.find(params[:id])
     set_item_options(@item, params)
     if @item.update(item_params)
-      redirect_to seller_dashboard_path, notice: 'Item Successfully Updated!'
+      redirect_to seller_store_edit_path(@item.store.id), notice: 'Item Successfully Updated!'
     else
-      redirect_to seller_dashboard_path, notice: "Item coundn't be updated!"
+      redirect_to seller_store_edit_path(@item.store.id), notice: "Item coundn't be updated!"
     end
   end
 
@@ -80,7 +79,12 @@ class Seller::ItemsController < ApplicationController
     end
   end
 
+  def item_manager?(params_id)
+    item = Item.find(params_id)
+    item.store.users.include?(current_user)
+  end
+
   def authorized_to_create?(store)
-    current_user.id == store.user_id || store.users.include?(current_user)
+    current_user.id == store.user.id || store.users.include?(current_user)
   end
 end

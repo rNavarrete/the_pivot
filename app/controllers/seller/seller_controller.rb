@@ -2,11 +2,7 @@ class Seller::SellerController < ApplicationController
 
 	def index
 		@stores = Store.where(:user_id => current_user.id)
-		if @stores.count == 1
-			redirect_to seller_store_edit_path(@stores.first.id)
-		else
-			render :index
-		end
+		redirect_to seller_store_edit_path(@stores.first.id)
 	end
 
 	def show
@@ -27,10 +23,10 @@ class Seller::SellerController < ApplicationController
 		@store = Store.find(params[:id])
 		if @store.update(store_params)
  			flash[:notice] = "You're changes were sucessfully saved."
-			redirect_to seller_dashboard_path
+      redirect_to seller_store_edit_path(@store.id)
 		else
 			flash[:notice] = "Unable to save your changes."
-			redirect_to seller_dashboard_path
+      redirect_to seller_store_edit_path(@store.id)
 		end
 	end
 

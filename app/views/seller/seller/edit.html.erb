@@ -98,7 +98,8 @@
           <%= form.text_area :description %>
           <%= form.file_field :image %>
           <%= form.select :status, options_for_select([ 'Active', 'Retired'], 'True') %>
-x
+          <%= form.hidden_field :store_id, :value => @store.id %>
+
 
           <b>Categories:</b>
           <% @categories.each do |category| %>
