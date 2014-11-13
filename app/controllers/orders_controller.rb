@@ -17,7 +17,7 @@ class OrdersController < ApplicationController
   end
 
   def new
-    @amount = session[:order_total]
+    @amount = Cart.total(session)
     session[:return_to] = new_order_path
     @shipping_addresses = current_user.shipping_addresses
     @billing_addresses = current_user.billing_addresses
