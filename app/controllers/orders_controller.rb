@@ -17,18 +17,23 @@ class OrdersController < ApplicationController
   end
 
   def new
-    @amount = Cart.total(session)
-    session[:return_to] = new_order_path
+
     @shipping_addresses = current_user.shipping_addresses
     @billing_addresses = current_user.billing_addresses
     if cart.empty?
       redirect_to cart_path, notice: 'Please add items to your cart before checking out. Thank you!'
     elsif @shipping_addresses.empty?
+      @amount = Cart.total(session)
+      session[:return_to] = new_order_path
       flash[:message] = 'Please Enter a Shipping Address'
       redirect_to new_address_path(category: "shipping")
     elsif @billing_addresses.empty?
+      @amount = Cart.total(session)
+      session[:return_to] = new_order_path
       flash[:message] = 'Please Enter a Billing Address'
       redirect_to new_address_path(category: "billing")
+    else
+      @amount = Cart.total(session)
     end
   end
 
