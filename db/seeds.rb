@@ -13,18 +13,33 @@ Category.create(name: 'Girls', position: 12)
 Category.create(name: 'Babies & Toddlers', position: 13)
 Category.create(name: 'Kids Shoes', position: 14)
 
-Store.create(name: 'Trends', description: 'Trendy Clothes for Trendy People', image_file_name: 'trendz.jpg', user_id: 1, slug: "trends", authorized:true)
-Store.create(name: 'Gasp Jeans', description: "The Word's Most Pretentious Jeans", image_file_name: 'gasp.jpg', user_id: 2, slug: "gasp_jeans", authorized:true)
-Store.create(name: 'Inappropriate Cultural Appropriation', description: "Pay a Lot of Money to Pretend Like You're Poor!", image_file_name: 'approp.jpg', user_id: 3, slug: "inappropriate_cultural_appropriation", authorized:true)
-Store.create(name: 'Abercrombie & The Other Guy', description: "We Are Better than You", image_file_name: 'abercrombie.jpeg', slug: "abercrombie", user_id: 5, authorized:true)
-Store.create(name: 'Pure Lava', description: 'Our Clothes Literally Burn You', image_file_name: 'lava.jpg', slug: 'lava', user_id: 6, authorized:true)
-Store.create(name: 'Abidas', description: 'So close to the real thing.', image_file_name: 'abidas.jpg', slug: 'abidas', user_id: 7, authorized:true)
-Store.create(name: 'Patagucci', description: 'Overengineered sophistication for your workday', image_file_name: 'patagucci.jpg', user_id: 8, slug: "patagucci", authorized:true)
-Store.create(name: 'Psych', description: "Look like an athlete, even if you're not", image_file_name: 'psych.jpg', user_id: 9, slug: "psych", authorized:true)
-Store.create(name: 'Queensbridge', description: "Hand Crafted Outerwear", image_file_name: 'bauhus.jpg', user_id: 10, slug: "queensbridge", authorized:true)
-Store.create(name: 'Human Made', description: "Gears for Futuristic Teenagers", image_file_name: 'human_made_background.jpg', user_id: 11, slug: "humanmade", authorized:true)
+user1 = User.create(full_name: 'Rachel Warbelow', email_address: 'demo+rachel@jumpstartlab.com', password: 'password', screen_name: '', role: 'seller')
+user2 = User.create(full_name: 'Jeff', email_address: 'demo+jeff@jumpstartlab.com', password: 'password', screen_name: 'j3', role: 'user')
+user3 = User.create(full_name: 'Jorge Tellez', email_address: 'demo+jorge@jumpstartlab.com', password: 'password', screen_name: 'novohispano', role: 'seller')
+user4 = User.create(full_name: 'Josh Cheek', email_address: 'demo+josh@jumpstartlab.com', password: 'password', screen_name: 'josh', role: 'admin')
+user5 = User.create(full_name: 'D-bag', email_address: 'd_bag@example.com', password: 'password', screen_name: 'd_bag', role: 'seller')
+user6 = User.create(full_name: 'Hot Lava', email_address: 'lava@example.com', password: 'password', screen_name: 'laval', role: 'seller')
+user7 = User.create(full_name: 'Slave Driver', email_address: 'slaves@example.com', password: 'password', screen_name: 'slaves', role: 'seller')
+user8 = User.create(full_name: 'Poser', email_address: 'poser@example.com', password: 'password', screen_name: 'poser', role: 'seller')
+user9 = User.create(full_name: 'Couch Guy', email_address: 'couchguy@example.com', password: 'password', screen_name: 'couch_guy', role: 'seller')
+user10 = User.create(full_name: 'Rolando', email_address: 'kinglouis.belmont@gmail.com', password: 'password', screen_name: 'rolando', role: 'seller')
+User.create(full_name: 'Christian', email_address: 'idinkyy@gmail.com', password: 'password', screen_name: 'christian', role: 'seller')
+
+Store.create(name: 'Trends', description: 'Trendy Clothes for Trendy People', image_file_name: 'trendz.jpg', user_id: 1, slug: "trends", authorized:true, users: [user1])
+Store.create(name: 'Gasp Jeans', description: "The Word's Most Pretentious Jeans", image_file_name: 'gasp.jpg', user_id: 2, slug: "gasp_jeans", authorized:true, users: [user2])
+Store.create(name: 'Inappropriate Cultural Appropriation', description: "Pay a Lot of Money to Pretend Like You're Poor!", image_file_name: 'approp.jpg', user_id: 3, slug: "inappropriate_cultural_appropriation", authorized:true, users: [user3])
+Store.create(name: 'Abercrombie & The Other Guy', description: "We Are Better than You", image_file_name: 'abercrombie.jpeg', slug: "abercrombie", user_id: 5, authorized:true, users: [user4])
+Store.create(name: 'Pure Lava', description: 'Our Clothes Literally Burn You', image_file_name: 'lava.jpg', slug: 'lava', user_id: 6, authorized:true, users: [user5])
+Store.create(name: 'Abidas', description: 'So close to the real thing.', image_file_name: 'abidas.jpg', slug: 'abidas', user_id: 7, authorized:true, users: [user6])
+Store.create(name: 'Patagucci', description: 'Overengineered sophistication for your workday', image_file_name: 'patagucci.jpg', user_id: 8, slug: "patagucci", authorized:true, users: [user7])
+Store.create(name: 'Psych', description: "Look like an athlete, even if you're not", image_file_name: 'psych.jpg', user_id: 9, slug: "psych", authorized:true, users: [user8])
+Store.create(name: 'Queensbridge', description: "Hand Crafted Outerwear", image_file_name: 'bauhus.jpg', user_id: 10, slug: "queensbridge", authorized:true, users: [user9])
+Store.create(name: 'Human Made', description: "Gears for Futuristic Teenagers", image_file_name: 'human_made_background.jpg', user_id: 11, slug: "humanmade", authorized:true, users: [user10] )
 
 #new custom stores go right above me!
+
+#new custom users go right above me!
+
 
 item =Item.create([
   {name: 'Himalayan Hoodie',   description: 'A stylish top layer to keep you as warm as a Sherpa', price: 30.00, status: 'active', category_ids: [6, 7], image_file_name: "HimalayanHoodie.jpg", sizes: "S,M,L", colors: "Red,Blue,Green", store_id: 3},
@@ -73,19 +88,7 @@ item =Item.create([
                       )
 end
 
-User.create(full_name: 'Rachel Warbelow', email_address: 'demo+rachel@jumpstartlab.com', password: 'password', screen_name: '', role: 'seller')
-User.create(full_name: 'Jeff', email_address: 'demo+jeff@jumpstartlab.com', password: 'password', screen_name: 'j3', role: 'user')
-User.create(full_name: 'Jorge Tellez', email_address: 'demo+jorge@jumpstartlab.com', password: 'password', screen_name: 'novohispano', role: 'seller')
-User.create(full_name: 'Josh Cheek', email_address: 'demo+josh@jumpstartlab.com', password: 'password', screen_name: 'josh', role: 'admin')
-User.create(full_name: 'D-bag', email_address: 'd_bag@example.com', password: 'password', screen_name: 'd_bag', role: 'seller')
-User.create(full_name: 'Hot Lava', email_address: 'lava@example.com', password: 'password', screen_name: 'laval', role: 'seller')
-User.create(full_name: 'Slave Driver', email_address: 'slaves@example.com', password: 'password', screen_name: 'slaves', role: 'seller')
-User.create(full_name: 'Poser', email_address: 'poser@example.com', password: 'password', screen_name: 'poser', role: 'seller')
-User.create(full_name: 'Couch Guy', email_address: 'couchguy@example.com', password: 'password', screen_name: 'couch_guy', role: 'seller')
-User.create(full_name: 'Rolando', email_address: 'kinglouis.belmont@gmail.com', password: 'password', screen_name: 'rolando', role: 'seller')
-User.create(full_name: 'Christian', email_address: 'idinkyy@gmail.com', password: 'password', screen_name: 'christian', role: 'seller')
 
-#new custom users go right above me!
 
 100.times do |i|
   user = User.create!(
