@@ -1,7 +1,7 @@
 
 class Admin::ItemsController < Admin::BaseController
   def index
-    # Quering stores so I can have items organized by store
+    # Queuing stores so I can have items organized by store
     @stores = Store.where(:online => true, :authorized => true)
     @categories = Category.all
   end
@@ -36,8 +36,9 @@ class Admin::ItemsController < Admin::BaseController
 
   def update
     @item = Item.find(params[:id])
+    set_item_options(@item, params)
     if @item.update(item_params)
-      @item.categories = Category.where(id: params[:item][:category_ids])
+      #@item.categories = Category.where(id: params[:item][:category_ids])
       redirect_to admin_items_path, notice: 'Item Successfully Updated!'
     else
       render :edit

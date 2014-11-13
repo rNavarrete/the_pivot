@@ -17,6 +17,7 @@
                 <%= select_tag("options[#{option.first}]", options_for_select(option.last.split(',').each_with_index.map {|name, index| [name,name]})) %><br/>
               <% end %>
             <% end %>
+            Item takes <%= @item.timetoproduce %> Days to Produce
 
             <%= hidden_field_tag :item_id, @item.id %>
           </div>
