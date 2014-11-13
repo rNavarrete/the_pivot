@@ -25,16 +25,16 @@ user9 = User.create(full_name: 'Couch Guy', email_address: 'couchguy@example.com
 user10 = User.create(full_name: 'Rolando', email_address: 'kinglouis.belmont@gmail.com', password: 'password', screen_name: 'rolando', role: 'seller')
 User.create(full_name: 'Christian', email_address: 'idinkyy@gmail.com', password: 'password', screen_name: 'christian', role: 'seller')
 
-Store.create(name: 'Trends', description: 'Trendy Clothes for Trendy People', image_file_name: 'trendz.jpg', user_id: 1, slug: "trends", authorized:true, users: [user1])
-Store.create(name: 'Gasp Jeans', description: "The Word's Most Pretentious Jeans", image_file_name: 'gasp.jpg', user_id: 2, slug: "gasp_jeans", authorized:true, users: [user2])
-Store.create(name: 'Inappropriate Cultural Appropriation', description: "Pay a Lot of Money to Pretend Like You're Poor!", image_file_name: 'approp.jpg', user_id: 3, slug: "inappropriate_cultural_appropriation", authorized:true, users: [user3])
-Store.create(name: 'Abercrombie & The Other Guy', description: "We Are Better than You", image_file_name: 'abercrombie.jpeg', slug: "abercrombie", user_id: 5, authorized:true, users: [user4])
-Store.create(name: 'Pure Lava', description: 'Our Clothes Literally Burn You', image_file_name: 'lava.jpg', slug: 'lava', user_id: 6, authorized:true, users: [user5])
-Store.create(name: 'Abidas', description: 'So close to the real thing.', image_file_name: 'abidas.jpg', slug: 'abidas', user_id: 7, authorized:true, users: [user6])
-Store.create(name: 'Patagucci', description: 'Overengineered sophistication for your workday', image_file_name: 'patagucci.jpg', user_id: 8, slug: "patagucci", authorized:true, users: [user7])
-Store.create(name: 'Psych', description: "Look like an athlete, even if you're not", image_file_name: 'psych.jpg', user_id: 9, slug: "psych", authorized:true, users: [user8])
-Store.create(name: 'Queensbridge', description: "Hand Crafted Outerwear", image_file_name: 'bauhus.jpg', user_id: 10, slug: "queensbridge", authorized:true, users: [user9])
-Store.create(name: 'Human Made', description: "Gears for Futuristic Teenagers", image_file_name: 'human_made_background.jpg', user_id: 11, slug: "humanmade", authorized:true, users: [user10] )
+Store.create(name: 'Trends', description: 'Trendy Clothes for Trendy People', image_file_name: 'trendz.jpg', user_id: 1, slug: "trends", authorized:true, users: [user10])
+Store.create(name: 'Gasp Jeans', description: "The Word's Most Pretentious Jeans", image_file_name: 'gasp.jpg', user_id: 2, slug: "gasp_jeans", authorized:true, users: [user9])
+Store.create(name: 'Inappropriate Cultural Appropriation', description: "Pay a Lot of Money to Pretend Like You're Poor!", image_file_name: 'approp.jpg', user_id: 3, slug: "inappropriate_cultural_appropriation", authorized:true, users: [user8])
+Store.create(name: 'Abercrombie & The Other Guy', description: "We Are Better than You", image_file_name: 'abercrombie.jpeg', slug: "abercrombie", user_id: 5, authorized:true, users: [user7])
+Store.create(name: 'Pure Lava', description: 'Our Clothes Literally Burn You', image_file_name: 'lava.jpg', slug: 'lava', user_id: 6, authorized:true, users: [user6])
+Store.create(name: 'Abidas', description: 'So close to the real thing.', image_file_name: 'abidas.jpg', slug: 'abidas', user_id: 7, authorized:true, users: [user5])
+Store.create(name: 'Patagucci', description: 'Overengineered sophistication for your workday', image_file_name: 'patagucci.jpg', user_id: 8, slug: "patagucci", authorized:true, users: [user4])
+Store.create(name: 'Psych', description: "Look like an athlete, even if you're not", image_file_name: 'psych.jpg', user_id: 9, slug: "psych", authorized:true, users: [user3])
+Store.create(name: 'Queensbridge', description: "Hand Crafted Outerwear", image_file_name: 'bauhus.jpg', user_id: 10, slug: "queensbridge", authorized:true, users: [user2])
+Store.create(name: 'Human Made', description: "Gears for Futuristic Teenagers", image_file_name: 'human_made_background.jpg', user_id: 11, slug: "humanmade", authorized:true, users: [user1] )
 
 #new custom stores go right above me!
 
