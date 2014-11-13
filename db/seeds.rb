@@ -23,7 +23,7 @@ user7 = User.create(full_name: 'Slave Driver', email_address: 'slaves@example.co
 user8 = User.create(full_name: 'Poser', email_address: 'poser@example.com', password: 'password', screen_name: 'poser', role: 'seller')
 user9 = User.create(full_name: 'Couch Guy', email_address: 'couchguy@example.com', password: 'password', screen_name: 'couch_guy', role: 'seller')
 user10 = User.create(full_name: 'Rolando', email_address: 'kinglouis.belmont@gmail.com', password: 'password', screen_name: 'rolando', role: 'seller')
-User.create(full_name: 'Christian', email_address: 'idinkyy@gmail.com', password: 'password', screen_name: 'christian', role: 'seller')
+User.create(full_name: 'Christian', email_address: 'idinkyy@gmail.com', password: 'password', screen_name: 'christian', role: 'admin')
 
 Store.create(name: 'Trends', description: 'Trendy Clothes for Trendy People', image_file_name: 'trendz.jpg', user_id: 1, slug: "trends", authorized:true, users: [user10])
 Store.create(name: 'Gasp Jeans', description: "The Word's Most Pretentious Jeans", image_file_name: 'gasp.jpg', user_id: 2, slug: "gasp_jeans", authorized:true, users: [user9])
