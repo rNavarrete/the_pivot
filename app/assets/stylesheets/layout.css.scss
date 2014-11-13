@@ -88,16 +88,18 @@ border: solid 1px rgb(255, 254, 255);
 
 .grid-item {
   text-align: center;
-  width: 25%;
-  margin: 20px;
+  width: 20%;
+  margin: 10px;
+  margin-top: 10px;
   padding: 20px;
   border: solid;
-  border-width: 3px;
+  border-width: 1px;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
-  border-radius: 20px;
+  border-radius: 8px;
   border-color: #545454;
   min-height: 400px;
+  min-width: 400px;
 }
 
 .grid-item.on {
@@ -119,6 +121,7 @@ border: solid 1px rgb(255, 254, 255);
 
 .grid-item img {
   max-width: 100%;
+  max-height: 315px;
 
 }
 
@@ -525,6 +528,7 @@ body {
  }
  width: 100%;
  max-height: 276px;
+ min-height: 430px;
 
  a > image {
    max-height: 276px;
