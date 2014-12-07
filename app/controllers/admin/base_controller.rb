@@ -6,5 +6,4 @@ class Admin::BaseController < ApplicationController
       head :not_found
     end
   end
-
 end
