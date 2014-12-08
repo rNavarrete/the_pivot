@@ -1,6 +1,7 @@
 {<img alt='Stories in Ready' src='https://badge.waffle.io/glenegbert/the_pivot.png?label=ready&title=Ready' />}[https://waffle.io/glenegbert/the_pivot]
 
 
-The Pivot. 
+The Pivot is a collaborative Ruby on Rails Project also known as Dope Threads. Dope Threads is a retail platform for custom clothing vendors. This application features: a vendor management system, user notifications with background workers and multi-store administration for vendors.   Focus - AWS, TDD, UX/UI, Redis, Authorization
+
 
 https://young-ocean-9633.herokuapp.com/
